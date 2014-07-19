@@ -1,69 +1,103 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>jQuery Mobile: Theme Download</title>
-	<link rel="stylesheet" href="themes/tabletribes.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="themes/mobile.structure.css" />
-        <link rel="stylesheet" href="css/mainPage.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-        <script src="js/main.js"></script>
-</head>
-<body>
-	<div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline" data-overflow="auto">
-			<h1>WHAT ARE YOU IN THE MOOD FOR</h1>
-		</div>
-		<div data-role="main" class="ui-content" style="text-align: center;padding:0em">
-        <div id="activity">
-   <img  src="img/coffee.png" value="unselected" class="topImg">
-    <img  src="img/drinks.png" value="unselected" class="topImg">
-    <img  src="img/rest.png" value="unselected" class="topImg">
-        </div>
-                    
-        <div id="topic">
-            
-      
-          <select  data-theme="a" name="day" id="topic1" >
-          <option value="mon">WHAT DO YOU WANT TO TALK ABOUT</option>    
-          <option value="mon">Soccer</option>
-          <option value="wed">XMen</option>          
-        </select>
-      
-          <select  data-theme="b" name="day" id="who">
-          <option value="mon">WHO</option>    
-          <option value="mon">Saurin</option>
-          <option value="tue">Abhishek</option>
-          <option value="wed">Vaibhav</option>          
-        </select>
-      
-          <select  data-theme="c" name="day" id="when">
-          <option value="mon">WHEN</option>    
-          <option value="mon">Monday</option>
-          <option value="tue">Tuesday</option>
-          <option value="wed">Wednesday</option>
-          <option value="thu">Thursday</option>
-          <option value="fri">Friday</option>
-          <option value="sat">Saturday</option>
-          <option value="sun">Sunday</option>
-        </select>
-           
-     
-          <select data-theme="d" name="day" id="where">
-          <option value="mon">WHERE</option>    
-          <option value="mon">NYC</option>
-          <option value="tue">Boston</option>
-          <option value="wed">SF</option>
-          
-        </select>
-           
-        </div>
+    <head>
+        <title>Table Tribes Main Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
+        
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+
+		<!-- jQuery / jQueryMobile Scripts -->
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+        
+    </head>
     
+    <body>
+        <div data-role="page" data-theme='a'>
 
+        <div data-role="panel" id="settingsPanel" data-position="left" data-display="push" data-theme="e">
+            <ul data-role="listview">
+                <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; SETTINGS</h4></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-tags pull-left'></i>&nbsp; TOPICS</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-question pull-left'></i>&nbsp; HELP</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-bullhorn pull-left'></i>&nbsp; TERMS AND PRIVACY POLICY</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGOUT</a></li>
+            </ul>
+        </div>
+            
+        <div data-role="panel" id="myTablesPanel" data-position="right" data-display="push" data-theme="e">
+            <ul data-role="listview">
+                <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; DISCUSSIONS</h4></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-users'></i>&nbsp; UPCOMING</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-star'></i>&nbsp; MY PROFILE</a></li>
+                <br>
+                <li data-icon='false'><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
+            </ul>
+        </div>
+            
+        <div data-role="header" data-position="fixed" data-theme='a' data-position="inline">
+            <a href="#settingsPanel" data-role='button' data-inline='true'><i class='fa fa-bars'></i></a>
+            <h1>WHAT ARE YOU IN THE MOOD FOR?</h1>
+            <a href="#myTablesPanel" data-role='button' data-inline='true'><i class="fa fa-cog"></i></a>
+        </div>
+        <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
+            <div id="activity" class="ui-grid-b ui-responsive">
+                <div class="ui-block-a"><button><i class='fa fa-coffee fa-3x'></i></button></div>
+				<div class="ui-block-b"><button><i class='fa fa-glass fa-3x'></i></button></div>
+                <div class="ui-block-c"><button><i class='fa fa-spoon fa-3x'></i><i class='fa fa-spoon fa-3x'></i></button></div>     
+            </div>
+            <br>
+            <ul data-role="listview" data-inset="false" data-divider-theme="b">
+
+            <li data-role="fieldcontain">
+                <select name="select-choice-1" id="select-choice-1b" data-native-menu="false" data-theme="b">
+                    <option data-placeholder="true">WHAT DO YOU WANT TO TALK ABOUT?</option>
+                    <option value="javascript">SPORTS</option>
+                    <option value="css">POLITICS</option>
+                    <option value="html">FOOD</option>
+                    <option value="csharp">TECHNOLOGY</option>
+                    <option value="java">SCIENCE</option>
+                </select>
+                <select name="select-choice-2" id="select-choice-2b" data-native-menu="false" data-theme="c">
+                    <option data-placeholder="true">WHEN?</option>
+                    <option value="javascript">WITHIN 20 MINUTES</option>
+                    <option value="css">IN 1 HOUR</option>
+                    <option value="html">IN 2 HOURS</option>
+                    <option value="csharp">I'M FLEXIBLE</option>
+                </select>
+                <select name="select-choice-3" id="select-choice-3b" data-native-menu="false"  data-theme="d">
+                    <option data-placeholder="true">WHERE?</option>
+                    <option value="javascript">WITHIN 5 BLOCKS</option>
+                    <option value="css">WITHIN 10 BLOCKS</option>
+                    <option value="html">WITHIN 1 MILE</option>
+                    <option value="csharp">I'M FLEXIBLE</option>
+                </select>
+            </li>
+
+            <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>
+            <br>
+            <button data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; FIND MY PEOPLE</button>
+            </ul>
+        </div>
     </div>
-
-	</div>
-</body>
+    </body>
 </html>
