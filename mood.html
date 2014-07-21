@@ -10,28 +10,31 @@
 		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
         
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+        <link rel="stylesheet" href="css/tinycarousel.css" />
 
 		<!-- jQuery / jQueryMobile Scripts -->
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
         <script src="js/mood.js"></script>
         <script src="js/mobileJquery.js"></script>
+        <script src="js/jquery.tinycarousel.min.js"></script>
         
         
         
     </head>
     
     <body>
-        <div data-role="page" data-theme='a'>
+        <div data-role="page" id="moodPage" data-theme='a'>
 
+        
         <div data-role="panel" id="settingsPanel" data-position="left" data-display="push" data-theme="e">
-            <ul data-role="listview">
+            <ul data-role="listview" id="settingsPanelListView">
                 <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; SETTINGS</h4></li>
                 <br>
-                <li data-icon='false'><a href="#"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
+                <li id="profileTab" data-icon='false'><a href="#"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
                 <br>
                 <li data-icon='false'><a href="#"><i class='lIcon fa fa-tags pull-left'></i>&nbsp; TOPICS</a></li>
                 <br>
-                <li data-icon='false'><a href="#"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
+                <li id="preferencesTab" data-icon='false'><a href="#"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
                 <br>
                 <li data-icon='false'><a href="#"><i class='lIcon fa fa-question pull-left'></i>&nbsp; HELP</a></li>
                 <br>
@@ -39,7 +42,8 @@
                 <br>
                 <li data-icon='false'><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGOUT</a></li>
             </ul>
-        </div>
+        </div>    
+        
             
         <div data-role="panel" id="myTablesPanel" data-position="right" data-display="push" data-theme="e">
             <ul data-role="listview">
