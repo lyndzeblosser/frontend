@@ -12,8 +12,11 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
 
 		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="js/mood.js"></script>
+        <script src="js/mobileJquery.js"></script>
+        
+        
         
     </head>
     
@@ -69,13 +72,9 @@
             <ul data-role="listview" data-inset="false" data-divider-theme="b">
 
             <li data-role="fieldcontain">
-                <select name="select-choice-1" id="select-choice-1b" data-native-menu="false" data-theme="b">
-                    <option data-placeholder="true">WHAT DO YOU WANT TO TALK ABOUT?</option>
-                    <option value="javascript">SPORTS</option>
-                    <option value="css">POLITICS</option>
-                    <option value="html">FOOD</option>
-                    <option value="csharp">TECHNOLOGY</option>
-                    <option value="java">SCIENCE</option>
+                <select name="select-choice-1" id="topic" data-native-menu="false" data-theme="b">
+                    <option data-placeholder="true" value="0">WHAT DO YOU WANT TO TALK ABOUT?</option>
+                   
                 </select>
                 <select name="select-choice-2" id="select-choice-2b" data-native-menu="false" data-theme="c">
                     <option data-placeholder="true">WHEN?</option>
@@ -95,7 +94,7 @@
 
             <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>
             <br>
-            <button data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; FIND MY PEOPLE</button>
+            <button data-inline='true' onClick="getResult()"><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; FIND MY PEOPLE</button>
             </ul>
         </div>
     </div>
