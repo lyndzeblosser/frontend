@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/tinycarousel.css" />
 
 		<!-- jQuery / jQueryMobile Scripts -->
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
         <script src="js/mood.js"></script>
         <script src="js/mobileJquery.js"></script>
         <script src="js/jquery.tinycarousel.min.js"></script>
@@ -76,10 +76,19 @@
             <ul data-role="listview" data-inset="false" data-divider-theme="b">
 
             <li data-role="fieldcontain">
-                <select name="select-choice-1" id="topic" data-native-menu="false" data-theme="b">
-                    <option data-placeholder="true" value="0">WHAT DO YOU WANT TO TALK ABOUT?</option>
-                   
-                </select>
+                <fieldset data-role="collapsible" data-corners="false">
+                <legend>WHAT DO YOU WANT TO TALK ABOUT?</legend>
+                    <div id="slider1">
+                        <a class="buttons prev" href="#">&#60;</a>
+                        <div class="viewport">
+                            <ul id="topic">
+
+                            </ul>
+                        </div>
+                        <a class="buttons next" href="#">&#62;</a>
+                    </div>
+                    
+                </fieldset>
                 <select name="select-choice-2" id="select-choice-2b" data-native-menu="false" data-theme="c">
                     <option data-placeholder="true">WHEN?</option>
                     <option value="javascript">WITHIN 20 MINUTES</option>
@@ -100,6 +109,8 @@
             <br>
             <button data-inline='true' onClick="getResult()"><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; FIND MY PEOPLE</button>
             </ul>
+            
+            
         </div>
     </div>
     </body>

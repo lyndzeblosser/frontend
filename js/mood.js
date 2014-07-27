@@ -1,6 +1,6 @@
 $(document).ready(function()
                   {
-                       getTopics();
+                      getTopics();
                       
 //Rohit -- integrating the panel options dynamically
                       $("#profileTab").click(function()
@@ -14,10 +14,10 @@ $(document).ready(function()
                       $("#preferencesTab").click(function()
                                              {
                                                 $("#settingsPanelListView").remove();
-                                                $("#settingsPanel").append('<ul data-role="listview"><li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; PREFERENCES</h4></li></ul><div id="activity" class="ui-grid-solo ui-responsive"><div class="ui-block-a"><button><i class="fa fa-file-image-o fa-3x"></i> MY NAME</button></div></div><br><li>I WANT TO MEET</li><div id="slider1"><a class="buttons prev" href="#">&#60;</a><div class="viewport"><ul class="overview"><li><button><i class="fa fa-male fa-5x pull-left"></i>MALE</button></li><li><button><i class="fa fa-female fa-5x pull-left"></i>FEMALE</button></li><li><button><i class="fa fa-circle fa-5x pull-left"></i>ANYONE</button></li></ul></div><a class="buttons next" href="#">&#62;</a></div>').trigger('create');
-                                                 $('#slider1').tinycarousel();
+                                                $("#settingsPanel").append('<ul data-role="listview"><li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; PREFERENCES</h4></li></ul><div id="activity" class="ui-grid-solo ui-responsive"><div class="ui-block-a"><button><i class="fa fa-file-image-o fa-3x"></i> MY NAME</button></div></div><br><li>I WANT TO MEET</li><div id="sliderPreferences"><a class="buttons prev" href="#">&#60;</a><div class="viewport"><ul class="overview"><li><button><i class="fa fa-male fa-5x pull-left"></i>MALE</button></li><li><button><i class="fa fa-female fa-5x pull-left"></i>FEMALE</button></li><li><button><i class="fa fa-circle fa-5x pull-left"></i>ANYONE</button></li></ul></div><a class="buttons next" href="#">&#62;</a></div>').trigger('create');
+                                                 //$('#sliderPreferences').tinycarousel();
                                              });
-                      $('#slider1').tinycarousel();
+                      
                   });
 
 
@@ -32,11 +32,15 @@ function getTopics()
             //console.log(data[0].tagName);
             for(var i=0;i<data.length;i++)
             {
-              $('#topic').append($('<option>', { value : data[i].tagId }).text(data[i].tagName))
+                $('#topic').append('<li>'+ data[i].tagName + '</li>').trigger('create');
                 
             }
+           $("#topic").addClass("overview"); 
             
-           $('#topic').selectmenu("refresh"); 
+            $('#slider1').tinycarousel(
+                {
+                    infinite:"true"
+                });
         },
         error: function (error, message) 
         {
