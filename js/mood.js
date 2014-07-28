@@ -24,7 +24,7 @@ $(document).ready(function()
 function getTopics()
 {
     $.ajax({
-        url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/tags",
+        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
         async: true,
         dataType: "json",
         success: function (data) 
@@ -54,7 +54,7 @@ function getResult()
 {
     $.ajax(
         {
-            url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/whosAround?searchLat=41.8781136&searchLng=-87.62979819999998&searchTags="+$("#topic").find(":selected").attr("value"),
+            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=41.8781136&searchLng=-87.62979819999998&searchTags=1,2",
             async: true,
             dataType: "json",
             success: function (data) 
