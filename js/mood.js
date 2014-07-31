@@ -1,55 +1,115 @@
 $(document).ready(function()
                   {
-                      getTopics();
-                      getResult();
-//                      $('#findMyPeopleButton').click(function()
-//                                                     {
-//                                                         $.mobile.changePage( "findYourPeople.html", { transition: "slideup", changeHash: false });
-//                                                     });
-                    });
+                      var selectedTopic = [];
+                      var selectedTime;
+                      var selectedLocation;
+                      var lengthOfTopics = getTopics();
+
+                      lengthOfTopics.success(function(data)
+                                            {
+                                                lengthOfTopicsArray = data.length;
+                                                console.log("lengthOfTopicsArray: " + lengthOfTopicsArray);
+                                                console.log("tags: " + data.length);
+                                                for(var i=0;i<data.length;i++)
+                                                {
+                                                    $('#topic').append('<li>'+ data[i].tagName + '<br><br><br><button id = "topic' + i + '" data-theme="a" data-inline="true" value='+ data[i].tagName +'>SELECT</button></li>').trigger('create');
+
+                                                }
+                                                $("#topic").addClass("overview"); 
+
+                                                $('#slider1').tinycarousel(
+                                                {
+                                                    infinite:"true"
+                                                });
+
+                                                for(var i = 0; i<lengthOfTopicsArray; i++)
+                                                {
+                                                    $('#topic' + i +'').click(function()
+                                                                               {
+                                                                                   if(selectedTopic === [])
+                                                                                   {
+                                                                                        selectedTopic[0] = $(this).val();   
+                                                                                   }
+                                                                                   else
+                                                                                   {
+                                                                                       selectedTopic.push($(this).val());
+                                                                                   }
+                                                                                   alert(selectedTopic);
+                                                                                   $(this).addClass('ui-disabled');	
+                                                                               });
+                                                }   
+                                            });
+                      lengthOfTopics.error(function(error, message)
+                                           {
+                                               console.log("FAILURE " + message);
+                                           });
+                      lengthOfTopics.done(function()
+                                          {
+                                              $('#findMyPeopleButton').click(function()
+                                                     {
+                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
+                                                         
+                                                         window.location.href = "findYourPeople.html?when="+ selectedTime +"&where=" + selectedLocation + "&topic=" + selectedTopic;
+                                                         
+                                                     });
+                                                    
+                                              for(var i = 0; i<4; i++)
+                                              {
+                                                  $('#when' + i + '').click(function()
+                                                                           {
+                                                                                selectedTime = $(this).text();
+                                                                               console.log("selectedTime" + selectedTime);
+                                                                           });
+                                                  $('#where' + i + '').click(function()
+                                                                           {
+                                                                                selectedLocation = $(this).text();
+                                                                               console.log("selectedLocation" + selectedLocation);
+                                                                           });
+                                              }
+                                          });
+                      //getLocation();
+                        if (navigator.geolocation) 
+                        {
+                            navigator.geolocation.getCurrentPosition(function(position)
+                                                                     {
+                                                                        alert("In function getCurrentPosition.....................Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+                                                                        getResult(position, selectedTopic);
+                                                                     });
+                        } 
+                        else 
+                        {
+                            alert("Geolocation is not supported by this browser.");
+                        }
+                  });
 
 
 function getTopics()
 {
-    $.ajax({
+    var lengthOfTopicsArray;
+    return $.ajax({
         url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
-        async: true,
-        dataType: "json",
-        success: function (data) 
-        {
-            console.log("tags: " + data.length);
-            for(var i=0;i<data.length;i++)
-            {
-                $('#topic').append('<li>'+ data[i].tagName + '</li>').trigger('create');
-                
-            }
-            $("#topic").addClass("overview"); 
-            
-            $('#slider1').tinycarousel(
-                {
-                    infinite:"true"
-                });
-        },
-        error: function (error, message) 
-        {
-            console.log("Failure: " + message);    
-        }
+        async: false,
+        dataType: "json"
     });
     
 }
 
-function getResult()
+function getResult(position, selectedTopic)
 {
     var generalInterests;
     var professionalInterests;
     $.ajax(
         {
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=41.8781136&searchLng=-87.62979819999998&searchTags=1,2",
+            
+            //we will have to change the signature of this service and include tagName instead of sortId for tags because we will be increasing the number of tags in the future and to hard code the sortId with each tag in the frontend will be cumbersome.
+            
+            
+            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + position.coords.latitude + "&searchLng=" + position.coords.longitude + "&searchTags=" + selectedTopic,
             async: true,
             dataType: "json",
             success: function (data) 
             {
-                console.log(JSON.stringify(data));
+                alert("In function getResult................ Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
                 
                 for(var i=0;i<data.length;i++)
                 {
@@ -80,76 +140,3 @@ function getResult()
         });
     
 }
-
-
-//PROFILE HTML CODE
-//            <ul data-role="listview">
-//                <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; MY PROFILE</h4></li>
-//            </ul>
-//            <br>
-//            <div id="activity" class="ui-grid-b ui-responsive">
-//                <div class="ui-block-a"><button data-theme="a"><i class='fa fa-file-image-o fa-3x'></i></button></div>
-//                <div class="ui-block-b"><button data-theme="d"><i class='fa fa-twitter fa-3x'></i></button></div>
-//                <div class="ui-block-c"><button data-theme="c"><i class='fa fa-facebook fa-3x'></i></button></div>     
-//            </div>
-//            <br>
-//            <div data-role="collapsible-set" data-inset="true" data-mini="true" data-theme="e">
-//
-//                <div data-role="collapsible">
-//                <h2>FIRST NAME</h2>
-//                    <input type="text" name="FirstName" id="FirstName" value="" style="border:1px solid #b54037;"/>
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>LAST NAME</h2>
-//                    <input type="text" name="LastName" id="LastName" value="" style="border:1px solid #b54037;"/>
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>LOCATION</h2>
-//                    <input type="text" name="location" id="location" value="" style="border:1px solid #b54037;"/>
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>DATE OF BIRTH (must be 18+)</h2>
-//                    <input type="date" name="dob" id="dob" value="" style="border:1px solid #b54037;" />
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>EMAIL</h2>
-//                    <input type="text" name="email" id="email" value="" style="border:1px solid #b54037;"/>
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>PASSWORD</h2>
-//                    <input type="password" name="password" id="password" value="" style="border:1px solid #b54037;"/>
-//                </div>
-//
-//                <div data-role="collapsible">
-//                <h2>BIO</h2>
-//                    <textarea cols="40" rows="8" name="textarea-2" id="textarea-2" style="border:1px solid #b54037;"></textarea>
-//                </div>
-//            </div>
-
-
-//PREFERENCES HTML CODE
-//            <ul data-role="listview">
-//                <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; PREFERENCES</h4></li>
-//            </ul>
-//            <div id="activity" class="ui-grid-solo ui-responsive">
-//                <div class="ui-block-a"><button><i class="fa fa-file-image-o fa-3x"></i> MY NAME</button></div>
-//            </div>
-//            <br>
-//            <div id="slider1">
-//                <a class="buttons prev" href="#">&#60;</a>
-//                <div class="viewport">
-//                    <ul class="overview">
-//                        <li>MALE</li>
-//                        <li>FEMALE</li>
-//                        <li>ANYONE</li>
-//                    </ul>
-//                </div>
-//                <a class="buttons next" href="#">&#62;</a>
-//            </div>
-
-            

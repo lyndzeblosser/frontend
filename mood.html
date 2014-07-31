@@ -12,11 +12,13 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
         <link rel="stylesheet" href="css/tinycarousel.css" />
         
+        <link rel="stylesheet" href="css/flexslider.css" />
+        
         <!-- jQuery / jQueryMobile Scripts -->
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
-        <script src="js/mood.js"></script>
         <script src="js/mobileJquery.js"></script>
         <script src="js/jquery.tinycarousel.min.js"></script>
+        <script src="js/mood.js"></script>
     </head>
     
     <body>
@@ -175,20 +177,20 @@
                     <div name="select-choice-2" id="select-choice-2b" data-theme="c" data-role="collapsible" data-collapsed="true" data-corners="false" data-iconpos="right">
                         <h4>WHEN?</h4>
                         <ul data-role="listview" data-theme="c" >
-                            <li><a href="#">WITHIN 20 MINUTES</a></li>
-                            <li><a href="#">IN 1 HOUR</a></li>
-                            <li><a href="#">IN 2 HOURS</a></li>
-                            <li><a href="#">I'M FLEXIBLE</a></li>
+                            <li id="when1" value="WITHIN 20 MINUTES"><a href="#">WITHIN 20 MINUTES</a></li>
+                            <li id="when2" value="IN 1 HOUR"><a href="#">IN 1 HOUR</a></li>
+                            <li id="when3" value="IN 2 HOURS"><a href="#">IN 2 HOURS</a></li>
+                            <li id="when4" value="I'M FLEXIBLE"><a href="#">I'M FLEXIBLE</a></li>
                         </ul>
                     </div>
 
                     <div name="select-choice-3" id="select-choice-3b" data-theme="d" data-role="collapsible" data-collapsed="true" data-corners="false" data-iconpos="right">
                         <h4>WHERE?</h4>
                         <ul data-role="listview" data-theme="d">
-                            <li><a href="#">WITHIN 5 BLOCKS</a></li>
-                            <li><a href="#">IN 10 BLOCKS</a></li>
-                            <li><a href="#">WITHIN 1 MILE</a></li>
-                            <li><a href="#">I'M FLEXIBLE</a></li>
+                            <li id="where1" value="WITHIN 5 BLOCKS"><a href="#">WITHIN 5 BLOCKS</a></li>
+                            <li id="where2" value="IN 10 BLOCKS"><a href="#">IN 10 BLOCKS</a></li>
+                            <li id="where3" value="WITHIN 1 MILE"><a href="#">WITHIN 1 MILE</a></li>
+                            <li id="where4" value="I'M FLEXIBLE"><a href="#">I'M FLEXIBLE</a></li>
                         </ul>
                     </div>
                 </li>
