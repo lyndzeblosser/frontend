@@ -3,6 +3,7 @@ $(document).ready(function()
                       var selectedTopic = [];
                       var selectedTime;
                       var selectedLocation;
+                      var currentLat, currentLng;
                       var lengthOfTopics = getTopics();
 
                       lengthOfTopics.success(function(data)
@@ -49,7 +50,7 @@ $(document).ready(function()
                                                      {
                                                          alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
                                                          
-                                                         window.location.href = "findYourPeople.html?when="+ selectedTime +"&where=" + selectedLocation + "&topic=" + selectedTopic;
+                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + selectedTopic;
                                                          
                                                      });
                                                     
@@ -73,7 +74,10 @@ $(document).ready(function()
                             navigator.geolocation.getCurrentPosition(function(position)
                                                                      {
                                                                         alert("In function getCurrentPosition.....................Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-                                                                        getResult(position, selectedTopic);
+//                                                                        getResult(position, selectedTopic);
+                                                                        currentLat = position.coords.latitude;
+                                                                        currentLng = position.coords.longitude;
+                                                                        
                                                                      });
                         } 
                         else 
@@ -94,49 +98,4 @@ function getTopics()
     
 }
 
-function getResult(position, selectedTopic)
-{
-    var generalInterests;
-    var professionalInterests;
-    $.ajax(
-        {
-            
-            //we will have to change the signature of this service and include tagName instead of sortId for tags because we will be increasing the number of tags in the future and to hard code the sortId with each tag in the frontend will be cumbersome.
-            
-            
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + position.coords.latitude + "&searchLng=" + position.coords.longitude + "&searchTags=" + selectedTopic,
-            async: true,
-            dataType: "json",
-            success: function (data) 
-            {
-                alert("In function getResult................ Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-                
-                for(var i=0;i<data.length;i++)
-                {
-                    if(data[i].userid === "vaibhav")
-                    {
-                        generalInterests = data[i].general_interests.toString().split(",");
-                        for(var j=0; j<generalInterests.length; j++)
-                        {
-                            $('#generalInterestsList').append('<li><a href="#">'+ generalInterests[j] + '</a></li>').trigger('create');
-                        }
-                        
-                        professionalInterests = data[i].professional_interests.toString().split(",");
-                        console.log("professional Interests" + professionalInterests);
-                        for(var k=0; k<professionalInterests.length; k++)
-                        {
-                            $('#professionalInterestsList').append('<li><a href="#">'+ professionalInterests[k] + '</a></li>').trigger('create');
-                        }
-                    }
-                    $('#generalInterestsList').listview('refresh');
-                    $('#professionalInterestsList').listview('refresh');
-                }
-                
-            },
-            error: function (error, message) 
-            {
-                console.log("Failure: " + message);        
-            }
-        });
-    
-}
+
