@@ -5,9 +5,9 @@ $(document).ready(function ()
                     
                     var parameters = location.search;
                     var parameter = parameters.split("?");
-                                        alert(parameter);
-                    console.log("getParameterByName: topics: " + getParameterByName('topics')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('activity'));
+//                                        alert(parameter);
+                    console.log("getParameterByName: radius: " + getParameterByName('radius')); 
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'));
                     
                     $('.flexslider').flexslider();
 
@@ -28,7 +28,7 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, selectedTopics, activity)
+function getResult(latitude, longitude, selectedTopics, radius)
 {
     var generalInterests;
     var professionalInterests;
@@ -40,16 +40,19 @@ function getResult(latitude, longitude, selectedTopics, activity)
             
             //searchLat=41.8781136&searchLng=-87.62979819999998
             //http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics,
+            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
             async: true,
             dataType: "json",
             success: function (data) 
             {
-                alert(this.url);
+//                alert(this.url);
                 for(var i=0;i<data.length;i++)
                 {
                     
-                    $('#searchResults').append("<li data-thumb='img/rohit.jpeg'><img src='img/rohit.jpeg' /><p name='sliderCaption'" + i + " class='flex-caption'>" + data[i].userId + "<button data-theme = 'a' data-inline = 'true'>INVITE</button><br>" + data[i].userInfo + "</p>").trigger('create');
+//                    $('#searchResults').append("<li data-thumb='img/" + data[i].userid +".jpeg '><img src='img/" + data[i].userid +".jpeg' /><p name='sliderCaption'" + i + " class='flex-caption'>" + data[i].userid + "<button data-theme = 'a' data-inline = 'true'>INVITE</button><br>" + data[i].information + "</p>").trigger('create');
+                        console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
+ -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all">INVITE</button><br>' + data[i].information + '</p>');
+
                     
 //                    //Populating the users interests in the left panel
 //                    if(data[i].userid === "vaibhav")

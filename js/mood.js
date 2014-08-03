@@ -79,9 +79,9 @@ $(document).ready(function()
                                           {
                                               $('#findMyPeopleButton').click(function()
                                                      {
-                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
+//                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
                                                          
-                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity;
+                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + selectedLocation;
                                                          
                                                      });
                                                     
@@ -94,7 +94,7 @@ $(document).ready(function()
                                                                            });
                                                   $('#where' + i + '').click(function()
                                                                            {
-                                                                                selectedLocation = $(this).text();
+                                                                                selectedLocation = $(this).val();
                                                                                console.log("selectedLocation" + selectedLocation);
                                                                            });
                                               }
@@ -104,7 +104,7 @@ $(document).ready(function()
                         {
                             navigator.geolocation.getCurrentPosition(function(position)
                                                                      {
-                                                                        alert("In function getCurrentPosition.....................Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+//                                                                        alert("In function getCurrentPosition.....................Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 //                                                                        getResult(position, selectedTopic);
                                                                         currentLat = position.coords.latitude;
                                                                         currentLng = position.coords.longitude;
