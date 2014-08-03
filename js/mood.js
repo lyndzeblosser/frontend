@@ -4,16 +4,39 @@ $(document).ready(function()
                       var selectedTime;
                       var selectedLocation;
                       var currentLat, currentLng;
+                      var sortId = [];
                       var lengthOfTopics = getTopics();
+                      var activity;
+                      
+                      $("#coffeeActivity").click(function()
+                                                 {
+                                                    activity = "coffee";                  
+                                                     $("#drinksActivity").addClass("ui-disabled");
+                                                     $("#foodActivity").addClass("ui-disabled");
+                                                 });
+                      $("#drinksActivity").click(function()
+                                                 {
+                                                    activity = "drinks";                  
+                                                     $("#coffeeActivity").addClass("ui-disabled");
+                                                     $("#foodActivity").addClass("ui-disabled");
+                                                 });
+                      $("#foodActivity").click(function()
+                                                 {
+                                                    activity = "food";                  
+                                                     $("#coffeeActivity").addClass("ui-disabled");
+                                                     $("#drinksActivity").addClass("ui-disabled");
+                                                 });
 
                       lengthOfTopics.success(function(data)
                                             {
                                                 lengthOfTopicsArray = data.length;
                                                 console.log("lengthOfTopicsArray: " + lengthOfTopicsArray);
                                                 console.log("tags: " + data.length);
-                                                for(var i=0;i<data.length;i++)
+                                                
+                                                //creating list for selection of discussion topics
+                                                for(var i=0;i<lengthOfTopicsArray;i++)
                                                 {
-                                                    $('#topic').append('<li>'+ data[i].tagName + '<br><br><br><button id = "topic' + i + '" data-theme="a" data-inline="true" value='+ data[i].tagName +'>SELECT</button></li>').trigger('create');
+                                                    $('#topic').append('<li>'+ data[i].tagName + '<br><br><br><button id = "topic' + i + '" data-theme="a" data-inline="true" value="'+ data[i].tagName +'">SELECT</button></li>').trigger('create');
 
                                                 }
                                                 $("#topic").addClass("overview"); 
@@ -22,23 +45,31 @@ $(document).ready(function()
                                                 {
                                                     infinite:"true"
                                                 });
-
-                                                for(var i = 0; i<lengthOfTopicsArray; i++)
-                                                {
-                                                    $('#topic' + i +'').click(function()
+                                                
+                                                //obtaining selected topics and disabling selection of any topic multiple times
+                                                $("button[id^='topic']").click(function()
                                                                                {
+                                                                                   
                                                                                    if(selectedTopic === [])
                                                                                    {
-                                                                                        selectedTopic[0] = $(this).val();   
+                                                                                       selectedTopic[0] = $(this).val();   
                                                                                    }
                                                                                    else
                                                                                    {
                                                                                        selectedTopic.push($(this).val());
-                                                                                   }
-                                                                                   alert(selectedTopic);
+                                                                                    }
+                                                                                   
+                                                                                   for(var i = 0;i<lengthOfTopicsArray;i++)
+                                                                                          {
+                                                                                              if($(this).val().indexOf(data[i].tagName)>-1)
+                                                                                              {
+                                                                                                sortId.push(data[i].sortId);
+                                                                                              }
+                                                                                          }
                                                                                    $(this).addClass('ui-disabled');	
                                                                                });
-                                                }   
+                                                
+                                                
                                             });
                       lengthOfTopics.error(function(error, message)
                                            {
@@ -50,7 +81,7 @@ $(document).ready(function()
                                                      {
                                                          alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
                                                          
-                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + selectedTopic;
+                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity;
                                                          
                                                      });
                                                     

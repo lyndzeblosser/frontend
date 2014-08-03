@@ -1,0 +1,6 @@
+Search criteria for finding people
+
+1. 	current location a user in the database should fall within the "where" selected by the logged in user.
+		where --> difference between the logged in and other user's locations should be less than or equal to the mathematical value of the "where" selected by the logged in user.
+2.	the topics selected by the logged in user should match with the topics of other users in the database.
+		topics would refer to the interests in a users profile.

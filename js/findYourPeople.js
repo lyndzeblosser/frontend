@@ -1,52 +1,57 @@
 $(document).ready(function () 
                 {
 
-                    $('.flexslider').flexslider(
-                                        {
-                                            animation: "slide",
-                                            controlNav: "thumbnails"  
-                                        });
+                    
+                    
                     var parameters = location.search;
                     var parameter = parameters.split("?");
-                    console.log(parameter);
+                                        alert(parameter);
                     console.log("getParameterByName: topics: " + getParameterByName('topics')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'));
-
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('activity'));
+                    
+                    $('.flexslider').flexslider();
 
 
                 });
     
-function getParameterByName(name) {
+function getParameterByName(name) 
+{
 //    console.log("getParameterByName: " + name);        
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
+    
+    //alert("naem: " + name);
+    
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    //alert("regex: " + regex);
+    
+    results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, selectedTopics)
+function getResult(latitude, longitude, selectedTopics, activity)
 {
-//    var generalInterests;
-//    var professionalInterests;
+    var generalInterests;
+    var professionalInterests;
     $.ajax(
         {
             
             //we will have to change the signature of this service and include tagName instead of sortId for tags because we will be increasing the number of tags in the future and to hard code the sortId with each tag in the frontend will be cumbersome.
             
+            
+            //searchLat=41.8781136&searchLng=-87.62979819999998
+            //http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics
             url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics,
             async: true,
             dataType: "json",
             success: function (data) 
             {
-                alert("In function getResult................ data: " + data);
+                alert(this.url);
                 for(var i=0;i<data.length;i++)
                 {
-                    console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
-                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">"' + data[i].name + '"<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
-                }
-
-//                for(var i=0;i<data.length;i++)
-//                {
+                    
+                    $('#searchResults').append("<li data-thumb='img/rohit.jpeg'><img src='img/rohit.jpeg' /><p name='sliderCaption'" + i + " class='flex-caption'>" + data[i].userId + "<button data-theme = 'a' data-inline = 'true'>INVITE</button><br>" + data[i].userInfo + "</p>").trigger('create');
+                    
+//                    //Populating the users interests in the left panel
 //                    if(data[i].userid === "vaibhav")
 //                    {
 //                        generalInterests = data[i].general_interests.toString().split(",");
@@ -62,9 +67,16 @@ function getResult(latitude, longitude, selectedTopics)
 //                            $('#professionalInterestsList').append('<li><a href="#">'+ professionalInterests[k] + '</a></li>').trigger('create');
 //                        }
 //                    }
+//                    $("#searchResults").addClass("slides");
+//                    $("p[name^='sliderCaption']").addClass('flex-caption');
+                    
 //                    $('#generalInterestsList').listview('refresh');
 //                    $('#professionalInterestsList').listview('refresh');
-//                }
+                }
+
+//                $("#searchResults").addClass("slides");
+//                $("p[name^='sliderCaption']").addClass('flex-caption');
+                
                 
             },
             error: function (error, message) 
@@ -74,3 +86,29 @@ function getResult(latitude, longitude, selectedTopics)
         });
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//"<li data-thumb='img/rohit.jpeg'><img src='img/rohit.jpeg' /><p name='sliderCaption'" + i + " class='flex-caption'>" + parameter + "<button data-theme = 'a' data-inline = 'true'>INVITE</button><br>" + parameter + "</p>"
