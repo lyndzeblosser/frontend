@@ -81,11 +81,11 @@ $(document).ready(function()
                                                      {
 //                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
                                                          
-                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + selectedLocation;
+                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation);
                                                          
                                                      });
                                                     
-                                              for(var i = 0; i<4; i++)
+                                              for(var i = 1; i<5; i++)
                                               {
                                                   $('#when' + i + '').click(function()
                                                                            {
@@ -94,8 +94,10 @@ $(document).ready(function()
                                                                            });
                                                   $('#where' + i + '').click(function()
                                                                            {
-                                                                                selectedLocation = $(this).val();
+//                                                                                selectedLocation = $(this).val();
+                                                                               selectedLocation = $(this).val(); 
                                                                                console.log("selectedLocation" + selectedLocation);
+                                                                               console.log("radius" + getRadius(selectedLocation));
                                                                            });
                                               }
                                           });
@@ -127,6 +129,25 @@ function getTopics()
         dataType: "json"
     });
     
+}
+
+function getRadius(selectedLocation) 
+{
+//    console.log("getParameterByName: " + name);        
+    radius = 0.724638;
+    if (selectedLocation == '5') {
+        radius = 402;
+    }
+    else if (selectedLocation == '10') {
+        radius = 805;
+    }
+    else if (selectedLocation == '20') {
+        radius = 1610;
+    }
+    else if (selectedLocation == '1000') {
+        radius = 80467;
+    }
+    return radius;
 }
 
 
