@@ -7,6 +7,7 @@ $(document).ready(function()
                       var sortId = [];
                       var lengthOfTopics = getTopics();
                       var activity;
+                      var userid;
                       
                       $("#coffeeActivity").click(function()
                                                  {
@@ -77,11 +78,16 @@ $(document).ready(function()
                                            });
                       lengthOfTopics.done(function()
                                           {
+                                              var parameters = location.search;
+                                              var parameter = parameters.split("=");
+                                              userid = parameter[1];
+                                                                               
+                                                                                
                                               $('#findMyPeopleButton').click(function()
                                                      {
 //                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
                                                          
-                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation);
+                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
                                                          
                                                      });
                                                     
