@@ -3,7 +3,7 @@ $(document).ready(function ()
                     var parameters = location.search;
                     var parameter = parameters.split("?");
                     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'));
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'));
                    
                 
 
@@ -24,7 +24,7 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, selectedTopics, radius)
+function getResult(latitude, longitude, selectedTopics, radius, activity)
 {
     var generalInterests;
     var professionalInterests;
@@ -43,7 +43,7 @@ function getResult(latitude, longitude, selectedTopics, radius)
                 for(var i=0;i<data.length;i++)
                 {
                         console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
- -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ i +'>INVITE</button><br>' + data[i].information + '</p>');
+ -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].userid +'> + </button><br>' + data[i].information + '</p>');
 
                     
 //                    //Populating the users interests in the left panel
@@ -83,7 +83,11 @@ function getResult(latitude, longitude, selectedTopics, radius)
                     console.log('selectedUsers: ' + selectedUsers);
                     $(this).addClass('ui-disabled');	
                   });
-
+                
+                 $("#sendInvitesButton").click(function()
+                 {
+                     window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers;
+                 });
 //                $("#searchResults").addClass("slides");
 //                $("p[name^='sliderCaption']").addClass('flex-caption');
                 
