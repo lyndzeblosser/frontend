@@ -24,10 +24,10 @@
             </div>   
 
             <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
-                <div id="activity" class="ui-grid-b ui-responsive">
-                    <div class="ui-block-a"><button data-theme="e"><i class='fa fa-file-image-o fa-3x pull-left'></i><p style="color:#b54037; font-style:normal;font-weight:normal;">UPLOAD</p></button></div>
-                    <div class="ui-block-b"><button data-theme="d"><i class='fa fa-twitter fa-3x'></i></button></div>
-                    <div class="ui-block-c"><button><i class='fa fa-facebook fa-3x'></i></button></div>     
+                <p>Connect with Facebook or Twitter to easily fill out your profile.</p>
+                <div id="activity" class="ui-grid-a ui-responsive">
+                    <div class="ui-block-a"><button data-theme="d"><i class='fa fa-twitter fa-3x'></i></button></div>
+                    <div class="ui-block-b"><button><i class='fa fa-facebook fa-3x'></i></button></div>     
                 </div>
                 <br>
                 <br>
@@ -35,52 +35,27 @@
                 <div id="registerFormDiv" class="ui-responsive">
                     <form action="form.php" method="post">
                         
-                        <div data-role="collapsible-set" data-inset="true" data-mini="true" data-theme="e">
+                        
 
-                            <div data-role="collapsible">
-                            <h2>FIRST NAME</h2>
-                                <input type="text" name="FirstName" id="FirstName" value="" style="border:1px solid #b54037;"/>
+                            <input type="text" name="FirstName" id="FirstName" value="" placeholder="FIRST NAME" style="border:1px solid #b54037;" data-corners='false'/>
+                            <input type="text" name="LastName" id="LastName" value="" placeholder="LAST NAME" style="border:1px solid #b54037;" data-corners='false'/>
+                            <input type="text" name="location" id="location" value="" placeholder="LOCATION" style="border:1px solid #b54037;" data-corners='false'/>
+                            <input type="date" name="dob" id="dob" value="" placeholder="DATE OF BIRTH" style="border:1px solid #b54037;" data-corners='false'/>
+                            <input type="text" name="email" id="email" value="" placeholder="EMAIL" style="border:1px solid #b54037;" data-corners='false'/>
+                            <input type="password" name="password" id="password" value="" placeholder="PASSWORD" style="border:1px solid #b54037;" data-corners='false'/>
+                            <div id="activity" class="ui-grid-a ui-responsive">
+                                <div class="ui-block-a"><textarea  rows="400" cols="50" name="textarea-2" id="textarea-2" placeholder="BIO" style="border:1px solid #b54037;" data-corners='false'></textarea></div>
+                                
+                                <div class="ui-block-b"><button data-theme="e"><i class='fa fa-image fa-2x'></i>UPLOAD A PICTURE</button></div>     
+                                
                             </div>
-
-                            <div data-role="collapsible">
-                            <h2>LAST NAME</h2>
-                                <input type="text" name="LastName" id="LastName" value="" style="border:1px solid #b54037;"/>
-                            </div>
-
-                            <div data-role="collapsible">
-                            <h2>LOCATION</h2>
-                                <input type="text" name="location" id="location" value="" style="border:1px solid #b54037;"/>
-                            </div>
-
-                            <div data-role="collapsible">
-                            <h2>DATE OF BIRTH (must be 18+)</h2>
-                                <input type="date" name="dob" id="dob" value="" style="border:1px solid #b54037;" />
-                            </div>
-
-                            <div data-role="collapsible">
-                            <h2>EMAIL</h2>
-                                <input type="text" name="email" id="email" value="" style="border:1px solid #b54037;"/>
-                            </div>
-
-                            <div data-role="collapsible">
-                            <h2>PASSWORD</h2>
-                                <input type="password" name="password" id="password" value="" style="border:1px solid #b54037;"/>
-                            </div>
-
-                            <div data-role="collapsible">
-                            <h2>BIO</h2>
-                                <textarea cols="40" rows="8" name="textarea-2" id="textarea-2" style="border:1px solid #b54037;"></textarea>
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-	                        <button data-theme="a"><i class='fa fa-chevron-right fa-1x pull-right'></i>CONTINUE</button>    
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><button><i class='fa fa-chevron-right fa-1x pull-right'></i>CONTINUE</button></div>    
                         </div>
-                                                
-                    </form>
-                </div>    
-            </div> 
+                        </form>
+                </div>
+            </div>    
+        </div> 
             
-        </div>
     </body>
 </html>    

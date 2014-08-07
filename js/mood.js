@@ -8,7 +8,9 @@ $(document).ready(function()
                       var lengthOfTopics = getTopics();
                       var activity;
                       var userid;
+                      var url;
                       
+                      $("#loginButtons").addClass("ui-disabled");
                       $("#coffeeActivity").click(function()
                                                  {
                                                     activity = "coffee";                  
@@ -86,10 +88,17 @@ $(document).ready(function()
                                               $('#findMyPeopleButton').click(function()
                                                      {
 //                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
+                                                         $('#findMyPeopleButton').addClass('ui-disabled');
+                                                         url = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
                                                          
-                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
+                                                         $("#loginButtons").removeClass("ui-disabled");
+//                                                         window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
                                                          
                                                      });
+                                              $("#loginButton").click(function()
+                                                                      {
+                                                                          window.location.href = "login.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation);
+                                                                      });
                                                     
                                               for(var i = 1; i<5; i++)
                                               {
