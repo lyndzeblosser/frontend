@@ -46,7 +46,7 @@ function validate(userid, password)
                 if(data.toString() === "true")
                 {
                     alert("Welcome " + userid);
-                    window.location.href = "findYourPeople.html?latitude="+ getParameterByName('latitude') +"&longitude=" + getParameterByName('longitude')  + "&topics=" + getParameterByName('topics') + "&activity=" + getParameterByName('activity') + "&radius=" + getRadius(getParameterByName('radius')) + "&userid=" + userid;
+                    window.location.href = "findYourPeople.html?latitude="+ getParameterByName('latitude') +"&longitude=" + getParameterByName('longitude')  + "&topics=" + getParameterByName('topics') + "&activity=" + getParameterByName('activity') + "&radius=" + getParameterByName('radius') + "&userid=" + userid;
                 }
                 else
                 {
