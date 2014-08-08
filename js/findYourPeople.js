@@ -3,7 +3,7 @@ $(document).ready(function ()
                     var parameters = location.search;
                     var parameter = parameters.split("?");
                     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'));
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('userid'));
                    
                 
 
@@ -24,7 +24,7 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, selectedTopics, radius, activity)
+function getResult(latitude, longitude, selectedTopics, radius, activity, userid)
 {
     var generalInterests;
     var professionalInterests;
@@ -86,7 +86,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity)
                 
                  $("#sendInvitesButton").click(function()
                  {
-                     window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers;
+                     window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&loggedInUserId=" + userid;;
                  });
 //                $("#searchResults").addClass("slides");
 //                $("p[name^='sliderCaption']").addClass('flex-caption');

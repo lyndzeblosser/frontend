@@ -21,15 +21,31 @@
     </head>
     <body>
         <!-- Selected user for invite -->
+  <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
+
     <div data-role="page" id="confirmInvite">
         <div data-role="header">
         <h1>Final Details</h1>
         </div>
         <div data-role="main" class="ui-content" id="mainUI">
         </div>
-                        <button id='sendInvitesButton' data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; Send Invites</button>
+            <iframe name="hiddenFrame1" id = "hiddenFrame1" class="hide"></iframe>  
+
+        <form name="confirmInviteForm" id="confirmInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/updateInvitation" target="hiddenFrame1">  
+
+                <input type="hidden" name="username_from" id="username_from">
+                <input type="hidden" name="latitude_invite" id="latitude_invite">
+                <input type="hidden" name="longitude_invite" id="longitude_invite">
+                <input type="hidden" name="time_invite" id="time_invite">
+                <input type="hidden" name="username_to" id="username_to">
+                <input type="hidden" name="activity" id="activity">
+
+        </form>
+     
+    <button id='confirmInvitesButton' data-inline='true'>Send Invites</button>
 
     </div>
+  </div>
         </body>
         </html>
         
