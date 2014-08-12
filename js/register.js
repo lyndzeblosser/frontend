@@ -1,13 +1,13 @@
 $(document).ready(function()
                   {
-                      $( "#registerForm" ).submit(function( event ) 
+                      $( "#submitRegistrationButton" ).click(function( event ) 
                                                 {
  
                                                   // Stop form from submitting normally
                                                   event.preventDefault();
 
                                                   // Get some values from elements on the page:
-                                                    var postData = $(this).serializeArray();
+                                                    var postData = $("#registerForm").serializeArray();
                                                   var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
                                                     $.ajax(
                                                     {
