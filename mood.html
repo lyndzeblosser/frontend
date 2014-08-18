@@ -19,6 +19,8 @@
         <script src="js/mobileJquery.js"></script>
         <script src="js/jquery.tinycarousel.min.js"></script>
         <script src="js/mood.js"></script>
+        <script src="js/jquery.session.js"></script>
+
     </head>
     
     <body>
@@ -48,7 +50,7 @@
                     <br>
                     <li data-icon='false'><a href="#"><i class='lIcon fa fa-users'></i>&nbsp; UPCOMING</a></li>
                     <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS</a></li>
+                    <li data-icon='false'><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS </div></a></li>
                     <br>
                     <li data-icon='false'><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
                     <br>
@@ -118,6 +120,17 @@
                 <br>
                 <ul data-role="listview" name="professionalInterestsList" id="professionalInterestsList" data-theme="c" >
                     <h4>PROFESSIONAL INTERESTS</h4>
+                </ul>
+                
+            </div>
+            
+            <div data-role="panel" id="myInvitations" data-position="right" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; INVITATIONS</h4></li>
+                </ul>
+                <br>
+                <ul data-role="listview" name="invitationsList" id="invitationsList" data-theme="c" >
+                    <h4>PENDING INVITES</h4>
                 </ul>
                 
             </div>

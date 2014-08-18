@@ -17,6 +17,8 @@ $(document).ready(function()
                                                         success:function(data, textStatus, jqXHR) 
                                                         {
                                                             console.log("Registration Form Submitted Successfully!");
+                                                            $( "#successfulRegistrationPopup" ).popup( "open" );
+
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) 
                                                         {
@@ -24,7 +26,6 @@ $(document).ready(function()
                                                         },
                                                         done: function()
                                                         {
-                                                            $( "#successfulRegistrationPopup" ).popup( "open" );
                                                         }
                                                     });
                                                 });

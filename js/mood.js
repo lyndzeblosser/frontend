@@ -84,7 +84,21 @@ $(document).ready(function()
                                               var parameter = parameters.split("=");
                                               userid = parameter[1];
                                                                                
-                                                                                
+                                              alert('user in session: ' + $.session.get('userid'));
+                                              var userInvitations = getInvitations();
+                                              //append invitations of user in session
+                                              userInvitations.success(function(data) {
+                                                  console.log('userInvitations count: ' + data.length);
+                                                  $.session.set('userInvitesCount', data.length);
+                                                  $('#invitationsTag').append('[' + getUserInvitesCount() + ']');
+                                                  for(var i=0;i<data.length;i++) {
+//                                                      console.log('invitationsList html: ' + );
+                                                      $('#invitationsList').append('<li data-thumb="img/' + data[i].username_from + '.jpeg"> <img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
+
+                                                  }
+                                              });
+                                              
+                                              
                                               $('#findMyPeopleButton').click(function()
                                                      {
 //                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
@@ -146,6 +160,26 @@ function getTopics()
     
 }
 
+function getInvitations()
+{
+    var invitationsArray;
+    if ($.session.get('userid') === undefined) {
+        return null;
+    }
+    else {
+        return $.ajax({
+        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getInvitations?userid=" + $.session.get('userid'),
+        async: false,
+        dataType: "json"
+         });
+    }
+    
+    
+}
+
+function getUserInvitesCount() {
+    return $.session.get('userInvitesCount');
+}
 function getRadius(selectedLocation) 
 {
 //    console.log("getParameterByName: " + name);        
