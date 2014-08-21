@@ -33,34 +33,37 @@
             <div data-role="panel" id="settingsPanel" data-position="left" data-display="push" data-theme="e">
                 <ul data-role="listview" id="settingsPanelListView">
                     <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; SETTINGS</h4></li>
-                    <br>
-                    <li id="profileTab" data-icon='false'><a href="#myProfilePanel"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#myTagsPanel"><i class='lIcon fa fa-tags pull-left'></i>&nbsp; TOPICS</a></li>
-                    <br>
-                    <li id="preferencesTab" data-icon='false'><a href="#preferencesPanel"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-question pull-left'></i>&nbsp; HELP</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-bullhorn pull-left'></i>&nbsp; TERMS AND PRIVACY POLICY</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGOUT</a></li>
+                    
+                    <li id="profileTab" class="loggedInFields" data-icon='false'><a href="#myProfilePanel"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#myTagsPanel"><i class='lIcon fa fa-tags pull-left'></i>&nbsp; TOPICS</a></li>
+                   
+                    <li id="preferencesTab" data-icon='false' class="loggedInFields"><a href="#preferencesPanel"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
+                   
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-question pull-left'></i>&nbsp; HELP</a></li>
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-bullhorn pull-left'></i>&nbsp; TERMS AND PRIVACY POLICY</a></li>
+                   
+                    <li data-icon='false' class="loggedInFields" onclick="logout()"><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGOUT</a></li>
+                     
+                    <li data-icon='false' class="loggedOutFields" onclick="login()"><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGIN</a></li>
                 </ul>
             </div>    
 
             <div data-role="panel" id="myTablesPanel" data-position="right" data-display="push" data-theme="e">
                 <ul data-role="listview">
-                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; DISCUSSIONS</h4></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-users'></i>&nbsp; UPCOMING</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS </div></a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-star'></i>&nbsp; MY PROFILE</a></li>
-                    <br>
-                    <li data-icon='false'><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
+                    <li style="background-color:#808080;" class="stateless"><h4 style="color:#ffffff">&nbsp; &nbsp; DISCUSSIONS</h4></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-users'></i>&nbsp; UPCOMING</a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS </div></a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
+                   
+                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-star'></i>&nbsp; MY PROFILE</a></li>
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
                 </ul>
             </div>
             <div data-role="panel" id="myProfilePanel" data-position="left" data-display="push" data-theme="e" style="text-align: center;padding:0em">
@@ -215,8 +218,7 @@
 <!--                <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>-->
 <!--                <br>-->
                 <li name="autocompleteLocation" id="autocompleteLocation" data-theme="b" data-corners="false">   
-                    <p><i class="fa fa-search fa-2x "></i>&nbsp;&nbsp;or type in your location</p>    
-                    <input type="search" id="address" placeholder="location" data-corners="false">    
+                      <input type="search" id="address" placeholder="Location" data-corners="false" onchange="">    
                 </li>
                 </ul>
                 

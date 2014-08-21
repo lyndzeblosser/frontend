@@ -1,3 +1,5 @@
+
+var p;
 $(document).ready(function()
     {
         
@@ -8,17 +10,22 @@ $(document).ready(function()
         var sortId = [];
         var lengthOfTopics = getTopics();
         var activity;
-        var userid;
+        var userid = $.session.get('userid');
+        ;
         var url;
         
-        uiChanges();
+        uiChanges(userid);
+        
+        
         
         var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
-		google.maps.event.addListener(autocomplete, 'place_changed', function()
-		{
-			var place = autocomplete.getPlace();
-			console.log(place.address_components);
-		});
+        google.maps.event.addListener(autocomplete, 'place_changed', function()
+        {
+            var place = autocomplete.getPlace();
+           currentLat=place.geometry.location.lat();
+           currentLng=place.geometry.location.lng();
+           console.log(currentLat,currentLng)
+        });
       
         
         $(".activitiesButton").click(function()
@@ -81,24 +88,22 @@ $(document).ready(function()
         });
         lengthOfTopics.done(function()
         {
-            var parameters = location.search;
-            var parameter = parameters.split("=");
-            userid = $.session.get('userid');
+           
                                                                                
             alert('user in session: ' + $.session.get('userid'));
             var userInvitations = getInvitations();
             //append invitations of user in session
             if(userInvitations!=null)
-            userInvitations.success(function(data) {
-                console.log('userInvitations count: ' + data.length);
-                $.session.set('userInvitesCount', data.length);
-                $('#invitationsTag').append('[' + getUserInvitesCount() + ']');
-                for(var i=0;i<data.length;i++) {
-                    //                                                      console.log('invitationsList html: ' + );
-                    $('#invitationsList').append('<li data-thumb="img/' + data[i].username_from + '.jpeg"> <img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
+                userInvitations.success(function(data) {
+                    console.log('userInvitations count: ' + data.length);
+                    $.session.set('userInvitesCount', data.length);
+                    $('#invitationsTag').append('[' + getUserInvitesCount() + ']');
+                    for(var i=0;i<data.length;i++) {
+                        //                                                      console.log('invitationsList html: ' + );
+                        $('#invitationsList').append('<li data-thumb="img/' + data[i].username_from + '.jpeg"> <img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
 
-                }
-            });
+                    }
+                });
                                               
                                               
             $('#findMyPeopleButton').click(function()
@@ -112,7 +117,7 @@ $(document).ready(function()
                     {
                        
                         url = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
-                         window.location.href =url;
+                        window.location.href =url;
                     }
                     $('#findMyPeopleButton').css("display","none")   
                     $("#loginButtons").css("display","block");
@@ -152,11 +157,13 @@ $(document).ready(function()
                 //                                                                        getResult(position, selectedTopic);
                 currentLat = position.coords.latitude;
                 currentLng = position.coords.longitude;
+                $("#address").attr("placeholder","Current Location")
                                                                         
             });
         } 
         else 
         {
+            $("#address").attr("placeholder","Enter Location")
             alert("Geolocation is not supported by this browser.");
         }
     });
@@ -213,21 +220,36 @@ function getRadius(selectedLocation)
 }
 
 
-function uiChanges(){
+function uiChanges(userid){
     $(".activities").css("width","33%")
     $(".activities").css("float","left")
     $("#loginButtons").css("display","none")
+    
+    if(typeof userid=="undefined"){
+        $(".loggedInFields").css("display","none")
+    }else{
+        $(".loggedOutFields").css("display","none")
+    }
 }
 
 function validate(){
-     for (var i = 0, j = arguments.length; i < j; i++){
+    for (var i = 0, j = arguments.length; i < j; i++){
         console.log(arguments[i],typeof arguments[i]) 
         if(typeof arguments[i]=="object")
             if(arguments[i].length==0)
-            return false;
+                return false;
     
         if(typeof arguments[i]=="undefined")
             return false;
     }
     return true;
+}
+
+function logout(){
+   $.session.clear();
+   window.location.href="mood.html";
+}
+
+function login(){
+   window.location.href="login.html";
 }
