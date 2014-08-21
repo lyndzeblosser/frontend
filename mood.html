@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/tinycarousel.css" />
         
         <link rel="stylesheet" href="css/flexslider.css" />
+        <link rel="stylesheet" href="css/mood.css" />
         
         <!-- jQuery / jQueryMobile Scripts -->
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
@@ -165,9 +166,9 @@
             </div>
             <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
                 <div id="activity" class="ui-grid-b ui-responsive">
-                    <div class="ui-block-a"><button id="coffeeActivity"><i class='fa fa-coffee fa-3x'></i></button></div>
-                    <div class="ui-block-b"><button id="drinksActivity"><i class='fa fa-glass fa-3x'></i></button></div>
-                    <div class="ui-block-c"><button id="foodActivity"><i class='fa fa-spoon fa-3x'></i><i class='fa fa-spoon fa-3x'></i></button></div>     
+                    <div class="activities ui-block-a"><button class="activitiesButton" value="coffee" id="coffeeActivity"><i class='fa fa-coffee fa-3x'></i></button></div>
+                    <div class="activities ui-block-b"><button class="activitiesButton" value="drinks" id="drinksActivity"><i class='fa fa-glass fa-3x'></i></button></div>
+                    <div class="activities ui-block-c"><button class="activitiesButton" value="food" id="foodActivity"><i class='fa fa-spoon fa-3x'></i><i class='fa fa-spoon fa-3x'></i></button></div>     
                 </div>
                 <br>
                 <ul data-role="listview" data-inset="false" data-divider-theme="b">
@@ -211,6 +212,8 @@
 <!--                <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>-->
 <!--                <br>-->
                 </ul>
+                
+                <br>
              <button id='findMyPeopleButton' data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; FIND MY PEOPLE</button>
                 
              <div id="loginButtons" class="ui-grid-a ui-responsive" >    
