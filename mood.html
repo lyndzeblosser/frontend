@@ -19,6 +19,9 @@
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
         <script src="js/mobileJquery.js"></script>
         <script src="js/jquery.tinycarousel.min.js"></script>
+        
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        
         <script src="js/mood.js"></script>
         <script src="js/jquery.session.js"></script>
 
@@ -211,6 +214,10 @@
 
 <!--                <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>-->
 <!--                <br>-->
+                <li name="autocompleteLocation" id="autocompleteLocation" data-theme="b" data-corners="false">   
+                    <p><i class="fa fa-search fa-2x "></i>&nbsp;&nbsp;or type in your location</p>    
+                    <input type="search" id="address" placeholder="location" data-corners="false">    
+                </li>
                 </ul>
                 
                 <br>
