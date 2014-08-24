@@ -117,11 +117,8 @@ $(document).ready(function()
                                               
             $('#findMyPeopleButton').click(function()
             {
-                //                                                         alert("when, where, topic: " + selectedTime + "" + selectedLocation + "" + selectedTopic);
-                if(validate(currentLat,currentLng ,sortId, activity,getRadius(selectedLocation))){
-                    
-                    
-                   
+                if(validate(currentLat,currentLng ,sortId, activity,getRadius(selectedLocation)))
+                {
                     if(typeof $.session.get('userid')!="undefined")
                     {
                        
@@ -130,16 +127,24 @@ $(document).ready(function()
                     }
                     $('#findMyPeopleButton').css("display","none")   
                     $("#loginButtons").css("display","block");
-                //                                                        window.location.href = "findYourPeople.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
-                }else{
-                    alert("Please fill all fields")
-                    
+                
+                }
+                else
+                {
+                    alert("Please fill all fields");
                 }                                       
             });
+            
             $("#loginButton").click(function()
             {
                 window.location.href = "login.html?latitude="+ currentLat +"&longitude=" + currentLng  + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation);
             });
+            
+            $("#registerButton").click(function()
+            {
+                window.location.href = "register.html";
+            });
+            
                                                     
             for(var i = 1; i<5; i++)
             {
@@ -150,23 +155,20 @@ $(document).ready(function()
                 });
                 $('#where' + i + '').click(function()
                 {
-                    //                                                                                selectedLocation = $(this).val();
                     selectedLocation = $(this).val(); 
                     console.log("selectedLocation" + selectedLocation);
                     console.log("radius" + getRadius(selectedLocation));
                 });
             }
         });
-        //getLocation();
+        
         if (navigator.geolocation) 
         {
             navigator.geolocation.getCurrentPosition(function(position)
             {
-                //                                                                        alert("In function getCurrentPosition.....................Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-                //                                                                        getResult(position, selectedTopic);
                 currentLat = position.coords.latitude;
                 currentLng = position.coords.longitude;
-                $("#address").attr("placeholder","Current Location")
+                $("#address").attr("placeholder","Value set to your current location")
                                                                         
             });
         } 

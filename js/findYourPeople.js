@@ -5,21 +5,12 @@ $(document).ready(function ()
                     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
                     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('userid'));
                    
-                
-
-
                 });
     
 function getParameterByName(name) 
 {
-//    console.log("getParameterByName: " + name);        
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    
-    //alert("naem: " + name);
-    
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-    //alert("regex: " + regex);
-    
     results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
@@ -40,61 +31,50 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             dataType: "json",
             success: function (data) 
             {
-                for(var i=0;i<data.length;i++)
-                {
-                        console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
- -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].userid +'> + </button><br>' + data[i].information + '</p>');
+                if(data != "undefined")
+                {    
+                    for(var i=0;i<data.length;i++)
+                    {
+                            console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
+     -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].userid +'> + </button><br>' + data[i].information + '</p>');
 
-                    
-//                    //Populating the users interests in the left panel
-//                    if(data[i].userid === "vaibhav")
-//                    {
-//                        generalInterests = data[i].general_interests.toString().split(",");
-//                        for(var j=0; j<generalInterests.length; j++)
-//                        {
-//                            $('#generalInterestsList').append('<li><a href="#">'+ generalInterests[j] + '</a></li>').trigger('create');
-//                        }
-//                        
-//                        professionalInterests = data[i].professional_interests.toString().split(",");
-//                        console.log("professional Interests" + professionalInterests);
-//                        for(var k=0; k<professionalInterests.length; k++)
-//                        {
-//                            $('#professionalInterestsList').append('<li><a href="#">'+ professionalInterests[k] + '</a></li>').trigger('create');
-//                        }
-//                    }
-//                    $("#searchResults").addClass("slides");
-//                    $("p[name^='sliderCaption']").addClass('flex-caption');
-                    
-//                    $('#generalInterestsList').listview('refresh');
-//                    $('#professionalInterestsList').listview('refresh');
+                    }
+                    $("button[id^='user']").click(function()
+                    {
+
+                        if(selectedUsers === [])
+                        {
+                            selectedUsers[0] = $(this).val();   
+                        }
+                        else
+                        {
+                            selectedUsers.push($(this).val());
+                        }
+
+                        console.log('selectedUsers: ' + selectedUsers);
+                        $(this).addClass('ui-disabled');	
+                      });
+
+                     $("#sendInvitesButton").click(function()
+                     {
+                         window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&loggedInUserId=" + userid;
+                     });
+    //                $("#searchResults").addClass("slides");
+    //                $("p[name^='sliderCaption']").addClass('flex-caption');
                 }
-                $("button[id^='user']").click(function()
-                {
-
-                    if(selectedUsers === [])
-                    {
-                        selectedUsers[0] = $(this).val();   
-                    }
-                    else
-                    {
-                        selectedUsers.push($(this).val());
-                    }
-
-                    console.log('selectedUsers: ' + selectedUsers);
-                    $(this).addClass('ui-disabled');	
-                  });
+                $("#sendInvitesButton").addClass('ui-disabled');
+                $("#main").append('<i class="fa fa-quote-left fa-3x pull-left fa-border">Sorry, no one found. Please search again!</i><br>');
+                $("#main").append('<br><br><br><br><i id="backToMood" class="fa fa-2x fa-long-arrow-left">Go Back</i>');
                 
-                 $("#sendInvitesButton").click(function()
-                 {
-                     window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&loggedInUserId=" + userid;;
-                 });
-//                $("#searchResults").addClass("slides");
-//                $("p[name^='sliderCaption']").addClass('flex-caption');
-                
-                
+                $("backToMood").css("color", "red");
+                $("#backToMood").click(function()
+                                       {
+                                           window.location.href="mood.html";
+                                       });
             },
             error: function (error, message) 
             {
+                $("#sendInvitesButton").addClass('ui-disabled');
                 console.log("Failure: " + message);        
             },
             complete: function()
