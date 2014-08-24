@@ -103,6 +103,15 @@ $(document).ready(function()
                         $('#invitationsList').append('<li data-thumb="img/' + data[i].username_from + '.jpeg"> <img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
 
                     }
+                    $("button[id^='user']").click(function()
+                    {
+
+                        
+                        acceptInvite($(this).val(), $.session.get('userid'))
+
+                        console.log('accepted invite from: ' + $(this).val());
+                        $(this).addClass('ui-disabled');	
+                     });
                 });
                                               
                                               
@@ -252,4 +261,16 @@ function logout(){
 
 function login(){
    window.location.href="login.html";
+}
+
+function acceptInvite(username_from, username_to)
+{
+ 
+    $("#username_from").val(username_from);
+    $("#username_to").val(username_to);
+   
+    document.forms["acceptInviteForm"].submit(function(e) 
+                                 {
+                                    e.preventDefault();
+                                  });
 }

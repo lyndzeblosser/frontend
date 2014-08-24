@@ -65,6 +65,10 @@
                     
                     <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
                 </ul>
+                <form name="acceptInvite" id="acceptInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/acceptInvitation">  
+                    <input type="hidden" name="username_from_accept" id="username_from">
+                    <input type="hidden" name="username_to_accept" id="username_to">
+                 </form>
             </div>
             <div data-role="panel" id="myProfilePanel" data-position="left" data-display="push" data-theme="e" style="text-align: center;padding:0em">
                 <ul data-role="listview">

@@ -27,10 +27,12 @@ $(document).ready(function()
                                                         done: function()
                                                         {
                                                         }
+                                                        
                                                     });
+                                                    
                                                 });
-                      $("#redirectButton").click(function()
-                                                 {
-                                                     window.location.href = "mood.html";
-                                                 });
+                    $("#redirectButton").click(function()
+                                                        {
+                                                            window.location.href = "mood.html";
+                                                        });  
                   });
