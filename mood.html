@@ -140,10 +140,17 @@
                     <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; INVITATIONS</h4></li>
                 </ul>
                 <br>
-                <ul data-role="listview" name="invitationsList" id="invitationsList" data-theme="c" >
-                    <h4>PENDING INVITES</h4>
-                </ul>
-                
+                <h4>PENDING INVITES</h4>
+                <div id="sliderPendingInvites">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul name="invitationsList" id="invitationsList" >
+
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+                                
             </div>
             
             <div data-role="panel" id="preferencesPanel" data-position="left" data-display="push" data-theme="e">

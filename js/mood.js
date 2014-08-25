@@ -100,9 +100,16 @@ $(document).ready(function()
                     $('#invitationsTag').append('[' + getUserInvitesCount() + ']');
                     for(var i=0;i<data.length;i++) {
                         //                                                      console.log('invitationsList html: ' + );
-                        $('#invitationsList').append('<li data-thumb="img/' + data[i].username_from + '.jpeg"> <img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
+                        $('#invitationsList').append('<li><img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p>' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].username_from +'> Accept </button><br>' + data[i].time + '</p>');
 
                     }
+                    
+                    $("#invitationsList").addClass("overview"); 
+
+                    $('#sliderPendingInvites').tinycarousel(
+                    {
+                        infinite:"true"
+                    });
                     $("button[id^='user']").click(function()
                     {
 
