@@ -9,6 +9,11 @@ $(document).ready(function ()
                     var password = $("#password").val();
                                                    validate(userid, password);
                                                });
+                    $("#registerButton").click(function()
+                        {
+                           window.location.href="register.html";
+
+                        });
                 });
 
 function getParameterByName(name) 
@@ -77,5 +82,6 @@ function getRadius(selectedLocation)
     }
     return radius;
 }    
-    
+ 
+
 }

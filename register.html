@@ -10,10 +10,15 @@
 		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
         
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
-
+        <link rel="stylesheet" href="css/tinycarousel.css" />
+        
+        <link rel="stylesheet" href="css/flexslider.css" />
 		<!-- jQuery / jQueryMobile Scripts -->
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
         <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+        <script src="js/jquery.tinycarousel.min.js"></script>
+        <script src="js/mobileJquery.js"></script>
+
         <script src="js/register.js"></script> 
         
     </head>
@@ -45,9 +50,21 @@
                 </div>
                 <br>
                 <br>
-                   
+                    <fieldset data-role="collapsible" data-corners="false" data-iconpos="right">
+                            <legend>WHAT DO YOU WANT TO TALK ABOUT?</legend>
+                                <div id="slider1">
+                                    <a class="buttons prev" href="#">&#60;</a>
+                                    <div class="viewport">
+                                        <ul id="topic">
+
+                                        </ul>
+                                    </div>
+                                    <a class="buttons next" href="#">&#62;</a>
+                                </div>
+
+                            </fieldset>
                 <div id="registerFormDiv" class="ui-responsive">
-                    <form action="/" method="post" id = "registerForm">
+                    <form method="post" id = "registerForm">
                         
                         
 
@@ -63,10 +80,12 @@
                                 <div class="ui-block-b"><button data-theme="e"><i class='fa fa-image fa-2x'></i>UPLOAD A PICTURE</button></div>     
                                 
                             </div>
+                            
+                           </form> 
                         <div class="ui-grid-solo">
                             <div class="ui-block-a"><button id='submitRegistrationButton'><i class='fa fa-chevron-right fa-1x pull-right'></i>CONTINUE</button></div>    
                         </div>
-                        </form>
+                       
                 </div>
             </div>    
         </div> 
