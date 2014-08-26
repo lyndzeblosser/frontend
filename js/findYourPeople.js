@@ -35,8 +35,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                 {    
                     for(var i=0;i<data.length;i++)
                     {
-                            console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].information + '</p>');
-     -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].name + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].userid +'> + </button><br>' + data[i].information + '</p>');
+                            console.log('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].firstname + '<button data-theme = "a" data-inline = "true" class=" ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all>INVITE</button><br>' + data[i].bio + '</p>');
+     -                    $('#searchResults').append('<li data-thumb="img/' + data[i].userid + '.jpeg" class="flex-active-slide" style="float: left; display: block; width: 312px;"> <img src="img/' + data[i].userid + '.jpeg" draggable="false""/><p class="flex-caption">' + data[i].firstname + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value='+ data[i].userid +'> + </button><br>' + data[i].bio + '</p>');
 
                     }
                     $("button[id^='user']").click(function()
@@ -52,6 +52,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         }
 
                         console.log('selectedUsers: ' + selectedUsers);
+                        $("#sendInvitesButton").removeClass('ui-disabled');
+
                         $(this).addClass('ui-disabled');	
                       });
 
