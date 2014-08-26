@@ -1,3 +1,89 @@
+ function setupFormValidation()
+        {
+            //form validation rules
+            $("#registerForm").validate({
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    homeTown:"required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    agree: "required"
+                },
+                messages: {
+                    firstName: "Please enter your firstname",
+                    lastName: "Please enter your lastname",
+                    homeTown:"Please enter your hometown",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    email: "Please enter a valid email address",
+                    agree: "Please accept our policy"
+                },
+                submitHandler: function(form) {
+ event.preventDefault();
+
+                                                  // Get some values from elements on the page:
+                                                    var postData = $("#registerForm").serializeArray();
+                                                  var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
+                                                    $.ajax(
+                                                    {
+                                                        url : formURL,
+                                                        type: "POST",
+                                                        data : postData,
+                                                        success:function(data, textStatus, jqXHR) 
+                                                        {
+                                                            console.log("Registration Form Submitted Successfully!");
+                                                            var userid = document.getElementById("email");
+                                                            console.log(sortId);
+                                                            addUserTags(userid, sortId);
+                                                            $( "#successfulRegistrationPopup" ).popup( "open" );
+                                                            
+                                                        },
+                                                        error: function(jqXHR, textStatus, errorThrown) 
+                                                        {
+                                                            console.log("Registration Form was not Submitted!");
+                                                        },
+                                                        done: function()
+                                                        {
+                                                        }
+                                                        
+                                                    });
+function addUserTags(userid, tagsList)
+{
+    console.log('tagsList: ' + tagsList);
+//    var tags = tagsList.split(",");
+//    console.log('tags: ' + tags);
+    for (i=0; i<tagsList.length; i++){
+        addUserTag(userid, tagsList[i]);
+    }
+}    
+    
+function addUserTag(userid, tag)
+{
+ 
+    $("#userid").val(userid);
+    $("#tag").val(tag);
+
+    document.forms["addUserTagForm"].submit(function(e) 
+                                 {
+                                    e.preventDefault();
+                                  });
+}                                                
+                    $("#redirectButton").click(function()
+                                                        {
+                                                            window.location.href = "mood.html";
+                                                        }); 
+                }
+            });
+        }
 $(document).ready(function()
                   {
                         var lengthOfTopics = getTopics();
@@ -62,60 +148,8 @@ $(document).ready(function()
                       $( "#submitRegistrationButton" ).click(function( event ) 
                                                 {
  
-                                                  // Stop form from submitting normally
-                                                  event.preventDefault();
-
-                                                  // Get some values from elements on the page:
-                                                    var postData = $("#registerForm").serializeArray();
-                                                  var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
-                                                    $.ajax(
-                                                    {
-                                                        url : formURL,
-                                                        type: "POST",
-                                                        data : postData,
-                                                        success:function(data, textStatus, jqXHR) 
-                                                        {
-                                                            console.log("Registration Form Submitted Successfully!");
-                                                            var userid = document.getElementById("email");
-                                                            console.log(sortId);
-                                                            addUserTags(userid, sortId)
-                                                            $( "#successfulRegistrationPopup" ).popup( "open" );
-                                                            
-                                                        },
-                                                        error: function(jqXHR, textStatus, errorThrown) 
-                                                        {
-                                                            console.log("Registration Form was not Submitted!");
-                                                        },
-                                                        done: function()
-                                                        {
-                                                        }
-                                                        
-                                                    });
-function addUserTags(userid, tagsList)
-{
-    console.log('tagsList: ' + tagsList);
-//    var tags = tagsList.split(",");
-//    console.log('tags: ' + tags);
-    for (i=0; i<tagsList.length; i++){
-        addUserTag(userid, tagsList[i]);
-    }
-}    
-    
-function addUserTag(userid, tag)
-{
- 
-    $("#userid").val(userid);
-    $("#tag").val(tag);
-
-    document.forms["addUserTagForm"].submit(function(e) 
-                                 {
-                                    e.preventDefault();
-                                  });
-}                                                
-                    $("#redirectButton").click(function()
-                                                        {
-                                                            window.location.href = "mood.html";
-                                                        });  
+                                                  setupFormValidation ();
+                                                  
                                                                                                            
                                                 });
 
@@ -138,7 +172,7 @@ function initializeFileUpload()
             fileName:"myfile",               
             dynamicFormData: function()
                 {
-                    var data ={ email:$("#email").val()}
+                    var data ={ email:$("#email").val()};
                     return data;
                 }
             });
