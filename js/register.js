@@ -1,8 +1,14 @@
 $(document).ready(function()
                   {
-                              var lengthOfTopics = getTopics();
-                                      var selectedTopic = [];
-                                              var sortId = [];
+                        var lengthOfTopics = getTopics();
+                        var selectedTopic = [];
+                        var sortId = [];
+                      
+                      $("#password").keydown(function()
+                                     {
+                                        initializeFileUpload();                   
+                                     });
+                      
 
 
         lengthOfTopics.success(function(data)
@@ -122,6 +128,20 @@ function getTopics()
         dataType: "json"
     });
     
+    }
+                      
+function initializeFileUpload()
+    {
+        $("#fileuploader").uploadFile({
+            url:"upload.php",
+            allowedTypes:"jpg",
+            fileName:"myfile",               
+            dynamicFormData: function()
+                {
+                    var data ={ email:$("#email").val()}
+                    return data;
+                }
+            });
     }
 
 });
