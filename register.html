@@ -13,11 +13,13 @@
         <link rel="stylesheet" href="css/tinycarousel.css" />
         
         <link rel="stylesheet" href="css/flexslider.css" />
+        <link rel="stylesheet" href="css/uploadfile.css" />
 		<!-- jQuery / jQueryMobile Scripts -->
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
         <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
         <script src="js/jquery.tinycarousel.min.js"></script>
         <script src="js/mobileJquery.js"></script>
+        <script src="js/jquery.uploadfile.min.js"></script>
 
         <script src="js/register.js"></script> 
         
@@ -76,8 +78,8 @@
                             <input type="password" name="password" id="password" value="" placeholder="PASSWORD" style="border:1px solid #b54037;" data-corners='false'/>
                             <div id="activity" class="ui-grid-a ui-responsive">
                                 <div class="ui-block-a"><textarea  rows="400" cols="50" name="bio" id="bio" placeholder="BIO" style="border:1px solid #b54037;" data-corners='false'></textarea></div>
-                                
-                                <div class="ui-block-b"><button data-theme="e"><i class='fa fa-image fa-2x'></i>UPLOAD A PICTURE</button></div>     
+                                <div class="ui-block-b" id="fileuploader">UPLOAD A PICTURE</div>
+<!--                                <div class="ui-block-b"><button data-theme="e"><i class='fa fa-image fa-2x'></i>UPLOAD A PICTURE</button></div>     -->
                                 
                             </div>
                             
@@ -86,6 +88,7 @@
                             <input type="hidden" name="userid" id="userid">
                             <input type="hidden" name="tag" id="tag">
                         </form>
+                        
                         <div class="ui-grid-solo">
                             <div class="ui-block-a"><button id='submitRegistrationButton'><i class='fa fa-chevron-right fa-1x pull-right'></i>CONTINUE</button></div>    
                         </div>
