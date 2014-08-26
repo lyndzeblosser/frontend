@@ -65,6 +65,10 @@
                     
                     <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
                 </ul>
+                <form name="acceptInvite" id="acceptInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/acceptInvitation">  
+                    <input type="hidden" name="username_from_accept" id="username_from">
+                    <input type="hidden" name="username_to_accept" id="username_to">
+                 </form>
             </div>
             <div data-role="panel" id="myProfilePanel" data-position="left" data-display="push" data-theme="e" style="text-align: center;padding:0em">
                 <ul data-role="listview">
@@ -136,10 +140,17 @@
                     <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; INVITATIONS</h4></li>
                 </ul>
                 <br>
-                <ul data-role="listview" name="invitationsList" id="invitationsList" data-theme="c" >
-                    <h4>PENDING INVITES</h4>
-                </ul>
-                
+                <h4>PENDING INVITES</h4>
+                <div id="sliderPendingInvites">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul name="invitationsList" id="invitationsList" >
+
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+                                
             </div>
             
             <div data-role="panel" id="preferencesPanel" data-position="left" data-display="push" data-theme="e">
