@@ -70,8 +70,11 @@ $(document).ready(function()
                                                         success:function(data, textStatus, jqXHR) 
                                                         {
                                                             console.log("Registration Form Submitted Successfully!");
+                                                            var userid = document.getElementById("email");
+                                                            console.log(sortId);
+                                                            addUserTags(userid, sortId)
                                                             $( "#successfulRegistrationPopup" ).popup( "open" );
-
+                                                            
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) 
                                                         {
@@ -82,13 +85,34 @@ $(document).ready(function()
                                                         }
                                                         
                                                     });
-                                                    
-                                                });
+function addUserTags(userid, tagsList)
+{
+    console.log('tagsList: ' + tagsList);
+//    var tags = tagsList.split(",");
+//    console.log('tags: ' + tags);
+    for (i=0; i<tagsList.length; i++){
+        addUserTag(userid, tagsList[i]);
+    }
+}    
+    
+function addUserTag(userid, tag)
+{
+ 
+    $("#userid").val(userid);
+    $("#tag").val(tag);
+
+    document.forms["addUserTagForm"].submit(function(e) 
+                                 {
+                                    e.preventDefault();
+                                  });
+}                                                
                     $("#redirectButton").click(function()
                                                         {
                                                             window.location.href = "mood.html";
                                                         });  
-                                                       
+                                                                                                           
+                                                });
+
 function getTopics()
     {
     var lengthOfTopicsArray;
@@ -99,6 +123,5 @@ function getTopics()
     });
     
     }
-    
-    
+
 });
