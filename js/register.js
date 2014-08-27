@@ -1,36 +1,9 @@
-var uploadInitCount = 0;
-function setupFormValidation()
-        {
-            //form validation rules
-            $("#registerForm").validate({
-                rules: {
-                    firstName: "required",
-                    lastName: "required",
-                    homeTown:"required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    },
-                    agree: "required"
-                },
-                messages: {
-                    firstName: "Please enter your firstname",
-                    lastName: "Please enter your lastname",
-                    homeTown:"Please enter your hometown",
-                    password: {
-                        required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
-                    },
-                    email: "Please enter a valid email address",
-                    agree: "Please accept our policy"
-                },
-                submitHandler: function(form) {
- event.preventDefault();
 
+var uploadInitCount = 0;
+function submitForm ()
+{
+     //event.preventDefault();
+console.log("validate function1");
                                                   // Get some values from elements on the page:
                                                     var postData = $("#registerForm").serializeArray();
                                                   var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
@@ -82,6 +55,40 @@ function addUserTag(userid, tag)
                                                         {
                                                             window.location.href = "mood.html";
                                                         }); 
+}
+function setupFormValidation()
+        {
+            //form validation rules
+    console.log("validate function");        
+    $("#registerForm").validate(
+                    {     
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    homeTown:"required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    agree: "required"
+                },
+                messages: {
+                    firstName: "Please enter your firstname",
+                    lastName: "Please enter your lastname",
+                    homeTown:"Please enter your hometown",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    email: "Please enter a valid email address",
+                    agree: "Please accept our policy"
+                },
+                submitHandler: function(form) {
+               submitForm();
                 }
             });
         }
@@ -90,7 +97,11 @@ $(document).ready(function()
                         var lengthOfTopics = getTopics();
                         var selectedTopic = [];
                         var sortId = [];
-                      
+                      $( "#submitRegistrationButton" ).click(function( event ) 
+                                                {
+                                                  setupFormValidation ();
+                                                                                                           
+                                                });                      
                       $("#password").keydown(function()
                                      {
                                          uploadInitCount++;
@@ -116,10 +127,10 @@ $(document).ready(function()
             }
             $("#topic").addClass("overview"); 
 
-            $('#slider1').tinycarousel(
-            {
-                infinite:"true"
-            });
+//            $('#slider1').tinycarousel(
+  //          {
+    //            infinite:"true"
+      //      });
                                                 
             //obtaining selected topics and disabling selection of any topic multiple times
             $("button[id^='topic']").click(function()
@@ -150,13 +161,7 @@ $(document).ready(function()
         {
             console.log("FAILURE " + message);
         });
-                      $( "#submitRegistrationButton" ).click(function( event ) 
-                                                {
- 
-                                                  setupFormValidation ();
-                                                  
-                                                                                                           
-                                                });
+
 
 function getTopics()
     {
