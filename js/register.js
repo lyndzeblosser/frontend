@@ -1,4 +1,5 @@
- function setupFormValidation()
+var uploadInitCount = 0;
+function setupFormValidation()
         {
             //form validation rules
             $("#registerForm").validate({
@@ -92,7 +93,11 @@ $(document).ready(function()
                       
                       $("#password").keydown(function()
                                      {
-                                        initializeFileUpload();                   
+                                         uploadInitCount++;
+                                         if(uploadInitCount<=1)
+                                         {
+                                            initializeFileUpload();                   
+                                         }
                                      });
                       
 
