@@ -48,15 +48,12 @@ $(document).ready(function()
         //creating list for selection of discussion topics
         for (var i = 0; i < lengthOfTopicsArray; i++)
         {
-            $('#topic').append('<li>' + data[i].tagName + '<br><br><br><button id = "topic' + i + '" data-theme="a" data-inline="true" value="' + data[i].tagName + '">SELECT</button></li>').trigger('create');
+            $('#topic').append('<li><button id = "topic' + i + '" data-theme="a"  value="' + data[i].tagName + '">' + data[i].tagName + '</button></li>').trigger('create');
 
         }
         $("#topic").addClass("overview");
 
-        $('#slider1').tinycarousel(
-                {
-                    infinite: "true"
-                });
+      
 
         //obtaining selected topics and disabling selection of any topic multiple times
         $("button[id^='topic']").click(function()
