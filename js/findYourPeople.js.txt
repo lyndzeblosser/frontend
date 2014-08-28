@@ -9,7 +9,7 @@ $(document).ready(function ()
                     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('userid'));
                    
                 });
-
+    
 function getParameterByName(name) 
 {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -45,19 +45,58 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         jsonImgObj.push(imgItem);
                         
                         alert("selected images json array: " + jsonImgObj);
-                        
+
                     }
-                    
+                    $("#inviteButton").click(function()
+                    {
+
+                        var slideTitle = api.getField('title');
+	                    alert("slide title: " + slideTitle);
+                        
+                        if(selectedUsers === [])
+                        {
+                            selectedUsers[0] = slideTitle;   
+                        }
+                        else
+                        {
+                            selectedUsers.push(slideTitle);
+                        }
+
+                        console.log('selectedUsers: ' + selectedUsers);
+//                        $("#sendInvitesButton").removeClass('ui-disabled');
+//
+//                        $(this).addClass('ui-disabled');	
+                      });
+
+//                     $("#sendInvitesButton").click(function()
+//                     {
+//                         window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&loggedInUserId=" + userid;
+//                     });
+    //                $("#searchResults").addClass("slides");
+    //                $("p[name^='sliderCaption']").addClass('flex-caption');
                 }
-                
-                
+//                $("#sendInvitesButton").addClass('ui-disabled');
+//                $("#main").append('<i class="fa fa-quote-left fa-3x pull-left fa-border">Sorry, no one found. Please search again!</i><br>');
+//                $("#main").append('<br><br><br><br><i id="backToMood" class="fa fa-2x fa-long-arrow-left">Go Back</i>');
+//                
+//                $("backToMood").css("color", "red");
+//                $("#backToMood").click(function()
+//                                       {
+//                                           window.location.href="mood.html";
+//                                       });
             },
             error: function (error, message) 
             {
+//                $("#sendInvitesButton").addClass('ui-disabled');
                 console.log("Failure: " + message);        
             },
-            complete: function(data)
+            complete: function()
             {
+//                $('.flexslider').flexslider(
+//                    {
+//                        animation: "slide",
+//                        controlNav: "thumbnails"
+//                    });
                 
                 $.supersized({
 				
@@ -96,60 +135,6 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
 					mouse_scrub				:	0
 					
 				});
-                
-                $("#inviteButton").click(function()
-                    {
-
-                        var slideTitle = api.getField('title');
-	                    alert("slide title: " + slideTitle);
-                        
-                        if(selectedUsers === [])
-                        {
-                            selectedUsers[0] = slideTitle;   
-                        }
-                        else
-                        {
-                            selectedUsers.push(slideTitle);
-                        }
-
-                        console.log('selectedUsers: ' + selectedUsers);
-                    });
-                
-                $("#prevslide").click(function(data)
-                      {
-                          for(var i=0;i<data.length;i++)
-                          {
-                              if(data[i].userid === api.getField("title"))
-                              {
-                                $("#name").val(data[i].name);
-                                $("#age").val(data[i].age);  
-                                $("#bio").val(data[i].bio);  
-                              }
-                          }
-                      });
-                
-                $("#nextslide").click(function(data)
-                      {
-                          for(var i=0;i<data.length;i++)
-                          {
-                              if(data[i].userid == api.getField("title"))
-                              {
-                                $("#name").val(data[i].name);
-                                $("#age").val(data[i].age);  
-                                $("#bio").val(data[i].bio);  
-                              }
-                          }
-                      });
-                
-                for(var i=0;i<data.length;i++)
-                {
-                    if(data[i].userid === api.getField("title"))
-                    {
-                        $("#name").val(data[i].name);
-                        $("#age").val(data[i].age);  
-                        $("#bio").val(data[i].bio);  
-                    }
-                }
             }
         });
     

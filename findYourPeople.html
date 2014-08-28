@@ -1,62 +1,80 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Find Your People</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+	<!--
+		Supersized - Fullscreen Slideshow jQuery Plugin
+		Version : 3.2.7
+		Site	: www.buildinternet.com/project/supersized
 		
-		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+		Author	: Sam Dunn
+		Company : One Mighty Roar (www.onemightyroar.com)
+		License : MIT License / GPL License
+	-->
 
-		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
+	<head>
+
+		<title>Supersized - Full Screen Background Slideshow jQuery Plugin</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		
+		<link rel="stylesheet" href="supersized/css/supersized.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="supersized/theme/supersized.shutter.css" type="text/css" media="screen" />
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="supersized/js/jquery.easing.min.js"></script>
+		
+		<script type="text/javascript" src="supersized/js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="supersized/theme/supersized.shutter.min.js"></script>
         
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
-        
-        <link rel="stylesheet" href="css/flexslider.css" />
+        <script type="text/javascript" src="js/findYourPeople.js"></script>
+		
+	</head>
+	
+	<style type="text/css">
+		ul#demo-block{ position: relative; margin:0 15px 15px 15px; }
+			ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:right; clear:both; color:#aaa; background:url('supersized/img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
+			ul#demo-block li a{ color:#eee; font-weight:bold; }
+	</style>
 
-		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
-        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-        <script src="js/jquery.flexslider-min.js"></script>
-        <script src="js/findYourPeople.js"></script>
-        
-        
-    </head>
-    
-    <body>
-        <div data-role="page" data-theme='a' id='second'>
-            
-           <div data-role="header" data-position="fixed" data-theme='a' data-position="inline">
-                <h1>FIND YOUR PEOPLE</h1>
-            </div>   
+<body>
+<!--Demo styles (you can delete this block)-->
+	
+	<ul id="demo-block">
+		<li id="name"></li>
+		<li id="age"></li>
+		<li id="bio"></li>
+		<li id="matchingTags">Matching Tags</li>
+		<li><button id="inviteButton">INVITE</button></li>
+	</ul>
+	
+<!--End of styles-->
 
-            <div data-role="main" class="ui-content" style="text-align: center;padding:0em" id="main">
-
-                <div class="flexslider">
-
-                  <ul id="searchResults" class="slides">
-                  </ul>
-<!--                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>
-                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>
-                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>  
-                  </ul>-->
-                </div>
-                <button id='sendInvitesButton' data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; Send Invites</button>
-
-                
-            </div>
-        </div>
-    
-    </body>
+	
+<!--Arrow Navigation-->
+	<a id="prevslide" class="load-item"></a>
+	<a id="nextslide" class="load-item"></a>
+	
+<!--Time Bar-->
+	<div id="progress-back" class="load-item">
+		<div id="progress-bar"></div>
+	</div>
+	
+<!--Control Bar-->
+	<div id="controls-wrapper" class="load-item">
+		<div id="controls">
+			
+		<!--Slide counter-->
+			<div id="slidecounter">
+				<span class="slidenumber"></span> / <span class="totalslides"></span>
+			</div>
+			
+			<!--Slide captions displayed here-->
+			<div id="slidecaption"></div>
+			
+			<!--Navigation-->
+			<ul id="slide-list"></ul>
+			
+		</div>
+	</div>
+</body>
 </html>
