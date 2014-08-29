@@ -1,5 +1,8 @@
 
 var uploadInitCount = 0;
+var sortId = [];
+var homeLat, homeLng;
+
 function submitForm ()
 {
     //event.preventDefault();
@@ -15,9 +18,10 @@ function submitForm ()
         success:function(data, textStatus, jqXHR) 
         {
             console.log("Registration Form Submitted Successfully!");
-            var userid = document.getElementById("email");
+            var userid = $("#email").val();
             console.log(sortId);
             addUserTags(userid, sortId);
+            addUserHomeLocation(userid, homeLat, homeLng);
             $( "#successfulRegistrationPopup" ).popup( "open" );
                                                             
         },
@@ -40,17 +44,31 @@ function submitForm ()
         }
     }    
     
-    function addUserTag(userid, tag)
-    {
- 
-        $("#userid").val(userid);
-        $("#tag").val(tag);
+function addUserTag(userid, tag)
+{
+    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserTag",
+     {
+        userid:userid,
+        tag:tag,
+      },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
+}
 
-        document.forms["addUserTagForm"].submit(function(e) 
-        {
-            e.preventDefault();
-        });
-    }                                                
+function addUserHomeLocation(userid, homeLat, homeLng)
+{
+    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserHomeLocation",
+     {
+        userid:userid,
+        homeLat:homeLat,
+        homeLng:homeLng
+      },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
+}
+
     $("#redirectButton").click(function()
     {
         window.location.href = "mood.html";
@@ -96,7 +114,16 @@ $(document).ready(function()
 {
     var lengthOfTopics = getTopics();
     var selectedTopic = [];
-    var sortId = [];
+
+    var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
+    google.maps.event.addListener(autocomplete, 'place_changed', function()
+    {
+        var place = autocomplete.getPlace();
+        homeLat = place.geometry.location.lat();
+        homeLng = place.geometry.location.lng();
+        console.log(homeLat, homeLng)
+    });
+    
     $( "#submitRegistrationButton" ).click(function( event ) 
     {
         setupFormValidation ();
