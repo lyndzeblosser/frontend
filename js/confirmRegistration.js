@@ -1,7 +1,17 @@
 $(document).ready(function()
 {       var postData = null;
-      var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/registerUser?key=dmFpYmhhdmJzaGFoQGdtYWlsLmNvbQ== ";
-      $.ajax(
+        var vars;
+    //Extracting hash value
+    var QueryString = function () {
+  var query = window.location.search.substring(1);
+  var vars = query.split("?");
+  console.log("vars = "+vars);
+        return vars;
+} ();
+    
+      var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/registerUser?key=" + vars;
+			  
+    $.ajax(
                                                     {
                                                         url : formURL,
                                                         type: "POST",
@@ -10,18 +20,18 @@ $(document).ready(function()
                                                         {
                                                             console.log("Registration Validated Successfully!");
                                                             var userid = document.getElementById("email");
-                                                            $( "#successfulRegistrationPopup" ).popup( "open" );
                                                             
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) 
                                                         {
-                                                            console.log("Registration Form was not Submitted!");
+                                                            console.log(errorThrown);
                                                         },
                                                         done: function()
                                                         {
                                                         }
                                                         
                                                     });
+                                                    
 }
 );
 

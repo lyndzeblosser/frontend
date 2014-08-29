@@ -92,7 +92,12 @@ function setupFormValidation()
                 required: true,
                 minlength: 5
             },
-            agree: "required"
+            ConfirmPassword: {
+                equalTo: "#password"
+            },
+            dateOfBirth: {
+                required: true
+            }
         },
         messages: {
             firstName: "Please enter your firstname",
@@ -101,6 +106,9 @@ function setupFormValidation()
             password: {
                 required: "Please provide a password",
                 minlength: "Your password must be at least 5 characters long"
+            },
+            ConfirmPassword: {
+                equalTo: "Your passwords don't match"
             },
             email: "Please enter a valid email address",
             agree: "Please accept our policy"

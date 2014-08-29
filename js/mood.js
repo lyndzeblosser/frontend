@@ -34,9 +34,7 @@ $(document).ready(function()
         $(".activitiesButton").css("background-color", "#b54037")
         $(this).css("background-color", "#fc5b3f")
 
-    })
-
-    
+    }) 
 
 
     lengthOfTopics.success(function(data)
