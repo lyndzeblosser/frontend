@@ -14,6 +14,11 @@ $(document).ready(function ()
                            window.location.href="register.html";
 
                         });
+                     $("#forgotPwdButton").click(function()
+                        {
+                           window.location.href="confirmRegistration.html?hashvalue=test1";
+
+                        });    
                 });
 
 function getParameterByName(name) 
