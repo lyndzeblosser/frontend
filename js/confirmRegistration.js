@@ -3,7 +3,6 @@ $(document).ready(function()
         var vars;
     //Extracting hash value
     var QueryString = function () {
-  
   var query = window.location.search.substring(1);
   var vars = query.split("?");
   console.log("vars = "+vars);
@@ -25,7 +24,7 @@ $(document).ready(function()
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) 
                                                         {
-                                                            console.log("Registration verified!");
+                                                            console.log(errorThrown);
                                                         },
                                                         done: function()
                                                         {
