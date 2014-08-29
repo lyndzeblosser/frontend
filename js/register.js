@@ -110,6 +110,9 @@ function setupFormValidation()
             ConfirmPassword: {
                 equalTo: "Your passwords don't match"
             },
+            ConfirmPassword: {
+                equalTo: "Your passwords don't match"
+            },
             email: "Please enter a valid email address",
             agree: "Please accept our policy"
         },
