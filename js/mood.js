@@ -88,9 +88,11 @@ $(document).ready(function()
 
         alert('user in session: ' + $.session.get('userid'));
         var userInvitations = getInvitations();
+        
         //append invitations of user in session
-        if (userInvitations != null)
             userInvitations.success(function(data) {
+              if (userInvitations !== null) {
+
                 console.log('userInvitations count: ' + data.length);
                 $.session.set('userInvitesCount', data.length);
                 $('#invitationsTag').append('[' + getUserInvitesCount() + ']');
@@ -99,24 +101,26 @@ $(document).ready(function()
                     $('#invitationsList').append('<li><img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p>' + data[i].username_from + ' <button id = "user' + i + '" data-theme = "a" data-inline = "true" class="ui-btn ui-btn-a ui-btn-inline ui-shadow ui-corner-all" value=' + data[i].username_from + '> Accept </button><br>' + data[i].time + '</p>');
 
                 }
+                if (data.length > 0) {
+                    $("#invitationsList").addClass("overview");
 
-                $("#invitationsList").addClass("overview");
-
-                $('#sliderPendingInvites').tinycarousel(
-                        {
-                            infinite: "true"
-                        });
-                $("button[id^='user']").click(function()
-                {
+                    $('#sliderPendingInvites').tinycarousel(
+                            {
+                                infinite: "true"
+                            });
+                    $("button[id^='user']").click(function()
+                    {
 
 
-                    acceptInvite($(this).val(), $.session.get('userid'))
+                        acceptInvite($(this).val(), $.session.get('userid'))
 
-                    console.log('accepted invite from: ' + $(this).val());
-                    $(this).addClass('ui-disabled');
-                });
+                        console.log('accepted invite from: ' + $(this).val());
+                        $(this).addClass('ui-disabled');
+                    });
+                }
+            }
             });
-
+        
 
         $('#findMyPeopleButton').click(function()
         {
