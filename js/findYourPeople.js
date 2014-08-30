@@ -10,6 +10,19 @@ $(document).ready(function ()
                    
                 });
 
+function fillImgDetails(data)
+{
+    for(var i=0;i<data.length;i++)
+    {
+        if(data[i].userid === api.getField("title"))
+        {
+            $("#name").val(data[i].name);
+            $("#age").val(data[i].age);  
+            $("#bio").val(data[i].bio);  
+        }
+    }
+}
+
 function getParameterByName(name) 
 {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -34,7 +47,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             dataType: "json",
             success: function (data) 
             {
-                alert("data: " + data);
+                console.log("data: " + data);
                 if(data != "undefined")
                 {    
                     for(var i=0;i<data.length;i++)
@@ -44,7 +57,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         
                         jsonImgObj.push(imgItem);
                         
-                        alert("selected images json array: " + jsonImgObj);
+                        //console.log("selected images json array: " + jsonImgObj);
                         
                     }
                     
@@ -97,11 +110,13 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
 					
 				});
                 
+                fillImgDetails(data);
+                
                 $("#inviteButton").click(function()
                     {
 
                         var slideTitle = api.getField('title');
-	                    alert("slide title: " + slideTitle);
+	                    console.log("slide title: " + slideTitle);
                         
                         if(selectedUsers === [])
                         {
@@ -117,9 +132,10 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                 
                 $("#prevslide").click(function(data)
                       {
+                          var slideTitle = api.getField('title');
                           for(var i=0;i<data.length;i++)
                           {
-                              if(data[i].userid === api.getField("title"))
+                              if(data[i].userid === slideTitle)
                               {
                                 $("#name").val(data[i].name);
                                 $("#age").val(data[i].age);  
@@ -130,9 +146,10 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                 
                 $("#nextslide").click(function(data)
                       {
+                          var slideTitle = api.getField('title');
                           for(var i=0;i<data.length;i++)
                           {
-                              if(data[i].userid == api.getField("title"))
+                              if(data[i].userid === slideTitle)
                               {
                                 $("#name").val(data[i].name);
                                 $("#age").val(data[i].age);  
@@ -140,16 +157,6 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                               }
                           }
                       });
-                
-                for(var i=0;i<data.length;i++)
-                {
-                    if(data[i].userid === api.getField("title"))
-                    {
-                        $("#name").val(data[i].name);
-                        $("#age").val(data[i].age);  
-                        $("#bio").val(data[i].bio);  
-                    }
-                }
             }
         });
     
