@@ -120,7 +120,7 @@ $(document).ready(function()
                 }
             }
             });
-        
+     
 
         $('#findMyPeopleButton').click(function()
         {

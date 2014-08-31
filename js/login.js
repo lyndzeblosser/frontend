@@ -16,7 +16,7 @@ $(document).ready(function ()
                         });
                      $("#forgotPwdButton").click(function()
                         {
-                           window.location.href="confirmRegistration.html?hashvalue=test1";
+                           
 
                         });    
                 });
