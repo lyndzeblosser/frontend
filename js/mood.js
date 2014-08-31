@@ -88,7 +88,8 @@ $(document).ready(function()
 
         alert('user in session: ' + $.session.get('userid'));
         var userInvitations = getInvitations();
-        
+        var userTable = getUserTable();
+
         //append invitations of user in session
             userInvitations.success(function(data) {
               if (userInvitations !== null) {
@@ -104,10 +105,10 @@ $(document).ready(function()
                 if (data.length > 0) {
                     $("#invitationsList").addClass("overview");
 
-                    $('#sliderPendingInvites').tinycarousel(
-                            {
-                                infinite: "true"
-                            });
+//                    $('#sliderPendingInvites').tinycarousel(
+//                            {
+//                                infinite: "true"
+//                            });
                     $("button[id^='user']").click(function()
                     {
 
@@ -121,6 +122,37 @@ $(document).ready(function()
             }
             });
      
+            //append accepted invites of user in session
+            userTable.success(function(data) {
+              if (userTable !== null) {
+
+                console.log('userTable count: ' + data.length);
+                $.session.set('userTableCount', data.length);
+                $('#myTableTag').append('[' + getUserTablesCount() + ']');
+                for (var i = 0; i < data.length; i++) {
+                    //                                                      console.log('invitationsList html: ' + );
+                    $('#userTableList').append('<li><img src="img/' + data[i].username_from + '.jpeg" draggable="false""/><p>' + data[i].username_from + '<br>' + data[i].username_to + '<br>'+ data[i].time + '</p>');
+
+                }
+                if (data.length > 0) {
+                    $("#userTableList").addClass("overview");
+
+//                    $('#sliderUserTable').tinycarousel(
+//                            {
+//                                infinite: "true"
+//                            });
+//                    $("button[id^='user']").click(function()
+//                    {
+//
+//
+//                        acceptInvite($(this).val(), $.session.get('userid'))
+//
+//                        console.log('accepted invite from: ' + $(this).val());
+//                        $(this).addClass('ui-disabled');
+//                    });
+                }
+            }
+            });
 
         $('#findMyPeopleButton').click(function()
         {
@@ -217,6 +249,26 @@ function getInvitations()
     }
 
 
+}
+
+function getUserTable()
+{
+    if ($.session.get('userid') === undefined) {
+        return null;
+    }
+    else {
+        return $.ajax({
+            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getUserTable?userid=" + $.session.get('userid'),
+            async: false,
+            dataType: "json"
+        });
+    }
+
+
+}
+
+function getUserTablesCount() {
+    return $.session.get('userTableCount');
 }
 
 function getUserInvitesCount() {

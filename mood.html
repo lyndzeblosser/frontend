@@ -55,9 +55,9 @@
                 <ul data-role="listview">
                     <li style="background-color:#808080;" class="stateless"><h4 style="color:#ffffff">&nbsp; &nbsp; DISCUSSIONS</h4></li>
                     
-                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-users'></i>&nbsp; UPCOMING</a></li>
+                    <li data-icon='false' class="loggedInFields"><a href="#myTable"><div id="myTableTag"><i class='lIcon fa fa-users'></i>&nbsp; MY TABLE </div></a></li>
                     
-                    <li data-icon='false' class="loggedInFields"><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; INVITATIONS </div></a></li>
+                    <li data-icon='false' class="loggedInFields"><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; PENDING INVITATIONS </div></a></li>
                     
                     <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
                    
@@ -133,6 +133,24 @@
                     <h4>PROFESSIONAL INTERESTS</h4>
                 </ul>
                 
+            </div>
+            
+             <div data-role="panel" id="myTable" data-position="right" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; MY TABLE</h4></li>
+                </ul>
+                <br>
+                <h4>MY TABLE</h4>
+                <div id="sliderUserTable">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul name="userTableList" id="userTableList" >
+
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+                                
             </div>
             
             <div data-role="panel" id="myInvitations" data-position="right" data-display="push" data-theme="e">

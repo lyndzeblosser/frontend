@@ -9,7 +9,7 @@ $(document).ready(function()
         return vars;
 } ();
     
-      var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/registerUser?key=" + vars;
+      var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/registerUser?" + QueryString;
 			  
     $.ajax(
                                                     {
