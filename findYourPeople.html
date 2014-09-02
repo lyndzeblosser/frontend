@@ -1,80 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-	<!--
-		Supersized - Fullscreen Slideshow jQuery Plugin
-		Version : 3.2.7
-		Site	: www.buildinternet.com/project/supersized
-		
-		Author	: Sam Dunn
-		Company : One Mighty Roar (www.onemightyroar.com)
-		License : MIT License / GPL License
-	-->
-
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 	<head>
-
-		<title>Supersized - Full Screen Background Slideshow jQuery Plugin</title>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Find Your People - TABLETRIBES</title>
+		<meta name="description" content="Find Your People - TABLETRIBES" />
+		<meta name="keywords" content="pushing menu, navigation, responsive, menu, css, jquery" />
+		<meta name="author" content="Rohit Khanduri" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		
-		<link rel="stylesheet" href="supersized/css/supersized.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="supersized/theme/supersized.shutter.css" type="text/css" media="screen" />
+		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="js/classie.js"></script>
+		<script src="js/findYourPeople.js"></script>
 		
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript" src="supersized/js/jquery.easing.min.js"></script>
-		
-		<script type="text/javascript" src="supersized/js/supersized.3.2.7.min.js"></script>
-		<script type="text/javascript" src="supersized/theme/supersized.shutter.min.js"></script>
-        
-        <script type="text/javascript" src="js/findYourPeople.js"></script>
 		
 	</head>
-	
-	<style type="text/css">
-		ul#demo-block{ position: relative; margin:0 15px 15px 15px; }
-			ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:right; clear:both; color:#aaa; background:url('supersized/img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
-			ul#demo-block li a{ color:#eee; font-weight:bold; }
-	</style>
-
-<body>
-<!--Demo styles (you can delete this block)-->
-	
-	<ul id="demo-block">
-		<li id="name"></li>
-		<li id="age"></li>
-		<li id="bio"></li>
-		<li id="matchingTags">Matching Tags</li>
-		<li><button id="inviteButton">INVITE</button></li>
-	</ul>
-	
-<!--End of styles-->
-
-	
-<!--Arrow Navigation-->
-	<a id="prevslide" class="load-item"></a>
-	<a id="nextslide" class="load-item"></a>
-	
-<!--Time Bar-->
-	<div id="progress-back" class="load-item">
-		<div id="progress-bar"></div>
-	</div>
-	
-<!--Control Bar-->
-	<div id="controls-wrapper" class="load-item">
-		<div id="controls">
-			
-		<!--Slide counter-->
-			<div id="slidecounter">
-				<span class="slidenumber"></span> / <span class="totalslides"></span>
-			</div>
-			
-			<!--Slide captions displayed here-->
-			<div id="slidecaption"></div>
-			
-			<!--Navigation-->
-			<ul id="slide-list"></ul>
-			
+	<body id="body" class="cbp-spmenu-push">
+		
+		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<h3>Bottom Menu</h3>
+			<h3 id="name">Temporary Name</h3>
+			<h3 id="age">Temporary Age</h3>
+			<h3 id="bio">Short Biography</h3>
+		</nav>
+		<div class="container">
+			<header class="clearfix">
+				<h1>Find Your People</h1>
+				<nav>
+					<a href="#" id="showInfo" class="icon-info" data-info="Details about this person">Details about this person</a>
+					<a href="#" id="changeSlide" class="icon-next-slide" data-info="Next Person">Next Person</a>
+				</nav>
+			</header>
+			<div class="main">
 		</div>
-	</div>
-</body>
+		</div>
+	</body>
 </html>
