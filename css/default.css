@@ -89,7 +89,7 @@ a:hover {
 	position: relative;
 	width: 5em;
 	height: 5em;
-	background: url(img/white.jpg);
+	background: url(../img/white.jpg);
 	opacity:1;
 	border-radius: 50%;
 	color: transparent;

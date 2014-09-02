@@ -52,6 +52,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             dataType: "json",
             success: function (data) 
             {
+                console.log("success data-------" + data);
               
             },
             error: function (error, message) 
@@ -73,19 +74,21 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     }
                     
                 }
-				
+				console.log("json img object: " + jsonImgObj);
 				/*function to change images and toggle information about user*/
                 var imgList = jsonImgObj;
-				var imgJSON = JSON.parse(imgList);
+				//var imgJSON = JSON.parse(imgList[0]);
 				var clickCount = 0;
 				
 				var showInfo = document.getElementById( 'showInfo' ),
 				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
 				changeSlide = document.getElementById( 'changeSlide' ),
 				body = $("#body");
+                
+                console.log("imgList[clickCount]-----" + JSON.stringify(imgList[clickCount]));
 			
-				var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).src.toString();
-				console.log("src-----" + img);
+				var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
+				console.log("src-----" + initialImg);
 				
 				/*Setting initial image*/
 				body.css({"backgroundImage": "url("+initialImg+")"});
