@@ -14,16 +14,19 @@ $(document).ready(function ()
 function fillImgDetails(data, img)
 {
     var useridArrayInitial = img.split("/");
-	var useridArray = useridArrayInitial[useridArrayInitial-1].split(".jpeg");
+	var useridArray = useridArrayInitial[useridArrayInitial.length - 1].split(".jpeg");
 	var userid = useridArray[0];
+    
+    console.log("userid from img---------" + userid);
 	
-	for(var i=0;i<data.length;i++)
+    for(var i=0;i<data.length;i++)
     {
-        if(data[i].userid === userid)
-        {
-            $("#name").val(data[i].name);
-            $("#age").val(data[i].age);  
-            $("#bio").val(data[i].bio);  
+        if(JSON.parse(JSON.stringify(data[i])).userid.toString() == userid)
+        {   
+            //JSON.parse(JSON.stringify(data[i])).firstname.toString()
+            $("#name").text(JSON.parse(JSON.stringify(data[i])).firstname.toString() + " " + JSON.parse(JSON.stringify(data[i])).lastname.toString());
+            $("#age").text(JSON.parse(JSON.stringify(data[i])).date_of_birth.toString());  
+            $("#bio").text(JSON.parse(JSON.stringify(data[i])).bio.toString());  
         }
     }
 }
@@ -52,7 +55,65 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             dataType: "json",
             success: function (data) 
             {
-                console.log("success data-------" + data);
+                console.log("success data-------" + JSON.stringify(data));
+                
+                if(data == "undefined")
+                {
+                    console.log("no data found..");
+                }
+                
+                if(data != "undefined")
+                {    
+                    for(var i=0;i<data.length;i++)
+                    {
+                        imgItem["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
+                        imgItem["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                        
+                        jsonImgObj.push(imgItem);
+                    }
+                    console.log("json img object: " + jsonImgObj);
+                    /*function to change images and toggle information about user*/
+                    var imgList = jsonImgObj;
+                    var clickCount = 0;
+                    
+                    var showInfo = document.getElementById( 'showInfo' ),
+                    menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+                    changeSlide = document.getElementById( 'changeSlide' ),
+                    body = $("#body");
+                    var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
+                    console.log("src-----" + initialImg);
+
+                    /*Setting initial image*/
+                    body.css({"backgroundImage": "url("+initialImg+")"});
+                    console.log("clickCount: " + clickCount);
+                    console.log("image being set as background: " + initialImg);
+                    fillImgDetails(data, initialImg);
+
+                    showInfo.onclick = function() {
+                        classie.toggle( this, 'active' );
+                        classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                    };
+
+                    changeSlide.onclick = function() {
+
+                        console.log("length of imgJSON : " + imgList.length);
+                        console.log("clickCount--------" + clickCount);
+
+                        if(clickCount >= imgList.length)
+                        {
+                            clickCount = 0;
+                        }
+
+                        var img = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
+
+                        console.log("clickCount: " + clickCount);
+                        console.log("image being set as background: " + img);
+                        body.css({"backgroundImage": "url(" + img + ")"});
+                        clickCount++;
+                        fillImgDetails(data, img);
+                    };
+                    
+                }
               
             },
             error: function (error, message) 
@@ -61,66 +122,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             },
             complete: function(data)
             {
-                console.log("data: " + data);
-                if(data != "undefined")
-                {    
-                    for(var i=0;i<data.length;i++)
-                    {
-                        imgItem["image"] = '../img/' + data[i].userid + '.jpeg';
-                        imgItem["title"] = data[i].userid;
-                        
-                        jsonImgObj.push(imgItem);
-                        
-                    }
-                    
-                }
-				console.log("json img object: " + jsonImgObj);
-				/*function to change images and toggle information about user*/
-                var imgList = jsonImgObj;
-				//var imgJSON = JSON.parse(imgList[0]);
-				var clickCount = 0;
-				
-				var showInfo = document.getElementById( 'showInfo' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				changeSlide = document.getElementById( 'changeSlide' ),
-				body = $("#body");
                 
-                console.log("imgList[clickCount]-----" + JSON.stringify(imgList[clickCount]));
-			
-				var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
-				console.log("src-----" + initialImg);
 				
-				/*Setting initial image*/
-				body.css({"backgroundImage": "url("+initialImg+")"});
-				console.log("clickCount: " + clickCount);
-				console.log("image being set as background: " + initialImg);
-
-				showInfo.onclick = function() {
-					classie.toggle( this, 'active' );
-					classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				};
-				
-				changeSlide.onclick = function() {
-				
-					console.log("length of imgJSON : " + imgList.length);
-					
-					if(clickCount == 0)
-					{
-						clickCount = 1;
-					}
-					if(clickCount >= imgList.length)
-					{
-						clickCount = 0;
-					}
-					
-					var img = JSON.parse(JSON.stringify(imgList[clickCount])).src.toString();
-					
-					console.log("clickCount: " + clickCount);
-					console.log("image being set as background: " + img);
-					body.css({"backgroundImage": "url(" + img + ")"});
-					clickCount++;
-					fillImgDetails(data, img);
-				};
             }
         });
     
