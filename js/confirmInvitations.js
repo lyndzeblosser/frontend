@@ -21,17 +21,28 @@ function getResult(latitude, longitude, activity, selectedUsers, loggedInUserId)
            // '<div class="ui-grid-b">'+  
             '<div style ="height:screen.height">'+
             '<table width = "100%" height = "100%" id="user-activity" style=" border-collapse: collapse; text-align:center ">'+
-            '<tr  bgcolor="orange" style="color:white" id="user-name">'+getUserNames(selectedUsers)+'</tr>'+
-            '<tr width="30%" id="user-images" >'+getUserImages(selectedUsers)+'</tr>'+
-            '<tr bgcolor="#424242" style="color:white" id="activity-tags">'+getUserTags(selectedUsers)+'</tr>'+    
+            '<tr height= "50px" bgcolor="orange" style="color:white" id="user-name">'+getUserNames(selectedUsers)+'</tr>'+
+            '<tr height= "100%"; id="user-images" >'+getUserImages(selectedUsers)+'</tr>'+
+            '<tr height= "50px" bgcolor="#424242" style="color:white" id="activity-tags">'+getUserTags(selectedUsers)+'</tr>'+    
             '</table>'+
             '</div>'+
             '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
-            '<tr  width = "100%" bgcolor="#89ccc0" style="color:red" >'+getTimeDate(selectedUsers)+'</tr>'+
+            '<tr  height= "75px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+getTimeDate(selectedUsers)+'</tr>'+
              '</table>' +      
             '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
-           '<tr  width = "100%" bgcolor="#89ccc0" style="color:red" >'+'<span id="location"></span>'+'</tr>'+
-             '</table>'       
+           '<tr  height= "35px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+'<span id="location"></span>'+'</tr>'+
+             '</table>' +      
+             '</table>' +      
+            '<table height= "125px" id="ActivityButton" width = "100%" >'+
+           '<tr  width = "100%" >'+
+            '<td  style=" border-style: dotted ; border-color:#c42a27; border-right : none" >'+
+           '<div class="ui-block-a" style ="border-color:#c42a27; color:#c42a27" >' + getActivityImage(activity) + '</div>'+
+           '</td>'+
+           '<td align="center" style="border-style: dotted ; border-color:#c42a27">'+
+           '<button id=confirmInvitesButton data-inline=true style ="color:white; background:#c42a27; width: 65% ; height: 100%">Send Invites</button>'+
+             '</td>'+
+            '</tr>'+
+             '</table>' 
 
             );
 
