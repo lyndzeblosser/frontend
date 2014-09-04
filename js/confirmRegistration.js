@@ -20,7 +20,7 @@ $(document).ready(function()
                                                         {
                                                             console.log("Registration Validated Successfully!");
                                                             var userid = document.getElementById("email");
-                                                            
+                                                            window.location.href = "mood.html";
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) 
                                                         {

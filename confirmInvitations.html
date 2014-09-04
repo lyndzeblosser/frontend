@@ -20,17 +20,23 @@
         <script src="js/jquery.flexslider-min.js"></script>
         <script src="js/confirmInvitations.js"></script>
     </head>
-    <body>
+    <body  style = "height:100%">
         <!-- Selected user for invite -->
-  <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
+  <div data-role="main" class="ui-content" style="text-align: center;padding:0em ; height:100%" >
 
-    <div data-role="page" id="confirmInvite">
+    <div data-role="page" id="confirmInvite" style = "height: 100%">
         <div data-role="header">
         <h1>Final Details</h1>
         </div>
-        <div data-role="main" class="ui-content" id="mainUI">
+        <div data-role="main" class="ui-content" id="mainUI" style="
+border-width: 0;
+overflow: visible;
+overflow-x: hidden;
+padding: 0em;
+height: 100%
+">
         </div>
-            <iframe name="hiddenFrame1" id = "hiddenFrame1" class="hide"></iframe>  
+            <!--iframe name="hiddenFrame1" id = "hiddenFrame1" class="hide"></iframe-->  
 
         <form name="confirmInviteForm" id="confirmInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/updateInvitation" target="hiddenFrame1">  
 
@@ -42,8 +48,10 @@
                 <input type="hidden" name="activity" id="activity">
 
         </form>
-     
-    <button id='confirmInvitesButton' data-inline='true'>Send Invites</button>
+        <div>
+
+            <button id='confirmInvitesButton' data-inline='true'>Send Invites</button>
+        </div>
 
     </div>
   </div>
