@@ -36,7 +36,7 @@ $(document).ready(function()
 
     }) 
 
-
+    if(typeof userid!="undefined"){}
     lengthOfTopics.success(function(data)
     {
         lengthOfTopicsArray = data.length;
@@ -91,8 +91,9 @@ $(document).ready(function()
         var userTable = getUserTable();
 
         //append invitations of user in session
+        if (userInvitations !== null) {
             userInvitations.success(function(data) {
-              if (userInvitations !== null) {
+              
 
                 console.log('userInvitations count: ' + data.length);
                 $.session.set('userInvitesCount', data.length);
@@ -105,10 +106,10 @@ $(document).ready(function()
                 if (data.length > 0) {
                     $("#invitationsList").addClass("overview");
 
-//                    $('#sliderPendingInvites').tinycarousel(
-//                            {
-//                                infinite: "true"
-//                            });
+                    //                    $('#sliderPendingInvites').tinycarousel(
+                    //                            {
+                    //                                infinite: "true"
+                    //                            });
                     $("button[id^='user']").click(function()
                     {
 
@@ -120,11 +121,13 @@ $(document).ready(function()
                     });
                 }
             }
-            });
+            );
+        }
      
-            //append accepted invites of user in session
+        //append accepted invites of user in session
+        if (userTable !== null) {
             userTable.success(function(data) {
-              if (userTable !== null) {
+           
 
                 console.log('userTable count: ' + data.length);
                 $.session.set('userTableCount', data.length);
@@ -137,30 +140,18 @@ $(document).ready(function()
                 if (data.length > 0) {
                     $("#userTableList").addClass("overview");
 
-//                    $('#sliderUserTable').tinycarousel(
-//                            {
-//                                infinite: "true"
-//                            });
-//                    $("button[id^='user']").click(function()
-//                    {
-//
-//
-//                        acceptInvite($(this).val(), $.session.get('userid'))
-//
-//                        console.log('accepted invite from: ' + $(this).val());
-//                        $(this).addClass('ui-disabled');
-//                    });
+                //                  
                 }
-            }
+            
             });
-
+        }
         $('#findMyPeopleButton').click(function()
         {
             if (validate(currentLat, currentLng, sortId, activity, getRadius(selectedLocation)))
             {
                 if (typeof $.session.get('userid') != "undefined")
                 {
-//                    updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+                    //                    updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
                     url = "findYourPeople.html?latitude=" + currentLat + "&longitude=" + currentLng + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
                     window.location.href = url;
                 }
@@ -210,9 +201,9 @@ $(document).ready(function()
             $("#address").attr("placeholder", "Value set to your current location")
             
             if (typeof $.session.get('userid') != "undefined")
-                {
-                    updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
-                }
+            {
+                updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+            }
         });
     }
     else
@@ -345,9 +336,9 @@ function updateUserLiveLocation(userid, lat, lng)
 
     $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/updateLiveLocation",
     {
-     userID:userid,
-     latitude:lat,
-     longitude:lng
+        userID:userid,
+        latitude:lat,
+        longitude:lng
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
