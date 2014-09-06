@@ -2,7 +2,7 @@ $(document).ready(function ()
                 {
                     var parameters = location.search;
                     var parameter = parameters.split("?");
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('loggedInUserId'));
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
                    
                 });
     
@@ -14,20 +14,20 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, activity, selectedUsers, loggedInUserId)
+function getResult(latitude, longitude, activity, selectedUsers, selectedUserNames, commonTags, inviteTime)
 {
     //$('#mainUI').append('<div class="ui-grid-b"><div class="ui-block-a">' + getActivityImage(activity) + '</div>' + getUserImages(selectedUsers) + '<div class="ui-block-d"><label for="location">Select a location to meet</label><select name="location" id="location"></select></div><br></div><div class="ui-grid-b"><div class="ui-block-a">Selected Date/Time:</div></div><div class="ui-block-a"></div>');
     $('#mainUI').append(
            // '<div class="ui-grid-b">'+  
             '<div style ="height:screen.height">'+
             '<table width = "100%" height = "100%" id="user-activity" style=" border-collapse: collapse; text-align:center ">'+
-            '<tr height= "50px" bgcolor="orange" style="color:white" id="user-name">'+getUserNames(selectedUsers)+'</tr>'+
+            '<tr height= "50px" bgcolor="orange" style="color:white" id="user-name">'+getUserNames(selectedUserNames)+'</tr>'+
             '<tr height= "100%"; id="user-images" >'+getUserImages(selectedUsers)+'</tr>'+
-            '<tr height= "50px" bgcolor="#424242" style="color:white" id="activity-tags">'+getUserTags(selectedUsers)+'</tr>'+    
+            '<tr height= "50px" bgcolor="#424242" style="color:white" id="activity-tags">'+getUserTags(commonTags)+'</tr>'+    
             '</table>'+
             '</div>'+
             '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
-            '<tr  height= "75px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+getTimeDate(selectedUsers)+'</tr>'+
+            '<tr  height= "75px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+getTimeDate(inviteTime)+'</tr>'+
              '</table>' +      
             '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
            '<tr  height= "35px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+'<span id="location"></span>'+'</tr>'+
@@ -58,7 +58,8 @@ function getResult(latitude, longitude, activity, selectedUsers, loggedInUserId)
 
     $("#confirmInvitesButton").click(function()
                 {
-                    sendInvitations(latitude, longitude, selectedUsers, activity, loggedInUserId);
+                    //assuming this page would always have userid logged in session
+                    sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
                  });
  
 }
@@ -99,6 +100,14 @@ function getActivityImage(activity)
     {
         return '<i class="fa fa-coffee fa-3x"></i>';
     }
+    else if (activity === 'food')   //check this, actvity doesn't work
+    {
+        return '<i class="fa fa-spoon fa-3x"></i>';
+    }
+    if (activity === 'drinks')   //check this, actvity doesn't work
+    {
+        return '<i class="fa fa-glass fa-3x"></i>';
+    }
     return '<i class="fa fa-coffee fa-3x"></i>'; 
 }
 
@@ -108,9 +117,12 @@ function getUserImages(selectedUsers)
     var users = selectedUsers.split(",");
     console.log('users: ' + users);
     
-    returnHTML+='<td stlye="border-style: dotted; border-color: red"><img WIDTH=100% src="img/abhishek.jpeg"></td>';
-    returnHTML+='<td ><img WIDTH=100% src="img/rohit.jpeg"></td>';
-    returnHTML+='<td ><img WIDTH=100% src="img/rohit.jpeg"></td>';
+    returnHTML+='<td stlye="border-style: dotted; border-color: red"><img WIDTH=100% src="img/' + users[0] + '.jpeg"></td>';
+    if (users.length>1) {
+       returnHTML+='<td ><img WIDTH=100% src="img/' + users[1] + '.jpeg"></td>';
+    }
+    if (users.length>2)
+    returnHTML+='<td ><img WIDTH=100% src="img/' + users[2] + '.jpeg"></td>';
     /*  for (i=0; i<users.length; i++){
         returnHTML += '<div class="ui-block-b"><img src="img/' + users[i] + '.jpeg"></div>';
     }*/
@@ -118,15 +130,21 @@ function getUserImages(selectedUsers)
 return returnHTML;
 }
 
-function getUserTags(selectedUsers)
+function getUserTags(matchingTags)
 {
     returnHTML = '';
-    var users = selectedUsers.split(",");
-    console.log('users: ' + users);
+    var matchingTagsArray = matchingTags.split(",");
+    console.log('matchingTags: ' + matchingTagsArray);
+    console.log('matchingTagsLength: ' + matchingTagsArray.length);
+
     
-    returnHTML+='<td style="align:right">"Tag 1"</td>';
-    returnHTML+='<td style="align:right">"Tag 2"</td>';
-    returnHTML+='<td style="align:right">"Tag 3"</td>';
+    returnHTML+='<td style="align:right">' + matchingTagsArray[0] + '</td>';
+    if (matchingTagsArray.length>1) {
+        returnHTML+='<td style="align:right">' + matchingTagsArray[1] + '</td>';
+    }
+    if (matchingTagsArray.length>2) {
+        returnHTML+='<td style="align:right">' + matchingTagsArray[2] + '</td>';
+    }
     /*  for (i=0; i<users.length; i++){
         returnHTML += '<div class="ui-block-b"><img src="img/' + users[i] + '.jpeg"></div>';
     }*/
@@ -134,15 +152,46 @@ function getUserTags(selectedUsers)
 return returnHTML;
 }
 
-function getTimeDate(selectedUsers)
+function getTimeDate(inviteTime)
 {
     returnHTML = '';
-    var users = selectedUsers.split(",");
-    console.log('users: ' + users);
+    var invitationTime;
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+//    console.log('users: ' + users);
+    if (inviteTime === '20m') {
+       invitationTime = addMinutes(new Date(), 20)  
+    }
+    else if (inviteTime === '1h') {
+        invitationTime = addMinutes(new Date(), 60)  
+
+    }
+    else if (inviteTime === '2h') {
+         invitationTime = addMinutes(new Date(), 120)  
+
+    }
     
     returnHTML+='<td width = "33%" align="center">Time / Date </td>';
-    returnHTML+='<td width = "33%" align="center">"Time"</td>';
-    returnHTML+='<td width = "33%" align="center">"Date"</td>';
+    if (inviteTime === 'f') {
+        returnHTML+='<td width = "33%" align="center">Dont care</td>';
+        returnHTML+='<td width = "33%" align="center">Dont care</td>';
+    }
+    else {
+        returnHTML+='<td width = "33%" align="center">' + invitationTime.getHours()+":"+invitationTime.getMinutes() + '</td>';
+        returnHTML+='<td width = "33%" align="center">' + new Date().getDate() + '-' + month[new Date().getMonth()] + '</td>';
+    }
+    
     /*  for (i=0; i<users.length; i++){
         returnHTML += '<div class="ui-block-b"><img src="img/' + users[i] + '.jpeg"></div>';
     }*/
@@ -150,15 +199,25 @@ function getTimeDate(selectedUsers)
 return returnHTML;
 }
 
-function getUserNames(selectedUsers)
+function addMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes*60000);
+}
+
+
+function getUserNames(selectedUserNames)
 {
     returnHTML = '';
-    var users = selectedUsers.split(",");
+    var users = selectedUserNames.split(",");
     console.log('users: ' + users);
     
-    returnHTML+='<td>"Name 1"</td>';
-    returnHTML+='<td style="align:right" >"Name 2"</td>';
-    returnHTML+='<td style="align:right" >"Name 3"</td>';
+    returnHTML+='<td>' + users[0] + '</td>';
+    if (users.length>1) {
+        returnHTML+='<td style="align:right" >' + users[1] + '</td>';
+    }
+    if (users.length>2) {
+        returnHTML+='<td style="align:right" >' + users[2] + '</td>';
+
+    }
     /*  for (i=0; i<users.length; i++){
         returnHTML += '<div class="ui-block-b"><img src="img/' + users[i] + '.jpeg"></div>';
     }*/
@@ -166,27 +225,54 @@ function getUserNames(selectedUsers)
 return returnHTML;
 }
 
-function sendInvitations(latitude, longitude, selectedUsers, activity, loggedInUserId)
+function sendInvitations(latitude, longitude, selectedUsers, activity, loggedInUserId, inviteTime)
 {
     var users = selectedUsers.split(",");
+    var invitationTime;
+//    console.log('users: ' + users);
+    if (inviteTime === '20m') {
+       invitationTime = addMinutes(new Date(), 20)  
+    }
+    else if (inviteTime === '1h') {
+        invitationTime = addMinutes(new Date(), 60)  
+
+    }
+    else if (inviteTime === '2h') {
+         invitationTime = addMinutes(new Date(), 120)  
+
+    }
     console.log('users: ' + users);
     for (i=0; i<users.length; i++){
-        sendInvite(latitude, longitude, '12:00:00', users[i], activity, loggedInUserId)
+        sendInvite(latitude, longitude, invitationTime, users[i], activity, loggedInUserId)
     }
 }
 
-function sendInvite(latitude, longitude, time, username_to, activity, loggedInUserId)
+function sendInvite(latitude, longitude, invitationTime, username_to, activity, loggedInUserId)
 {
  
-    $("#username_from").val(loggedInUserId);
-    $("#latitude_invite").val(latitude);
-    $("#longitude_invite").val(longitude);
-    $("#time_invite").val(time);
-    $("#username_to").val(username_to);
-    $("#activity").val(activity);
+//    $("#username_from").val(loggedInUserId);
+//    $("#latitude_invite").val(latitude);
+//    $("#longitude_invite").val(longitude);
+//    $("#time_invite").val(invitationTime);
+//    $("#username_to").val(username_to);
+//    $("#activity").val(activity);
+//
+//    document.forms["confirmInviteForm"].submit(function(e) 
+//                                 {
+//                                    e.preventDefault();
+//                                  });
 
-    document.forms["confirmInviteForm"].submit(function(e) 
-                                 {
-                                    e.preventDefault();
-                                  });
+    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/updateInvitation",
+    {
+        username_from:loggedInUserId,
+        latitude_invite:latitude,
+        longitude_invite:longitude,
+        time_invite:invitationTime,
+        username_to:username_to,
+        activity:activity
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
 }
