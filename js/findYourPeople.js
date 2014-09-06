@@ -44,6 +44,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
     var generalInterests;
     var professionalInterests;
     var selectedUsers = [];
+    var selectedUserNames = [];
+
 
     $.ajax(
         {
@@ -69,6 +71,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         var imgItem = {};
                         imgItem["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
                         imgItem["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                        imgItem["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
+
                         
                         jsonImgObj.push(imgItem);
                     }
@@ -80,7 +84,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     
                     var showInfo = document.getElementById( 'showInfo' ),
                     menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-                    changeSlide = document.getElementById( 'MoveOnButton' ),
+                    changeSlide = document.getElementById( 'changeSlide' ),
                     body = $("#ImageDiv");
                     var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
                     console.log("src-----" + initialImg);
@@ -94,6 +98,22 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     showInfo.onclick = function() {
                         classie.toggle( this, 'active' );
                         classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                        if(selectedUsers === [])
+                        {
+                            selectedUsers[0] = JSON.parse(JSON.stringify(imgList[clickCount])).title.toString();
+                            selectedUserNames[0] = JSON.parse(JSON.stringify(imgList[clickCount])).userName.toString();   
+
+                        }
+                        else
+                        {
+                            selectedUsers.push(JSON.parse(JSON.stringify(imgList[clickCount])).title.toString());
+                            selectedUserNames.push(JSON.parse(JSON.stringify(imgList[clickCount])).userName.toString());
+
+                        }
+
+                        console.log('selectedUsers: ' + selectedUsers);
+                        console.log('selectedUserNames: ' + selectedUserNames);
+
                     };
 
                     changeSlide.onclick = function() {
@@ -114,6 +134,13 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         clickCount++;
                         fillImgDetails(data, img);
                     };
+                    
+                    confirmInvitation.onclick = function() {
+                        console.log('confirmInvitation clicked ');
+                        window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&selectedUserNames=" + selectedUserNames + "&commonTags=FIFA,STARTUPS" + "&inviteTime=20m";
+
+                    };
+
                     
                 }
               
