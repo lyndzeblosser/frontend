@@ -1,4 +1,4 @@
-var imgItem = {};
+
 var jsonImgObj = [];
 
 $(document).ready(function () 
@@ -66,6 +66,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                 {    
                     for(var i=0;i<data.length;i++)
                     {
+                        var imgItem = {};
                         imgItem["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
                         imgItem["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
                         
@@ -75,11 +76,12 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     /*function to change images and toggle information about user*/
                     var imgList = jsonImgObj;
                     var clickCount = 0;
+                    console.log("img list: " + imgList);
                     
                     var showInfo = document.getElementById( 'showInfo' ),
                     menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-                    changeSlide = document.getElementById( 'changeSlide' ),
-                    body = $("#body");
+                    changeSlide = document.getElementById( 'MoveOnButton' ),
+                    body = $("#ImageDiv");
                     var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
                     console.log("src-----" + initialImg);
 
@@ -107,7 +109,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                         var img = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
 
                         console.log("clickCount: " + clickCount);
-                        console.log("image being set as background: " + img);
+                        console.log("image being set as background: " + img[clickCount]);
                         body.css({"backgroundImage": "url(" + img + ")"});
                         clickCount++;
                         fillImgDetails(data, img);

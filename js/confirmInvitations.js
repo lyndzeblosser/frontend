@@ -108,7 +108,7 @@ function getUserImages(selectedUsers)
     var users = selectedUsers.split(",");
     console.log('users: ' + users);
     
-    returnHTML+='<td stlye="border-style: dotted; border-color: red"><img WIDTH=100% src="img/rohit.jpeg"></td>';
+    returnHTML+='<td stlye="border-style: dotted; border-color: red"><img WIDTH=100% src="img/abhishek.jpeg"></td>';
     returnHTML+='<td ><img WIDTH=100% src="img/rohit.jpeg"></td>';
     returnHTML+='<td ><img WIDTH=100% src="img/rohit.jpeg"></td>';
     /*  for (i=0; i<users.length; i++){
