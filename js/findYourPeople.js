@@ -4,11 +4,10 @@ var jsonImgObj = [];
 $(document).ready(function () 
                 {
     				
-					var parameters = location.search;
+                    var parameters = location.search;
                     var parameter = parameters.split("?");
                     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
                     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('userid'));
-                   
                 });
 
 function fillImgDetails(data, img)
@@ -82,9 +81,9 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     var clickCount = 0;
                     console.log("img list: " + imgList);
                     
-                    var showInfo = document.getElementById( 'showInfo' ),
+                    var AddPeople = document.getElementById( 'AddPeople' ),
                     menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-                    changeSlide = document.getElementById( 'changeSlide' ),
+                    MoveOnButton = document.getElementById( 'changeSlide' ),
                     body = $("#ImageDiv");
                     var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
                     console.log("src-----" + initialImg);
@@ -95,9 +94,10 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     console.log("image being set as background: " + initialImg);
                     fillImgDetails(data, initialImg);
 
-                    showInfo.onclick = function() {
+                    AddPeople.onclick = function() {
                         classie.toggle( this, 'active' );
                         classie.toggle( menuBottom, 'cbp-spmenu-open' );
+  //                      $("#AddButtonImgId").attr("src", "img/MoveOnIcon.png");
                         if(selectedUsers === [])
                         {
                             selectedUsers[0] = JSON.parse(JSON.stringify(imgList[clickCount])).title.toString();
@@ -116,7 +116,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
 
                     };
 
-                    changeSlide.onclick = function() {
+                    MoveOnButton.onclick = function() {
 
                         console.log("length of imgJSON : " + imgList.length);
                         console.log("clickCount--------" + clickCount);
