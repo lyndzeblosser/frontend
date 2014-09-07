@@ -152,7 +152,7 @@ $(document).ready(function()
                 if (typeof $.session.get('userid') != "undefined")
                 {
                     //                    updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
-                    url = "findYourPeople.html?latitude=" + currentLat + "&longitude=" + currentLng + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid;
+                    url = "findYourPeople.html?latitude=" + currentLat + "&longitude=" + currentLng + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid + "&selectedTime=" + selectedTime;
                     window.location.href = url;
                 }
                 $('#findMyPeopleButton').css("display", "none")
@@ -180,7 +180,7 @@ $(document).ready(function()
         {
             $('#when' + i + '').click(function()
             {
-                selectedTime = $(this).text();
+                selectedTime = $(this).val();
                 console.log("selectedTime" + selectedTime);
             });
             $('#where' + i + '').click(function()

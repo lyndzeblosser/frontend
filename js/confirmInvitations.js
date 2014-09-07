@@ -170,22 +170,23 @@ function getTimeDate(inviteTime)
     month[10] = "November";
     month[11] = "December";
 //    console.log('users: ' + users);
-    if (inviteTime === '20m') {
+    if (inviteTime === '20') {
        invitationTime = addMinutes(new Date(), 20)  
     }
-    else if (inviteTime === '1h') {
+    else if (inviteTime === '60') {
         invitationTime = addMinutes(new Date(), 60)  
 
     }
-    else if (inviteTime === '2h') {
+    else if (inviteTime === '120') {
          invitationTime = addMinutes(new Date(), 120)  
 
     }
-    
+        console.log('invitationTime: ' + invitationTime);
+
     returnHTML+='<td width = "33%" align="center">Time / Date </td>';
-    if (inviteTime === 'f') {
-        returnHTML+='<td width = "33%" align="center">Dont care</td>';
-        returnHTML+='<td width = "33%" align="center">Dont care</td>';
+    if (inviteTime === '0') {
+        returnHTML+='<td width = "33%" align="center">I\'m flexible</td>';
+        returnHTML+='<td width = "33%" align="center">I\'m flexible</td>';
     }
     else {
         returnHTML+='<td width = "33%" align="center">' + invitationTime.getHours()+":"+invitationTime.getMinutes() + '</td>';
@@ -230,16 +231,20 @@ function sendInvitations(latitude, longitude, selectedUsers, activity, loggedInU
     var users = selectedUsers.split(",");
     var invitationTime;
 //    console.log('users: ' + users);
-    if (inviteTime === '20m') {
+    if (inviteTime === '20') {
        invitationTime = addMinutes(new Date(), 20)  
     }
-    else if (inviteTime === '1h') {
+    else if (inviteTime === '60') {
         invitationTime = addMinutes(new Date(), 60)  
 
     }
-    else if (inviteTime === '2h') {
+    else if (inviteTime === '120') {
          invitationTime = addMinutes(new Date(), 120)  
 
+    }
+    else
+    {
+        invitationTime = 'flexible';
     }
     console.log('users: ' + users);
     for (i=0; i<users.length; i++){

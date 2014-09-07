@@ -7,7 +7,7 @@ $(document).ready(function ()
                     var parameters = location.search;
                     var parameter = parameters.split("?");
                     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('userid'));
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('selectedTime'));
                 });
 
 function fillImgDetails(data, img)
@@ -37,11 +37,27 @@ function getParameterByName(name)
     results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-
-function getResult(latitude, longitude, selectedTopics, radius, activity, userid)
+// this function returns radius to show to user in bottom bar
+function getRadius(miles)
 {
-    var generalInterests;
-    var professionalInterests;
+    //    console.log("getParameterByName: " + name);        
+    if (miles === '402') {
+        radius = 5;
+    }
+    else if (miles === '805') {
+        radius = 10;
+    }
+    else if (miles === '1610') {
+        radius = 20;
+    }
+    else if (miles === '80467') {
+        radius = 1000;
+    }
+    return radius;
+}
+
+function getResult(latitude, longitude, selectedTopics, radius, activity, selectedTime)
+{
     var selectedUsers = [];
     var selectedUserNames = [];
 
@@ -97,6 +113,8 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     AddPeople.onclick = function() {
                         classie.toggle( this, 'active' );
                         classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                        console.log("clickCount on addpeople: " + clickCount);
+
   //                      $("#AddButtonImgId").attr("src", "img/MoveOnIcon.png");
                         if(selectedUsers === [])
                         {
@@ -113,13 +131,15 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
 
                         console.log('selectedUsers: ' + selectedUsers);
                         console.log('selectedUserNames: ' + selectedUserNames);
+                        console.log('selectedTime: ' + selectedTime);
+
 
                     };
 
                     MoveOnButton.onclick = function() {
 
                         console.log("length of imgJSON : " + imgList.length);
-                        console.log("clickCount--------" + clickCount);
+                        console.log("clickCount on moveon--------" + clickCount);
 
                         if(clickCount >= imgList.length)
                         {
@@ -137,7 +157,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
                     
                     confirmInvitation.onclick = function() {
                         console.log('confirmInvitation clicked ');
-                        window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&selectedUserNames=" + selectedUserNames + "&commonTags=FIFA,STARTUPS" + "&inviteTime=20m";
+                        window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&selectedUserNames=" + selectedUserNames + "&commonTags=FIFA,STARTUPS" + "&inviteTime=" + selectedTime;
 
                     };
 
