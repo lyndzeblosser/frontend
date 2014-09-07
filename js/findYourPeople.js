@@ -1,33 +1,26 @@
 
 var jsonImgObj = [];
+var users=[];
+var loadedUser;
+var totalSelected=0;
+var selectedUsers=[];
 
 $(document).ready(function () 
-                {
-    				
-                    var parameters = location.search;
-                    var parameter = parameters.split("?");
-                    console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('selectedTime'));
-                });
-
-function fillImgDetails(data, img)
 {
-    var useridArrayInitial = img.split("/");
-	var useridArray = useridArrayInitial[useridArrayInitial.length - 1].split(".jpeg");
-	var userid = useridArray[0];
+    				
+    var parameters = location.search;
+    var parameter = parameters.split("?");
+    console.log("getParameterByName: radius: " + getParameterByName('radius')); 
+    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('selectedTime'));
+});
+
+function fillImgDetails(id){
+    $("#name").text(users[id]["name"]);
+    $("#age").text(users[id]["birthDay"]);  
+    $("#bio").text(users[id]["bio"]);
+
     
-    console.log("userid from img---------" + userid);
-	
-    for(var i=0;i<data.length;i++)
-    {
-        if(JSON.parse(JSON.stringify(data[i])).userid.toString() == userid)
-        {   
-            //JSON.parse(JSON.stringify(data[i])).firstname.toString()
-            $("#name").text(JSON.parse(JSON.stringify(data[i])).firstname.toString() + " " + JSON.parse(JSON.stringify(data[i])).lastname.toString());
-            $("#age").text(JSON.parse(JSON.stringify(data[i])).date_of_birth.toString());  
-            $("#bio").text(JSON.parse(JSON.stringify(data[i])).bio.toString());  
-        }
-    }
+    
 }
 
 function getParameterByName(name) 
@@ -58,134 +51,137 @@ function getRadius(miles)
 
 function getResult(latitude, longitude, selectedTopics, radius, activity, selectedTime)
 {
-    var selectedUsers = [];
-    var selectedUserNames = [];
-
-
+   
     $.ajax(
+    {
+            
+        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
+        async: true,
+        dataType: "json",
+        success: function (data) 
         {
-            
-            //we will have to change the signature of this service and include tagName instead of sortId for tags because we will be increasing the number of tags in the future and to hard code the sortId with each tag in the frontend will be cumbersome.
-            
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
-            async: true,
-            dataType: "json",
-            success: function (data) 
-            {
-                console.log("success data-------" + JSON.stringify(data));
+            console.log("success data-------" + JSON.stringify(data));
                 
-                if(data == "undefined")
+            if(data == "undefined")
+            {
+                console.log("no data found..");
+            }
+                
+            if(data != "undefined")
+            {    
+                for(var i=0;i<data.length;i++)
                 {
-                    console.log("no data found..");
+                        
+                    users[i]=[];    
+                    users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
+                    users[i]["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                    users[i]["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
+                    users[i]["userId"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                    users[i]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString() + " " + JSON.parse(JSON.stringify(data[i])).lastname.toString();
+                    users[i]["bio"] = JSON.parse(JSON.stringify(data[i])).bio.toString();
+                    users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
+                    users[i]["selected"] = 0;
+                    
+                    console.log(users[i])
+               
                 }
                 
-                if(data != "undefined")
-                {    
-                    for(var i=0;i<data.length;i++)
-                    {
-                        var imgItem = {};
-                        imgItem["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
-                        imgItem["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
-                        imgItem["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
-
-                        
-                        jsonImgObj.push(imgItem);
-                    }
-                    console.log("json img object: " + jsonImgObj);
-                    /*function to change images and toggle information about user*/
-                    var imgList = jsonImgObj;
-                    var clickCount = 0;
-                    console.log("img list: " + imgList);
+                loadUser(0);
                     
-                    var AddPeople = document.getElementById( 'AddPeople' ),
-                    menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-                    MoveOnButton = document.getElementById( 'changeSlide' ),
-                    body = $("#ImageDiv");
-                    var initialImg = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
-                    console.log("src-----" + initialImg);
+                var AddPeople = document.getElementById( 'AddPeople' ),
+                menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+                MoveOnButton = document.getElementById( 'changeSlide' );
+        
+                AddPeople.onclick = function() {
+                    classie.toggle( this, 'active' );
+                    classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                    addDeleteUser()
+                
+                };
 
-                    /*Setting initial image*/
-                    body.css({"backgroundImage": "url("+initialImg+")"});
-                    console.log("clickCount: " + clickCount);
-                    console.log("image being set as background: " + initialImg);
-                    fillImgDetails(data, initialImg);
-
-                    AddPeople.onclick = function() {
-                        classie.toggle( this, 'active' );
-                        classie.toggle( menuBottom, 'cbp-spmenu-open' );
-                        console.log("clickCount on addpeople: " + clickCount);
-
-  //                      $("#AddButtonImgId").attr("src", "img/MoveOnIcon.png");
-                        if(selectedUsers === [])
-                        {
-                            selectedUsers[0] = JSON.parse(JSON.stringify(imgList[clickCount])).title.toString();
-                            selectedUserNames[0] = JSON.parse(JSON.stringify(imgList[clickCount])).userName.toString();   
-
-                        }
-                        else
-                        {
-                            selectedUsers.push(JSON.parse(JSON.stringify(imgList[clickCount])).title.toString());
-                            selectedUserNames.push(JSON.parse(JSON.stringify(imgList[clickCount])).userName.toString());
-
-                        }
-
-                        console.log('selectedUsers: ' + selectedUsers);
-                        console.log('selectedUserNames: ' + selectedUserNames);
-                        console.log('selectedTime: ' + selectedTime);
-
-
-                    };
-
-                    MoveOnButton.onclick = function() {
-
-                        console.log("length of imgJSON : " + imgList.length);
-                        console.log("clickCount on moveon--------" + clickCount);
-
-                        if(clickCount >= imgList.length)
-                        {
-                            clickCount = 0;
-                        }
-
-                        var img = JSON.parse(JSON.stringify(imgList[clickCount])).image.toString();
-
-                        console.log("clickCount: " + clickCount);
-                        console.log("image being set as background: " + img[clickCount]);
-                        body.css({"backgroundImage": "url(" + img + ")"});
-                        clickCount++;
-                        fillImgDetails(data, img);
-                    };
+                MoveOnButton.onclick = function() {
                     
-                    confirmInvitation.onclick = function() {
-                        console.log('confirmInvitation clicked ');
-                        window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsers + "&selectedUserNames=" + selectedUserNames + "&commonTags=FIFA,STARTUPS" + "&inviteTime=" + selectedTime;
+                    var nextUser=(loadedUser+1)%(users.length);
+                    loadUser(nextUser);
+                
+                };
+                    
+                confirmInvitation.onclick = function() {
+                    console.log('confirmInvitation clicked ');
+                    var selectedUsersString= getSUS();
+                    var selectedUsersNameString= getSUSN();
+                    window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags=FIFA,STARTUPS" + "&inviteTime=" + selectedTime;
 
-                    };
+                };
 
                     
-                }
+            }
               
-            },
-            error: function (error, message) 
-            {
-                console.log("Failure: " + message);        
-            },
-            complete: function(data)
-            {
+        },
+        error: function (error, message) 
+        {
+            console.log("Failure: " + message);        
+        },
+        complete: function(data)
+        {
                 
 				
-            }
-        });
+        }
+    });
     
 }
 
 
 
+function loadUser(id){
+    loadedUser=id;
+    body = $("#ImageDiv");
+    var initialImg = users[id]["image"];
+    body.css({
+        "backgroundImage": "url("+initialImg+")"
+    });
+    var addButtonImg=users[id]["selected"]==0?"img/AddIcon.png":"img/MoveOnIcon.png";
+    $("#AddButtonImgId").attr("src",addButtonImg)
+    fillImgDetails(id)
+    
+}
 
+function addDeleteUser(){
+    if(users[loadedUser]["selected"]==0 ){
+        if(selectedUsers.length==3){
+            alert("Max limit reached, canot add more users")
+        }else{
+            users[loadedUser]["selected"]=1;
+            selectedUsers.push(loadedUser);
+            loadUser(loadedUser);
+        }
+    }else{
+        users[loadedUser]["selected"]=0;
+        findAndRemove(loadedUser)
+        loadUser(loadedUser);
+    }
+}
 
+function findAndRemove(id){
+  var index = selectedUsers.indexOf(id); 
+  selectedUsers.splice(index, 1);
+}
 
+function getSUSN(){
+    var str=[];
+    for(var i=0;i<selectedUsers.length;i++){
+        str[i]=users[selectedUsers[i]]["userName"]
+    }
+    return str.join();
+}
 
-
-
+function getSUS(){
+     var str=[];
+    for(var i=0;i<selectedUsers.length;i++){
+        str[i]=users[selectedUsers[i]]["userId"]
+    }
+    return str.join();
+}
 
 
 
