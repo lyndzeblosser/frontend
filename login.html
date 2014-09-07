@@ -1,63 +1,77 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Table Tribes Login</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
-		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+<!DOCTYPE html> 
+<html> 
+  <head> 
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Tabletribes</title> 
+       <link rel="shortcut icon" type="image/x-icon" href="ttfav.ico" />
+	     <link rel="icon" type="image/x-icon" href="ttfav.ico" />
+       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+       <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+     
+       <link rel="stylesheet" type="text/css" href="css/login_1.css">
+  </head>
 
-		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
-        
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+<body>
+  
+  <div data-role="page" data-theme="a">
 
-		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-        <script src="js/login.js"></script> 
-        <script src="js/jquery.session.js"></script>
-        
-        
-    </head>
+        <div data-role="header" id="header" data-position="fixed"> 
+                        <h3>SIGN IN WITH</h3>
+
+                        <!-- This is the  to initiate side panels-->
+                       <a href="#nav-panel" data-icon="mygear"  class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
+                       <a href="#add-form" data-icon="dot" data-iconpos="notext"  style="background:#b42723">Add</a>
+        </div><!-- /header -->
+
+
+
+ <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+
+
+
+           <label for="email" class="ui-hidden-accessible">Email</label>
+           <input name="email" id="email" placeholder="Email" value="" type="text">
+
+           <label for="password" class="ui-hidden-accessible">Password</label>
+           <input name="password" id="password" placeholder="Password" value="" type="text">
+
+           
+
+       <div id="regconfirmBtn" style="text-align:center">
+              <a href="#" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</a>
+          </div>
+
+      <div style="text-align:center; margin-top:10px;"> <a href="#" id="forgotPassword">Forgot your password?</a></div>
+
+   </div><!-- /content -->
+
+
+       <!-- This is for the left panel-->
+    <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
+        <ul data-role="listview">
+            <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
+              <!--pending<li><label for="profileName" class="ui-hidden-accessible">Text Input:</label>
+                <input name="textinput-4" id="textinput-4" placeholder="Text input" value="" type="text"></li>-->
+        </ul>
+
+    </div><!-- left panel -->
     
-    <body>
-        <div data-role="page" data-theme='a'>
-            <div data-role="header" data-position="fixed" data-theme='a' data-position="inline">
-                <h1>SIGN IN WITH</h1>
-            </div>   
-
-            <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
-                <div id="activity" class="ui-grid-b ui-responsive">
-                    <div class="ui-block-a"><button data-theme="e"><i class='fa fa-file-image-o fa-3x'></i></button></div>
-                    <div class="ui-block-b"><button data-theme="d"><i class='fa fa-twitter fa-3x'></i></button></div>
-                    <div class="ui-block-c"><button><i class='fa fa-facebook fa-3x'></i></button></div>     
-                </div>
-            </div> 
-            <br>
-            <br>
-            <hr style="border: 0;height: 1px;width: 50%;background: #333;background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); ">
-            <br>   
-            <div data-role="fieldcontain" class="ui-responsive">
-                <input type="text" name="userid" id="userid" value="" placeholder="&nbsp;&nbsp;Email" style="border:1px solid #b54037;font-style:italic;"/>
-            </div>
-            <div id="passwordGrid" class="ui-grid-a ui-responsive">
-                <div class="ui-block-a"><input type="password" name="password" id="password" value="" placeholder="&nbsp;&nbsp;Password" style="border:1px solid #b54037;font-style:italic;"/></div>
-                <div class="ui-block-b"><button data-theme="a" id="continueButton"><i class='fa fa-chevron-right fa-1x pull-right'></i>CONTINUE</button></div> <br>
-                <div class="ui-block-b"><button data-theme="a" id="registerButton"><i class='fa fa-chevron-right fa-1x pull-right'></i>SIGN UP</button></div>
-                <div class="ui-block-b"><button data-theme="a" id="forgotPwdButton"><i class='fa fa-chevron-right fa-1x pull-right'></i>FORGOT PASSWORD</button></div>
-
-            </div>
+      
+      <!-- This is for the right panel-->
+    <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+        <ul data-role="listview">
+            <li data-icon="logoicon"><a href="#" data-rel="close"><h4>MY TABLES</h4></a></li>
             
-            <br>
-<!--            <div id="loginPageLinks" class="ui-responsive" style="text-align: center;padding:0em">
-                <a href="#" style="color:#b54037; font-style:italic;font-weight:normal;">Forgot your password?</a>
-                <br>
-                <br>
-                <a href="register.html" style="color:#b54037; font-style:italic;font-weight:normal;">Sign up</a>
-                <br>
-                <br>
-                <a href="#" style="color:#b54037; font-style:italic;font-weight:normal;">Sign in as another user?</a>
-            </div>    -->
-        </div>    
-    </body>
+               
+               
+                
+        </ul>
+     </div><!--  right panel -->
+
+     <div data-role="footer" data-position="fixed"></div> <!-- Important-->
+
+   </div>
+ </body>
 </html>

@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Table Tribes Main Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
+        
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+        <link rel="stylesheet" href="css/tinycarousel.css" />
+        
+        <link rel="stylesheet" href="css/flexslider.css" />
+        <link rel="stylesheet" href="css/mood.css" />
+        
+        <!-- jQuery / jQueryMobile Scripts -->
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+        <script src="js/mobileJquery.js"></script>
+        <script src="js/jquery.tinycarousel.min.js"></script>
+        
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        
+        <script src="js/mood.js"></script>
+        <script src="js/jquery.session.js"></script>
+
+    </head>
+    
+    <body>
+        <div data-role="page" id="moodPage" data-theme='a'>
+        
+            <div data-role="panel" id="settingsPanel" data-position="left" data-display="push" data-theme="e">
+                <ul data-role="listview" id="settingsPanelListView">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; SETTINGS</h4></li>
+                    
+                    <li id="profileTab" class="loggedInFields" data-icon='false'><a href="#myProfilePanel"><i class='lIcon fa fa-user pull-left'></i>&nbsp; PROFILE</a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#myTagsPanel"><i class='lIcon fa fa-tags pull-left'></i>&nbsp; TOPICS</a></li>
+                   
+                    <li id="preferencesTab" data-icon='false' class="loggedInFields"><a href="#preferencesPanel"><i class='lIcon fa fa-cogs pull-left'></i>&nbsp; PREFERENCES</a></li>
+                   
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-question pull-left'></i>&nbsp; HELP</a></li>
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-bullhorn pull-left'></i>&nbsp; TERMS AND PRIVACY POLICY</a></li>
+                   
+                    <li data-icon='false' class="loggedInFields" onclick="logout()"><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGOUT</a></li>
+                     
+                    <li data-icon='false' class="loggedOutFields" onclick="login()"><a href="#"><i class='lIcon fa fa-sign-out pull-left'></i>&nbsp; LOGIN</a></li>
+                </ul>
+            </div>    
+
+            <div data-role="panel" id="myTablesPanel" data-position="right" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;" class="stateless"><h4 style="color:#ffffff">&nbsp; &nbsp; DISCUSSIONS</h4></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#myTable"><div id="myTableTag"><i class='lIcon fa fa-users'></i>&nbsp; MY TABLE </div></a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#myInvitations"><div id="invitationsTag"><i class='lIcon fa fa-bell'></i>&nbsp; PENDING INVITATIONS </div></a></li>
+                    
+                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-history'></i>&nbsp; HISTORY</a></li>
+                   
+                    <li data-icon='false' class="loggedInFields"><a href="#"><i class='lIcon fa fa-star'></i>&nbsp; MY PROFILE</a></li>
+                    
+                    <li data-icon='false' class="stateless"><a href="#"><i class='lIcon fa fa-share'></i>&nbsp; SHARE WITH FRIENDS</a></li>
+                </ul>
+                <form name="acceptInvite" id="acceptInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/acceptInvitation">  
+                    <input type="hidden" name="username_from_accept" id="username_from">
+                    <input type="hidden" name="username_to_accept" id="username_to">
+                 </form>
+            </div>
+            <div data-role="panel" id="myProfilePanel" data-position="left" data-display="push" data-theme="e" style="text-align: center;padding:0em">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; MY PROFILE</h4></li>
+                </ul>
+                <br>
+                <div id="activity" class="ui-grid-b ui-responsive">
+                    <div class="ui-block-a"><button data-theme="a"><i class='fa fa-file-image-o fa-3x'></i></button></div>
+                    <div class="ui-block-b"><button data-theme="d"><i class='fa fa-twitter fa-3x'></i></button></div>
+                    <div class="ui-block-c"><button data-theme="c"><i class='fa fa-facebook fa-3x'></i></button></div>     
+                </div>
+                <br>
+                <div data-role="collapsible-set" data-inset="true" data-mini="true" data-theme="e">
+
+                    <div data-role="collapsible">
+                    <h2>FIRST NAME</h2>
+                        <input type="text" name="FirstName" id="FirstName" value="" style="border:1px solid #b54037;"/>
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>LAST NAME</h2>
+                        <input type="text" name="LastName" id="LastName" value="" style="border:1px solid #b54037;"/>
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>LOCATION</h2>
+                        <input type="text" name="location" id="location" value="" style="border:1px solid #b54037;"/>
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>DATE OF BIRTH (must be 18+)</h2>
+                        <input type="date" name="dob" id="dob" value="" style="border:1px solid #b54037;" />
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>EMAIL</h2>
+                        <input type="text" name="email" id="email" value="" style="border:1px solid #b54037;"/>
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>PASSWORD</h2>
+                        <input type="password" name="password" id="password" value="" style="border:1px solid #b54037;"/>
+                    </div>
+
+                    <div data-role="collapsible">
+                    <h2>BIO</h2>
+                        <textarea cols="40" rows="8" name="textarea-2" id="textarea-2" style="border:1px solid #b54037;"></textarea>
+                    </div>
+                </div>    
+            </div>
+            
+            <div data-role="panel" id="myTagsPanel" data-position="left" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; MY PROFILE</h4></li>
+                </ul>
+                <br>
+                <ul data-role="listview" name="generalInterestsList" id="generalInterestsList" data-theme="c" >
+                    <h4>GENARAL INTERESTS</h4>
+                </ul>
+                <br>
+                <ul data-role="listview" name="professionalInterestsList" id="professionalInterestsList" data-theme="c" >
+                    <h4>PROFESSIONAL INTERESTS</h4>
+                </ul>
+                
+            </div>
+            
+             <div data-role="panel" id="myTable" data-position="right" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; MY TABLE</h4></li>
+                </ul>
+                <br>
+                <h4>MY TABLE</h4>
+                <div id="sliderUserTable">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul name="userTableList" id="userTableList" >
+
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+                                
+            </div>
+            
+            <div data-role="panel" id="myInvitations" data-position="right" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; INVITATIONS</h4></li>
+                </ul>
+                <br>
+                <h4>PENDING INVITES</h4>
+                <div id="sliderPendingInvites">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul name="invitationsList" id="invitationsList" >
+
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+                                
+            </div>
+            
+            <div data-role="panel" id="preferencesPanel" data-position="left" data-display="push" data-theme="e">
+                <ul data-role="listview">
+                    <li style="background-color:#808080;"><h4 style="color:#ffffff">&nbsp; &nbsp; PREFERENCES</h4></li>
+                </ul>
+                <br>
+                <div id="activity" class="ui-grid-solo ui-responsive">
+                    <div class="ui-block-a"><button><i class="fa fa-file-image-o fa-3x"></i> MY NAME</button></div>
+                </div>
+                <br>
+                <h4>I WANT TO MEET</h4>
+                <div id="slider2">
+                    <a class="buttons prev" href="#">&#60;</a>
+                    <div class="viewport">
+                        <ul class="overview">
+                            <li>MALE</li>
+                            <li>FEMALE</li>
+                            <li>ANYONE</li>
+                        </ul>
+                    </div>
+                    <a class="buttons next" href="#">&#62;</a>
+                </div>
+            </div>
+            
+            <div data-role="header" data-position="fixed" data-theme='a'>
+                <a href="#settingsPanel" data-role='button' data-inline='true'><i class='fa fa-bars'></i></a>
+                <h1 style="text-align:left;">WHAT ARE YOU IN THE MOOD FOR?</h1>
+                <a href="#myTablesPanel" data-role='button' data-inline='true'><i class="fa fa-cog"></i></a>
+            </div>
+            <div data-role="main" class="ui-content" style="text-align: center;padding:0em">
+                <div id="activity" class="ui-grid-b ui-responsive">
+                    <div class="activities ui-block-a"><button class="activitiesButton" value="coffee" id="coffeeActivity"><i class='fa fa-coffee fa-3x'></i></button></div>
+                    <div class="activities ui-block-b"><button class="activitiesButton" value="drinks" id="drinksActivity"><i class='fa fa-glass fa-3x'></i></button></div>
+                    <div class="activities ui-block-c"><button class="activitiesButton" value="food" id="foodActivity"><i class='fa fa-spoon fa-3x'></i><i class='fa fa-spoon fa-3x'></i></button></div>     
+                </div>
+                <br>
+                <ul data-role="listview" data-inset="false" data-divider-theme="b">
+
+                <li data-role="fieldcontain">
+                    <fieldset data-role="collapsible" data-corners="false" data-iconpos="right">
+                    <legend>WHAT DO YOU WANT TO TALK ABOUT?</legend>
+                        <div id="slider1">
+                           
+                            <div class="viewport">
+                                <ul id="topic">
+
+                                </ul>
+                            </div>
+                           
+                        </div>
+
+                    </fieldset>
+
+                    <div name="select-choice-2" id="select-choice-2b" data-theme="c" data-role="collapsible" data-collapsed="true" data-corners="false" data-iconpos="right">
+                        <h4>WHEN?</h4>
+                        <ul data-role="listview" data-theme="c" >
+                            <li id="when1" value="20"><a href="#">WITHIN 20 MINUTES</a></li>
+                            <li id="when2" value="60"><a href="#">IN 1 HOUR</a></li>
+                            <li id="when3" value="120"><a href="#">IN 2 HOURS</a></li>
+                            <li id="when4" value="0"><a href="#">I'M FLEXIBLE</a></li>
+                        </ul>
+                    </div>
+
+                    <div name="select-choice-3" id="select-choice-3b" data-theme="d" data-role="collapsible" data-collapsed="true" data-corners="false" data-iconpos="right">
+                        <h4>WHERE?</h4>
+                        <ul data-role="listview" data-theme="d">
+                            <li id="where1" value="5"><a href="#">WITHIN 5 BLOCKS</a></li>
+                            <li id="where2" value="10"><a href="#">IN 10 BLOCKS</a></li>
+                            <li id="where3" value="20"><a href="#">WITHIN 1 MILE</a></li>
+                            <li id="where4" value="1000"><a href="#">I'M FLEXIBLE</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+<!--                <p><i class="fa fa-quote-left fa-2x fa-border"></i>&nbsp; Place for autocomplete google maps search box..........</p>-->
+<!--                <br>-->
+                <li name="autocompleteLocation" id="autocompleteLocation" data-theme="b" data-corners="false">   
+                      <input type="search" id="address" placeholder="Location" data-corners="false" onchange="">    
+                </li>
+                </ul>
+                
+                <br>
+             <button id='findMyPeopleButton' data-inline='true'>&nbsp; FIND MY PEOPLE</button>
+                
+             <div id="loginButtons" class="ui-grid-a ui-responsive" >    
+                 <div class="ui-block-a"><button id='loginButton'>&nbsp; SIGN IN</button></div>
+                 <div class="ui-block-b"><button id='registerButton'>&nbsp; FIRST TIME</button></div>    
+             </div>
+            </div>
+        </div>
+    </body>
+</html>

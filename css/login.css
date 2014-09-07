@@ -1,0 +1,267 @@
+/* CSS Document */
+
+/**
+*Table Tribes App
+
+
+*@version 0.1 (2014/09/07)
+*/
+
+[data-role= "header"] h3{
+	color: #ffffff;
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.8%;
+    font-size: 14px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+
+#header {
+	background: #b42723 !important;
+}
+
+
+#header a {
+	  border: 0px;
+    border-color: transparent;
+    text-transform: none;
+    text-shadow: none;
+}
+
+h4 {
+	color: #b42723;
+}
+
+/* style for the custom icons */
+
+.ui-icon-mygear:after {
+	background-image: url("../images/gear.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-dot:after {
+	background-image: url("../images/dot.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-bell:after {
+	background-image: url("../images/bell.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-profile:after {
+	background-image: url("../images/profile.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-logoicon:after {
+	background-image: url("../images/logoicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-imageicon:after {
+	background-image: url("../images/imageicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+
+/* style for the action buttons */
+
+.findpplBtn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	background-color:#c62d1f;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0px;
+	border:1px solid #d02718;
+	display:inline-block;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:151px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #810e05;
+	color: #ffffff;
+
+}
+
+.registerBtn, .signinBtn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	background-color:#c62d1f;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0px;
+	border:1px solid #d02718;
+	display:inline-block;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:110px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #810e05;
+	color: #ffffff;
+}
+
+.regconfirmBtn {
+	
+	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	background-color:#c62d1f;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0px;
+	border:1px solid #d02718;
+	display:inline-block;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:151px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #810e05;
+	color: #ffffff;
+
+}
+
+.findpplBtn:hover, .registerBtn:hover, .signinBtn:hover, .regconfirmBtn:hover {
+	background-color:#d33021;
+}
+.findpplBtn:active, .registerBtn:active, .signinBtn:active, .regconfirmBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+.ui-listview .ui-li-static {
+	padding: 0em;
+}
+
+.ui-controlgroup-controls a {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+
+/* style for the dropdown filter items */
+[data-role="listview"] .time li a:hover {
+	background-color: #ffbb00;
+	color: #ffffff;
+}
+
+[data-role="listview"] .place li a:hover {
+	background-color: #88ccc1;
+	color: #ffffff;
+}
+
+/* style for the forgot my password action link */
+#forgotPassword {
+	text-decoration: none;
+	text-transform: none;
+	display: inline;
+	color: #b42723;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#forgotPassword:hover {
+	color: #d33021;
+}
+
+/* End of CSS document */
