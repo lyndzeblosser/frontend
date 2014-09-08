@@ -7,10 +7,16 @@
        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	     <link rel="icon" type="image/x-icon" href="favicon.ico" />
        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-       <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-     
        <link rel="stylesheet" type="text/css" href="css/register.css">
+
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+
+
+       <script src="js/jquery.uploadfile.min.js"></script>
+       <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+       <script src="js/register.js"></script> 
   </head>
 
 <body>
@@ -29,44 +35,42 @@
 
  <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-
+     <form method="post" id = "registerForm">
    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
    
 
-           <label for="firstName" class="ui-hidden-accessible">First Name</label>
-           <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+           <!--label for="firstName" class="ui-hidden-accessible">First Name</label-->
+           <input name="firstName" id="firstName" placeholder="First Name" value="" type="text"/>
 
-           <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-           <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+           <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text"/>
 
+           <label for="homeTown" class="ui-hidden-accessible">Last Name</label>
+           <input name="homeTown" id="homeTown" placeholder="Home Town" value="" type="text"/>
+           
            <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
-           <input name="emailAddress" id="emailAddress" placeholder="Enter your email address" value="" type="text">
+           <input name="email" id="email" placeholder="Enter your email address" value="" type="text"/>
 
            <label for="password" class="ui-hidden-accessible">Password</label>
-           <input name="password" id="password" placeholder="Select a Password" value="" type="text">
+           <input name="password" id="password" placeholder="Select a Password" value="" type="password"/>
 
-           <label for="verifyPassword" class="ui-hidden-accessible">Verify password</label>
-           <input name="verifyPassword" id="verifyPassword" placeholder="Verify password" value="" type="text">
+           <label for="ConfirmPassword" class="ui-hidden-accessible">Verify password</label>
+           <input name="ConfirmPassword" id="ConfirmPassword" placeholder="Verify password" value="" type="password"/>
 
            <label for="bio" class="ui-hidden-accessible">Bio</label>
-           <input name="bio" id="bio" placeholder="Bio" value="" type="text">
+           <input name="bio" id="bio" placeholder="Bio" value="" type="text"/>
 
            <li data-role="collapsible" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;">
                  <h2>Select preferred topics to be tagged to your profile</h2>
-      <form>
          <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"> 
-              <label style="background-color:#b42723; color:#ffffff;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">Start Ups<input id="choose-startups-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">World Cup<input id="choose-worldcup-inset" type="checkbox"></label>
+              <ul style="background-color:#b42723; color:#ffffff;" id="topic"></ul>
          
          </fieldset>
-       </form>
         </li>
 
-       <div id="regconfirmBtn" style="text-align:center">
-              <a href="#" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</a>
+       <div id="submitRegistrationButton" style="text-align:center">
+              <button id="submitRegistrationButton" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</button>
           </div>
-
+     </form>
 
      
 

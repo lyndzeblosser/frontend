@@ -9,7 +9,8 @@
        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-     
+     <script src="js/login.js"></script> 
+     <script src="js/jquery.session.js"></script>
        <link rel="stylesheet" type="text/css" href="css/login.css">
   </head>
 
@@ -31,19 +32,25 @@
 
 
 
-           <label for="email" class="ui-hidden-accessible">Email</label>
-           <input name="email" id="email" placeholder="Email" value="" type="text">
+           <label for="userid" class="ui-hidden-accessible">Email</label>
+           <input name="userid" id="userid" placeholder="Email" value="" type="text">
 
            <label for="password" class="ui-hidden-accessible">Password</label>
-           <input name="password" id="password" placeholder="Password" value="" type="text">
+           <input name="password" id="password" placeholder="Password" value="" type="password">
 
            
 
-       <div id="regconfirmBtn" style="text-align:center">
-              <a href="#" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</a>
+       <div style="text-align:center">
+              <a href="#" id="continueButton" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</a>
           </div>
 
-      <div style="text-align:center; margin-top:10px;"> <a href="#" id="forgotPassword">Forgot your password?</a></div>
+      <div  style="text-align:center">
+              <a href="#" id="registerButton" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >REGISTER</a>
+          </div>     
+           
+      <div style="text-align:center; margin-top:10px;"> 
+          <a href="#" id="forgotPwdButton">Forgot your password?</a>
+      </div>
 
    </div><!-- /content -->
 

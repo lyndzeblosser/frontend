@@ -1,3 +1,4 @@
+    var selectedTopic = [];
 
 var uploadInitCount = 0;
 var sortId = [];
@@ -77,7 +78,7 @@ function addUserHomeLocation(userid, homeLat, homeLng)
 function setupFormValidation()
 {
     //form validation rules
-    console.log("validate function");        
+    console.log("validate function +" + $("#registerForm"));        
     $("#registerForm").validate(
     {     
         rules: {
@@ -95,7 +96,7 @@ function setupFormValidation()
             ConfirmPassword: {
                 equalTo: "#password"
             },
-            dateOfBirth: {
+            bio: {
                 required: true
             }
         },
@@ -110,11 +111,9 @@ function setupFormValidation()
             ConfirmPassword: {
                 equalTo: "Your passwords don't match"
             },
-            ConfirmPassword: {
-                equalTo: "Your passwords don't match"
-            },
-            email: "Please enter a valid email address",
-            agree: "Please accept our policy"
+            bio: "Please tell us something about you"
+            ,
+            email: "Please enter a valid email address"
         },
         submitHandler: function(form) {
             submitForm();
@@ -124,7 +123,6 @@ function setupFormValidation()
 $(document).ready(function()
 {
     var lengthOfTopics = getTopics();
-    var selectedTopic = [];
 
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
