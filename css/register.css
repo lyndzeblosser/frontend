@@ -179,7 +179,7 @@ h4 {
 	color: #ffffff;
 }
 
-.submitRegistrationButton {
+#submitRegistrationButton {
 
 	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
@@ -214,10 +214,10 @@ h4 {
 
 }
 
-.findpplBtn:hover, .registerBtn:hover, .signinBtn:hover, .submitRegistrationButton:hover {
+.findpplBtn:hover, .registerBtn:hover, .signinBtn:hover, .#submitRegistrationButton:hover {
 	background-color:#d33021;
 }
-.findpplBtn:active, .registerBtn:active, .signinBtn:active, .submitRegistrationButton:active {
+.findpplBtn:active, .registerBtn:active, .signinBtn:active, #submitRegistrationButton:active {
 	position:relative;
 	top:1px;
 }
