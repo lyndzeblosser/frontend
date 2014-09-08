@@ -1,62 +1,77 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
     <head>
-        <title>Find Your People</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
-		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Find Your People - TABLETRIBES</title>
+        <meta name="description" content="Find Your People - TABLETRIBES" />
+        <meta name="keywords" content="pushing menu, navigation, responsive, menu, css, jquery" />
+        <meta name="author" content="TT" />
+        <link rel="stylesheet" type="text/css" href="css/default.css" />
+        <link rel="stylesheet" type="text/css" href="css/component.css" />
+        <script src="js/modernizr.custom.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
-        
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
-        
-        <link rel="stylesheet" href="css/flexslider.css" />
-
-		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
-        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-        <script src="js/jquery.flexslider-min.js"></script>
+        <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+        <script src="js/classie.js"></script>
         <script src="js/findYourPeople.js"></script>
-        
-        
+
+
     </head>
-    
-    <body>
-        <div data-role="page" data-theme='a' id='second'>
-            
-           <div data-role="header" data-position="fixed" data-theme='a' data-position="inline">
-                <h1>FIND YOUR PEOPLE</h1>
-            </div>   
+    <body id="body" class="cbp-spmenu-push">
 
-            <div data-role="main" class="ui-content" style="text-align: center;padding:0em" id="main">
+        <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+            <h3>Bottom Menu</h3>
+            <h3 id="name">Temporary Name</h3>
+            <h3 id="age">Temporary Age</h3>
+            <h3 id="bio">Short Biography</h3>
+        </nav>
+        <header class="clearfix">
 
-                <div class="flexslider">
+            <h1>Find Your People</h1>
+        </header>
 
-                  <ul id="searchResults" class="slides">
-                  </ul>
-<!--                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>
-                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>
-                    <li data-thumb="img/rohit.jpeg">
-                      <img src="img/rohit.jpeg" />
-                        <p class="flex-caption">ROHIT KHANDURI<button data-theme = "a" data-inline = "true">INVITE</button><br>Sharing is caring!</p>
-                        
-                    </li>  
-                  </ul>-->
-                </div>
-                <button id='sendInvitesButton' data-inline='true'><i class='fa fa-spinner fa-spin pull-left'></i>&nbsp; Send Invites</button>
+        <div class="container">
+            <div id="ImageDiv" style="height:450px; padding:0em;" > 
 
-                
+
+                <table style= "position: relative; top: 350px; border-collapse: collapse">
+                    <tr bgcolor="white" style="border-collapse: collapse">
+                        <td style="width: 33%; float: left; padding:0em;">
+                            <a href="#" id="AddPeople" class="icon-next-slide" data-info="Next Person">
+                                <button id="AddButton" style="padding:0em; "><img id="AddButtonImgId" src="img/AddIcon.png" style="padding:0em;"/></button>
+                            </a>
+                        </td>
+                        <td style="width: 33%; float: left; ">
+                            <a href="#" id="changeSlide" class="icon-next-slide" data-info="Next Person">
+                                <button id=MoveOnButton style="padding:0em;"><img src="img/MoveOnIcon.png" /></button>
+                            </a>
+                        </td>
+                        <td style="width: 33%; float: left;">
+                            <a href="#" id="confirmInvitation" class="icon-next-slide" data-info="Confirm Invitation">
+                                <button id="ConfirmButton" style="padding:0em;"><img src="img/ConfirmIcon.png" /></button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
+            <div id="BIO" style="background-color: #b8b8b8">
+                <p style="font-size: 150% "> <strong>Name</strong>
+                </p>
+                <p style="font-size: 100% ">
+                    BIO ...........sadfsad. asdfasdf . bio
+                </p>
+            </div>    
+            <!--nav>
+                    <a href="#" id="showInfo" class="icon-info" data-info="Details about this person">Details about this person</a>
+                    <a href="#" id="changeSlide" class="icon-next-slide" data-info="Next Person">Next Person</a>
+                    <a href="#" id="confirmInvitation" class="icon-next-slide" data-info="Confirm Invitation">Confirm Invitation</a>
+
+            </nav-->
         </div>
-    
+        <div class="main">
+        </div>
     </body>
 </html>

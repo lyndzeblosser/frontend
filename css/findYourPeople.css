@@ -1,0 +1,181 @@
+/* CSS Document */
+
+/**
+*Table Tribes App
+
+
+*@version 0.1 (2014/09/07)
+*/
+
+[data-role= "header"] h3{
+	color: #ffffff;
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.5%;
+    font-size: 17px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+
+#header {
+	background: #b42723 !important;
+}
+
+#header a {
+	  border: 0px;
+    border-color: transparent;
+    text-transform: none;
+    text-shadow: none;
+}
+
+h4 {
+	color: #b42723;
+}
+
+
+/* style for the custom icons*/
+
+.ui-icon-mygear:after {
+	background-image: url("../images/gear.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-dot:after {
+	background-image: url("../images/dot.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-bell:after {
+	background-image: url("../images/bell.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-profile:after {
+	background-image: url("../images/profile.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-logoicon:after {
+	background-image: url("../images/logoicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-imageicon:after {
+	background-image: url("../images/imageicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+
+
+
+.ui-listview .ui-li-static {
+	padding: 0em;
+}
+
+/* style for the coffee/drinks/dine panel */
+.ui-controlgroup-controls a {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+/* style for the dropdown filter items */
+[data-role="listview"] .time li a:hover {
+	background-color: #ffbb00;
+	color: #ffffff;
+}
+
+[data-role="listview"] .place li a:hover {
+	background-color: #88ccc1;
+	color: #ffffff;
+}
+
+.activitiesImages{
+    cursor:pointer;
+}
+
+/* un-checked */
+.ui-checkbox label.ui-checkbox-off {
+  background: #333333 !important;
+}
+
+/* checked */
+.ui-checkbox label.ui-checkbox-on {
+  background: #b42723 !important;
+}
+
+.profilebio h3 {
+color: #b42723;
+}
+
+.profilebio h4 {
+	color: #333333;
+	font-size: 15px;
+}
+
+.preferredLocation {
+    float: left;
+    margin-left: 10px;
+    color: #ffffff;
+
+}
+.preferredActivity {
+	float: right;
+	margin-right: 10px;
+	color: #ffffff;
+}
+
+.userprofilePic img {
+	height: 200px !important;
+	width: 200px !important;
+}
+
+/* End of CSS document */

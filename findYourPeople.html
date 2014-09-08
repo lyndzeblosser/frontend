@@ -1,77 +1,126 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Find Your People - TABLETRIBES</title>
-        <meta name="description" content="Find Your People - TABLETRIBES" />
-        <meta name="keywords" content="pushing menu, navigation, responsive, menu, css, jquery" />
-        <meta name="author" content="TT" />
-        <link rel="stylesheet" type="text/css" href="css/default.css" />
-        <link rel="stylesheet" type="text/css" href="css/component.css" />
-        <script src="js/modernizr.custom.js"></script>
-        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-        <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-        <script src="js/classie.js"></script>
-        <script src="js/findYourPeople.js"></script>
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tabletribes</title> 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
 
 
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        <script src="js/jquery.session.js"></script>
+        <script src="js/mood.js"></script>
+        
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/findYourPeople.css">
     </head>
-    <body id="body" class="cbp-spmenu-push">
 
-        <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-            <h3>Bottom Menu</h3>
-            <h3 id="name">Temporary Name</h3>
-            <h3 id="age">Temporary Age</h3>
-            <h3 id="bio">Short Biography</h3>
-        </nav>
-        <header class="clearfix">
+    <body>
 
-            <h1>Find Your People</h1>
-        </header>
+        <div data-role="page" data-theme="a">
 
-        <div class="container">
-            <div id="ImageDiv" style="height:450px; padding:0em;" > 
+            <div data-role="header" id="header" data-position="fixed"> 
+                <h3>FIND YOUR PEOPLE</h3>
+
+                <!-- This is the  to initiate side panels-->
+                <a href="#nav-panel" data-icon="mygear"  class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext"  style="background:#b42723">Add</a>
+            </div><!-- /header -->
 
 
-                <table style= "position: relative; top: 350px; border-collapse: collapse">
-                    <tr bgcolor="white" style="border-collapse: collapse">
-                        <td style="width: 33%; float: left; padding:0em;">
-                            <a href="#" id="AddPeople" class="icon-next-slide" data-info="Next Person">
-                                <button id="AddButton" style="padding:0em; "><img id="AddButtonImgId" src="img/AddIcon.png" style="padding:0em;"/></button>
-                            </a>
-                        </td>
-                        <td style="width: 33%; float: left; ">
-                            <a href="#" id="changeSlide" class="icon-next-slide" data-info="Next Person">
-                                <button id=MoveOnButton style="padding:0em;"><img src="img/MoveOnIcon.png" /></button>
-                            </a>
-                        </td>
-                        <td style="width: 33%; float: left;">
-                            <a href="#" id="confirmInvitation" class="icon-next-slide" data-info="Confirm Invitation">
-                                <button id="ConfirmButton" style="padding:0em;"><img src="img/ConfirmIcon.png" /></button>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
 
-            </div>
-            <div id="BIO" style="background-color: #b8b8b8">
-                <p style="font-size: 150% "> <strong>Name</strong>
-                </p>
-                <p style="font-size: 100% ">
-                    BIO ...........sadfsad. asdfasdf . bio
-                </p>
-            </div>    
-            <!--nav>
-                    <a href="#" id="showInfo" class="icon-info" data-info="Details about this person">Details about this person</a>
-                    <a href="#" id="changeSlide" class="icon-next-slide" data-info="Next Person">Next Person</a>
-                    <a href="#" id="confirmInvitation" class="icon-next-slide" data-info="Confirm Invitation">Confirm Invitation</a>
+            <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-            </nav-->
-        </div>
-        <div class="main">
+               <div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+
+                <div style="text-align:center" class="userprofilePic"> <img src="images/pic1.png"></div>
+
+                   <a href="#" class="AddButton ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; border-style:dotted;"><img src="images/addprofile.png"></a>
+                    <a href="#" class="MoveOnButton ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff; border-style:dotted;"><img src="images/moveon.png"></a>
+                    <a href="#" class="ConfirmButton ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff; border-style:dotted;"><img src="images/confirm.png"></a>
+
+                </div>
+
+                <div class="profilebio">
+                    <h3>ERIC</h3>
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. </h4>
+
+                    <div style="text-align:center;">
+                        <img src="images/staricon.png" style="padding:10px">
+                        <img src="images/tag.png" style="padding:10px;">
+                        <img src="images/friends.png" style="padding:10px;">
+                    </div>
+                    <br>
+
+               <div id="BIO" style="background-color:#b42723">
+                     <p class="preferredLocation" style="font-size:14px;">SAN FRANCISCO</p>
+                     <p class="preferredActivity" style="font-size:14px;">COFFEE/TEA</p>
+                     <div style="clear: both;"></div>
+               </div>
+
+               <div id="activityDetails" style="background-color:#333333">
+                     <p class="preferredLocation" style="font-size:14px;">IN 20 MINTUES</p>
+                     <p class="preferredActivity" style="font-size:14px;">UP TO 0.5 MILES</p>
+                     <div style="clear: both;"></div>
+               </div>
+
+
+                </div>
+
+
+                
+
+            </div><!-- /content -->
+
+
+            <!-- This div is for the left panel-->
+            <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
+
+                    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
+
+
+                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
+                    <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+
+                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
+                    <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+
+                    <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
+                    <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+
+                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
+                    <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
+
+                    <label for="bio" class="ui-hidden-accessible">Bio</label>
+                    <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
+
+                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
+
+                </ul>
+
+            </div><!-- left panel -->
+
+
+            <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview">
+                    <li data-icon="logoicon"><a id="myTable" href="#" data-rel="close">MY TABLES</a></li>
+
+                    <li data-icon="bell"><a id="invites" href="">Pending Invitations<span class="ui-li-count" style="color:#b42723">0</span></a></li>
+
+
+                </ul>
+            </div><!--  right panel -->
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
         </div>
     </body>
 </html>
