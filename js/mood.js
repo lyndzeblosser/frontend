@@ -1,20 +1,9 @@
-var isLoggedIn,autoComplete,currentLat,currentLng,userId;
+var autoComplete,currentLat,currentLng;
 
 $(document).ready(function(){
     preloadIrrepectiveOfLoggedInOut();
-
-    isLoggedIn=typeof $.session.get('userid')!="undefined";
-
-    if(isLoggedIn){
-        
-    userId=$.session.get('userid');
-    getInvitations()
-    getMyTable();
+    loggedInLoggedOutBehavior();
     
-    
-    }else{
-        
-    }
 
 
 })
@@ -138,7 +127,7 @@ function getUrlParams(){
         alert("No time selected")
         return null;
     }else{       
-        url+="&selectedTime="+$("#timeText").attr("value");
+        url+="&time="+$("#timeText").attr("value");
     }
     
     if($("#whereText").attr("value")==""){
@@ -175,32 +164,3 @@ function register(){
     window.location.href = url; 
 }
 
-function getInvitations()
-{
-    $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getInvitations?userid=" + userId,
-            async: false,
-            dataType: "json",
-            success: function(data){
-                $("#invites").text("Pending Invitations["+data.length+"]")
-            }
-        });
-    
-
-
-}
-
-function getMyTable()
-{
-    $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getUserTable?userid=" +userId,
-            async: false,
-            dataType: "json",
-            success: function (data){
-                 $("#myTable").text("My Tables["+data.length+"]")
-            }
-        });
- 
-
-
-}

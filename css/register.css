@@ -215,4 +215,15 @@ div[role="main"] input {
 height: 50px;
 }
 
+/* un-checked */
+.ui-checkbox label.ui-checkbox-off {
+  background: #333333 !important;
+}
+
+/* checked */
+.ui-checkbox label.ui-checkbox-on {
+  background: #b42723 !important;
+}
+
+
 /* End of CSS document */

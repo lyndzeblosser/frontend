@@ -122,94 +122,8 @@ function setupFormValidation()
 }
 $(document).ready(function()
 {
-    var lengthOfTopics = getTopics();
-
-    var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
-    google.maps.event.addListener(autocomplete, 'place_changed', function()
-    {
-        var place = autocomplete.getPlace();
-        homeLat = place.geometry.location.lat();
-        homeLng = place.geometry.location.lng();
-        console.log(homeLat, homeLng)
-    });
-    
-    $( "#submitRegistrationButton" ).click(function( event ) 
-    {
-        setupFormValidation ();
-                                                                                                           
-    });                      
-    $("#password").keydown(function()
-    {
-        uploadInitCount++;
-        if(uploadInitCount<=1)
-        {
-            initializeFileUpload();                   
-        }
-    });
-                      
-
-
-    lengthOfTopics.success(function(data)
-    {
-        lengthOfTopicsArray = data.length;
-        console.log("lengthOfTopicsArray: " + lengthOfTopicsArray);
-        console.log("tags: " + data.length);
-                                                
-        //creating list for selection of discussion topics
-        for(var i=0;i<lengthOfTopicsArray;i++)
-        {
-           $('#topic').append('<li><button id = "topic' + i + '" data-theme="a"  value="' + data[i].tagName + '">' + data[i].tagName + '</button></li>').trigger('create');
-
-
-        }
-        $("#topic").addClass("overview"); 
-
-        //            $('#slider1').tinycarousel(
-        //          {
-        //            infinite:"true"
-        //      });
-                                                
-        //obtaining selected topics and disabling selection of any topic multiple times
-        $("button[id^='topic']").click(function()
-        {
-                                                                                   
-            if(selectedTopic === [])
-            {
-                selectedTopic[0] = $(this).val();   
-            }
-            else
-            {
-                selectedTopic.push($(this).val());
-            }
-                                                                                   
-            for(var i = 0;i<lengthOfTopicsArray;i++)
-            {
-                if($(this).val().indexOf(data[i].tagName)>-1)
-                {
-                    sortId.push(data[i].sortId);
-                }
-            }
-            $(this).addClass('ui-disabled');	
-        });
-                                                
-                                                
-    });
-    lengthOfTopics.error(function(error, message)
-    {
-        console.log("FAILURE " + message);
-    });
-
-
-    function getTopics()
-    {
-        var lengthOfTopicsArray;
-        return $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
-            async: false,
-            dataType: "json"
-        });
-    
-    }
+    loggedInLoggedOutBehavior();    
+    getTopics()
                       
     function initializeFileUpload()
     {
@@ -228,3 +142,31 @@ $(document).ready(function()
     }
 
 });
+
+function getTopics()
+{
+    $.ajax({
+        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
+        async: false,
+        dataType: "json",
+        success: function (data){
+            for(var i=0;i<data.length;i++){
+                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"background-color:#b42723; color:#ffffff;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
+            }
+        }
+    });
+
+}
+
+function getTopicsString(){
+    if($("input[data-cacheval=\"false\"]").length==0){
+        alert("No topics selected")
+        return null;
+    }else{
+        var topics=[]
+        $("input[data-cacheval=\"false\"]").each(function(){
+            topics.push(this.value)
+        })
+        return topics.join();
+    }
+}

@@ -13,7 +13,8 @@
 
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
         <script src="js/jquery.session.js"></script>
-        <script src="js/mood.js"></script>
+        <script src="js/loggedInOutBehavior.js"></script>
+        <script src="js/findYourPeople.js"></script>
         
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
@@ -35,39 +36,33 @@
 
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
-
-               <div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
-
-                <div style="text-align:center" class="userprofilePic"> <img src="images/pic1.png"></div>
-
-                   <a href="#" class="AddButton ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; border-style:dotted;"><img src="images/addprofile.png"></a>
-                    <a href="#" class="MoveOnButton ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff; border-style:dotted;"><img src="images/moveon.png"></a>
-                    <a href="#" class="ConfirmButton ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff; border-style:dotted;"><img src="images/confirm.png"></a>
-
-                </div>
-
-                <div class="profilebio">
-                    <h3>ERIC</h3>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. </h4>
-
-                    <div style="text-align:center;">
-                        <img src="images/staricon.png" style="padding:10px">
-                        <img src="images/tag.png" style="padding:10px;">
-                        <img src="images/friends.png" style="padding:10px;">
-                    </div>
-                    <br>
-
-               <div id="BIO" style="background-color:#b42723">
-                     <p class="preferredLocation" style="font-size:14px;">SAN FRANCISCO</p>
-                     <p class="preferredActivity" style="font-size:14px;">COFFEE/TEA</p>
+                <div id="BIO" style="background-color:#b42723">
+                     <p id="location" class="preferredLocation" style="font-size:14px;"></p>
+                     <p id="activity" class="preferredActivity" style="font-size:14px;"></p>
                      <div style="clear: both;"></div>
                </div>
 
                <div id="activityDetails" style="background-color:#333333">
-                     <p class="preferredLocation" style="font-size:14px;">IN 20 MINTUES</p>
-                     <p class="preferredActivity" style="font-size:14px;">UP TO 0.5 MILES</p>
+                     <p id="time" class="preferredLocation" style="font-size:14px;"></p>
+                     <p id="radius" class="preferredActivity" style="font-size:14px;"></p>
                      <div style="clear: both;"></div>
                </div>
+               <div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+
+                <div style="text-align:center" class="userprofilePic"> <img id="userImage" src=""></div>
+
+                   <a id="addButton" href="#" class="AddButton ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; border-style:dotted;"><img id="addButtonImgId" src="images/addprofile.png"></a>
+                    <a id="moveOnButton" href="#" class="MoveOnButton ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff; border-style:dotted;"><img src="images/moveon.png"></a>
+                    <a id="confirmButton" href="#" class="ConfirmButton ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff; border-style:dotted;"><img src="images/confirm.png"></a>
+
+                </div>
+
+                <div class="profilebio">
+                    <h3 id="userName"></h3>
+                    <h4 id="bioText"></h4>
+               
+
+               
 
 
                 </div>
@@ -111,10 +106,12 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close"></a></li></br>
-                    <li data-icon="logoicon"><a id="myTable" href="#">MY TABLES</a></li>
-
-                    <li data-icon="bell"><a id="invites" href="">Pending Invitations<span class="ui-li-count" style="color:#b42723">0</span></a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close"></a></li><br>
+                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
+                    <li onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
                 </ul>

@@ -8,10 +8,10 @@
 */
 
 [data-role= "header"] h3{
-	color: #ffffff;
-	text-shadow: none;
-	font-weight: bold;
-	font-size: 15px;
+    color: #ffffff;
+    text-shadow: none;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .ui-header .ui-title {
@@ -25,26 +25,26 @@
 
 
 #header {
-	background: #b42723 !important;
+    background: #b42723 !important;
 }
 
 #header a {
-	  border: 0px;
+    border: 0px;
     border-color: transparent;
     text-transform: none;
     text-shadow: none;
 }
 
 h4 {
-	color: #b42723;
+    color: #b42723;
 }
 
 
 /* style for the custom icons*/
 
 .ui-icon-mygear:after {
-	background-image: url("../images/gear.png");
-	background-color: transparent;
+    background-image: url("../images/gear.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -55,8 +55,8 @@ h4 {
 }
 
 .ui-icon-dot:after {
-	background-image: url("../images/dot.png");
-	background-color: transparent;
+    background-image: url("../images/dot.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -67,8 +67,8 @@ h4 {
 }
 
 .ui-icon-bell:after {
-	background-image: url("../images/bell.png");
-	background-color: transparent;
+    background-image: url("../images/bell.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -79,8 +79,8 @@ h4 {
 }
 
 .ui-icon-profile:after {
-	background-image: url("../images/profile.png");
-	background-color: transparent;
+    background-image: url("../images/profile.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -91,8 +91,8 @@ h4 {
 }
 
 .ui-icon-logoicon:after {
-	background-image: url("../images/logoicon.png");
-	background-color: transparent;
+    background-image: url("../images/logoicon.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -103,8 +103,8 @@ h4 {
 }
 
 .ui-icon-imageicon:after {
-	background-image: url("../images/imageicon.png");
-	background-color: transparent;
+    background-image: url("../images/imageicon.png");
+    background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
     -webkit-border-radius:0px;
@@ -118,24 +118,24 @@ h4 {
 
 
 .ui-listview .ui-li-static {
-	padding: 0em;
+    padding: 0em;
 }
 
 /* style for the coffee/drinks/dine panel */
 .ui-controlgroup-controls a {
-	padding-right: 15px;
-	padding-left: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 /* style for the dropdown filter items */
 [data-role="listview"] .time li a:hover {
-	background-color: #ffbb00;
-	color: #ffffff;
+    background-color: #ffbb00;
+    color: #ffffff;
 }
 
 [data-role="listview"] .place li a:hover {
-	background-color: #88ccc1;
-	color: #ffffff;
+    background-color: #88ccc1;
+    color: #ffffff;
 }
 
 .activitiesImages{
@@ -144,21 +144,21 @@ h4 {
 
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
-  background: #333333 !important;
+    background: #333333 !important;
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-  background: #b42723 !important;
+    background: #b42723 !important;
 }
 
 .profilebio h3 {
-color: #b42723;
+    color: #b42723;
 }
 
 .profilebio h4 {
-	color: #333333;
-	font-size: 18px;
+    color: #333333;
+    font-size: 18px;
 }
 
 .preferredLocation {
@@ -168,14 +168,23 @@ color: #b42723;
 
 }
 .preferredActivity {
-	float: right;
-	margin-right: 10px;
-	color: #ffffff;
+    float: right;
+    margin-right: 10px;
+    color: #ffffff;
 }
 
 .userprofilePic img {
-	height: 200px !important;
-	width: 200px !important;
+    height: 200px !important;
+    width: 200px !important;
+}
+
+#location{
+    font-size: 14px;
+    width: 200px;
+    height: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* End of CSS document */

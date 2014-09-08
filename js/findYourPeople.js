@@ -5,19 +5,21 @@ var loadedUser;
 var totalSelected=0;
 var selectedUsers=[];
 
+
 $(document).ready(function () 
 {
     				
     var parameters = location.search;
     var parameter = parameters.split("?");
+    loggedInLoggedOutBehavior();
     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('selectedTime'));
+    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
 });
 
 function fillImgDetails(id){
-    $("#name").text(users[id]["name"]);
-    $("#age").text(users[id]["birthDay"]);  
-    $("#bio").text(users[id]["bio"]);
+    $("#userName").text(users[id]["name"]);
+      
+    $("#bioText").text(users[id]["bio"]);
 
     
     
@@ -51,11 +53,12 @@ function getRadius(miles)
 
 function getResult(latitude, longitude, selectedTopics, radius, activity, selectedTime)
 {
-   
+    console.log(latitude,longitude,radius,activity,selectedTime)
+    fillBaseDetails(latitude,longitude,radius,activity,selectedTime)
     $.ajax(
     {
             
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
+        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + getRadius(radius),
         async: true,
         dataType: "json",
         success: function (data) 
@@ -88,13 +91,12 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
                 
                 loadUser(0);
                     
-                var AddPeople = document.getElementById( 'AddPeople' ),
-                menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-                MoveOnButton = document.getElementById( 'changeSlide' );
+                var AddPeople = document.getElementById( 'addButton' ),
+                MoveOnButton = document.getElementById( 'moveOnButton' ),
+                confirmInvitation=document.getElementById( 'confirmButton' );
         
                 AddPeople.onclick = function() {
-                    classie.toggle( this, 'active' );
-                    classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                    
                     addDeleteUser()
                 
                 };
@@ -135,13 +137,11 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
 
 function loadUser(id){
     loadedUser=id;
-    body = $("#ImageDiv");
+    body = $("#userImage");
     var initialImg = users[id]["image"];
-    body.css({
-        "backgroundImage": "url("+initialImg+")"
-    });
-    var addButtonImg=users[id]["selected"]==0?"img/AddIcon.png":"img/MoveOnIcon.png";
-    $("#AddButtonImgId").attr("src",addButtonImg)
+    body.attr("src",""+initialImg+"");
+    var addButtonImg=users[id]["selected"]==0?"images/addprofile.png":"images/moveon.png";
+    $("#addButtonImgId").attr("src",addButtonImg)
     fillImgDetails(id)
     
 }
@@ -183,17 +183,86 @@ function getSUS(){
     return str.join();
 }
 
+function fillBaseDetails(lat,lng,radius,activity,time){
+    codeLatLng(parseFloat(lat),parseFloat(lng));
+    $("#activity").text(activity);
+    $("#time").text(getTimeStringFromValue(parseInt(time)))
+    $("#radius").text(getRadiusStringFromValue(parseInt(radius)))
+    
+}
+
+function getTimeStringFromValue(time){
+    switch(time){
+        case 0:
+            return "I\'m Flexible";
+            break;
+        case 20:
+            return "In 20 minutes";
+            break;
+        case 60:
+            return "In an hour";
+        case 120:
+            return "In +2 hours";
+        default:
+            return "N/A"
+    }
+}
+
+function getRadiusStringFromValue(radius){
+    switch(radius){
+        case 5:
+            return "Less than 250 ft (1 block)";
+            break;
+        case 10:
+            return "Up to 0.5 miles (10 blocks)";
+            break;
+        case 20:
+            return "Up to 1 mile (20 blocks)";
+        case 1000:
+            return "I\'m Flexible";
+        default:
+            return "N/A"
+    }
+}
+
+function codeLatLng(lat,lng) {
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        $("#location").text(results[1].formatted_address);
+        
+      } else {
+        $("#location").text("Location Unresolved")
+      }
+    } else {
+      $("#location").text("Location Unresolved")
+    }
+  });
+  
+  return 1;
+}
+
+function getRadius(selectedLocation) 
+{
+//    console.log("getParameterByName: " + name);        
+    radius = 0.724638;
+    if (selectedLocation == '5') {
+        radius = 402;
+    }
+    else if (selectedLocation == '10') {
+        radius = 805;
+    }
+    else if (selectedLocation == '20') {
+        radius = 1610;
+    }
+    else if (selectedLocation == '1000') {
+        radius = 80467;
+    }
+    return radius;
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-//"<li data-thumb='img/rohit.jpeg'><img src='img/rohit.jpeg' /><p name='sliderCaption'" + i + " class='flex-caption'>" + parameter + "<button data-theme = 'a' data-inline = 'true'>INVITE</button><br>" + parameter + "</p>"
