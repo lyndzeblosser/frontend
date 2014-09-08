@@ -133,12 +133,12 @@ h4 {
 	border:1px solid #d02718;
 	display:inline-block;
 	font-family:Arial;
-	font-size:15px;
+	font-size:13px;
 	font-weight:bold;
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:151px;
+	width:120px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -146,40 +146,9 @@ h4 {
 
 }
 
-.registerBtn, .signinBtn {
--moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	background-color:#c62d1f;
-	-webkit-border-top-left-radius:6px;
-	-moz-border-radius-topleft:6px;
-	border-top-left-radius:6px;
-	-webkit-border-top-right-radius:6px;
-	-moz-border-radius-topright:6px;
-	border-top-right-radius:6px;
-	-webkit-border-bottom-right-radius:6px;
-	-moz-border-radius-bottomright:6px;
-	border-bottom-right-radius:6px;
-	-webkit-border-bottom-left-radius:6px;
-	-moz-border-radius-bottomleft:6px;
-	border-bottom-left-radius:6px;
-	text-indent:0px;
-	border:1px solid #d02718;
-	display:inline-block;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:40px;
-	line-height:40px;
-	width:110px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #810e05;
-	color: #ffffff;
-}
 
-.findpplBtn {
+
+.findpplBtn, .submitRegistrationButton {
 
 	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
@@ -206,7 +175,7 @@ h4 {
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:151px;
+	width:130px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
