@@ -17,8 +17,6 @@
        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
        <script src="js/register.js"></script> 
-       <script src="js/libs/modernizr-2.5.3.min.js"></script>
-
   </head>
 
 <body>
@@ -37,38 +35,8 @@
 
  <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-        <form method="post" id="upload-image-form">
-
-
-          <div class="cell">
-            <div class="row requiredRow">
-                <label id="image-upload-ariaLabel" for="picture">Select Image:</label> <input type="file" size="40" name="image-upload" id="image-upload"> <button id="remove-image-upload"><img src="img/cross.png" /> Remove</button>
-            </div>
-          </div>
-
-          <div class="cell">
-              <div id="image_preview_wrap">
-                  <img alt="picture" src="img/350x150.jpg" id="image_preview">
-              </div>
-          </div>
-
-<!--                            <div class="cell">
-              <h2>Saved Original Image:</h2>
-              <div id="image_original_wrap">
-                  <img class="loading" alt="loading..." src="img/loading.gif">
-                  <img alt="The original uploaded image will appear here..." src="" id="image_original">
-              </div>
-          </div>-->
-
-
-<!--                            <div class="cell lastcell">
-             <input type="submit" value="Submit Form" class="submit-btn">
-          </div>-->
-
-        </form>
-     
      <form method="post" id = "registerForm">
-   <!--<div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
+   <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
    
 
            <!--label for="firstName" class="ui-hidden-accessible">First Name</label-->
@@ -100,7 +68,7 @@
         </li>
 
        <div id="submitRegistrationButton" style="text-align:center">
-              <button id="submitRegistrationButton" class="findpplBtn" style="color:#ffffff; margin-top:10px;" >CONTINUE</button>
+              <button id="submitRegistrationButton" class="findpplBtn" style="color:#ffffff; margin-top:20px;" >CONTINUE</button>
           </div>
      </form>
 
@@ -134,10 +102,5 @@
      <!-- <div data-role="footer" data-position="fixed"></div> <!- Important-->
 
    </div>
-    
-      <script src="js/plugins.js"></script>
-        <script src="js/script.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-         <script src="js/jquery-ajax-image-upload.js"></script>
  </body>
 </html>

@@ -11,14 +11,14 @@
 	color: #ffffff;
 	text-shadow: none;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.8%;
-    font-size: 14px;
+    margin-bottom: 0.5%;
+    font-size: 17px;
     overflow: visible !important;
     white-space: normal !important;
 }
@@ -251,7 +251,7 @@ h4 {
 }
 
 /* style for the forgot my password action link */
-#forgotPassword {
+#forgotPwdButton {
 	text-decoration: none;
 	text-transform: none;
 	display: inline;
@@ -260,8 +260,12 @@ h4 {
 	margin-top: 10px;
 }
 
-#forgotPassword:hover {
+#forgotPwdButton:hover {
 	color: #d33021;
+}
+
+div[role="main"] input {
+height: 50px;
 }
 
 /* End of CSS document */

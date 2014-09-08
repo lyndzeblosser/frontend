@@ -11,14 +11,14 @@
 	color: #ffffff;
 	text-shadow: none;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.8%;
-    font-size: 14px;
+    margin-bottom: 0.5%;
+    font-size: 17px;
     overflow: visible !important;
     white-space: normal !important;
 }
@@ -219,12 +219,12 @@ h4 {
 
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
-  background: #b42723 !important;
+  background: #333333 !important;
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-  background: blue !important;
+  background: #b42723 !important;
 }
 
 /* End of CSS document */
