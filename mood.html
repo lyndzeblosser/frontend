@@ -1,157 +1,156 @@
 <!DOCTYPE html> 
 <html> 
-  <head> 
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <title>Tabletribes</title> 
-       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-	     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-       <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-     
-       <link rel="stylesheet" type="text/css" href="css/mood_1.css">
-  </head>
-
-<body>
-  
-  <div data-role="page" data-theme="a">
-
-        <div data-role="header" id="header" data-position="fixed"> 
-                        <h3>WHAT ARE YOU IN THE MOOD FOR?</h3>
-
-                        <!-- This is the  to initiate side panels-->
-                       <a href="#nav-panel" data-icon="mygear"  class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
-                       <a href="#add-form" data-icon="dot" data-iconpos="notext"  style="background:#b42723">Add</a>
-        </div><!-- /header -->
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tabletribes</title> 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
 
 
 
-  <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        <script src="js/jquery.session.js"></script>
+        <script src="js/mood.js"></script>
+        
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
-      <!-- This is the preference panel div-->
-    	<div data-role="controlgroup" data-type="horizontal" style="text-align:center";>
-   
-         <a href="#" class="ui-btn ui-corner-all" style="background:#b42723";><img src="images/coffee1.png"></a>
-         <a href="#" class="ui-btn ui-corner-all" style="background:#ffffff";><img src="images/drinksinvert.png"></a>
-         <a href="#" class="ui-btn ui-corner-all" style="background:#ffffff";><img src="images/dineinvert.png"></a>
+        <link rel="stylesheet" type="text/css" href="css/mood_1.css">
+    </head>
 
-  </div>
+    <body>
 
+        <div data-role="page" data-theme="a">
 
-    
-  <!-- This is the the preference form div-->
-  <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
+            <div data-role="header" id="header" data-position="fixed"> 
+                <h3>WHAT ARE YOU IN THE MOOD FOR?</h3>
 
-       	 <li data-role="collapsible" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;">
-                 <h2>What do you want to talk about?</h2>
-      <form>
-         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"> 
-              <label style="background-color:#b42723; color:#ffffff;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">Start Ups<input id="choose-startups-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">World Cup<input id="choose-worldcup-inset" type="checkbox"></label>
-			  <label style="background-color:#b42723; color:#ffffff;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">Start Ups<input id="choose-startups-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">World Cup<input id="choose-worldcup-inset" type="checkbox"></label>
-			   <label style="background-color:#b42723; color:#ffffff;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">Start Ups<input id="choose-startups-inset" type="checkbox"></label>
-              <label style="background-color:#b42723; color:#ffffff;">World Cup<input id="choose-worldcup-inset" type="checkbox"></label>
-         
-         </fieldset>
-       </form>
-        </li>
+                <!-- This is the  to initiate side panels-->
+                <a href="#nav-panel" data-icon="mygear"  class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext"  style="background:#b42723">Add</a>
+            </div><!-- /header -->
 
 
- 
-         <li data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true"style="background-color:#ffbb00;">
-                 <h2>When</h2>
-          <ul data-role="listview" data-mini="true">
-            <li><a href="#">In 20 minutes</a></li>
-            <li><a href="#">In an hour</a></li>
-            <li><a href="#">In +2 hours</a></li>
-            <li><a href="#">I'm flexible</a></li>
-          </ul>
-         </li>
- 
 
-  
-         <li data-role="collapsible" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
-                  <h2>Where?</h2>
-           <ul data-role="listview" data-mini="true">
-             <li><a href="#">Less than 250 ft (1 block)</a></li>
-             <li><a href="#">Up to 0.5 miles (10 blocks)</a></li>
-             <li><a href="#">Up to 1 mile (20 blocks)</a></li>
-             <li><a href="#">I'm flexible</a></li>
-           </ul>
-         </li>
+            <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-  
-      <!-- This is the location filter div-->
-           <label for="location" class="ui-hidden-accessible">Location:</label>
-           <input name="location" id="location" placeholder="Location" value="" type="text">
-  
-    </ul> <!--ends the preference list-->
+                <!-- This is the preference panel div-->
+                <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
+
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff"><img src="images/coffeeinvert.png"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff"><img src="images/drinksinvert.png"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff"><img src="images/dineinvert.png"></a>
+
+                </div>
 
 
-      <!-- This div is the Find my people button. Inactive once clicked-->
-          <div id="findppl" style="text-align:center">
-              <a href="#" class="findpplBtn" style="color:#ffffff;">FIND MY PEOPLE</a>
-          </div>
+
+                <!-- This is the the preference form div-->
+                <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
+
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;">
+                        <h2>What do you want to talk about?</h2>
+                        <form>
+                            <fieldset id="topicsList" data-role="controlgroup" data-type="horizontal" data-mini="true"> 
+                               
+
+                            </fieldset>
+                        </form>
+                    </li>
 
 
-       <!-- This div is the sign in/register buttons-->
-          <div id="loginBtn" style="text-align:center; margin-top:30px";>
-           <a href="#" class="signinBtn" style="color:#ffffff;">SIGN IN</a>
-           <a href="#" class="registerBtn" style="color:#ffffff;">FIRST TIME</a>
-          </div>
+
+                    <li id="timeMenu" data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true"style="background-color:#ffbb00;">
+                        <h2 id="timeText" value="">When</h2>
+                        <ul data-role="listview" data-mini="true">
+                            <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
+                            <li onclick="changeTimeHeading(60,'In an hour')"><a href="#">In an hour</a></li>
+                            <li onclick="changeTimeHeading(120,'In +2 hours')"><a href="#">In +2 hours</a></li>
+                            <li onclick="changeTimeHeading(0,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                        </ul>
+                    </li>
 
 
-   </div><!-- /content -->
+
+                    <li id="whereMenu" data-role="collapsible" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
+                        <h2 id="whereText" value="">Where?</h2>
+                        <ul data-role="listview" data-mini="true">
+                            <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
+                            <li onclick="changeWhereHeading(10,'Up to 0.5 miles (10 blocks)')"><a href="#">Up to 0.5 miles (10 blocks)</a></li>
+                            <li onclick="changeWhereHeading(20,'Up to 1 mile (20 blocks)')"><a href="#">Up to 1 mile (20 blocks)</a></li>
+                            <li onclick="changeWhereHeading(1000,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                        </ul>
+                    </li>
 
 
-       <!-- This div is for the left panel-->
-    <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
-            
-            <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
-   
+                    <!-- This is the location filter div-->
+                    <label for="location" class="ui-hidden-accessible">Location:</label>
+                    <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
 
-           <label for="firstName" class="ui-hidden-accessible">First Name</label>
-           <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+                </ul> <!--ends the preference list-->
 
-           <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-           <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
 
-           <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
-           <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+                <!-- This div is the Find my people button. Inactive once clicked-->
+                <div id="findppl" style="text-align:center">
+                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff;">FIND MY PEOPLE</a>
+                </div>
 
-           <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-           <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
 
-           <label for="bio" class="ui-hidden-accessible">Bio</label>
-           <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
+                <!-- This div is the sign in/register buttons-->
+                <div id="loginBtn" style="text-align:center; margin-top:30px;display: none">
+                    <a href="#" class="signinBtn" style="color:#ffffff;" onclick="signIn()">SIGN IN</a>
+                    <a href="#" class="registerBtn" onclick="register()" style="color:#ffffff;">FIRST TIME</a>
+                </div>
 
-           <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
 
-        </ul>
+            </div><!-- /content -->
 
-    </div><!-- left panel -->
-    
-      
-      <!-- This is for the right panel-->
-    <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
-        <ul data-role="listview">
-            <li data-icon="logoicon"><a href="#" data-rel="close"><h4>MY TABLES</h4></a></li>
-            
-                <li data-icon="bell"><a href="">Pending Invitations</a></li>
-               
-                
-        </ul>
-     </div><!--  right panel -->
 
-     <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+            <!-- This div is for the left panel-->
+            <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
 
-   </div>
- </body>
+                    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
+
+
+                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
+                    <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+
+                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
+                    <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+
+                    <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
+                    <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+
+                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
+                    <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
+
+                    <label for="bio" class="ui-hidden-accessible">Bio</label>
+                    <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
+
+                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
+
+                </ul>
+
+            </div><!-- left panel -->
+
+
+            <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview">
+                    <li data-icon="logoicon"><a id="myTable" href="#" data-rel="close">MY TABLES</a></li>
+
+                    <li data-icon="bell"><a id="invites" href="">Pending Invitations</a></li>
+
+
+                </ul>
+            </div><!--  right panel -->
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
+        </div>
+    </body>
 </html>

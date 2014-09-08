@@ -213,4 +213,18 @@ h4 {
 	color: #ffffff;
 }
 
+.activitiesImages{
+    cursor:pointer;
+}
+
+/* un-checked */
+.ui-checkbox label.ui-checkbox-off {
+  background: #b42723 !important;
+}
+
+/* checked */
+.ui-checkbox label.ui-checkbox-on {
+  background: blue !important;
+}
+
 /* End of CSS document */
