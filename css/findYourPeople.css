@@ -119,6 +119,17 @@ h4 {
     -webkit-box-shadow: none;
 }
 
+.ui-icon-logouticon:after {
+	background-image: url("../images/logouticon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
 
 
 
@@ -161,6 +172,14 @@ h4 {
     color: #b42723;
 }
 
+#userName {
+    color:#b42723;
+}
+
+#bioText h4 {
+    color:#ffffff;
+}
+
 .profilebio h4 {
     color: #333333;
     font-size: 18px;
@@ -191,5 +210,13 @@ h4 {
     overflow: hidden;
     white-space: nowrap;
 }
+
+[role="main"] {
+    background-image: url("../images/piclarge.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
 
 /* End of CSS document */

@@ -36,20 +36,12 @@
 
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
-                <div id="BIO" style="background-color:#b42723">
-                     <p id="location" class="preferredLocation" style="font-size:14px;"></p>
-                     <p id="activity" class="preferredActivity" style="font-size:14px;"></p>
-                     <div style="clear: both;"></div>
-               </div>
-
-               <div id="activityDetails" style="background-color:#333333">
-                     <p id="time" class="preferredLocation" style="font-size:14px;"></p>
-                     <p id="radius" class="preferredActivity" style="font-size:14px;"></p>
-                     <div style="clear: both;"></div>
-               </div>
+                
                <div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
 
-                <div style="text-align:center" class="userprofilePic"> <img id="userImage" src=""></div>
+              <!--  <div style="text-align:center" class="userprofilePic"> <img id="userImage" src=""></div> -->
+              
+              <div class="space" style="height: 200px;"></div>
 
                    <a id="addButton" href="#" class="AddButton ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; border-style:dotted;"><img id="addButtonImgId" src="images/addprofile.png"></a>
                     <a id="moveOnButton" href="#" class="MoveOnButton ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff; border-style:dotted;"><img src="images/moveon.png"></a>
@@ -58,14 +50,33 @@
                 </div>
 
                 <div class="profilebio">
-                    <h3 id="userName"></h3>
-                    <h4 id="bioText"></h4>
-               
-
-               
-
-
+                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName"></h3></div>
+                   <div style="overflow-y:scroll; height:100px;"> <h4 id="bioText"></h4></div>
                 </div>
+                
+                <div class="ui-grid-c tags" style="background-color:#88ccc1; height:40px">
+                  <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px; text-align:center;">tag1</div></div>
+                  <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px; text-align:center;">tag2</div></div>
+                  <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px; text-align:center;">tag3</div></div>
+                  <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px; text-align:center;">tag4</div></div>
+
+               </div>
+
+
+               <div id="BIO" style="background-color:#b42723">
+                     <p id="location" class="preferredLocation" style="font-size:14px;"></p>
+                     <p id="activity" class="preferredActivity" style="font-size:14px;"></p>
+                     <div style="clear: both;"></div>
+               </div>
+
+               <div id="activityDetails" style="background-color:#aaaaaa">
+                     <p id="time" class="preferredLocation" style="font-size:14px;"></p>
+                     <p id="radius" class="preferredActivity" style="font-size:14px;"></p>
+                     <div style="clear: both;"></div>
+               </div>
+
+
+               
 
 
                 
@@ -111,7 +122,7 @@
                     <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
-                    <li onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
                 </ul>

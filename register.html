@@ -58,7 +58,7 @@
                             <img alt="picture" src="img/350x150.jpg" id="image_preview">
                         </div>
                     </div>
-
+                  </form> 
 <!--                            <div class="cell">
               <h2>Saved Original Image:</h2>
               <div id="image_original_wrap">
@@ -72,7 +72,7 @@
              <input type="submit" value="Submit Form" class="submit-btn">
           </div>-->
 
-                 </form>
+               
                 <form method="post" id = "registerForm">
                     <div style="text-align:center;">
                     <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
@@ -100,7 +100,7 @@
                     <input name="imageMasterLocation" id="imageMasterLocation" value="" type="hidden"/>
                     <input name="imageThumbnailLocation" id="imageThumbnailLocation" value="" type="hidden"/>
 
-                    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+                   
                     <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
 
                         <li data-role="collapsible" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;">
@@ -144,7 +144,7 @@
                     <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
-                    <li onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
 
