@@ -137,9 +137,9 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
 
 function loadUser(id){
     loadedUser=id;
-    body = $("#userImage");
+    body = $("#imageDiv");
     var initialImg = users[id]["image"];
-    body.attr("src",""+initialImg+"");
+    body.css("background-image","url("+initialImg+")");
     var addButtonImg=users[id]["selected"]==0?"images/addprofile.png":"images/moveon.png";
     $("#addButtonImgId").attr("src",addButtonImg)
     fillImgDetails(id)
