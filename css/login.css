@@ -7,6 +7,11 @@
 *@version 0.1 (2014/09/07)
 */
 
+.ui-content {
+    padding: 0px !important;
+}
+
+
 [data-role= "header"] h3{
 	color: #ffffff;
 	text-shadow: none;
@@ -104,6 +109,18 @@ h4 {
 
 .ui-icon-imageicon:after {
 	background-image: url("../images/imageicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-logouticon:after {
+	background-image: url("../images/logouticon.png");
 	background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;

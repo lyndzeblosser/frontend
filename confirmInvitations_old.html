@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Final Details</title>
+        <meta charset="UTF-8">
+        	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="themes/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="themes/TableTribesV2.min.css" />
+        
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+        
+        <link rel="stylesheet" href="css/flexslider.css" />
+
+		<!-- jQuery / jQueryMobile Scripts -->
+		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        <script src="js/jquery.flexslider-min.js"></script>
+        <script src="js/confirmInvitations.js"></script>
+        <script src="js/jquery.session.js"></script>
+
+    </head>
+    <body  style = "height:100%">
+        <!-- Selected user for invite -->
+  <div data-role="main" class="ui-content" style="text-align: center;padding:0em ; height:100%" >
+
+    <div data-role="page" id="confirmInvite" style = "height: 100%">
+        <div data-role="header">
+        <h1>Final Details</h1>
+        </div>
+        <div data-role="main" class="ui-content" id="mainUI" style="
+border-width: 0;
+overflow: visible;
+overflow-x: hidden;
+padding: 0em;
+min-height: 568px;
+">
+        </div>
+            <!--iframe name="hiddenFrame1" id = "hiddenFrame1" class="hide"></iframe-->  
+
+        <!--form name="confirmInviteForm" id="confirmInviteForm" method="post" action="http://vast-scrubland-7419.herokuapp.com/credentialService/updateInvitation" target="hiddenFrame1">  
+
+                <input type="hidden" name="username_from" id="username_from">
+                <input type="hidden" name="latitude_invite" id="latitude_invite">
+                <input type="hidden" name="longitude_invite" id="longitude_invite">
+                <input type="hidden" name="time_invite" id="time_invite">
+                <input type="hidden" name="username_to" id="username_to">
+                <input type="hidden" name="activity" id="activity">
+
+        </form-->
+
+            
+        <!--div>
+
+            <button id='confirmInvitesButton' data-inline='true'>Send Invites</button>
+        </div-->
+
+    </div>
+  </div>
+        </body>
+        </html>
+        

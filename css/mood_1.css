@@ -7,6 +7,11 @@
 *@version 0.1 (2014/09/07)
 */
 
+.ui-content {
+    padding: 0px !important;
+}
+
+
 [data-role= "header"] h3{
 	color: #ffffff;
 	text-shadow: none;
