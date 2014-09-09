@@ -19,6 +19,7 @@
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/confirmInvitations.css">
+        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/confirmInvitationsipad.css">
     </head>
 
     <body>
@@ -43,7 +44,7 @@
                    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
                 </div><!-- /grid-b -->
 
-               <div class="ui-grid-b" >
+               <div class="ui-grid-b">
                    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/findpplicon.png" style="height:105px;"></div></div>
                    <div class="ui-block-b"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/pic1.png" style="height:105px;"><img class="close" src="images/smallcloseicon.png" /></div></div>
                    <div class="ui-block-c"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/pic2.png" style="height:105px;"><img class="close" src="images/smallcloseicon.png" /></div></div>
@@ -69,7 +70,7 @@
                </div>
 
               <div style="text-align:center;">
-    <p style="float: left; margin-left:10px;"><img src="images/coffeeinvertbig.png" style="height:100px; width:100px; border: dotted 1px#b42723;"></p>
+    <p style="float: left; margin-left:10px;" class="activitypicc"><img src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>
     
     <a href="#" class="confirminvitesButton" style="color:#ffffff;">SEND OUT INVITES</a>
 </div>
@@ -120,7 +121,7 @@
                     <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
-                    <li onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
                 </ul>

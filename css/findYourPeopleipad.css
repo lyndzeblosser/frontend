@@ -1,0 +1,42 @@
+@charset utf-8;
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.7%;
+    font-size: 22px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+[data-role="controlgroup"] img {
+	height:100px;
+        width:128px; 
+}
+
+.preferredLocation {
+    float: left;
+    margin-left: 10px;
+    color: #ffffff;
+    height: 40px;
+    font-size: 20px;
+
+}
+.preferredActivity {
+    float: right;
+    margin-right: 10px;
+    color: #ffffff;
+    height: 40px;
+    font-size: 20px;
+}
+
+.ui-bar-a {
+    font-size: 24px;
+}
+
+[role="main"] {
+    background-image: url("../images/piclarge.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
