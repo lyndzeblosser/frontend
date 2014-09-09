@@ -279,4 +279,14 @@ h4 {
     padding:0;
 }
 
+
+#confirmprofileImg { position: relative; }
+#confirmprofileImg .close { 
+     
+    position: absolute;
+    top: -85px;
+    right: 0;
+}
+#confirmprofileImg:hover .close { display: block; }
+
 /* End of CSS document */
