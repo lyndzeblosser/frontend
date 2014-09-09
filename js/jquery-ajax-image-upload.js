@@ -57,6 +57,8 @@
             });
 
             //remove image upload
+            $('#remove-image-upload').hide();
+            $('#image_preview').hide();
             $('#remove-image-upload').on('click', function(e)
             {
                 e.preventDefault();
@@ -99,6 +101,8 @@
 //                    _this.cache.$imgPreview.after('<div class="img-data">'+$.objToString(data.thumb)+'</div>');
 //                    _this.cache.$imgOriginal.after('<div class="img-data">'+$.objToString(data.master)+'</div>');
                     $('#remove-image-upload').show();
+                    $('#imageMasterLocation').val(data.master.img_src);
+                    $('#imageThumbnailLocation').val(data.thumb.img_src);
 
                 },
                 error: function(xhr, textStatus, errorThrown)
@@ -124,6 +128,8 @@
             $('.img-data').remove();
             $('#image-upload').val('');
             $('#remove-image-upload').hide();
+            $('#image_preview').hide();
+
             //todo: remove temp file using ajax/php
         },
 
