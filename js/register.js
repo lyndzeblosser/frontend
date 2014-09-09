@@ -1,10 +1,10 @@
-    var selectedTopic = [];
+var selectedTopic = [];
 
 var uploadInitCount = 0;
 var sortId = [];
 var homeLat, homeLng;
 
-function submitForm ()
+function submitForm()
 {
     //event.preventDefault();
     console.log("validate function1");
@@ -12,130 +12,132 @@ function submitForm ()
     var postData = $("#registerForm").serializeArray();
     var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
     $.ajax(
-    {
-        url : formURL,
-        type: "POST",
-        data : postData,
-        success:function(data, textStatus, jqXHR) 
-        {
-            console.log("Registration Form Submitted Successfully!");
-            var userid = $("#email").val();
-            console.log(sortId);
-            addUserTags(userid, sortId);
-            addUserHomeLocation(userid, homeLat, homeLng);
-            $( "#successfulRegistrationPopup" ).popup( "open" );
-                                                            
-        },
-        error: function(jqXHR, textStatus, errorThrown) 
-        {
-            console.log("Registration Form was not Submitted!");
-        },
-        done: function()
-        {
-        }
-                                                        
-    });
+            {
+                url: formURL,
+                type: "POST",
+                data: postData,
+                success: function(data, textStatus, jqXHR)
+                {
+                    console.log("Registration Form Submitted Successfully!");
+                    var userid = $("#email").val();
+                    console.log(sortId);
+                    addUserTags(userid, sortId);
+                    addUserHomeLocation(userid, homeLat, homeLng);
+                    $("#successfulRegistrationPopup").popup("open");
+
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    console.log("Registration Form was not Submitted!");
+                },
+                done: function()
+                {
+                }
+
+            });
     function addUserTags(userid, tagsList)
     {
         console.log('tagsList: ' + tagsList);
         //    var tags = tagsList.split(",");
         //    console.log('tags: ' + tags);
-        for (i=0; i<tagsList.length; i++){
+        for (i = 0; i < tagsList.length; i++) {
             addUserTag(userid, tagsList[i]);
         }
-    }    
-    
-function addUserTag(userid, tag)
-{
-    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserTag",
-     {
-        userid:userid,
-        tag:tag,
-      },
-    function(data,status){
-        console.log("Data: " + data + "\nStatus: " + status);
-    });
-}
+    }
 
-function addUserHomeLocation(userid, homeLat, homeLng)
-{
-    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserHomeLocation",
-     {
-        userid:userid,
-        homeLat:homeLat,
-        homeLng:homeLng
-      },
-    function(data,status){
-        console.log("Data: " + data + "\nStatus: " + status);
-    });
-}
+    function addUserTag(userid, tag)
+    {
+        $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserTag",
+                {
+                    userid: userid,
+                    tag: tag,
+                },
+                function(data, status) {
+                    console.log("Data: " + data + "\nStatus: " + status);
+                });
+    }
+
+    function addUserHomeLocation(userid, homeLat, homeLng)
+    {
+        $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserHomeLocation",
+                {
+                    userid: userid,
+                    homeLat: homeLat,
+                    homeLng: homeLng
+                },
+        function(data, status) {
+            console.log("Data: " + data + "\nStatus: " + status);
+        });
+    }
 
     $("#redirectButton").click(function()
     {
         window.location.href = "mood.html";
-    }); 
+    });
 }
 function setupFormValidation()
 {
     //form validation rules
-    console.log("validate function +" + $("#registerForm"));        
+    console.log("validate function +" + $("#registerForm"));
     $("#registerForm").validate(
-    {     
-        rules: {
-            firstName: "required",
-            lastName: "required",
-            homeTown:"required",
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 5
-            },
-            ConfirmPassword: {
-                equalTo: "#password"
-            },
-            bio: {
-                required: true
-            }
-        },
-        messages: {
-            firstName: "Please enter your firstname",
-            lastName: "Please enter your lastname",
-            homeTown:"Please enter your hometown",
-            password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
-            },
-            ConfirmPassword: {
-                equalTo: "Your passwords don't match"
-            },
-            bio: "Please tell us something about you"
-            ,
-            email: "Please enter a valid email address"
-        },
-        submitHandler: function(form) {
-            submitForm();
-        }
-    });
+            {
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    homeTown: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    ConfirmPassword: {
+                        equalTo: "#password"
+                    },
+                    bio: {
+                        required: true
+                    }
+                },
+                messages: {
+                    firstName: "Please enter your firstname",
+                    lastName: "Please enter your lastname",
+                    homeTown: "Please enter your hometown",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    ConfirmPassword: {
+                        equalTo: "Your passwords don't match"
+                    },
+                    bio: "Please tell us something about you"
+                    ,
+                    email: "Please enter a valid email address"
+                },
+                submitHandler: function(form) {
+                    submitForm();
+                }
+            });
 }
 $(document).ready(function()
 {
-    loggedInLoggedOutBehavior();    
+    //loggedInLoggedOutBehavior();
+    $(".loggedInFields").css("display", "none")
+    $("#closeleftPanel").css("display", "none")
     getTopics()
-                      
+
     function initializeFileUpload()
     {
         $("#fileuploader").uploadFile({
-            url:"upload.php",
-            allowedTypes:"jpg",
-            fileName:"myfile",               
+            url: "upload.php",
+            allowedTypes: "jpg",
+            fileName: "myfile",
             dynamicFormData: function()
             {
-                var data ={
-                    email:$("#email").val()
-                    };
+                var data = {
+                    email: $("#email").val()
+                };
                 return data;
             }
         });
@@ -149,22 +151,22 @@ function getTopics()
         url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
-        success: function (data){
-            for(var i=0;i<data.length;i++){
-                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"background-color:#b42723; color:#ffffff;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
+        success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                $("#topicsList").append("<label id=\"tag" + data[i]["tagId"] + "label\" style=\"background-color:#b42723; color:#ffffff;\">" + data[i]["tagName"] + "<input id=\"tag" + data[i]["tagId"] + "\" value=\"" + data[i]["tagId"] + "\"  type=\"checkbox\"></label>");
             }
         }
     });
 
 }
 
-function getTopicsString(){
-    if($("input[data-cacheval=\"false\"]").length==0){
+function getTopicsString() {
+    if ($("input[data-cacheval=\"false\"]").length == 0) {
         alert("No topics selected")
         return null;
-    }else{
-        var topics=[]
-        $("input[data-cacheval=\"false\"]").each(function(){
+    } else {
+        var topics = []
+        $("input[data-cacheval=\"false\"]").each(function() {
             topics.push(this.value)
         })
         return topics.join();
