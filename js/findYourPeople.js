@@ -58,7 +58,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
     $.ajax(
     {
             
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + getRadius(radius) + "&userid=" + $.session.get('userid'),
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + getRadius(radius) + "&userid=" + $.session.get('userid'),
         async: true,
         dataType: "json",
         success: function (data) 

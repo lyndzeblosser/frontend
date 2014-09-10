@@ -37,7 +37,7 @@ function validate(userid, password)
 {
     $.ajax({
 //  url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/matchCredentials?{userid:" + userid + ",password:" + password + "}",
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
         context: document.body
     }).done(function(data)
     {

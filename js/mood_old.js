@@ -218,7 +218,7 @@ function getTopics()
 {
     var lengthOfTopicsArray;
     return $.ajax({
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json"
     });
@@ -233,7 +233,7 @@ function getInvitations()
     }
     else {
         return $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getInvitations?userid=" + $.session.get('userid'),
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getInvitations?userid=" + $.session.get('userid'),
             async: false,
             dataType: "json"
         });
@@ -249,7 +249,7 @@ function getUserTable()
     }
     else {
         return $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getUserTable?userid=" + $.session.get('userid'),
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTable?userid=" + $.session.get('userid'),
             async: false,
             dataType: "json"
         });
@@ -334,7 +334,7 @@ function acceptInvite(username_from, username_to)
 function updateUserLiveLocation(userid, lat, lng)
 {
 
-    $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/updateLiveLocation",
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateLiveLocation",
     {
         userID:userid,
         latitude:lat,

@@ -10,7 +10,7 @@ function submitForm()
     console.log("validate function1");
     // Get some values from elements on the page:
     var postData = $("#registerForm").serializeArray();
-    var formURL = "http://vast-scrubland-7419.herokuapp.com/credentialService/tempRegisterUser";
+    var formURL = "http://evening-thicket-5124.herokuapp.com/credentialService/tempRegisterUser";
     $.ajax(
             {
                 url: formURL,
@@ -48,7 +48,7 @@ function submitForm()
 
     function addUserTag(userid, tag)
     {
-        $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserTag",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserTag",
                 {
                     userid: userid,
                     tag: tag,
@@ -60,7 +60,7 @@ function submitForm()
 
     function addUserHomeLocation(userid, homeLat, homeLng)
     {
-        $.post("http://vast-scrubland-7419.herokuapp.com/credentialService/addUserHomeLocation",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserHomeLocation",
                 {
                     userid: userid,
                     homeLat: homeLat,
@@ -161,7 +161,7 @@ $( "#submitRegistrationButton" ).click(function( event )
 function getTopics()
 {
     $.ajax({
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function(data) {

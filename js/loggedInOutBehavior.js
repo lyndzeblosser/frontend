@@ -3,7 +3,7 @@ var isLoggedIn,userId;
 function getInvitations()
 {
     $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getInvitations?userid=" + userId,
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getInvitations?userid=" + userId,
             async: false,
             dataType: "json",
             success: function(data){
@@ -18,7 +18,7 @@ function getInvitations()
 function getMyTable()
 {
     $.ajax({
-            url: "http://vast-scrubland-7419.herokuapp.com/credentialService/getUserTable?userid=" +userId,
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTable?userid=" +userId,
             async: false,
             dataType: "json",
             success: function (data){

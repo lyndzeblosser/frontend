@@ -42,7 +42,7 @@ function activitiesImages(){
 function getTopics()
 {
     $.ajax({
-        url: "http://vast-scrubland-7419.herokuapp.com/credentialService/tags",
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function (data){
