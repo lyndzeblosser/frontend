@@ -24,7 +24,8 @@ function submitForm()
                     addUserTags(userid, sortId);
                     addUserHomeLocation(userid, homeLat, homeLng);
                     $("#successfulRegistrationPopup").popup("open");
-
+                    alert("Registration Successfull!");
+                    window.location.href = "mood.html";
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
@@ -125,8 +126,20 @@ $(document).ready(function()
     //loggedInLoggedOutBehavior();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
-    getTopics()
-
+    getTopics();
+    var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
+    google.maps.event.addListener(autocomplete, 'place_changed', function()
+    {
+        var place = autocomplete.getPlace();
+        homeLat = place.geometry.location.lat();
+        homeLng = place.geometry.location.lng();
+        console.log(homeLat, homeLng)
+    });
+$( "#submitRegistrationButton" ).click(function( event ) 
+    {
+        setupFormValidation ();
+                                                                                                           
+    });  
     function initializeFileUpload()
     {
         $("#fileuploader").uploadFile({
