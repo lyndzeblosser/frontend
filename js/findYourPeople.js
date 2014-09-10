@@ -65,12 +65,13 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
         {
             console.log("success data-------" + JSON.stringify(data));
                 
-            if(data == "undefined")
+            if(data.length == 0)
             {
-                console.log("no data found..");
+                alert("Oops, we could not find anyone that matched your search criteria! Please try again");
+             //   window.location.href = "mood.html";
             }
                 
-            if(data != "undefined")
+            else(data != "undefined")
             {    
                 for(var i=0;i<data.length;i++)
                 {
