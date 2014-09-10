@@ -40,3 +40,16 @@
     background-position: center;
 
 }
+
+fieldset label {
+    height:50px;
+}
+
+.ui-checkbox label {
+    width:70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ 
+
+}

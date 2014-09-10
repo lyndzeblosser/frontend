@@ -165,7 +165,8 @@ h4 {
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-    background: #b42723 !important;
+    background: #333333 !important;
+    
 }
 
 .profilebio h3 {
@@ -224,5 +225,16 @@ h4 {
     font-size: 17px;
 }
 
+.ui-checkbox label {
+    width:70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+fieldset label {
+    height:25px;
+}
 
 /* End of CSS document */
