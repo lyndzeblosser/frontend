@@ -69,3 +69,53 @@
     height: 200px;
     width:200px;
 }
+
+fieldset label {
+    height:50px;
+    
+}
+
+.tags {
+    top:300px;
+}
+
+
+.ui-checkbox label {
+    width:70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.ui-input-text {
+	height: 50px;
+}
+
+.ui-grid-b {
+    height: 80px;
+}
+
+.imagesize {
+    height:349px;
+}
+
+div#confirmImg {
+    height:349px;
+}
+
+div#tags label{
+    height:120px;
+    width:260px;
+}
+
+#confirmprofileImg { position: relative; }
+#confirmprofileImg .close { 
+     
+    position: absolute;
+    top: -320px;
+    right: 25px;
+    height:36px;
+    width:36px;
+}
+#confirmprofileImg:hover .close { display: block; }

@@ -38,36 +38,53 @@
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-                <div class="ui-grid-b" id="Names" style="background-color:#ffbb00; height:30px; width:100%; padding-top:10px;">
+                <div class="ui-grid-b Names" style="background-color:#ffbb00; height:30px; width:100%; padding-top:10px;">
                    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:95px; border:none;"></div></div>
                    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;">ERIC</div></div>
                    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
                 </div><!-- /grid-b -->
 
-               <div class="ui-grid-b">
-                   <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/findpplicon.png" style="height:105px;"></div></div>
-                   <div class="ui-block-b"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/pic1.png" style="height:105px;"><img class="close" src="images/smallcloseicon.png" /></div></div>
-                   <div class="ui-block-c"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:100px; text-align:center; background-color:#ffffff;"><img src="images/pic2.png" style="height:105px;"><img class="close" src="images/smallcloseicon.png" /></div></div>
+               <div class="ui-grid-b" id="confirmImg" style="padding:0px;">
+                   <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:90px; text-align:center; padding:0px;"><img src="images/findpplicon.png" class="imagesize"></div></div>
+                   <div class="ui-block-b"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:90px; text-align:center; padding:0px;"><img src="images/pic1.png"  class="imagesize"><img class="close" src="images/smallcloseicon.png" /></div></div>
+                   <div class="ui-block-c"><div class="ui-bar ui-bar-a" id="confirmprofileImg" style="height:90px; text-align:center; padding:0px;"><img src="images/pic2.png"  class="imagesize"><img class="close" src="images/smallcloseicon.png" /></div></div>
             </div><!-- /grid-b -->
 
-            <div id="activityDetails" style="background-color:#444444;">
-                     <p class="preferredLocation" style="font-size:14px;">lOREM IPSUM</p>
-                     
-                     <p class="preferredActivity" style="font-size:14px;">DOLOR SIT AMET</p>
-                     <div style="clear: both;"></div>
-               </div>
+           
+            <form>
+         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="background-color:#333333;" id="tags"> 
+              <label style="background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
+              <label style="background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Start Ups<input  id="choose-startups-inset" type="checkbox"></label>
+              <label style="background-color:#333333; color:#ffffff; white-space:nowrap; overflow: hideen; text-overflow: ellipsis;">World Cup 2014<input  id="choose-worldcup-inset" type="checkbox"></label>
+            
+         
+         </fieldset>
+       </form>
+            
+           
+            
+            <div class="ui-grid-b" style=" padding:0px; background-color: #88ccc1;">
+               <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none;">DATE/TIME</div></div>
+               <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px; margin:"0px; padding:0px; background-color:#ffbb00; border: none;">
+                  <form>
+                   <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+    
+                   <label for="select-native-11">Select A</label>
+                   <select name="select-native-11" id="select-native-11">
+                        <option value="#">One</option>
+                        <option value="#">Two</option>
+                        <option value="#">Three</option>
+                     </select>
+                   
+                  </fieldset>
+                 </form>
+               </div></div>
+               <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none;">10.09.2014</div></div>
+         </div><!-- /grid-b -->
+               
 
-               <div id="activityDetails" style="background-color:#88ccc1;">
-                     <p class="preferredLocation" style="font-size:14px;">CONSECTETUR</p>
-                     <p class="preferredActivity" style="font-size:14px;">LOREM IPSUM</p>
-                     <div style="clear: both;"></div>
-               </div>
-
-               <div id="activityDetails" style="background-color:#eee;">
-                     <p class="preferredLocation1" style="font-size:14px;">CONSECTETUR</p>
-                     <p class="preferredActivity1" style="font-size:14px;">LOREM IPSUM</p>
-                     <div style="clear: both;"></div>
-               </div>
+               <label for="location" class="ui-hidden-accessible">Location:</label>
+                    <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
 
               <div style="text-align:center;">
     <p style="float: left; margin-left:10px;" class="activitypicc"><img src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>

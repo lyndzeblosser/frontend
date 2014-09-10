@@ -166,7 +166,7 @@ h4 {
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-    background: #b42723 !important;
+    background: #333333 !important;
 }
 
 .profilebio h3 {
@@ -286,8 +286,8 @@ h4 {
     top:1px;
 }
 
-.ui-block-a {
-    padding:0;
+.ui-block-a, .ui-block-b, .ui-block-c {
+    padding:0px;
 }
 
 
@@ -305,6 +305,34 @@ h4 {
     width:100px;
 }
 
+fieldset label {
+    height:25px;
+    margin:0px;
+}
 
+.ui-controlgroup, fieldset.ui-controlgroup {
+    margin:0px;
+   
+}
 
+.ui-checkbox label:hover {
+    cursor: auto;
+}
+
+.ui-grid-b {
+    height: 60px;
+}
+
+.imagesize {
+    height:105px;
+}
+
+div#confirmImg {
+    height:105px;
+}
+
+div#tags label{
+    height:20px;
+    width:60px;
+}
 /* End of CSS document */

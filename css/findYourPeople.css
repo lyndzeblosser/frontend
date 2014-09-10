@@ -230,11 +230,21 @@ h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  
 
 }
 
 fieldset label {
     height:25px;
+    margin:0px;
+}
+
+.ui-controlgroup, fieldset.ui-controlgroup {
+    margin:0px;
+}
+
+.ui-checkbox label:hover {
+    cursor: auto;
 }
 
 /* End of CSS document */
