@@ -1,0 +1,159 @@
+/* CSS Document */
+
+/**
+*Table Tribes App
+
+
+*@version 0.1 (2014/09/07)
+*/
+
+.ui-content {
+    padding: 0px !important;
+}
+
+
+[data-role= "header"] h3{
+	color: #ffffff;
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.5%;
+    font-size: 17px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+
+#header {
+	background: #cc0000 !important;
+}
+
+#header a {
+	  border: 0px;
+    border-color: transparent;
+    text-transform: none;
+    text-shadow: none;
+}
+
+h4 {
+	color: #cc0000;
+}
+
+
+/* style for the custom icons*/
+
+.ui-icon-mygear:after {
+	background-image: url("../images/gear.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+
+}
+
+.ui-icon-dot:after {
+	background-image: url("../images/dot.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-bell:after {
+	background-image: url("../images/bell.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-profile:after {
+	background-image: url("../images/profile.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-logoicon:after {
+	background-image: url("../images/logoicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-imageicon:after {
+	background-image: url("../images/imageicon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+.ui-icon-logouticon:after {
+	background-image: url("../images/logouticon.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
+
+
+div#pendingimg {
+	width:96px;
+	height:120px;
+}
+
+.ui-bar-a .ui-bar {
+	padding: 0px;
+	margin: 0px;
+}
+
+.ui-bar, .ui-body {
+	padding:0em !important;
+}
+
+.ui-block-a, .ui-block-b, .ui-block-c {
+    padding:0px;
+}
+
+.ui-grid-b {
+	height:130px;
+	padding: 0px;
+}
+
+/* End of CSS document */
