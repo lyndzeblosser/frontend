@@ -30,62 +30,31 @@
                 <h3>FIND YOUR PEOPLE</h3>
 
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#b42723">Add</a>
+                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-left:5px; margin-top:5px;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000;  margin-left:5px; margin-top:5px;">Add</a>
             </div><!-- /header -->
 
 
 
             <div id="imageDiv" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                 
-               <div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+             
+              <div class="space" style="height: 240px;"></div>
 
-              <!--  <div style="text-align:center" class="userprofilePic"> <img id="userImage" src=""></div> -->
-              
-              <div class="space" style="height: 200px;"></div>
-
-                   <a id="addButton" href="#" class="AddButton ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; border-style:dotted;"><img id="addButtonImgId" src="images/addprofile.png"></a>
-                    <a id="moveOnButton" href="#" class="MoveOnButton ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff; border-style:dotted;"><img src="images/moveon.png"></a>
-                    <a id="confirmButton" href="#" class="ConfirmButton ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff; border-style:dotted;"><img src="images/confirm.png"></a>
-
-                </div>
+                
+                <fieldset class="ui-grid-b" style="border:1px solid #cc0000; background:#ffffff; height:50px; margin-top:2px;">
+                   <div class="ui-block-a" class="AddButton"><input type="image" src="images/addprofile.png" style="height:50px; width:106px;" /></div>
+                   <div class="ui-block-b" class="MoveOnButton"><input type="image" src="images/moveon.png" style="height:50px; width:106px;" /></div>
+                   <div class="ui-block-c" class="ConfirmButton"><input type="image" src="images/confirm.png" style="height:50px; width:106px;" /></div>
+                </fieldset>
 
                 <div class="profilebio">
-                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName"></h3></div>
-                   <div style="overflow-y:scroll; height:100px;"> <h4 id="bioText"></h4></div>
+                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName">NAME</h3>
+                   <div style="overflow-y:scroll; height:105px; padding:0px; background-color:#ffffff; opacity:0.7;"> <h4 id="bioText">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. Nulla porttitor ac orci nec tincidunt.</h4></div>
                 </div>
                 
-                <form>
-         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="background-color:#333333;"> 
-              <label style="background-color:#333333; width:60px; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">NY Times<input id="choose-nytimes-inset" type="checkbox"></label>
-              <label style="background-color:#333333; width:60px; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Start Ups<input  id="choose-startups-inset" type="checkbox"></label>
-              <label style="background-color:#333333; width:60px; color:#ffffff; white-space:nowrap; overflow: hideen; text-overflow: ellipsis;">World Cup 2014<input  id="choose-worldcup-inset" type="checkbox"></label>
-            
-         
-         </fieldset>
-       </form>
-               
-              
-
-
-               <div id="BIO" style="background-color:#b42723">
-                     <p id="location" class="preferredLocation"></p>
-                     <p id="activity" class="preferredActivity"></p>
-                     <div style="clear: both;"></div>
-               </div>
-
-               <div id="activityDetails" style="background-color:#aaaaaa">
-                     <p id="time" class="preferredLocation"></p>
-                     <p id="radius" class="preferredActivity"></p>
-                     <div style="clear: both;"></div>
-               </div>
-
-
-               
-
-
-                
-
+  
             </div><!-- /content -->
 
 
@@ -133,7 +102,23 @@
                 </ul>
             </div><!--  right panel -->
 
-            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+            <div data-role="footer" data-position="fixed">
+  
+                <div id="BIO" style="background-color:#cc0000; text-shadow: none;">
+                     <p id="location" class="preferredLocation"></p>
+                     <p id="activity" class="preferredActivity"></p>
+                     <div style="clear: both;"></div>
+               </div>
+
+               <div id="activityDetails" style="background-color:#999999; text-shadow:none;">
+                     <p id="time" class="preferredLocation"></p>
+                     <p id="radius" class="preferredActivity"></p>
+                     <div style="clear: both;"></div>
+               </div>
+
+
+               
+            </div> <!-Important-->
 
         </div>
     </body>

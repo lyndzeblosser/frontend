@@ -7,6 +7,8 @@
 *@version 0.1 (2014/09/07)
 */
 
+
+
 .ui-content {
     padding: 0px !important;
 }
@@ -30,7 +32,7 @@
 
 
 #header {
-    background: #b42723 !important;
+    background: #cc0000 !important;
 }
 
 #header a {
@@ -41,7 +43,7 @@
 }
 
 h4 {
-    color: #b42723;
+    color: #cc0000;
 }
 
 
@@ -170,20 +172,32 @@ h4 {
 }
 
 .profilebio h3 {
-    color: #b42723;
+    color: #cc0000;
 }
 
 #userName {
-    color:#b42723;
-}
-
-#bioText h4 {
-    color:#ffffff;
+    color:#cc0000;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-shadow: none;
+    margin: 0px;
 }
 
 .profilebio h4 {
     color: #333333;
-    font-size: 18px;
+    font-size: 13px;
+    text-shadow: none;
+    width:320px;
+    margin:0px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 5px;
+    -webkit-margin-end: 5px;
+}
+
+fieldset .ui-grid-b  {
+    border: solid 1px #cc0000;
 }
 
 .preferredLocation {
@@ -225,14 +239,7 @@ h4 {
     font-size: 17px;
 }
 
-.ui-checkbox label {
-    width:70px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  
 
-}
 
 fieldset label {
     height:25px;
@@ -247,4 +254,11 @@ fieldset label {
     cursor: auto;
 }
 
+.ui-panel-wrapper {
+ padding: 0px;   
+}
+
+.profilebio {
+    padding: 0px;
+}
 /* End of CSS document */
