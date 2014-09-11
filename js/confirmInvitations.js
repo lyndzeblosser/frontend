@@ -1,24 +1,59 @@
 
+var users=[],inviteUsers=[];
+$(document).ready(function () 
+                {
+                    var parameters = location.search;
+                    var parameter = parameters.split("?");
+                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
+                   
+                });
+    
+function getParameterByName(name) 
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
-//$(document).ready(function () 
-//                {
-//                    var parameters = location.search;
-//                    var parameter = parameters.split("?");
-//                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
-//                   
-//                });
+function getResult(latitude, longitude, activity, selectedUsers, selectedUserNames, commonTags, inviteTime)
+{
+    var userIDs=selectedUsers.split(",")
+    getUserData(userIDs)
+    var noEmptyDivs=3-users.length;
+    var userDivDataTop="";
+    var userDivDataBottom="";
+    var count=0,letter='';
+    
+   
+    for(var i=0;i<noEmptyDivs;i++){
+        letter=String.fromCharCode(97+count)
+        count++;
+        userDivDataTop+=prepareEmptyDivTop(letter);
+    }
+    for(i=0;i<users.length;i++){
+        letter=String.fromCharCode(97+count)
+        count++;
+        userDivDataTop+=prepareUserDivTop(i,letter)
+    }
+    
+    count=0;
+    
+    for(i=0;i<noEmptyDivs;i++){
+        letter=String.fromCharCode(97+count)
+        count++;
+        userDivDataBottom+=prepareEmptyDivBottom(letter);
+    }
+    for(i=0;i<users.length;i++){
+        letter=String.fromCharCode(97+count)
+        count++;
+        userDivDataBottom+=prepareUserDivBottom(i,letter)
+    }
+    
+    $("#userTop").html(userDivDataTop)
+    $("#confirmImg").html(userDivDataBottom)
 //    
-//function getParameterByName(name) 
-//{
-//    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-//    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-//    results = regex.exec(location.search);
-//    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-//}
-//
-//function getResult(latitude, longitude, activity, selectedUsers, selectedUserNames, commonTags, inviteTime)
-//{
-//    //$('#mainUI').append('<div class="ui-grid-b"><div class="ui-block-a">' + getActivityImage(activity) + '</div>' + getUserImages(selectedUsers) + '<div class="ui-block-d"><label for="location">Select a location to meet</label><select name="location" id="location"></select></div><br></div><div class="ui-grid-b"><div class="ui-block-a">Selected Date/Time:</div></div><div class="ui-block-a"></div>');
+    //$('#mainUI').append('<div class="ui-grid-b"><div class="ui-block-a">' + getActivityImage(activity) + '</div>' + getUserImages(selectedUsers) + '<div class="ui-block-d"><label for="location">Select a location to meet</label><select name="location" id="location"></select></div><br></div><div class="ui-grid-b"><div class="ui-block-a">Selected Date/Time:</div></div><div class="ui-block-a"></div>');
 //    $('#mainUI').append(
 //           // '<div class="ui-grid-b">'+  
 //            '<div style ="height:screen.height">'+
@@ -57,15 +92,69 @@
 //        $("#location").val(addr).text(addr);
 //    });
 //        console.log("test2");
-//
-//    $("#confirmInvitesButton").click(function()
-//                {
-//                    //assuming this page would always have userid logged in session
-//                    sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
-//                 });
-// 
-//}
-//
+
+    $("#confirmInvitesButton").click(function()
+                {
+                    //assuming this page would always have userid logged in session
+                    sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
+                 });
+ 
+}
+
+
+function prepareEmptyDivTop(letter){
+    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; border:none;\"></div></div>"
+    
+}
+
+function prepareEmptyDivBottom(letter){
+    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div></div>"
+    
+}
+
+function prepareUserDivTop(userID,letter){
+    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;\">"+users[userID]["first_name"]+"</div></div>"
+}
+
+function prepareUserDivBottom(userID,letter){
+    return " <div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" id=\"confirmprofileImg\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\""+users[userID]["image"]+"\"  class=\"imagesize\"><img class=\"close\" src=\"images/smallcloseicon.png\" /></div></div>"
+}
+
+function getUserData(userIDs){
+    for(var i=0;i<userIDs.length;i++){
+        
+    users[i]=[];
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+    $.ajax(
+    {
+            
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+        async: false,
+        dataType: "json",
+        success: function (data) 
+        {data=data[0]
+            console.log(data)
+            
+         users[i]["id"]=data["userid"];
+         users[i]["first_name"]=data["firstname"];
+         users[i]["last_name"]=data["lastname"];
+         users[i]["bio"]=data["bio"];
+         users[i]["image"]="img/vaibhav.shah@ey.com.jpeg";    
+              
+        },
+        error: function (error, message) 
+        {
+            console.log("Failure: " + message);        
+        },
+        complete: function(data)
+        {
+                
+				
+        }
+    });
+    }
+}
+
 //function getReverseGeocodingData(lat, lng, callback) 
 //{
 //    var address;
