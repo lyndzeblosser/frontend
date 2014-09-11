@@ -1,14 +1,15 @@
 
-var users=[],inviteUsers=[];
-$(document).ready(function () 
-                {
-                    var parameters = location.search;
-                    var parameter = parameters.split("?");
-                    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
-                   
-                });
-    
-function getParameterByName(name) 
+var users = [], inviteUsers = [], tags=[];
+$(document).ready(function()
+{
+    var parameters = location.search;
+    var parameter = parameters.split("?");
+    getTags();
+    getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
+
+});
+
+function getParameterByName(name)
 {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
@@ -16,146 +17,192 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getResult(latitude, longitude, activity, selectedUsers, selectedUserNames, commonTags, inviteTime)
+function getResult(lat, lng, activity, selectedUsers, selectedUserNames, inviteTags, inviteTime)
 {
-    var userIDs=selectedUsers.split(",")
+    $("#actpic").attr("src","images/"+activity+"invert.png")
+    codeLatLng(lat,lng)
+    var userIDs = selectedUsers.split(",")
     getUserData(userIDs)
-    var noEmptyDivs=3-users.length;
-    var userDivDataTop="";
-    var userDivDataBottom="";
-    var count=0,letter='';
-    
-   
-    for(var i=0;i<noEmptyDivs;i++){
-        letter=String.fromCharCode(97+count)
+    prepareTagsDiv(inviteTags)
+    var noEmptyDivs = 3 - users.length;
+    var userDivDataTop = "";
+    var userDivDataBottom = "";
+    var count = 0, letter = '';
+
+
+    for (var i = 0; i < noEmptyDivs; i++) {
+        letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataTop+=prepareEmptyDivTop(letter);
+        userDivDataTop += prepareEmptyDivTop(letter);
     }
-    for(i=0;i<users.length;i++){
-        letter=String.fromCharCode(97+count)
+    for (i = 0; i < users.length; i++) {
+        letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataTop+=prepareUserDivTop(i,letter)
+        userDivDataTop += prepareUserDivTop(i, letter)
     }
-    
-    count=0;
-    
-    for(i=0;i<noEmptyDivs;i++){
-        letter=String.fromCharCode(97+count)
+
+    count = 0;
+
+    for (i = 0; i < noEmptyDivs; i++) {
+        letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataBottom+=prepareEmptyDivBottom(letter);
+        userDivDataBottom += prepareEmptyDivBottom(letter);
     }
-    for(i=0;i<users.length;i++){
-        letter=String.fromCharCode(97+count)
+    for (i = 0; i < users.length; i++) {
+        letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataBottom+=prepareUserDivBottom(i,letter)
+        userDivDataBottom += prepareUserDivBottom(i, letter)
     }
-    
+
     $("#userTop").html(userDivDataTop)
     $("#confirmImg").html(userDivDataBottom)
-//    
-    //$('#mainUI').append('<div class="ui-grid-b"><div class="ui-block-a">' + getActivityImage(activity) + '</div>' + getUserImages(selectedUsers) + '<div class="ui-block-d"><label for="location">Select a location to meet</label><select name="location" id="location"></select></div><br></div><div class="ui-grid-b"><div class="ui-block-a">Selected Date/Time:</div></div><div class="ui-block-a"></div>');
-//    $('#mainUI').append(
-//           // '<div class="ui-grid-b">'+  
-//            '<div style ="height:screen.height">'+
-//            '<table width = "100%" height = "100%" id="user-activity" style=" border-collapse: collapse; text-align:center ">'+
-//            '<tr height= "50px" bgcolor="orange" style="color:white" id="user-name">'+getUserNames(selectedUserNames)+'</tr>'+
-//            '<tr height= "100%"; id="user-images" >'+getUserImages(selectedUsers)+'</tr>'+
-//            '<tr height= "50px" bgcolor="#424242" style="color:white" id="activity-tags">'+getUserTags(commonTags)+'</tr>'+    
-//            '</table>'+
-//            '</div>'+
-//            '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
-//            '<tr  height= "75px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+getTimeDate(inviteTime)+'</tr>'+
-//             '</table>' +      
-//            '<table id="DateTime" width = "100%" style=" border-collapse: collapse">'+
-//           '<tr  height= "35px" width = "100%" bgcolor="#89ccc0" style="color:red" >'+'<span id="location"></span>'+'</tr>'+
-//             '</table>' +      
-//             '</table>' +      
-//            '<table height= "125px" id="ActivityButton" width = "100%" >'+
-//           '<tr  width = "100%" >'+
-//            '<td  style=" border-style: dotted ; border-color:#c42a27; border-right : none" >'+
-//           '<div class="ui-block-a" style ="border-color:#c42a27; color:#c42a27" >' + getActivityImage(activity) + '</div>'+
-//           '</td>'+
-//           '<td align="center" style="border-style: dotted ; border-color:#c42a27">'+
-//           '<button id=confirmInvitesButton data-inline=true style ="color:white; background:#c42a27; width: 65% ; height: 100%">Send Invites</button>'+
-//             '</td>'+
-//            '</tr>'+
-//             '</table>' 
-//
-//            );
-//
-//    console.log("test1");
-//    getReverseGeocodingData(latitude, longitude, function(addr)
-//    {
-//    console.log("addr: "+addr);
-//
-//        console.log(($("<option />").val(addr).text(addr)));
-//        $("#location").val(addr).text(addr);
-//    });
-//        console.log("test2");
+
 
     $("#confirmInvitesButton").click(function()
-                {
-                    //assuming this page would always have userid logged in session
-                    sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
-                 });
- 
-}
-
-
-function prepareEmptyDivTop(letter){
-    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; border:none;\"></div></div>"
-    
-}
-
-function prepareEmptyDivBottom(letter){
-    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div></div>"
-    
-}
-
-function prepareUserDivTop(userID,letter){
-    return "<div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;\">"+users[userID]["first_name"]+"</div></div>"
-}
-
-function prepareUserDivBottom(userID,letter){
-    return " <div class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" id=\"confirmprofileImg\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\""+users[userID]["image"]+"\"  class=\"imagesize\"><img class=\"close\" src=\"images/smallcloseicon.png\" /></div></div>"
-}
-
-function getUserData(userIDs){
-    for(var i=0;i<userIDs.length;i++){
-        
-    users[i]=[];
-    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
-    $.ajax(
     {
-            
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
-        async: false,
-        dataType: "json",
-        success: function (data) 
-        {data=data[0]
-            console.log(data)
-            
-         users[i]["id"]=data["userid"];
-         users[i]["first_name"]=data["firstname"];
-         users[i]["last_name"]=data["lastname"];
-         users[i]["bio"]=data["bio"];
-         users[i]["image"]="img/vaibhav.shah@ey.com.jpeg";    
-              
-        },
-        error: function (error, message) 
-        {
-            console.log("Failure: " + message);        
-        },
-        complete: function(data)
-        {
-                
-				
-        }
+        //assuming this page would always have userid logged in session
+        sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
     });
+
+}
+
+
+function prepareEmptyDivTop(letter) {
+    return "<div class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; border:none;\"></div></div>"
+
+}
+
+function prepareEmptyDivBottom(letter) {
+    return "<div class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div></div>"
+
+}
+
+function prepareUserDivTop(userID, letter) {
+    return "<div id=\"top-block-" + letter + "\" class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; background-color:transparent; border:none; color:#ffffff; text-shadow:none;\">" + users[userID]["first_name"] + "</div></div>"
+}
+
+function prepareUserDivBottom(userID, letter) {
+    return " <div id=\"bottom-block-" + letter + "\" class=\"ui-block-"+letter+"\"><div class=\"ui-bar ui-bar-a\" id=\"confirmprofileImg\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\""+users[userID]["image"]+"\"  class=\"imagesize\"><img class=\"close\" src=\"images/smallcloseicon.png\" onclick=\"removeUser(\'"+users[userID]["id"]+"\',\'"+letter+"\')\" /></div></div>"
+    
+    //return " <div id=\"bottom-block-" + letter + "\" class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"" + users[userID]["image"] + "\"  class=\"imagesize\"><img class=\"close\" src=\"images/smallcloseicon.png\" onclick=\"removeUser(\'"+users[userID]["id"]+"\',\'"+letter+"\')\" /></div></div>"
+}
+
+function prepareEmptyInnerBlockTop() {
+    return "<div class=\"ui-bar ui-bar-a\" style=\"height:95px; border:none;\"></div>"
+}
+
+function prepareEmptyInnerBlockBottom() {
+    return "<div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div>";
+}
+
+function getUserData(userIDs) {
+    for (var i = 0; i < userIDs.length; i++) {
+        inviteUsers.push(userIDs[i])
+        users[i] = [];
+        console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        $.ajax(
+                {
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data[0]
+                        console.log(data)
+
+                        users[i]["id"] = data["userid"];
+                        users[i]["first_name"] = data["firstname"];
+                        users[i]["last_name"] = data["lastname"];
+                        users[i]["bio"] = data["bio"];
+                        users[i]["image"] = "img/vaibhav.shah@ey.com.jpeg";
+
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
     }
 }
 
-//function getReverseGeocodingData(lat, lng, callback) 
+function removeUser(userID, letter) {
+    if(inviteUsers.length!=1){
+    findAndRemove(userID);
+    $("#top-block-" + letter).html(prepareEmptyInnerBlockTop());
+    $("#bottom-block-" + letter).html(prepareEmptyInnerBlockBottom());
+    }else{
+        alert("At least 1 user needed, Go back to start a new invite")
+    }
+
+}
+
+function findAndRemove(id) {
+    var index = inviteUsers.indexOf(id);
+    inviteUsers.splice(index, 1);
+
+}
+
+function getTags(){
+    $.ajax(
+                {
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        for(var i=0;i<data.length;i++){
+                            tags[data[i]["tagId"]]=data[i]["tagName"];
+                        }
+
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
+    
+}
+
+function prepareTagsDiv(inviteTags){
+    console.log(inviteTags.split(","))
+    inviteTags=inviteTags.split(",")
+    var html="";
+    for(var i=0;i<inviteTags.length;i++){
+        console.log(i,inviteTags.length)
+        html+="<label style=\"background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+tags[inviteTags[i]]+"<input type=\"checkbox\"></label>"
+    }
+    $("#tags").html(html);
+}
+
+function codeLatLng(lat,lng) {
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        $("#address").attr("value",results[1].formatted_address);
+        
+      } else {
+        $("#address").attr("value","Location Unresolved")
+      }
+    } else {
+      $("#address").attr("value","Location Unresolved")
+    }
+  });
+  
+  return 1;
+}
+//function getReverseGeocodingData(lat, lng) 
 //{
 //    var address;
 //    var latlng = new google.maps.LatLng(lat, lng);
