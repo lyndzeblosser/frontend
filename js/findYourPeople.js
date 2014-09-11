@@ -8,7 +8,7 @@ var selectedUsers=[];
 
 $(document).ready(function () 
 {
-    				
+    			
     var parameters = location.search;
     var parameter = parameters.split("?");
     loggedInLoggedOutBehavior();
@@ -97,15 +97,17 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
                 confirmInvitation=document.getElementById( 'confirmButton' );
         
                 AddPeople.onclick = function() {
-                    
+                    $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                     addDeleteUser()
+                    $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                 
                 };
 
                 MoveOnButton.onclick = function() {
-                    
+                    $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                     var nextUser=(loadedUser+1)%(users.length);
                     loadUser(nextUser);
+                    $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                 
                 };
                     
@@ -142,9 +144,9 @@ function loadUser(id){
     var initialImg = users[id]["image"];
     body.css("background-image","url("+initialImg+")");
     var addButtonImg=users[id]["selected"]==0?"images/addprofile.png":"images/removeprofile.png";
-    $("#addButtonImgId").attr("src",addButtonImg)
+    $("#addButton").attr("src",addButtonImg)
     fillImgDetails(id)
-    
+    //
 }
 
 function addDeleteUser(){

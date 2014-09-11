@@ -13,10 +13,11 @@
 
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
         <script src="js/jquery.session.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script src="js/loggedInOutBehavior.js"></script>
         <script src="js/findYourPeople.js"></script>
-        
-        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+
 
         <link rel="stylesheet" type="text/css" href="css/findYourPeople.css">
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/findYourPeopleipad.css">
@@ -26,7 +27,7 @@
 
         <div data-role="page" data-theme="a">
 
-            <div data-role="header" id="header" data-position="fixed"> 
+            <div  data-role="header" id="header" style="positoin:fixed"> 
                 <h3>FIND YOUR PEOPLE</h3>
 
                 <!-- This is the  to initiate side panels-->
@@ -37,89 +38,90 @@
 
 
             <div id="imageDiv" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
-                
-             
-              <div class="space" style="height: 240px;"></div>
+
+
+                <div class="space" style="height: 240px;"></div>
+
 
                 
+
+                <div data-position="fixed" data-tap-toggle="false" class="profilebio">
+                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName">NAME</h3>
+                        <div data-tap-toggle="false" style="overflow-y:scroll; height:105px; padding:0px; background-color:#ffffff; opacity:0.7;"> <h4 id="bioText">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. Nulla porttitor ac orci nec tincidunt.</h4></div>
+                    </div>
+
+
+                </div><!-- /content -->
                 <fieldset class="ui-grid-b" style="border:1px solid #cc0000; background:#ffffff; height:50px; margin-top:2px;">
-                   <div class="ui-block-a" class="AddButton"><input type="image" src="images/addprofile.png" style="height:50px; width:106px;" /></div>
-                   <div class="ui-block-b" class="MoveOnButton"><input type="image" src="images/moveon.png" style="height:50px; width:106px;" /></div>
-                   <div class="ui-block-c" class="ConfirmButton"><input type="image" src="images/confirm.png" style="height:50px; width:106px;" /></div>
+                    <div class="ui-block-a" class="AddButton"><input id="addButton" type="image" src="images/addprofile.png" style="height:50px; width:106px;" /></div>
+                    <div class="ui-block-b" class="MoveOnButton"><input id="moveOnButton" type="image" src="images/moveon.png" style="height:50px; width:106px;" /></div>
+                    <div class="ui-block-c" class="ConfirmButton"><input id="confirmButton" type="image" src="images/confirm.png" style="height:50px; width:106px;" /></div>
                 </fieldset>
 
-                <div class="profilebio">
-                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName">NAME</h3>
-                   <div style="overflow-y:scroll; height:105px; padding:0px; background-color:#ffffff; opacity:0.7;"> <h4 id="bioText">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. Nulla porttitor ac orci nec tincidunt.</h4></div>
-                </div>
-                
-  
-            </div><!-- /content -->
+
+                <!-- This div is for the left panel-->
+                <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
+                    <ul data-role="listview">
+                        <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
+
+                        <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
 
 
-            <!-- This div is for the left panel-->
-            <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
-                <ul data-role="listview">
-                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
+                        <label for="firstName" class="ui-hidden-accessible">First Name</label>
+                        <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
 
-                    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
+                        <label for="lastName" class="ui-hidden-accessible">Last Name</label>
+                        <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
 
+                        <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
+                        <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
 
-                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
-                    <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+                        <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
+                        <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
 
-                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-                    <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+                        <label for="bio" class="ui-hidden-accessible">Bio</label>
+                        <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
 
-                    <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
-                    <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+                        <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
 
-                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-                    <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
+                    </ul>
 
-                    <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
-
-                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
-
-                </ul>
-
-            </div><!-- left panel -->
+                </div><!-- left panel -->
 
 
-            <!-- This is for the right panel-->
-            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
-                <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
-                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                    <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
-                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
-                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                <!-- This is for the right panel-->
+                <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                    <ul data-role="listview">
+                        <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
+                        <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                        <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                        <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
+                        <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
+                        <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
-                </ul>
-            </div><!--  right panel -->
+                    </ul>
+                </div><!--  right panel -->
 
-            <div data-role="footer" data-position="fixed">
-  
-                <div id="BIO" style="background-color:#cc0000; text-shadow: none;">
-                     <p id="location" class="preferredLocation"></p>
-                     <p id="activity" class="preferredActivity"></p>
-                     <div style="clear: both;"></div>
-               </div>
+                <div data-role="footer" style="positoin:fixed" data-tap-toggle="false">
 
-               <div id="activityDetails" style="background-color:#999999; text-shadow:none;">
-                     <p id="time" class="preferredLocation"></p>
-                     <p id="radius" class="preferredActivity"></p>
-                     <div style="clear: both;"></div>
-               </div>
+                    <div id="BIO" style="background-color:#cc0000; text-shadow: none;">
+                        <p id="location" class="preferredLocation"></p>
+                        <p id="activity" class="preferredActivity"></p>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div id="activityDetails" style="background-color:#999999; text-shadow:none;">
+                        <p id="time" class="preferredLocation"></p>
+                        <p id="radius" class="preferredActivity"></p>
+                        <div style="clear: both;"></div>
+                    </div>
 
 
-               
-            </div> <!-Important-->
 
-        </div>
+                </div> <!-Important-->
+
+            </div>
     </body>
 </html>
