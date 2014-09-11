@@ -21,14 +21,14 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 0.5%;
-    font-size: 17px;
+    font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
 }
 
 
 #header {
-	background: #b42723 !important;
+	background: #cc0000 !important;
 }
 
 #header a {
@@ -39,7 +39,7 @@
 }
 
 h4 {
-	color: #b42723;
+	color: #cc0000;
 }
 
 
@@ -132,10 +132,10 @@ h4 {
 /* style for the action buttons */
 
 .findpplBtn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	background-color:#c62d1f;
+	-moz-box-shadow:inset 0px 1px 0px 0px #cc0000;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cc0000;
+	box-shadow:inset 0px 1px 0px 0px #cc0000;
+	background-color:#cc0000;
 	-webkit-border-top-left-radius:6px;
 	-moz-border-radius-topleft:6px;
 	border-top-left-radius:6px;
@@ -157,7 +157,7 @@ h4 {
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:151px;
+	width:180px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -238,7 +238,7 @@ h4 {
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-  background: #b42723 !important;
+  background: #cc0000 !important;
 }
 
 /* End of CSS document */
