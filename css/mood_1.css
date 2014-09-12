@@ -149,8 +149,8 @@ h4 {
 	text-indent:0px;
 	border:1px solid #d02718;
 	display:inline-block;
-	font-family:Arial;
-	font-size:15px;
+	font-family: PT Sans Narrow;
+	font-size:17px;
 	font-weight:bold;
 	font-style:normal;
 	height:40px;
@@ -183,8 +183,8 @@ h4 {
 	text-indent:0px;
 	border:1px solid #d02718;
 	display:inline-block;
-	font-family:Arial;
-	font-size:15px;
+	font-family: PT Sans Narrow;
+	font-size:17px;
 	font-weight:bold;
 	font-style:normal;
 	height:40px;
@@ -218,11 +218,13 @@ h4 {
 [data-role="listview"] .time li a:hover {
 	background-color: #ffbb00;
 	color: #ffffff;
+        font-family: PT Sans Narrow;
 }
 
 [data-role="listview"] .place li a:hover {
 	background-color: #88ccc1;
 	color: #ffffff;
+         font-family: PT Sans Narrow;
 }
 
 .activitiesImages{

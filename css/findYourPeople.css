@@ -150,11 +150,13 @@ h4 {
 [data-role="listview"] .time li a:hover {
     background-color: #ffbb00;
     color: #ffffff;
+    font-family: PT Sans Narrow;
 }
 
 [data-role="listview"] .place li a:hover {
     background-color: #88ccc1;
     color: #ffffff;
+    font-family: PT Sans Narrow;
 }
 
 .activitiesImages{
@@ -180,6 +182,7 @@ h4 {
     color:#cc0000;
     font-weight: bolder;
     text-transform: uppercase;
+    font-family: PT Sans Narrow;
     font-size: 20px;
     text-shadow: none;
     margin: 0px;
@@ -187,7 +190,8 @@ h4 {
 
 .profilebio h4 {
     color: #333333;
-    font-size: 13px;
+    font-size: 15px;
+    font-family: PT Sans Narrow;
     text-shadow: none;
     width:320px;
     margin:0px;
@@ -206,6 +210,7 @@ fieldset .ui-grid-b  {
     margin-left: 10px;
     color: #ffffff;
     font-size: 14px;
+    font-family: PT Sans Narrow;
 
 }
 .preferredActivity {
@@ -213,6 +218,7 @@ fieldset .ui-grid-b  {
     margin-right: 10px;
     color: #ffffff;
     font-size: 14px;
+    font-family: PT Sans Narrow;
 }
 
 .userprofilePic img {
@@ -224,6 +230,7 @@ fieldset .ui-grid-b  {
     font-size: 14px;
     width: 200px;
     height: 16px;
+    font-family: PT Sans Narrow;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -238,6 +245,7 @@ fieldset .ui-grid-b  {
 
 .ui-bar-a {
     font-size: 17px;
+    font-family: PT Sans Narrow;
 }
 
 

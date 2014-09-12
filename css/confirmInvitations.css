@@ -149,11 +149,13 @@ h4 {
 [data-role="listview"] .time li a:hover {
     background-color: #ffbb00;
     color: #ffffff;
+     font-family: PT Sans Narrow;
 }
 
 [data-role="listview"] .place li a:hover {
     background-color: #88ccc1;
     color: #ffffff;
+    font-family: PT Sans Narrow;
 }
 
 .activitiesImages{
@@ -172,23 +174,27 @@ h4 {
 
 .profilebio h3 {
     color: #cc0000;
+    font-family: PT Sans Narrow;
 }
 
 .profilebio h4 {
     color: #333333;
     font-size: 18px;
+    font-family: PT Sans Narrow;
 }
 
 .preferredLocation {
     float: left;
     margin-left: 10px;
     color: #ffffff;
+    font-family: PT Sans Narrow;
 
 }
 .preferredActivity {
     float: right;
     margin-right: 10px;
     color: #ffffff;
+    font-family: PT Sans Narrow;
 }
 
 .userprofilePic img {
@@ -200,6 +206,7 @@ h4 {
     font-size: 14px;
     width: 200px;
     height: 16px;
+    font-family: PT Sans Narrow;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -224,12 +231,14 @@ h4 {
     float: left;
     margin-left: 10px;
     color: #ffffff;
+     font-family: PT Sans Narrow;
 
 }
 .preferredActivity {
     float: right;
     margin-right: 10px;
     color: #ffffff;
+     font-family: PT Sans Narrow;
 }
 
 .preferredLocation1 {
@@ -242,6 +251,7 @@ h4 {
     float: right;
     margin-right: 10px;
     color: #cc0000;
+     font-family: PT Sans Narrow;
 }
 
 .confirminvitesButton {
@@ -266,8 +276,8 @@ h4 {
     text-indent:0px;
     border:1px solid #d02718;
     display:inline-block;
-    font-family:Arial;
-    font-size:15px;
+    font-family: PT Sans Narrow;
+    font-size:17px;
     font-weight:bold;
     font-style:normal;
     height:40px;
