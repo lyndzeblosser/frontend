@@ -44,15 +44,15 @@
                 <h3>FINAL DETAILS</h3>
 
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#b42723;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#b42723">Add</a>
+                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000">Add</a>
             </div><!-- /header -->
 
 
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
-                <div id="userTop" class="ui-grid-b Names" style="background-color:#ffbb00; height:30px; width:100%; padding-top:10px;">
+                <div id="userTop" class="ui-grid-b Names" style="background-color:#ffbb00; height:20px; width:100%; text-transform: uppercase; font-size: 13px; padding-top:10px;">
 
                 </div><!-- /grid-b -->
 
@@ -62,7 +62,7 @@
 
 
                 <form>
-                    <fieldset id="tags" data-role="controlgroup" data-type="horizontal" data-mini="true" style="background-color:#333333;" id="tags"> 
+                    <fieldset id="tags" data-role="controlgroup" data-type="horizontal" data-mini="true" style="background-color:#333333; text-shadow: none;" id="tags"> 
 
 
 
@@ -72,28 +72,29 @@
 
 
                 <div class="ui-grid-b" style=" padding:0px; background-color: #88ccc1;">
-                    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none;">DATE/TIME</div></div>
-                    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px; margin:"0px; padding:0px; background-color:#ffbb00; border: none;">
+                    <div class="ui-block-a"><br><div class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none; text-shadow: none;">TIME/DATE</div></div>
+                    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
                                                  <form>
-                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-
-                                    <label for="select-native-11">Select A</label>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:7px;">
+                                    
+                                    <label for="select-native-11"></label>
+                                    <div style="position:relative; width:90px;">
                                     <input id="basicExample" type="text" class="time ui-timepicker-input" autocomplete="off">
-
+                                    <img src="images/mydownarrow.png" style="position:absolute; right:5px; top:8px;" >
                                 </fieldset>
                             </form>
                         </div></div>
-                    <div class="ui-block-c"><div id="dateString" class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none;">10.09.2014</div></div>
+                    <div class="ui-block-c"><br><div id="dateString" class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none; text-shadow: none;">10.09.2014</div></div>
                 </div><!-- /grid-b -->
 
 
                 <label for="location" class="ui-hidden-accessible">Location:</label>
                 <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
 
-                <div style="text-align:center;">
+                <div style="text-align:center; padding-top:5%">
                     <p style="float: left; margin-left:10px;" class="activitypicc"><img id="actpic" src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>
 
-                    <a href="#" class="confirminvitesButton" style="color:#ffffff;">SEND OUT INVITES</a>
+                    <a href="#" class="confirminvitesButton" style="color:#ffffff; background-color: #cc0000;">SEND OUT INVITES</a>
                 </div>
 
 
@@ -137,7 +138,7 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close"></a></li><br>
+                    <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
                     <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>

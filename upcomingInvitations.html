@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tabletribes</title> 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <link rel="stylesheet" href="css/timepicker.css">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+
+
+
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        <script src="js/jquery.session.js"></script>
+        <script src="js/loggedInOutBehavior.js"></script>
+        <script src="js/confirmInvitations.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/jQuery.timepicker.js"></script>
+        <script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker.css" />
+        <script>
+             $(function() {
+                    var timeInMs=(new Date()).getTime()+getParameterByName('inviteTime')*60*1000;
+                    var date=new Date(timeInMs)
+                    var dateString=(date.getUTCMonth()+1)+"-"+date.getUTCDate()+"-"+date.getUTCFullYear()
+                    $('#basicExample').timepicker({ 'step': 15 });
+                    $('#basicExample').timepicker('setTime', date);
+                    $('#dateString').text(dateString)
+                });
+        </script>    
+
+        <link rel="stylesheet" type="text/css" href="css/upcomingInvitations.css">
+        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/upcomingInvitationsipad.css">
+    </head>
+
+    <body>
+
+        <div data-role="page" data-theme="a">
+
+            <div data-role="header" id="header" data-position="fixed"> 
+                <h3>UPCOMING</h3>
+
+                <!-- This is the  to initiate side panels-->
+                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000">Add</a>
+            </div><!-- /header -->
+
+
+
+            <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+
+                <div id="userTop" class="ui-grid-b Names" style="background-color:#ffbb00; height:20px; width:100%; text-transform: uppercase; font-size: 13px; padding-top:10px;">
+
+                </div><!-- /grid-b -->
+
+                <div  class="ui-grid-b" id="confirmImg" style="padding:0px;">
+
+                </div><!-- /grid-b -->
+
+
+                <form>
+                    <fieldset id="tags" data-role="controlgroup" data-type="horizontal" data-mini="true" style="background-color:#333333; text-shadow: none;" id="tags"> 
+
+
+
+                    </fieldset>
+                </form>
+
+
+
+                <div class="ui-grid-b" style=" padding:0px; background-color: #88ccc1;">
+                    <div class="ui-block-a"><br><div class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none; text-shadow: none;">TIME/DATE</div></div>
+                    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
+                                                 <form>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:7px;">
+                                    
+                                    <label for="select-native-11"></label>
+                                    <div style="position:relative; width:90px;">
+                                    <input id="basicExample" type="text" class="time ui-timepicker-input" autocomplete="off">
+                                    <img src="images/mydownarrow.png" style="position:absolute; right:5px; top:8px;" >
+                                </fieldset>
+                            </form>
+                        </div></div>
+                    <div class="ui-block-c"><br><div id="dateString" class="ui-bar ui-bar-a" style="height:60px; color:#ffffff; background-color:#88ccc1; border: none; text-shadow: none;">10.09.2014</div></div>
+                </div><!-- /grid-b -->
+
+
+                <label for="location" class="ui-hidden-accessible">Location:</label>
+                <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
+
+                <div style="text-align:center; padding-top:5%">
+                    <p style="float: left; margin-left:10px;" class="activitypicc"><img id="actpic" src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>
+
+                    <a href="#" class="confirminvitesButton" style="color:#ffffff; background-color: #cc0000;">ACCEPT INVITATIONS</a>
+                </div>
+
+
+
+
+
+
+            </div><!-- /content -->
+
+
+            <!-- This div is for the left panel-->
+            <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="a" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
+
+                    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
+
+
+                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
+                    <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+
+                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
+                    <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+
+                    <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
+                    <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+
+                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
+                    <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
+
+                    <label for="bio" class="ui-hidden-accessible">Bio</label>
+                    <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
+
+                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
+
+                </ul>
+
+            </div><!-- left panel -->
+
+
+            <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
+                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+
+
+                </ul>
+            </div><!--  right panel -->
+
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
+        </div>
+    </body>
+</html>
