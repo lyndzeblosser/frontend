@@ -65,3 +65,9 @@ fieldset .ui-grid-b {
 h4#bioText {
     font-size: 17px;
 }
+
+p#location.preferredLocation {
+    font-size: 20px;
+    height:30px;
+    
+}
