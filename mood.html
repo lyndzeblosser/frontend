@@ -41,21 +41,21 @@
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
 
                 <!-- This is the preference panel div-->
-                <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
+                <div data-role="controlgroup" data-type="horizontal" style="text-align:center; padding: 0px; margin: 0px; width:100%">
 
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff"><img src="images/coffeeinvert.png"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff"><img src="images/drinksinvert.png"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff"><img src="images/dineinvert.png"></a>
-
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; padding: 22px;"><img src="images/coffeeinvert.png"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;padding: 22px;"><img src="images/drinksinvert.png"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;padding: 22px;"><img src="images/dineinvert.png"></a>
+                  
                 </div>
 
-
+  <br>
 
                 <!-- This is the the preference form div-->
                 <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
 
-                    <li data-role="collapsible" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;">
-                        <h2>What do you want to talk about?</h2>
+                    <li data-role="collapsible"  data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
+                        <h2>WHAT DO YOU WANT TO TALK ABOUT?</h2>
                         <form>
                             <fieldset id="topicsList" data-role="controlgroup" data-type="horizontal" data-mini="true"> 
                                
@@ -66,8 +66,8 @@
 
 
 
-                    <li id="timeMenu" data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true"style="background-color:#ffbb00;">
-                        <h2 id="timeText" value="">When</h2>
+                    <li id="timeMenu" data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
+                        <h2 id="timeText" value="">WHEN?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
                             <li onclick="changeTimeHeading(60,'In an hour')"><a href="#">In an hour</a></li>
@@ -79,7 +79,7 @@
 
 
                     <li id="whereMenu" data-role="collapsible" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
-                        <h2 id="whereText" value="">Where?</h2>
+                        <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
                             <li onclick="changeWhereHeading(10,'Up to 0.5 miles (10 blocks)')"><a href="#">Up to 0.5 miles (10 blocks)</a></li>

@@ -3,10 +3,11 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.7%;
-    font-size: 22px;
+    margin-bottom: 2%;
+    font-size: 25px;
     overflow: visible !important;
     white-space: normal !important;
+    font-family: PT Sans Narrow;
 }
 
 .findpplBtn {
@@ -29,13 +30,13 @@
 	text-indent:0px;
 	border:1px solid #d02718;
 	display:inline-block;
-	font-family:Arial;
-	font-size:20px;
+	font-family: PT Sans Narrow;
+	font-size:24px;
 	font-weight:bold;
 	font-style:normal;
 	height:60px;
 	line-height:60px;
-	width:260px;
+	width:400px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -63,19 +64,63 @@
 	text-indent:0px;
 	border:1px solid #d02718;
 	display:inline-block;
-	font-family:Arial;
-	font-size:20px;
+	font-family: PT Sans Narrow;
+	font-size:24px;
 	font-weight:bold;
 	font-style:normal;
-	height:40px;
-	line-height:40px;
-	width:180px;
+	height:70px;
+	line-height:70px;
+	width:270px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
 	color: #ffffff;
 }
 
+.ui-input-text input, .ui-input-search input, textarea.ui-input-text {
+    height: 50px;
+}
+
 [data-role="controlgroup"] img {
-	height:100px;
+	width:180px;
+}
+
+.panel1 .ui-collapsible-heading .ui-btn {
+    background-color: #333333;
+    color:#ffffff;
+    height:30px;
+    font-size: 22px;
+    font-family: PT Sans Narrow;
+    
+}
+
+.time .ui-collapsible-heading .ui-btn {
+    background-color: #ffbb00;
+    color:#ffffff;
+     height:30px;
+     font-size: 22px;
+    font-family: PT Sans Narrow;
+}
+
+.place .ui-collapsible-heading .ui-btn {
+    background-color: #88ccc1;
+    color:#ffffff;
+     height:30px;
+     font-size: 22px;
+    font-family: PT Sans Narrow;
+}
+.ui-checkbox label {
+    font-size: 20px;
+    width:180px;
+}
+
+[data-role="listview"] .time li a {
+	
+        font-family: PT Sans Narrow;
+        font-size: 20px;
+}
+
+[data-role="listview"] .place li a {
+	 font-size: 20px;
+         font-family: PT Sans Narrow;
 }

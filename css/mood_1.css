@@ -7,6 +7,8 @@
 *@version 0.1 (2014/09/07)
 */
 
+
+
 [data-role= "header"] h3{
 	color: #ffffff;
 	text-shadow: none;
@@ -155,7 +157,7 @@ h4 {
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:180px;
+	width:230px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -240,5 +242,29 @@ h4 {
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
 }
+
+
+
+
+.panel1 .ui-collapsible-heading .ui-btn {
+    background-color: #333333;
+    color:#ffffff;
+    font-family: PT Sans Narrow;
+    
+}
+
+.time .ui-collapsible-heading .ui-btn {
+    background-color: #ffbb00;
+    color:#ffffff;
+    font-family: PT Sans Narrow;
+}
+
+.place .ui-collapsible-heading .ui-btn {
+    background-color: #88ccc1;
+    color:#ffffff;
+    font-family: PT Sans Narrow;
+}
+
+
 
 /* End of CSS document */

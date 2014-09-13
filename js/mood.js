@@ -27,7 +27,7 @@ function activitiesImages(){
                 $(this).css("background","#ffffff")
             })
             this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+".png") 
-            $(this).css("background","#b42723")
+            $(this).css("background","#cc0000")
             this.setAttribute("selected", 1)
         }else{
             this.setAttribute("selected",0);
@@ -47,7 +47,7 @@ function getTopics()
         dataType: "json",
         success: function (data){
             for(var i=0;i<data.length;i++){
-                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"background-color:#b42723; color:#ffffff;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
+                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"background-color:#cc0000; color:#ffffff;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
             }
         }
     });
