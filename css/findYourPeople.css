@@ -270,4 +270,13 @@ fieldset label {
 .profilebio {
     padding: 0px;
 }
+
+input#addButton, input#moveOnButton, input#confirmButton{
+    height:50px;
+    width:106px;
+}
+
+fieldset .ui-grid-b {
+    height:106px;
+}
 /* End of CSS document */

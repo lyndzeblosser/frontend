@@ -50,6 +50,18 @@ fieldset label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
- 
 
+}
+
+input#addButton, input#moveOnButton, input#confirmButton{
+    height:200px;
+    width:424px;
+}
+
+fieldset .ui-grid-b {
+    height:424px;
+}
+
+h4#bioText {
+    font-size: 17px;
 }

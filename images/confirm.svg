@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+<g>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M0,2v50h50V2H0z M20.343,43.343C16.938,47.391,8.102,46.432,8.768,40
+		c0.25-2.411,4.05-2.435,3.798,0c-0.169,1.635,0.957,2.146,2.233,2.025c-0.211-0.067-0.417-0.142-0.637-0.194
+		c-2.379-0.578-1.37-4.239,1.01-3.662c1.729,0.42,3.303,1.224,4.787,2.191C21.044,41.069,21.152,42.381,20.343,43.343z
+		 M37.668,29.821c-0.121,0.087-0.28,0.171-0.423,0.172C29.279,30.001,21.314,30,13.175,30V5.086h24.65v24.571
+		C37.891,29.585,37.798,29.728,37.668,29.821z"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#CC0000" d="M13.175,5.086c8.26,0,16.368,0,24.65,0c0,8.166,0,16.271,0,24.571
+		c0.065-0.072-0.027,0.07-0.157,0.164c-0.121,0.087-0.28,0.171-0.423,0.172C29.279,30.001,21.314,30,13.175,30
+		C13.175,21.748,13.175,13.643,13.175,5.086z"/>
+</g>
+<text transform="matrix(1 0 0 1 5.5659 43)" fill="#CC0000" font-family="'MyriadPro-Regular'" font-size="10">CONFIRM</text>
+</svg>
