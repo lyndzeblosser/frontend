@@ -2,6 +2,7 @@
 
 
 namespace Cloudinary\Api {
+    
   class Error extends \Exception {}
   class NotFound extends Error {}
   class NotAllowed extends Error {}
