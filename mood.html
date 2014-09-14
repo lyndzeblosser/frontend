@@ -53,8 +53,8 @@
 
                 <!-- This is the the preference form div-->
                 <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
-
-                    <li data-role="collapsible"  data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
+                    
+                    <li data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
                         <h2>WHAT DO YOU WANT TO TALK ABOUT?</h2>
                         <form>
                             <fieldset id="topicsList" data-role="controlgroup" data-type="horizontal" data-mini="true"> 
@@ -66,7 +66,7 @@
 
 
 
-                    <li id="timeMenu" data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
+                    <li id="timeMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
                         <h2 id="timeText" value="">WHEN?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
@@ -78,7 +78,7 @@
 
 
 
-                    <li id="whereMenu" data-role="collapsible" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
+                    <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
                         <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
@@ -87,7 +87,7 @@
                             <li onclick="changeWhereHeading(1000,'I\'m flexible')"><a href="#">I'm flexible</a></li>
                         </ul>
                     </li>
-
+                    
 
                     <!-- This is the location filter div-->
                     <label for="location" class="ui-hidden-accessible">Location:</label>

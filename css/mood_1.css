@@ -227,6 +227,7 @@ h4 {
 	background-color: #88ccc1;
 	color: #ffffff;
          font-family: PT Sans Narrow;
+        
 }
 
 .activitiesImages{
@@ -250,6 +251,8 @@ h4 {
     background-color: #333333;
     color:#ffffff;
     font-family: PT Sans Narrow;
+    border-color: #333333;
+    text-shadow: none;
     
 }
 
@@ -257,18 +260,20 @@ h4 {
     background-color: #ffbb00;
     color:#ffffff;
     font-family: PT Sans Narrow;
+    border-color: #ffbb00;
+    text-shadow: none;
 }
 
 .place .ui-collapsible-heading .ui-btn {
     background-color: #88ccc1;
     color:#ffffff;
     font-family: PT Sans Narrow;
+    border-color: #88ccc1;
+    text-shadow: none;
 }
 
 .coffee, .drinks, .dine {
     height:65px;
     width:50px;
 }
-
-
 /* End of CSS document */

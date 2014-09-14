@@ -238,8 +238,10 @@ fieldset .ui-grid-b  {
 
 [role="main"] {
     background-image: url("../images/piclarge.jpg");
-    background-size: cover;
-    background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
 }
 
@@ -279,4 +281,6 @@ input#addButton, input#moveOnButton, input#confirmButton{
 fieldset .ui-grid-b {
     height:106px;
 }
+
+
 /* End of CSS document */

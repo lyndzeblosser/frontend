@@ -143,7 +143,7 @@ function loadUser(id){
     body = $("#imageDiv");
     var initialImg = users[id]["image"];
     body.css("background-image","url("+initialImg+")");
-    var addButtonImg=users[id]["selected"]==0?"images/addprofile.png":"images/removeprofile.png";
+    var addButtonImg=users[id]["selected"]==0?"images/addprofile.svg":"images/removeprofile.svg";
     $("#addButton").attr("src",addButtonImg)
     fillImgDetails(id)
     //
