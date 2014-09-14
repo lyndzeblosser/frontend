@@ -225,11 +225,8 @@ function confirmInvite(){
     {
         user_from:$.session.get('userid'),
         user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
-        user_to_1_status:"Pending",
         user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
-        user_to_2_status:"Pending",
-         user_to_2:typeof users[2]=="undefined"?"":users[2]['id'],
-        user_to_2_status:"Pending",
+        user_to_3:typeof users[2]=="undefined"?"":users[2]['id'],
         activity:getParameterByName('activity'),
         invite_date:time['date'],
         invite_time:time['time'],
@@ -245,7 +242,7 @@ function confirmInvite(){
 function getTimeData(){
    var date= $('#basicExample').timepicker('getTime',[ new Date()]);
    var time=[]
-   time['date']=date.getUTCFullYear()+'-'+(date.getUTCDate())+'-'+(date.getUTCMonth()+1)
+   time['date']=date.getUTCFullYear()+'-'+((date.getUTCMonth()+1)<10?'0'+(date.getUTCMonth()+1):(date.getUTCMonth()+1))+'-'+(date.getUTCDate()<10?'0'+date.getUTCDate():date.getUTCDate())
    time['time']=date.getHours()+":"+date.getMinutes()+":00"
    return time;
 }
