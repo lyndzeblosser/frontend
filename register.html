@@ -19,18 +19,19 @@
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
         <script src="js/jquery.session.js"></script>
-        <script src="js/register.js"></script> 
+        
         <script src="js/libs/modernizr-2.5.3.min.js"></script>
          <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
  
-<script src='js/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
-<script s rc='js/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
-<script src='js/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
-<script src='js/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>         
-      <script type="text/javascript">
-         
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+      <script src="js/cloudinary/jquery.ui.widget.js" type="text/javascript"></script>
+      <script src="js/cloudinary/jquery.iframe-transport.js" type="text/javascript"></script>
+      <script src="js/cloudinary/jquery.fileupload.js" type="text/javascript"></script>
+      <script src="js/cloudinary/jquery.cloudinary.js" type="text/javascript"></script>
+      <script type="text/javascript">       
    $.cloudinary.config({ cloud_name: 'tt', api_key: '114178697755577' })
 </script>
+<script src="js/register.js"></script> 
     </head>
 
     <body>
@@ -62,17 +63,13 @@
 <!--                            <div class="cell lastcell">
              <input type="submit" value="Submit Form" class="submit-btn">
           </div>-->
+    <!--form action="php/uploaded.php" method="post"-->
+      <input class="cloudinary-fileupload" id="imgUpload" data-cloudinary-field="image_id" 
+             data-form-data="{&quot;timestamp&quot;:1410667131,&quot;callback&quot;:&quot;\/cloudinary_cors.html&quot;,&quot;signature&quot;:&quot;0a3a4ce0f9f799e805fb819532ee008e4065a44c&quot;,&quot;api_key&quot;:&quot;114178697755577&quot;}" 
+             data-url="https://api.cloudinary.com/v1_1/tt/auto/upload" name="file" type="file">    
+      <input type="hidden" name="image_id" value="image/upload/v1410667153/jspjv4lgtjiydk4njaxd.png#5c6d632881ad3e90655010df0b64c5658dffc49b">
 
-               <input name="file" type="file" id="uploadinput"
-       class="cloudinary-fileupload" data-cloudinary-field="image_upload" 
-       data-form-data="" />
-<script>
-    var data = { "timestamp":  1345719094, 
-          "callback": "http://localhost/frontend/cloudinary_cors.html",
-          "signature": "CpKxcEUIM4pqjJpSMC5ECBOcShE", 
-          "api_key": "114178697755577" };
-$('#uploadinput').attr('data-form-data', JSON.stringify(data));
-</script>
+
                 <form method="post" id = "registerForm">
                     <div style="text-align:center;">
                     <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
