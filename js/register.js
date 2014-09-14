@@ -79,6 +79,31 @@ function submitForm()
 function setupFormValidation()
 {
     //form validation rules
+    var data = "{&quot;timestamp&quot;:1410667131,&quot;callback&quot;:&quot;\/cloudinary_cors.html&quot;,&quot;signature&quot;:&quot;0a3a4ce0f9f799e805fb819532ee008e4065a44c&quot;,&quot;api_key&quot;:&quot;114178697755577&quot;}" ;
+    var uploadUrl = "https://api.cloudinary.com/v1_1/tt/auto/upload";
+ //   $('.cloudinary_fileupload').cloudinary_upload_url(uploadUrl);
+ /*   $("imgUpload").fileupload(
+            {
+        formData: data,
+        url: uploadUrl,
+        name: "file",
+        type: "file"
+        });
+ */
+ $.ajax({
+                type: "GET",
+                url: "php/index.php" ,
+                data: {  },
+                success : function() { 
+console.log("success");
+                    // here is the code that will run on client side after running clear.php on server
+
+                    // function below reloads current page
+                    location.reload();
+
+                }
+            });
+        
     console.log("validate function +" + $("#registerForm"));
     $("#registerForm").validate(
             {
