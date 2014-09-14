@@ -1,5 +1,5 @@
 
-var users = [], inviteUsers = [], tags=[];
+var users = [], inviteUsers = [], tags=[],autocomplete,lat,lng;
 $(document).ready(function()
 {
     var parameters = location.search;
@@ -184,7 +184,10 @@ function prepareTagsDiv(inviteTags){
     $("#tags").html(html);
 }
 
-function codeLatLng(lat,lng) {
+function codeLatLng(lat1,lng1) {
+    lat=lat1;
+    lng=lng1;
+    autoCompleteLocation()
   var geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(lat, lng);
   geocoder.geocode({'latLng': latlng}, function(results, status) {
@@ -201,6 +204,48 @@ function codeLatLng(lat,lng) {
   });
   
   return 1;
+}
+
+function autoCompleteLocation(){
+    autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
+    
+    
+    google.maps.event.addListener(autoComplete, 'place_changed', function()
+    {
+        var place = autoComplete.getPlace();
+        lat = place.geometry.location.lat();
+        lng = place.geometry.location.lng();
+        console.log(lat,lng)
+    });
+}
+
+function confirmInvite(){
+    var time=getTimeData();
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
+    {
+        user_from:$.session.get('userid'),
+        user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
+        user_to_1_status:"Pending",
+        user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
+        user_to_2_status:"Pending",
+        activity:getParameterByName('activity'),
+        invite_date:time['date'],
+        invite_time:time['time'],
+        matching_tags:getParameterByName('commonTags'),
+        invite_location:$('#address').attr("value")
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+function getTimeData(){
+   var date= $('#basicExample').timepicker('getTime',[ new Date()]);
+   var time=[]
+   time['date']=date.getUTCFullYear()+'-'+(date.getUTCDate())+'-'+(date.getUTCMonth()+1)
+   time['time']=date.getHours()+":"+date.getMinutes()+":00"
+   return time;
 }
 //function getReverseGeocodingData(lat, lng) 
 //{
