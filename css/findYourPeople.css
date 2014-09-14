@@ -282,5 +282,10 @@ fieldset .ui-grid-b {
     height:106px;
 }
 
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+}
+
+
 
 /* End of CSS document */

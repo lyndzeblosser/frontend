@@ -230,6 +230,10 @@ height: 50px;
   background: #cc0000 !important;
 }
 
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+}
+
 
 
 /* End of CSS document */

@@ -276,4 +276,7 @@ h4 {
     height:65px;
     width:50px;
 }
+#myTable, #invites, #login {
+    background-color: #fff;
+}
 /* End of CSS document */

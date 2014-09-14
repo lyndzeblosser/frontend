@@ -157,4 +157,9 @@ div#pendingimg {
 	padding: 0px;
 }
 
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+}
+
+
 /* End of CSS document */

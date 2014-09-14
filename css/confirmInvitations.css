@@ -352,4 +352,8 @@ div#tags label{
     width:60px;
 }
 
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+}
+
 /* End of CSS document */
