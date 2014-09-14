@@ -228,6 +228,8 @@ function confirmInvite(){
         user_to_1_status:"Pending",
         user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
         user_to_2_status:"Pending",
+         user_to_2:typeof users[2]=="undefined"?"":users[2]['id'],
+        user_to_2_status:"Pending",
         activity:getParameterByName('activity'),
         invite_date:time['date'],
         invite_time:time['time'],
