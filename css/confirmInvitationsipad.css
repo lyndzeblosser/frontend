@@ -71,8 +71,7 @@
 }
 
 fieldset label {
-    height:50px;
-    
+    height:35px;  
 }
 
 .tags {
@@ -162,4 +161,13 @@ label .ui-btn #tags {
     width:200px;
     text-shadow: none;
     font-family: PT Sans Narrow;
+}
+
+.ui-timepicker-wrapper {
+    width: 220px;
+    
+}
+
+.ui-timepicker-list li {
+    font-size: 22px;
 }

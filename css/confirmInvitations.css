@@ -317,7 +317,7 @@ h4 {
 }
 
 fieldset label {
-    height:35px;
+    height:20px;
     margin:0px;
 }
 
@@ -360,6 +360,7 @@ div#tags label{
     height:20px;
     font-size: 13px;
 }
+
 
 
 /* End of CSS document */
