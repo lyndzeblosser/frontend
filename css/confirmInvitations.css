@@ -319,6 +319,7 @@ h4 {
 fieldset label {
     height:20px;
     margin:0px;
+    width:60px;
 }
 
 .ui-controlgroup, fieldset.ui-controlgroup {
