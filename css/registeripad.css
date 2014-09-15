@@ -3,8 +3,9 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.7%;
-    font-size: 22px;
+    margin-bottom: 2%;
+    font-size: 25px;
     overflow: visible !important;
     white-space: normal !important;
+    font-family: PT Sans Narrow;
 }

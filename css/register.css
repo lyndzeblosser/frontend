@@ -8,6 +8,7 @@
 */
 
 
+
 [data-role= "header"] h3{
 	color: #ffffff;
 	text-shadow: none;
@@ -222,7 +223,7 @@ height: 50px;
 
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
-  background: #999999 !important;
+  background: #333333 !important;
 }
 
 /* checked */
@@ -233,6 +234,7 @@ height: 50px;
 #myTable, #invites, #login, #logout {
     background-color: #fff;
 }
+
 
 
 

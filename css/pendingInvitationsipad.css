@@ -1,0 +1,71 @@
+@charset utf-8;
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-size: 25px;
+    overflow: visible !important;
+    white-space: normal !important;
+    font-family: PT Sans Narrow;
+}
+
+.ui-grid-b {
+	height:300px;
+	padding: 0px;
+}
+
+.pendimg {
+  height:300px;
+}
+
+.imgblock {
+	height:300px;
+}
+
+.addbtn {
+    height:300px;
+    border: 1px dotted #cc0000;
+}
+
+.addbtn img {
+	padding-top: 10px;
+	padding-left: 20px;
+	height: 300px;
+	width:147px;
+}
+
+.text {
+	font-size: 24px;
+	height:300px;
+	 font-family: PT Sans Narrow;
+}
+
+.addimg {
+    height:300px;
+    width:147px;
+    
+}
+
+.clickmore {
+    font-size: 12px;
+}
+
+.infobar, .namebar {
+    height:50px;
+    
+}
+
+.namebar {
+	font-size: 24px;
+
+}
+
+.infobar {
+	font-size: 18px;
+}
+
+.float-left {
+float:left;
+width:33%;
+}

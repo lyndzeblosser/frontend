@@ -20,14 +20,14 @@
 
         <link rel="stylesheet" type="text/css" href="css/pendingInvitations.css">
          <link href="//fonts.googleapis.com/css?family=PT+Sans Narrow:400,700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/ipad.css">
+        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/pendingInvitationsipad.css">
     </head>
 
     <body>
 
         <div data-role="page" data-theme="a">
 
-            <div data-role="header" id="header" data-position="fixed"> 
+            <div data-role="header" id="header" data-position:"fixed"> 
                 <h3>RESPOND TO INVITATIONS</h3>
 
                 <!-- This is the  to initiate side panels-->
@@ -39,68 +39,59 @@
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                 <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
+                    <div class="ui-block-a imgblock" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="margin:0px; padding:none;"><img src="images/pic2.png" class="pendimg"></div></div>
+                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" class"clickmore" style="display: block; color:#cc0000;">Click to read more...</a></p><p>&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
+                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a addbtn"><img src="images/acceptprofile.svg" class"addimg"></div></div>
                 </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a namebar" style="background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
+                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a infobar" style="background-color:#88ccc1; color:#ffffff; text-shadow:none;">
+
+                      <div align="center" class="float-left">COFFEE/TEA</div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+
+                    </div>
                 </div>
 
-                <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
+                 <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
+                    <div class="ui-block-a imgblock" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="margin:0px; padding:none;"><img src="images/pic2.png" class="pendimg"></div></div>
+                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" class"clickmore" style="display: block; color:#cc0000;">Click to read more...</a></p><p>&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
+                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a addbtn"><img src="images/acceptprofile.svg" class"addimg"></div></div>
                 </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
-                </div>
-                <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a namebar" style="background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
+                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a infobar" style="background-color:#88ccc1; color:#ffffff; text-shadow:none;">
+
+                      <div align="center" class="float-left">COFFEE/TEA</div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+
+                    </div>
                 </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
+                 <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
+                    <div class="ui-block-a imgblock" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="margin:0px; padding:none;"><img src="images/pic2.png" class="pendimg"></div></div>
+                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" class"clickmore" style="display: block; color:#cc0000;">Click to read more...</a></p><p>&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
+                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a addbtn"><img src="images/acceptprofile.svg" class"addimg"></div></div>
                 </div>
 
-                <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a namebar" style="background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
+                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a infobar" style="background-color:#88ccc1; color:#ffffff; text-shadow:none;">
+
+                      <div align="center" class="float-left">COFFEE/TEA</div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+                      <div align="center" class="float-left">CONTENT OF COLUMN </div>
+
+                    </div>
                 </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
-                </div>
 
-                <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
-                </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
-                </div>
-                <div class="ui-grid-b" style="padding:0px; margin:0px; border: solid 1px #cc0000;" >
-                    <div class="ui-block-a" style="width:30%; margin:0px; padding:0px" id="pendingimg"><div class="ui-bar ui-bar-a" style="height:130px; margin:0px; padding:none;"><img src="images/pic2.png" style="height:130px;"></div></div>
-                    <div class="ui-block-b" style="width:50%;"><div class="ui-bar ui-bar-a" style="height:130px"><p style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a href="#" style="display: block; color:#cc0000; font-size:9px;">Click to read more...</a></p><p style="font-size:12px">&#8226 Lorem ipsum<br>&#8226 dolor sit<br>&#8226 amet consec</p></div></div>
-                    <div class="ui-block-c" style="width:20%;"><div class="ui-bar ui-bar-a" style="height:130px; border: 1px dotted #cc0000;"><img src="images/addprofile.svg" style="height:130px; width:64px;"></div></div>
-                </div>
 
-                <div class="ui-grid-a" style="border: solid 1px #cc0000;">
-                    <div class="ui-block-a" style="width:30%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#ffbb00; color:#ffffff; text-shadow:none;">VAIBHAV</div></div>
-                    <div class="ui-block-b" style="width:70%;"><div class="ui-bar ui-bar-a" style="height:30px; background-color:#88ccc1; color:#ffffff; text-shadow:none;">COFFEE/TEA</div></div>
-                </div>
 
             </div><!-- /content -->
 
@@ -148,7 +139,7 @@
 
                 </ul>
             </div><!--  right panel -->
-            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+        <!--   <div data-role="footer" data-position="fixed" style="height:1px;"></div> <!--Important-->
 
         </div>
     </body>

@@ -22,7 +22,7 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 0.5%;
     font-size: 17px;
     overflow: visible !important;
     white-space: normal !important;
@@ -142,6 +142,7 @@ div#pendingimg {
 .ui-bar-a .ui-bar {
 	padding: 0px;
 	margin: 0px;
+
 }
 
 .ui-bar, .ui-body {
@@ -157,9 +158,68 @@ div#pendingimg {
 	padding: 0px;
 }
 
-#myTable, #invites, #login, #logout {
-    background-color: #fff;
+.pendimg {
+  height:130px;
+}
+
+.imgblock {
+    height:130px;
+}
+
+.addbtn {
+    height:130px;
+    border: 1px dotted #cc0000;
+}
+
+.ui-bar-a {
+     background-color: #fff;
+
+}
+
+.addbtn img {
+    padding-top: 2px;
+    height:130px;
+    width:64px;
 }
 
 
+.text {
+    font-size: 12px;
+    height:130px;
+     font-family: PT Sans Narrow;
+     background-color: #eee;
+     text-shadow:none;
+}
+
+.addimg {
+    height:130px;
+    width:64px;
+}
+
+.clickmore {
+    font-size: 9px;
+}
+
+.infobar, .namebar {
+    height:30px;
+   
+}
+
+.namebar {
+    text-align: center;
+     font-size: 14px;
+}
+
+.infobar {
+    font-size: 10px;
+}
+
+.float-left {
+float:left;
+width:33%;
+}
+
+#myTable, #invites, #login,#logout {
+    background-color: #fff;
+}
 /* End of CSS document */
