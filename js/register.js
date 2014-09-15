@@ -4,6 +4,30 @@ var uploadInitCount = 0;
 var sortId = [];
 var homeLat, homeLng;
 
+function uploadImg()
+{
+UPLOADCARE_SYSTEM_DIALOG = true;
+console.log($("#uploadImgInput").cdnurl);
+console.log("ttest");
+    uploadcare.openDialog(null, {
+    crop: "960:640",
+  imagesOnly: true,
+  data_system_dialog: true
+}).done(function(file) {
+  file.promise().done(function(fileInfo){
+    console.log(fileInfo.cdnUrl);
+  });
+}).progress(function(uploadInfo) {
+  // State of upload is updated.
+  // This callback is invoked at least once with current state,
+  // immediately after assignment.
+  console.log("console 3");
+}).fail(function(error, fileInfo) {
+  // Upload failed or something else went wrong.
+  console.log("console 2");
+});
+}
+
 function submitForm()
 {
     //event.preventDefault();
@@ -79,32 +103,6 @@ function submitForm()
 function setupFormValidation()
 {
     //form validation rules
-    var data = "{&quot;timestamp&quot;:1410667131,&quot;callback&quot;:&quot;\/cloudinary_cors.html&quot;,&quot;signature&quot;:&quot;0a3a4ce0f9f799e805fb819532ee008e4065a44c&quot;,&quot;api_key&quot;:&quot;114178697755577&quot;}" ;
-    var uploadUrl = "https://api.cloudinary.com/v1_1/tt/auto/upload";
- //   $('.cloudinary_fileupload').cloudinary_upload_url(uploadUrl);
- /*   $("imgUpload").fileupload(
-            {
-        formData: data,
-        url: uploadUrl,
-        name: "file",
-        type: "file"
-        });
- */
- $.ajax({
-                type: "GET",
-                url: "php/index.php" ,
-                data: {  },
-                success : function() { 
-console.log("success");
-                    // here is the code that will run on client side after running clear.php on server
-
-                    // function below reloads current page
-                    location.reload();
-
-                }
-            });
-        
-    console.log("validate function +" + $("#registerForm"));
     $("#registerForm").validate(
             {
                 rules: {
@@ -151,6 +149,7 @@ $(document).ready(function()
     //loggedInLoggedOutBehavior();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
+    
     getTopics();
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
@@ -162,7 +161,7 @@ $(document).ready(function()
     });
 $( "#submitRegistrationButton" ).click(function( event ) 
     {
-        setupFormValidation ();
+        uploadImg ();
                                                                                                            
     });  
     function initializeFileUpload()
