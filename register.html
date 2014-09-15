@@ -31,6 +31,14 @@
       <script type="text/javascript">       
    $.cloudinary.config({ cloud_name: 'tt', api_key: '114178697755577' })
 </script>
+<script>
+  UPLOADCARE_LOCALE = "en";
+  UPLOADCARE_TABS = "file url facebook gdrive box skydrive instagram evernote";
+  UPLOADCARE_AUTOSTORE = true;
+  UPLOADCARE_PUBLIC_KEY = "f48b0feca08876c8b8d6";
+  UPLOADCARE_SYSTEM_DIALOG = true;
+</script>
+<script src="//ucarecdn.com/widget/1.4.2/uploadcare/uploadcare-1.4.2.min.js"></script>
 <script src="js/register.js"></script> 
     </head>
 
@@ -63,15 +71,19 @@
 <!--                            <div class="cell lastcell">
              <input type="submit" value="Submit Form" class="submit-btn">
           </div>-->
-    <!--form action="php/uploaded.php" method="post"-->
-      <input class="cloudinary-fileupload" id="imgUpload" data-cloudinary-field="image_id" 
-             data-form-data="{&quot;timestamp&quot;:1410667131,&quot;callback&quot;:&quot;\/cloudinary_cors.html&quot;,&quot;signature&quot;:&quot;0a3a4ce0f9f799e805fb819532ee008e4065a44c&quot;,&quot;api_key&quot;:&quot;114178697755577&quot;}" 
-             data-url="https://api.cloudinary.com/v1_1/tt/auto/upload" name="file" type="file">    
-      <input type="hidden" name="image_id" value="image/upload/v1410667153/jspjv4lgtjiydk4njaxd.png#5c6d632881ad3e90655010df0b64c5658dffc49b">
+<input
+    id="uploadImgInput"
+    value="testValue"
+    type="hidden"
+    role="uploadcare-uploader"
+    crop= "960:640"
+    />
+
+<button id="testButton" onclick="uploadImg ()">Upload Image</button>
 
 
-                <form method="post" id = "registerForm">
-                    <div style="text-align:center;">
+<div style="text-align:center;" id="uploadImgDiv">  
+    <form method="post" id = "registerForm">
                     <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
 
                     <!--label for="firstName" class="ui-hidden-accessible">First Name</label-->
@@ -116,12 +128,10 @@
                     </ul>
                   
 
-                    <div id="submitRegistrationButton" style="text-align:center">
-                        <button id="submitRegistrationButton" style="color:#ffffff; height: 50px; margin-top:10px; background-color: #cc0000" >CONTINUE</button>
+                    <div style="text-align:center">
+                        <button id="submitRegistrationButton" style="color:#ffffff; height: 50px; margin-top:10px; background-color: #cc0000" >Upload Image -></button>
                     </div>
 </form>                
-
-
 
             </div><!-- /content -->
 
