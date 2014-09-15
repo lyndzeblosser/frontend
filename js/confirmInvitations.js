@@ -73,7 +73,7 @@ function prepareEmptyDivTop(letter) {
 }
 
 function prepareEmptyDivBottom(letter) {
-    return "<div class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div></div>"
+    return "<div class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.svg\" class=\"imagesize\"></div></div>"
 
 }
 
@@ -92,7 +92,7 @@ function prepareEmptyInnerBlockTop() {
 }
 
 function prepareEmptyInnerBlockBottom() {
-    return "<div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.png\" class=\"imagesize\"></div>";
+    return "<div class=\"ui-bar ui-bar-a\" style=\"height:90px; text-align:center; padding:0px;\"><img src=\"images/findpplicon.svg\" class=\"imagesize\"></div>";
 }
 
 function getUserData(userIDs) {
