@@ -1,0 +1,173 @@
+@charset utf-8;
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.7%;
+    font-size: 22px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+.preferredLocation {
+    float: left;
+    margin-left: 10px;
+    color: #ffffff;
+    height:40x;
+
+}
+.preferredActivity {
+    float: right;
+    margin-right: 10px;
+    color: #ffffff;
+    height:40px;
+}
+
+.preferredActivity1 {
+    float: right;
+    margin-right: 10px;
+    color: #b42723;
+    height:40px;
+}
+
+.confirminvitesButton {
+    margin-left: 10px;
+    margin-top: 80px;
+    -moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    background-color:#c62d1f;
+    -webkit-border-top-left-radius:6px;
+    -moz-border-radius-topleft:6px;
+    border-top-left-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    -moz-border-radius-topright:6px;
+    border-top-right-radius:6px;
+    -webkit-border-bottom-right-radius:6px;
+    -moz-border-radius-bottomright:6px;
+    border-bottom-right-radius:6px;
+    -webkit-border-bottom-left-radius:6px;
+    -moz-border-radius-bottomleft:6px;
+    border-bottom-left-radius:6px;
+    text-indent:0px;
+    border:1px solid #d02718;
+    display:inline-block;
+    font-family:Arial;
+    font-size:24px;
+    font-weight:bold;
+    font-style:normal;
+    height:70px;
+    line-height:70px;
+    width:400px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #810e05;
+    color: #ffffff;
+}
+ 
+.actpic {
+    height: 200px;
+    width:200px;
+}
+
+fieldset label {
+    height:35px;  
+}
+
+.tags {
+    top:300px;
+}
+
+
+.ui-checkbox label {
+    width:70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.ui-input-text {
+	height: 50px;
+        
+}
+
+.ui-grid-b {
+    height: 80px;
+}
+
+.imagesize {
+    height:349px;
+}
+
+div#confirmImg {
+    height:349px;
+}
+
+div#tags label{
+    height:120px;
+    width:260px;
+}
+
+label .ui-btn #tags {
+    font-size: 20px;
+}
+
+#confirmprofileImg { 
+    position: relative;
+}
+
+#confirmprofileImg .close { 
+    position: absolute;
+    top: -320px;
+    right: 25px;
+    height:36px;
+    width:36px;
+}
+
+#confirmprofileImg:hover .close {
+    display: block;
+}
+
+
+#userTop {
+    height:40px;
+    font-size: 20px;
+}
+
+.timedate,  .confirmdate, #dateString {
+    font-size: 24px;
+}
+
+.ui-input-text #address {
+    font-size: 24px;
+    
+}
+
+.ui-input-text #basicExample {
+    font-size: 24px;
+    width:200px;
+}
+
+.ui-checkbox label.ui-checkbox-off {
+    font-size: 25px;
+    text-shadow: none;
+    width:200px;
+    font-family: PT Sans Narrow;
+}
+
+.ui-checkbox label.ui-checkbox-on {
+    font-size: 25px;
+    width:200px;
+    text-shadow: none;
+    font-family: PT Sans Narrow;
+}
+
+.ui-timepicker-wrapper {
+    width: 220px;
+    
+}
+
+.ui-timepicker-list li {
+    font-size: 22px;
+}

@@ -318,8 +318,9 @@ h4 {
 }
 
 fieldset label {
-    height:35px;
+    height:20px;
     margin:0px;
+    width:60px;
 }
 
 .ui-controlgroup, fieldset.ui-controlgroup {
@@ -351,6 +352,20 @@ div#confirm img {
 div#tags label{
     height:20px;
     width:60px;
+}
+
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+}
+
+#userTop {
+    height:20px;
+    font-size: 13px;
+}
+
+.ui-bar-a {
+     background-color: #fff;
+
 }
 
 /* End of CSS document */
