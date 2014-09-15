@@ -154,20 +154,20 @@ div#pendingimg {
 }
 
 .ui-grid-b {
-	height:130px;
+	height:140px;
 	padding: 0px;
 }
 
 .pendimg {
-  height:130px;
+  height:140px;
 }
 
 .imgblock {
-    height:130px;
+    height:140px;
 }
 
 .addbtn {
-    height:130px;
+    height:140px;
     border: 1px dotted #cc0000;
 }
 
@@ -178,21 +178,21 @@ div#pendingimg {
 
 .addbtn img {
     padding-top: 2px;
-    height:130px;
+    height:140px;
     width:64px;
 }
 
 
 .text {
     font-size: 12px;
-    height:130px;
+    height:140px;
      font-family: PT Sans Narrow;
      background-color: #eee;
      text-shadow:none;
 }
 
 .addimg {
-    height:130px;
+    height:140px;
     width:64px;
 }
 
@@ -201,7 +201,7 @@ div#pendingimg {
 }
 
 .infobar, .namebar {
-    height:30px;
+    height:20px;
    
 }
 
