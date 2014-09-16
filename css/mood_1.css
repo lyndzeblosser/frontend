@@ -225,13 +225,35 @@ h4 {
 	background-color: #ffbb00;
 	color: #ffffff;
         font-family: PT Sans Narrow;
+        font-size: 17px;
+        text-transform: uppercase;
+        
 }
 
 [data-role="listview"] .place li a:hover {
 	background-color: #88ccc1;
 	color: #ffffff;
          font-family: PT Sans Narrow;
+         font-size: 17px;
+         text-transform: uppercase;
         
+}
+
+[data-role="listview"] .time li a {
+    text-transform: uppercase;
+    background-color: #999999;
+    color: #ffffff;
+    text-shadow: none;
+   font-family: PT Sans Narrow;
+    
+}
+
+[data-role="listview"] .place li a {
+    text-transform: uppercase;
+    background-color: #999999;
+    color: #ffffff;
+    text-shadow: none;
+   font-family: PT Sans Narrow;
 }
 
 .activitiesImages{
@@ -260,6 +282,8 @@ h4 {
     text-align: center;
     font-size: 17px;
     
+    
+    
 }
 
 .time .ui-collapsible-heading .ui-btn {
@@ -270,6 +294,7 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 17px;
+    text-transform: uppercase;
 }
 
 .place .ui-collapsible-heading .ui-btn {
@@ -280,6 +305,7 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 17px;
+    text-transform: uppercase;
 }
 
 .coffee, .drinks, .dine {
