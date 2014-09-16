@@ -76,6 +76,11 @@ function autoCompleteLocation(){
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
             $("#address").attr("placeholder", "Value set to your current location")
+            if (typeof $.session.get('userid') != "undefined")
+            {
+                console.log("Update live location for user:" + $.session.get('userid'));
+                updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+            }
         })
     }
     
@@ -164,3 +169,16 @@ function register(){
     window.location.href = url; 
 }
 
+function updateUserLiveLocation(userid, lat, lng)
+{
+
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateLiveLocation",
+    {
+        userID:userid,
+        latitude:lat,
+        longitude:lng
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
+}
