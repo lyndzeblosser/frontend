@@ -4,29 +4,6 @@ var uploadInitCount = 0;
 var sortId = [];
 var homeLat, homeLng;
 
-function uploadImg()
-{
-UPLOADCARE_SYSTEM_DIALOG = true;
-console.log($("#uploadImgInput").cdnurl);
-console.log("ttest");
-    uploadcare.openDialog(null, {
-    crop: "960:640",
-  imagesOnly: true,
-  data_system_dialog: true
-}).done(function(file) {
-  file.promise().done(function(fileInfo){
-    console.log(fileInfo.cdnUrl);
-  });
-}).progress(function(uploadInfo) {
-  // State of upload is updated.
-  // This callback is invoked at least once with current state,
-  // immediately after assignment.
-  console.log("console 3");
-}).fail(function(error, fileInfo) {
-  // Upload failed or something else went wrong.
-  console.log("console 2");
-});
-}
 
 function submitForm()
 {
@@ -102,7 +79,7 @@ function submitForm()
 }
 function setupFormValidation()
 {
-    //form validation rules
+
     $("#registerForm").validate(
             {
                 rules: {
@@ -125,11 +102,11 @@ function setupFormValidation()
                     }
                 },
                 messages: {
-                    firstName: "Please enter your firstname",
-                    lastName: "Please enter your lastname",
-                    homeTown: "Please enter your hometown",
+                    firstName: "Please enter your First Name",
+                    lastName: "Please enter your Last Name",
+                    homeTown: "Please enter your Home Town",
                     password: {
-                        required: "Please provide a password",
+                        required: "Please provide a Password",
                         minlength: "Your password must be at least 5 characters long"
                     },
                     ConfirmPassword: {
@@ -149,7 +126,7 @@ $(document).ready(function()
     //loggedInLoggedOutBehavior();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
-    
+
     getTopics();
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
@@ -161,24 +138,29 @@ $(document).ready(function()
     });
 $( "#submitRegistrationButton" ).click(function( event ) 
     {
-        uploadImg ();
-                                                                                                           
+        setupFormValidation();
     });  
-    function initializeFileUpload()
-    {
-        $("#fileuploader").uploadFile({
-            url: "upload.php",
-            allowedTypes: "jpg",
-            fileName: "myfile",
-            dynamicFormData: function()
-            {
-                var data = {
-                    email: $("#email").val()
-                };
-                return data;
-            }
-        });
-    }
+//       $ = uploadcare.jQuery;
+$(function() {
+  widget = uploadcare.Widget('input');
+  widget.openDialog(null, {
+        systemDialog: true,
+        imagesOnly: true
+    });  
+    widget.validators.push(imagesOnly);
+    function imagesOnly(fileInfo) {
+  if (fileInfo.size > 5242880) {
+    throw new Error('size');
+  }
+}
+  widget.onUploadComplete(function(info) {
+    // Handle uploaded file info.
+    console.log(widget.value());
+            console.log("CDN Image URL for USers"+info.cdnUrl);
+            $("#imageMasterLocation").attr("value",info.cdnUrl);
+            });
+  });
+
 
 });
 

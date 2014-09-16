@@ -77,13 +77,21 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
                 {
                         
                     users[i]=[];    
-                    users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
+//                    users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
+                    if (data[i].imageMasterLocation != null) {
+                        users[i]["image"] = JSON.parse(JSON.stringify(data[i])).imageMasterLocation.toString();                    
+                    }
+                    else {
+                       users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg'; 
+                    }
                     users[i]["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
                     users[i]["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
                     users[i]["userId"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
                     users[i]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString() + " " + JSON.parse(JSON.stringify(data[i])).lastname.toString();
                     users[i]["bio"] = JSON.parse(JSON.stringify(data[i])).bio.toString();
-                    users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
+                    if (data[i].date_of_birth != null) {
+                         users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
+                     }
                     users[i]["selected"] = 0;
                     
                     console.log(users[i])
