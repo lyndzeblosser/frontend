@@ -1,7 +1,9 @@
 var table,tags=[],userid,inviteUsers=[],users=[];
 $(document).ready(function()
 {
-    userid=$.session.get('userid')
+//    userid=$.session.get('userid')
+    userid = getParameterByName('user_from');
+
     getTableData(getParameterByName('tableid'))
     getTags();
     getResult();
