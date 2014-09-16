@@ -114,7 +114,7 @@ function getUserData(userIDs) {
                         users[i]["first_name"] = data["firstname"];
                         users[i]["last_name"] = data["lastname"];
                         users[i]["bio"] = data["bio"];
-                        users[i]["image"] = data["imageMasterLocation"];
+                        users[i]["image"] = "img/vaibhav.shah@ey.com.jpeg";
 
                     },
                     error: function(error, message)
