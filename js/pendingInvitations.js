@@ -1,5 +1,8 @@
 
 
+
+
+
 var tables,tags=[];
 $(document).ready(function()
 {
@@ -57,7 +60,7 @@ function getTableData(){
     console.log("http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid="+$.session.get('userid'))
     $.ajax(
     {
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid="+$.session.get('userid'),
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getPendingInvitations?userid="+$.session.get('userid'),
         async: false,
         dataType: "json",
         success: function(data)

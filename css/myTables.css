@@ -173,4 +173,28 @@ div#pendingimg {
     border-style: hidden;
     -webkit-box-shadow: none;
 }
+
+.float-left {
+float:left;
+width:33%;
+font-size: 10px;
+}
+
+.namebar {
+text-align: center;
+font-size: 14px;
+}
+
+.text {
+font-size: 12px;
+height: 140px;
+font-family: PT Sans Narrow;
+background-color: #eee;
+text-shadow: none;
+}
+
+.pendimg {
+height: 140px;
+width: 96px;
+}
 /* End of CSS document */
