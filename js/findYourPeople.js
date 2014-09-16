@@ -51,14 +51,14 @@ function getRadius(miles)
     return radius;
 }
 
-function getResult(latitude, longitude, selectedTopics, radius, activity, selectedTime)
+function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
     console.log(latitude,longitude,radius,activity,selectedTime)
     fillBaseDetails(latitude,longitude,radius,activity,selectedTime)
     $.ajax(
     {
             
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + getRadius(radius) + "&userid=" + $.session.get('userid'),
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius=" + getRadius(radius) + "&userid=" + $.session.get('userid'),
         async: true,
         dataType: "json",
         success: function (data) 
@@ -123,7 +123,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, select
                     console.log('confirmInvitation clicked ');
                     var selectedUsersString= getSUS();
                     var selectedUsersNameString= getSUSN();
-                    window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags=FIFA,STARTUPS" + "&inviteTime=" + selectedTime;
+                    window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags="+topics + "&inviteTime=" + selectedTime;
 
                 };
 

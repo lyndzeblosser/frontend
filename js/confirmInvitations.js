@@ -19,7 +19,7 @@ function getParameterByName(name)
 
 function getResult(lat, lng, activity, selectedUsers, selectedUserNames, inviteTags, inviteTime)
 {
-    $("#actpic").attr("src","images/"+activity+"invert.svg")
+    $("#actpic").attr("src","images/"+activity+"invert.png")
     codeLatLng(lat,lng)
     var userIDs = selectedUsers.split(",")
     getUserData(userIDs)

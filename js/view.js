@@ -118,7 +118,7 @@ function getTableData(tableid){
 
 function getResult()
 {
-    $("#actpic").attr("src","images/"+table['activity']+"invert.svg")
+    $("#actpic").attr("src","images/"+table['activity']+"invert.png")
     $("#address").attr("value",table['invite_location'])
     $("#dateString").html(table['invite_date'])
     getUserData();
