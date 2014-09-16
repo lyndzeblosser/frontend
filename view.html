@@ -16,20 +16,13 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
         <script src="js/jquery.session.js"></script>
         <script src="js/loggedInOutBehavior.js"></script>
-        <script src="js/confirmInvitations.js"></script>
+        <script src="js/view.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script src="js/jQuery.timepicker.js"></script>
         <script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
         <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker.css" />
         <script>
-             $(function() {
-                    var timeInMs=(new Date()).getTime()+getParameterByName('inviteTime')*60*1000;
-                    var date=new Date(timeInMs)
-                    var dateString=(date.getUTCMonth()+1)+"-"+date.getUTCDate()+"-"+date.getUTCFullYear()
-                    $('#basicExample').timepicker({ 'step': 15 });
-                    $('#basicExample').timepicker('setTime', date);
-                    $('#dateString').text(dateString)
-                });
+             
         </script>    
 
         <link rel="stylesheet" type="text/css" href="css/view.css">
@@ -76,12 +69,12 @@
                     <div class="ui-block-a timedate"><br><div class="ui-bar ui-bar-a" style="height:60px; color:#cc0000; font-family: PT Sans Narrow; background-color:#88ccc1; border: none; text-shadow: none;">TIME/DATE</div></div>
                     <div class="ui-block-b confirmdate"><div class="ui-bar ui-bar-a" style="height:60px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
                                                  <form>
-                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:7px;">
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:7px;width:75px">
                                     
                                     <label for="select-native-11"></label>
                                     <div style="position:relative;">
-                                    <input id="basicExample" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:#cc0000;">
-                                    <img src="images/mydownarrow.png" style="position:absolute; right:5px; top:8px;" >
+                                    <input id="basicExample1" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:#cc0000;" disabled>
+                                   
                                 </fieldset>
                             </form>
                         </div></div>
@@ -90,7 +83,7 @@
 
 
                 <label for="location" class="ui-hidden-accessible">Location:</label>
-                <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
+                <input id="address" name="location"  placeholder="Location" value="" type="text" disabled>
 
                 <div style="text-align:center; padding-top:5%">
                     <p style="float: left; margin-left:10px;" class="activitypicc"><img id="actpic" src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>

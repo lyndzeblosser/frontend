@@ -6,7 +6,12 @@
 
 *@version 0.1 (2014/09/07)
 */
-
+input[type="text"]:disabled {
+   color: #dd0000;
+/*background-color: #88ccc1;*/
+border: none;
+text-shadow: none;
+}
 
 .ui-content {
     padding: 0px !important;
