@@ -13,11 +13,11 @@ $(document).ready(function()
 function getUserData() {
     var userIDs=[];
     for(var j=1;j<4;j++){
-        if(table['user_to_'+j]!=="null"){
+        if(table['user_to_'+j]!=="null" && table['user_to_'+j]!==""){
             userIDs.push(table['user_to_'+j]);
         }
     }
-    
+    console.log("uid"+userIDs)
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
@@ -37,8 +37,8 @@ function getUserData() {
                         users[i]["last_name"] = data["lastname"];
                         users[i]["bio"] = data["bio"];
                         users[i]["image"] = "img/vaibhav.shah@ey.com.jpeg";
-                        if(table['user_to_'+j+'_status']!=="Pending")
-                        {console.log(table['user_to_'+(i+1)+'_status'])
+                        if(table['user_to_'+(i+1)+'_status']!=="Pending")
+                        {console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
                             users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Accepted"?"images/mycheck.png":"images/mycross.png"}
                         else
                           users[i]["status"]=""  
@@ -98,7 +98,7 @@ function getTableData(tableid){
         async: false,
         dataType: "json",
         success: function(data)
-        {
+        {   console.log(data)
             table=data[0];
             console.log(data)
                       

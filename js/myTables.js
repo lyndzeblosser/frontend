@@ -21,8 +21,9 @@ function prepareTablesDiv() {
 
 function prepareTableDiv(table) {
     var user = [];
-    user['image'] = "images/pic2.png"
-    user['name'] = "Abhishek"
+    var userInfo=getUserNameImage(table['user_from'])
+    user['image'] = userInfo['image']
+    user['name'] = userInfo['name']
     user['actvity'] = table['activity']
     user['time'] = table['invite_time'].slice(0, table['invite_time'].indexOf(":00 ")) + " " + table['invite_time'].slice(table['invite_time'].indexOf(":00 ") + 4)
     user['date'] = table['invite_date']
@@ -113,4 +114,35 @@ function getTags() {
                 }
             });
 
+}
+
+function getUserNameImage(userId){
+    var a=[];
+    $.ajax(
+                {
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data[0]
+                        console.log(data)
+
+                        a["image"] = "img/vaibhav.shah@ey.com.jpeg";
+                        a["name"]=data["firstname"]  
+
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
+                
+                return a;
+    
 }
