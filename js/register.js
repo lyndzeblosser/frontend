@@ -157,6 +157,7 @@ $(function() {
     // Handle uploaded file info.
     console.log(widget.value());
             console.log("CDN Image URL for USers"+info.cdnUrl);
+            $("#imageMasterLocation").attr("value",info.cdnUrl);
             });
   });
 
