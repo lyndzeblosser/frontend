@@ -4,9 +4,10 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 0.7%;
-    font-size: 22px;
+    font-size: 30px;
     overflow: visible !important;
     white-space: normal !important;
+    font-family: PT Sans, sans-serif;
 }
 
 [data-role="controlgroup"] img {
@@ -63,11 +64,25 @@ fieldset .ui-grid-b {
 }
 
 h4#bioText {
-    font-size: 17px;
+    font-size: 30px;
+    width:900px;
+    font-family: PT Sans;
 }
 
 p#location.preferredLocation {
     font-size: 20px;
     height:30px;
     
+}
+
+#userName {
+    color:#cc0000;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: PT Sans, sans-serif;
+    font-size: 40px;
+    text-shadow: none;
+    margin-left:5px;
+    margin-bottom: 5px;
+    margin-top: 0px;
 }

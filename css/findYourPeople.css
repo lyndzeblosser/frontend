@@ -25,10 +25,10 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-size: 17px;
+    font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 
@@ -182,10 +182,12 @@ h4 {
     color:#cc0000;
     font-weight: bolder;
     text-transform: uppercase;
-    font-family: PT Sans Narrow;
-    font-size: 20px;
+    font-family: PT Sans, sans-serif;
+    font-size: 30px;
     text-shadow: none;
-    margin: 0px;
+    margin-left:5px;
+    margin-bottom: 5px;
+    margin-top: 0px;
 }
 
 .profilebio h4 {
@@ -271,6 +273,7 @@ fieldset label {
 
 .profilebio {
     padding: 0px;
+    
 }
 
 input#addButton, input#moveOnButton, input#confirmButton{
@@ -284,6 +287,10 @@ fieldset .ui-grid-b {
 
 #myTable, #invites, #login, #logout {
     background-color: #fff;
+}
+
+h4#bioText {
+    font-family: PT Sans, sans-serif;
 }
 
 
