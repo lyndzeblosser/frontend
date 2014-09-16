@@ -23,15 +23,15 @@ function activitiesImages(){
         if(this.getAttribute("selected")==0){
             $(".activitiesImages").each(function(){
                 this.setAttribute("selected",0);
-                this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+"invert.svg")
+                this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+".svg")
                 $(this).css("background","#ffffff")
             })
-            this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+".svg") 
+            this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+"select.svg") 
             $(this).css("background","#cc0000")
             this.setAttribute("selected", 1)
         }else{
             this.setAttribute("selected",0);
-            this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+"invert.svg")
+            this.firstChild.setAttribute("src","images/"+this.getAttribute("activity")+".svg")
             $(this).css("background","#ffffff")
         }
         

@@ -89,7 +89,7 @@
     background-color: #333333;
     color:#ffffff;
     height:30px;
-    font-size: 22px;
+    font-size: 32px;
     font-family: PT Sans Narrow;
     
 }
@@ -98,7 +98,7 @@
     background-color: #ffbb00;
     color:#ffffff;
      height:30px;
-     font-size: 22px;
+     font-size: 32px;
     font-family: PT Sans Narrow;
 }
 
@@ -106,7 +106,7 @@
     background-color: #88ccc1;
     color:#ffffff;
      height:30px;
-     font-size: 22px;
+     font-size: 32px;
     font-family: PT Sans Narrow;
 }
 .ui-checkbox label {
@@ -128,4 +128,8 @@
 .coffee, .drinks,.dine {
     height:260px;
     width:200px;
+}
+
+a.activitiesImages.ui-btn {
+	padding: 80px;
 }
