@@ -177,8 +177,8 @@ div#pendingimg {
 
 }
 
-.addbtn img {
-    padding-top: 2px;
+addbtn img {
+  
     height:140px;
     width:64px;
 }
@@ -192,10 +192,6 @@ div#pendingimg {
      text-shadow:none;
 }
 
-.addimg {
-    height:140px;
-    width:64px;
-}
 
 .clickmore {
     font-size: 9px;
@@ -222,5 +218,17 @@ width:33%;
 
 #myTable, #invites, #login,#logout {
     background-color: #fff;
+}
+
+.addimg, .rejectimg {
+    height:50px;
+    width:50px;
+    padding-left:5px;
+}
+
+.ui-listview .ui-li-static {
+    padding: 0px;
+    border: none;
+   
 }
 /* End of CSS document */
