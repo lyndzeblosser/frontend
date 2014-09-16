@@ -4,8 +4,54 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-size: 25px;
+    font-size: 30px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans Narrow;
+     font-family: PT Sans, sans-serif;
+}
+
+.ui-input-text {
+	height: 60px;
+}
+
+div.uploadcare-widget-button.uploadcare-widget-button-open {
+    background-color: #cc0000;
+    font-family: PT Sans;
+    width:280px;
+    font-size: 34px;
+      margin-top: 10px;
+      height:50px;
+      line-height: 50px;
+      margin-bottom: 5px;
+   
+}
+
+textarea#bio, .ui-input-text {
+    font-size: 30px;
+    font-family: PT Sans;
+    
+}
+
+button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
+    background: #cc0000;
+    border:1px solid #d02718;
+	display:inline-block;
+	font-family: PT Sans;
+	font-size:30px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:300px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #810e05;
+	color: #ffffff;
+        height: 90px;
+        
+}
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
+    font-family: PT Sans;
+    font-size: 30px;
 }

@@ -248,7 +248,8 @@ div.uploadcare-widget-button.uploadcare-widget-button-open {
     background-color: #cc0000;
     font-family: PT Sans;
     width:120px;
-   
+    height:30px;
+    line-height: 25px;
    
 }
 
