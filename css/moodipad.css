@@ -4,10 +4,10 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-size: 25px;
+    font-size: 30px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans Narrow;
+   font-family: PT Sans, sans-serif;
 }
 
 .findpplBtn {
@@ -78,7 +78,7 @@
 }
 
 .ui-input-text input, .ui-input-search input, textarea.ui-input-text {
-    height: 50px;
+    height: 80px;
 }
 
 [data-role="controlgroup"] img {
@@ -117,11 +117,11 @@
 [data-role="listview"] .time li a {
 	
         font-family: PT Sans Narrow;
-        font-size: 20px;
+        font-size: 28px;
 }
 
 [data-role="listview"] .place li a {
-	 font-size: 20px;
+	 font-size: 28px;
          font-family: PT Sans Narrow;
 }
 
@@ -132,4 +132,8 @@
 
 a.activitiesImages.ui-btn {
 	padding: 80px;
+}
+
+input#address {
+    font-size: 28px;
 }
