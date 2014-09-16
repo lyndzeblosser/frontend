@@ -263,11 +263,17 @@ h4 {
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
   background: #333333 !important;
+    font-family: PT Sans;
+   font-size: 15px;
+   text-shadow: none;
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
+    font-family: PT Sans;
+   font-size: 15px;
+   text-shadow: none;
 }
 
 
