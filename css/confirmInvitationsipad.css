@@ -4,9 +4,10 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 0.7%;
-    font-size: 22px;
+    font-size: 30px;
     overflow: visible !important;
     white-space: normal !important;
+    font-family: PT Sans, sans-serif;
 }
 
 .preferredLocation {
@@ -14,6 +15,7 @@
     margin-left: 10px;
     color: #ffffff;
     height:40x;
+    font-family: PT Sans, sans-serif;
 
 }
 .preferredActivity {
@@ -21,6 +23,7 @@
     margin-right: 10px;
     color: #ffffff;
     height:40px;
+    font-family: PT Sans, sans-serif;
 }
 
 .preferredActivity1 {
@@ -52,8 +55,8 @@
     text-indent:0px;
     border:1px solid #d02718;
     display:inline-block;
-    font-family:Arial;
-    font-size:24px;
+    font-family: PT Sans, sans-serif;
+    font-size:30px;
     font-weight:bold;
     font-style:normal;
     height:70px;
@@ -132,7 +135,8 @@ label .ui-btn #tags {
 
 #userTop {
     height:40px;
-    font-size: 20px;
+    font-size: 30px;
+    font-family: PT Sans, sans-serif;
 }
 
 .timedate,  .confirmdate, #dateString {
@@ -141,6 +145,8 @@ label .ui-btn #tags {
 
 .ui-input-text #address {
     font-size: 24px;
+    font-family: PT Sans, sans-serif;
+    
     
 }
 
@@ -153,7 +159,7 @@ label .ui-btn #tags {
     font-size: 25px;
     text-shadow: none;
     width:200px;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .ui-checkbox label.ui-checkbox-on {
@@ -170,4 +176,5 @@ label .ui-btn #tags {
 
 .ui-timepicker-list li {
     font-size: 22px;
+    font-family: PT Sans, sans-serif;
 }

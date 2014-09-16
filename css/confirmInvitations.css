@@ -24,10 +24,10 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-size: 17px;
+    font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 
@@ -149,13 +149,13 @@ h4 {
 [data-role="listview"] .time li a:hover {
     background-color: #ffbb00;
     color: #ffffff;
-     font-family: PT Sans Narrow;
+     font-family: PT Sans, sans-serif;
 }
 
 [data-role="listview"] .place li a:hover {
     background-color: #88ccc1;
     color: #ffffff;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .activitiesImages{
@@ -165,36 +165,42 @@ h4 {
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
     background: #333333 !important;
+    font-family: PT Sans, sans-serif;
+    text-shadow: none;
+    font-size: 15px;
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
     background: #333333 !important;
+    font-family: PT Sans, sans-serif;
+    text-shadow: none;
+    font-size: 15px;
 }
 
 .profilebio h3 {
     color: #cc0000;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .profilebio h4 {
     color: #333333;
     font-size: 18px;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .preferredLocation {
     float: left;
     margin-left: 10px;
     color: #ffffff;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 
 }
 .preferredActivity {
     float: right;
     margin-right: 10px;
     color: #ffffff;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .userprofilePic img {
@@ -206,10 +212,11 @@ h4 {
     font-size: 14px;
     width: 200px;
     height: 16px;
-    font-family: PT Sans Narrow;
+   font-family: PT Sans, sans-serif;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-shadow: none;
 
 }
 
@@ -231,14 +238,13 @@ h4 {
     float: left;
     margin-left: 10px;
     color: #ffffff;
-     font-family: PT Sans Narrow;
-
+     font-family: PT Sans, sans-serif;
 }
 .preferredActivity {
     float: right;
     margin-right: 10px;
     color: #ffffff;
-     font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .preferredLocation1 {
@@ -251,7 +257,7 @@ h4 {
     float: right;
     margin-right: 10px;
     color: #cc0000;
-     font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
 }
 
 .confirminvitesButton {
@@ -276,7 +282,7 @@ h4 {
     text-indent:0px;
     border:1px solid #d02718;
     display:inline-block;
-    font-family: PT Sans Narrow;
+    font-family: PT Sans, sans-serif;
     font-size:17px;
     font-weight:bold;
     font-style:normal;
@@ -360,11 +366,16 @@ div#tags label{
 #userTop {
     height:20px;
     font-size: 13px;
+    font-family: PT Sans, sans-serif;
 }
 
 .ui-bar-a {
      background-color: #fff;
 
+}
+
+.timedate{
+    
 }
 
 
