@@ -22,7 +22,8 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
     font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
@@ -195,6 +196,10 @@ height: 140px;
 font-family: PT Sans;
 background-color: #eee;
 text-shadow: none;
+}
+
+.text p {
+    margin-left: 4px;
 }
 
 .pendimg {
