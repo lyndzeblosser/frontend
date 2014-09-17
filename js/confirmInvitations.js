@@ -137,7 +137,7 @@ function removeUser(userID, letter) {
     $("#top-block-" + letter).html(prepareEmptyInnerBlockTop());
     $("#bottom-block-" + letter).html(prepareEmptyInnerBlockBottom());
     }else{
-        alert("At least 1 user needed, Go back to start a new invite")
+        alert("At least 1 person is need to send an invite!")
     }
 
 }
