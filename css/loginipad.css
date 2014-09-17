@@ -3,10 +3,12 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.7%;
-    font-size: 22px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 34px;
     overflow: visible !important;
     white-space: normal !important;
+    font-family: PT Sans, sans-serif;
 }
 
 .ui-input-text {
@@ -39,7 +41,7 @@
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:110px;
+	width:140px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -73,7 +75,7 @@
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:200px;
+	width:240px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -107,11 +109,29 @@
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:180px;
+	width:220px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
 	color: #ffffff;
 
+}
+
+a#closerightPanel {
+ margin-right:35px;
+ margin-top:45px;
+ height:30px;
+ width:30px;
+}
+
+a#closeleftPanel {
+ margin-left:35px;
+ margin-top:45px;
+ height:30px;
+ width:30px;
+}
+
+input {
+    font-size: 28px;
 }
 
