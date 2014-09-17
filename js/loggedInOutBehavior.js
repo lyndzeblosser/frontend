@@ -47,7 +47,7 @@ function loggedInLoggedOutBehavior(){
     userId=$.session.get('userid');
     getInvitations()
     getMyTable();
-    
+    getUserProfile ();
     
     }else{
         $(".loggedInFields").css("display","none")
@@ -55,4 +55,39 @@ function loggedInLoggedOutBehavior(){
         
     }
     
+}
+
+function getUserProfile () {
+    document.getElementById("LeftPanelFirstName").value = "test2";
+    
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId)
+        $.ajax(
+                {
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data[0]
+                        console.log(data)
+                        document.getElementById("LeftPanelLastName").value = data["lastname"];
+                        document.getElementById("LeftPanelLastName").value = data["lastname"];
+                        document.getElementById("LeftPanelEmailAddress").value = data["userid"];
+                        document.getElementById("LeftPanelBio").value = data["bio"];
+                        console.log(data["imageMasterLocation"]);
+                        document.getElementById("LeftPanelProfileImage").src = data["imageMasterLocation"];
+//                        document.getElementById("test111").css('background-image',data["imageMasterLocation"]);
+//                        body.css("a.ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom",data["imageMasterLocation"]);
+                                              
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
 }
