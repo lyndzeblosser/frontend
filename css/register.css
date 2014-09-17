@@ -277,4 +277,9 @@ button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
    
 }
 
+img#LeftPanelProfileImage {
+    height:200px;
+    width:200px;
+}
+
 /* End of CSS document */

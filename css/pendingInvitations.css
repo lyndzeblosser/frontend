@@ -245,4 +245,9 @@ font-family: PT Sans;
     border: none;
    
 }
+
+img#LeftPanelProfileImage {
+    height:200px;
+    width:200px;
+}
 /* End of CSS document */

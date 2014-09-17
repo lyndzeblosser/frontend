@@ -333,4 +333,8 @@ div.ui-page.ui-page-theme-a.ui-page-header-fixed.ui-page-active {
     padding-top: 50px !important;
 }
 
+img#LeftPanelProfileImage {
+    height:200px;
+    width:200px;
+}
 /* End of CSS document */

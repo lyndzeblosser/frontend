@@ -225,5 +225,8 @@ div.ui-bar.ui-bar-a.text {
     background-color: #fff;
 }
 
-
+img#LeftPanelProfileImage {
+    height:200px;
+    width:200px;
+}
 /* End of CSS document */
