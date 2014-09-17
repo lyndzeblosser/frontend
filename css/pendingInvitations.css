@@ -154,21 +154,22 @@ div#pendingimg {
 }
 
 .ui-grid-b {
-	height:140px;
+	height:150px;
 	padding: 0px;
 }
 
 .pendimg {
-  height:140px;
+  height:150px;
   width:96px;
 }
 
 .imgblock {
-    height:140px;
+    height:150px;
 }
 
 .addbtn {
-    height:140px;
+   
+    height:150px;
     border: 1px dotted #cc0000;
 }
 
@@ -179,14 +180,14 @@ div#pendingimg {
 
 addbtn img {
   
-    height:140px;
+    height:150px;
     width:64px;
 }
 
 
 .text {
     font-size: 13px;
-    height:140px;
+    height:150px;
      font-family: PT Sans;
      background-color: #eee;
      text-shadow:none;
