@@ -236,6 +236,8 @@ function confirmInvite(){
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
+        alert(data);
+        window.location.href = "mood.html"
     });
 }
 
