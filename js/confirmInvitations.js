@@ -2,6 +2,7 @@
 var users = [], inviteUsers = [], tags=[],autocomplete,lat,lng;
 $(document).ready(function()
 {
+    $("#InvitesSentId").hide();
     var parameters = location.search;
     var parameter = parameters.split("?");
     getTags();
@@ -221,7 +222,9 @@ function autoCompleteLocation(){
 
 function confirmInvite(){
     var time=getTimeData();
-    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
+    var alertConfirmation = confirm("Are you sure?");
+    if (alertConfirmation)
+    { $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userid'),
         user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
@@ -237,6 +240,10 @@ function confirmInvite(){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
     });
+    $("#confirmInvitesButtonId").hide();
+    $("#InvitesSentId").show();
+}
+
 }
 
 function getTimeData(){

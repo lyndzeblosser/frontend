@@ -21,6 +21,8 @@
         <link rel="stylesheet" type="text/css" href="css/mood_1.css">
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/moodipad.css">
        <link href="//fonts.googleapis.com/css?family=PT+Sans Narrow:400,700" rel="stylesheet" type="text/css">
+       <link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:700' rel='stylesheet' type='text/css'>
+       <link href='http://fonts.googleapis.com/css?family=PT+Sans:700,400' rel='stylesheet' type='text/css'>
 
     </head>
 
@@ -38,23 +40,25 @@
 
 
 
-            <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+            <div role="main" class="ui-content jqm-content jqm-fullwidth activitypanel"> <!-- Important-->
 
                 <!-- This is the preference panel div-->
                 <div data-role="controlgroup" data-type="horizontal" style="text-align:center; padding: 0px; margin: 0px; width:100%">
 
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff; padding: 22px;"><img src="images/coffeeinvert.svg" class="coffee"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;padding: 22px;"><img src="images/drinksinvert.svg" class="drinks"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;padding: 22px;"><img src="images/dineinvert.svg" class="dine"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff;"><img src="images/coffee.svg" class="coffee"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;"><img src="images/drinks.svg" class="drinks"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;"><img src="images/dine.svg" class="dine"></a>
                   
                 </div>
-
-  <br>
+            </div>
+            
+             <div role="main" class="ui-content jqm-content jqm-fullwidth" style="padding-top:0px">
+  
 
                 <!-- This is the the preference form div-->
                 <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
-
-                    <li data-role="collapsible"  data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
+                    
+                    <li data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
                         <h2>WHAT DO YOU WANT TO TALK ABOUT?</h2>
                         <form>
                             <fieldset id="topicsList" data-role="controlgroup" data-type="horizontal" data-mini="true"> 
@@ -66,7 +70,7 @@
 
 
 
-                    <li id="timeMenu" data-role="collapsible" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
+                    <li id="timeMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
                         <h2 id="timeText" value="">WHEN?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
@@ -78,7 +82,7 @@
 
 
 
-                    <li id="whereMenu" data-role="collapsible" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
+                    <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
                         <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
@@ -87,7 +91,7 @@
                             <li onclick="changeWhereHeading(1000,'I\'m flexible')"><a href="#">I'm flexible</a></li>
                         </ul>
                     </li>
-
+                    
 
                     <!-- This is the location filter div-->
                     <label for="location" class="ui-hidden-accessible">Location:</label>
@@ -145,11 +149,10 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
-                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                    <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
-                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;"><br></a></li>
+                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable" href="myTables.html">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="bell"><a id="invites" href="pendingInvitations.html">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
                     <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
 
 
