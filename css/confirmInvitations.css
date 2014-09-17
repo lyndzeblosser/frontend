@@ -316,7 +316,7 @@ h4 {
 #confirmprofileImg .close { 
      
     position: absolute;
-    top: -85px;
+    top: -125px;
     right: 0;
 }
 #confirmprofileImg:hover .close { display: block; }
@@ -347,11 +347,12 @@ fieldset label {
 }
 
 .imagesize {
-    height:105px;
+    height:145px;
+    width:105px;
 }
 
 div#confirmImg {
-    height:105px;
+    height:145px;
 }
 
 div#confirm img {
