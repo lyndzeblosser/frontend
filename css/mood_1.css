@@ -318,7 +318,7 @@ h4 {
     height:65px;
     width:50px;
 }
-#myTable, #invites, #login {
+#myTable, #invites, #login, #logout {
     background-color: #fff;
 }
 

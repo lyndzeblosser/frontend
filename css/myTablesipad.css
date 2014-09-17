@@ -1,0 +1,11 @@
+@charset utf-8;
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-size: 25px;
+    overflow: visible !important;
+    white-space: normal !important;
+    font-family: PT Sans Narrow;
+}

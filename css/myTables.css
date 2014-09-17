@@ -177,18 +177,21 @@ div#pendingimg {
 .float-left {
 float:left;
 width:33%;
-font-size: 10px;
+font-size: 14px;
+font-family: PT Sans;
+text-transform: uppercase;
 }
 
 .namebar {
 text-align: center;
 font-size: 14px;
+text-transform: uppercase;
 }
 
 .text {
-font-size: 12px;
+font-size: 17px;
 height: 140px;
-font-family: PT Sans Narrow;
+font-family: PT Sans;
 background-color: #eee;
 text-shadow: none;
 }
@@ -197,4 +200,13 @@ text-shadow: none;
 height: 140px;
 width: 96px;
 }
+
+.ui-block-c, .ui-bar-a {
+    background-color: #fff;
+}
+
+div.ui-bar.ui-bar-a.text {
+    background-color: #eee;
+}
+
 /* End of CSS document */

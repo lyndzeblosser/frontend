@@ -211,16 +211,18 @@ fieldset .ui-grid-b  {
     float: left;
     margin-left: 10px;
     color: #ffffff;
-    font-size: 14px;
-    font-family: PT Sans Narrow;
+    font-size: 13px;
+    font-family: PT Sans;
+    text-transform: uppercase;
 
 }
 .preferredActivity {
     float: right;
     margin-right: 10px;
     color: #ffffff;
-    font-size: 14px;
-    font-family: PT Sans Narrow;
+    font-size: 13px;
+    font-family: PT Sans;
+     text-transform: uppercase;
 }
 
 .userprofilePic img {

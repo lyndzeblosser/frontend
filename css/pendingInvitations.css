@@ -185,9 +185,9 @@ addbtn img {
 
 
 .text {
-    font-size: 12px;
+    font-size: 13px;
     height:140px;
-     font-family: PT Sans Narrow;
+     font-family: PT Sans;
      background-color: #eee;
      text-shadow:none;
 }
@@ -200,20 +200,28 @@ addbtn img {
 .infobar, .namebar {
     height:20px;
    
+   
 }
 
 .namebar {
     text-align: center;
      font-size: 14px;
+     text-transform: uppercase;
+     font-family: PT Sans;
 }
 
 .infobar {
     font-size: 10px;
+    text-transform: uppercase;
+    font-family: PT Sans;
 }
 
 .float-left {
 float:left;
 width:33%;
+font-size: 14px;
+text-shadow: none;
+font-family: PT Sans;
 }
 
 #myTable, #invites, #login,#logout {
