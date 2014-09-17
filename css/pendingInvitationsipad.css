@@ -71,4 +71,12 @@
 .float-left {
 float:left;
 width:33%;
+font-size: 23px;
+}
+
+
+
+img.addimg, img.rejectimg {
+    height:100px;
+    padding-top: 10px;
 }
