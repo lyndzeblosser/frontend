@@ -3,8 +3,9 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 0.7%;
-    font-size: 30px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 34px;
     overflow: visible !important;
     white-space: normal !important;
     font-family: PT Sans, sans-serif;
@@ -101,6 +102,7 @@ fieldset label {
 
 .imagesize {
     height:349px;
+    width:340px;
 }
 
 div#confirmImg {
@@ -110,6 +112,11 @@ div#confirmImg {
 div#tags label{
     height:120px;
     width:260px;
+}
+
+fieldset#tags {
+    height:120px;
+   
 }
 
 label .ui-btn #tags {
