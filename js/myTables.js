@@ -128,7 +128,7 @@ function getUserNameImage(userId){
                         data = data[0]
                         console.log(data)
 
-                        a["image"] = "img/vaibhav.shah@ey.com.jpeg";
+                        a["image"] = data["imageMasterLocation"];
                         a["name"]=data["firstname"]  
 
                     },
