@@ -120,13 +120,21 @@ function getUrlParams(){
     if($("input[data-cacheval=\"false\"]").length==0){
         alert("No topics selected")
         return null;
-    }else{
+    }
+    else{
+    if($("input[data-cacheval=\"false\"]").length>3)
+    {
+       alert("Sorry but only 3 topics can be selected");
+        return null; 
+    }
+        else{
         var topics=[]
         $("input[data-cacheval=\"false\"]").each(function(){
             topics.push(this.value)
         })
         url+="&topics="+topics.join();
     }
+}
     
     if($("#timeText").attr("value")==""){
         alert("No time selected")

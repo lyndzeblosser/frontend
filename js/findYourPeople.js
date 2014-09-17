@@ -68,7 +68,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
             if(data.length == 0)
             {
                 alert("Oops, we could not find anyone that matched your search criteria! Please try again");
-             //   window.location.href = "mood.html";
+                window.location.href = "mood.html";
             }
                 
             else(data != "undefined")
@@ -123,6 +123,9 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     console.log('confirmInvitation clicked ');
                     var selectedUsersString= getSUS();
                     var selectedUsersNameString= getSUSN();
+                    if(selectedUsersString.length<1)
+                        alert ("Atleast 1 person has to be selected to send an invite. Please try again!"); 
+                    else
                     window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags="+topics + "&inviteTime=" + selectedTime;
 
                 };
@@ -160,7 +163,7 @@ function loadUser(id){
 function addDeleteUser(){
     if(users[loadedUser]["selected"]==0 ){
         if(selectedUsers.length==3){
-            alert("Max limit reached, canot add more users")
+            alert("Sorry invites can be sent to only 3 people!")
         }else{
             users[loadedUser]["selected"]=1;
             selectedUsers.push(loadedUser);
