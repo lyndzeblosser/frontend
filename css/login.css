@@ -22,7 +22,8 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
     font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
@@ -289,8 +290,14 @@ div[role="main"] input {
 height: 50px;
 }
 
-#myTable, #invites, #login,#logout {
+#myTable, #invites, #login,#logout, #home {
     background-color: #fff;
+}
+
+a#closeleftPanel {
+ margin-left:5px;
+ margin-top:5px;
+ 
 }
 
 /* End of CSS document */

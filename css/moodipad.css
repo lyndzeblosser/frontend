@@ -145,3 +145,10 @@ a#closerightPanel {
  height:30px;
  width:30px;
 }
+
+a#closeleftPanel {
+ margin-left:35px;
+ margin-top:45px;
+ height:30px;
+ width:30px;
+}
