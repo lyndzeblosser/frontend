@@ -167,15 +167,19 @@ h4 {
     background: #333333 !important;
     font-family: PT Sans, sans-serif;
     text-shadow: none;
-    font-size: 15px;
+    line-height: 20px;
+    font-size: 17px;
+    border: none;
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
     background: #333333 !important;
     font-family: PT Sans, sans-serif;
+    line-height: 20px;
     text-shadow: none;
-    font-size: 15px;
+    font-size: 17px;
+    border: none;
 }
 
 .profilebio h3 {
@@ -323,9 +327,10 @@ h4 {
 }
 
 fieldset label {
-    height:20px;
+    height:30px;
     margin:0px;
-    width:60px;
+    width:70px;
+    
 }
 
 .ui-controlgroup, fieldset.ui-controlgroup {
@@ -355,12 +360,13 @@ div#confirm img {
 }
 
 div#tags label{
-    height:40px;
+    height:50px;
     width:60px;
 }
 
 fieldset#tags {
-    height:45px;
+    height:60px;
+   
 }
 
 #myTable, #invites, #login, #logout {
@@ -369,7 +375,7 @@ fieldset#tags {
 
 #userTop {
     height:30px;
-    font-size: 13px;
+    font-size: 15px;
     font-family: PT Sans, sans-serif;
     text-shadow: none;
 }
