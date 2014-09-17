@@ -22,7 +22,8 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
     font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
@@ -194,7 +195,7 @@ h4 {
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:110px;
+	width:140px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
@@ -263,15 +264,16 @@ h4 {
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
   background: #333333 !important;
-    font-family: PT Sans;
+    font-family: Helvetica;
    font-size: 15px;
    text-shadow: none;
+  
 }
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
-    font-family: PT Sans;
+    font-family: Helvetica;
    font-size: 15px;
    text-shadow: none;
 }
@@ -324,6 +326,7 @@ h4 {
 
 a.activitiesImages.ui-btn {
 	padding: 27px;
+        border-color:#fff;
 }
 
 div.ui-page.ui-page-theme-a.ui-page-header-fixed.ui-page-active {
