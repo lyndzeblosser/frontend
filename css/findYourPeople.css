@@ -24,7 +24,8 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
     font-size: 15px;
     overflow: visible !important;
     white-space: normal !important;
@@ -185,7 +186,7 @@ h4 {
     font-family: PT Sans, sans-serif;
     font-size: 30px;
     text-shadow: none;
-    margin-left:5px;
+    margin-left:9px;
     margin-bottom: 5px;
     margin-top: 0px;
 }
@@ -278,21 +279,34 @@ fieldset label {
     
 }
 
-input#addButton, input#moveOnButton, input#confirmButton{
-    height:50px;
+input#addButton {
+    height:70px;
     width:106px;
 }
 
-fieldset .ui-grid-b {
-    height:106px;
+input#moveOnButton{
+    margin-top: 5px;
+    height:60px;
+    width: 106px;
 }
 
-#myTable, #invites, #login, #logout {
+input#confirmButton {
+    margin-top: 5px;
+    height:60px;
+    width:106px;
+}
+
+fieldset.ui-grid-b {
+    height:70px;
+}
+
+#myTable, #invites, #login, #logout,#home {
     background-color: #fff;
 }
 
 h4#bioText {
     font-family: PT Sans, sans-serif;
+    margin-left: 10px;
 }
 
 

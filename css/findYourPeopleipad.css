@@ -54,8 +54,20 @@ fieldset label {
 
 }
 
-input#addButton, input#moveOnButton, input#confirmButton{
+input#addButton {
     height:200px;
+    width:424px;
+}
+
+input#moveOnButton{
+    margin-top: 5px;
+    height:190px;
+    width: 424px;
+}
+
+input#confirmButton {
+    margin-top: 5px;
+    height:190px;
     width:424px;
 }
 
@@ -85,4 +97,8 @@ p#location.preferredLocation {
     margin-left:5px;
     margin-bottom: 5px;
     margin-top: 0px;
+}
+
+fieldset.ui-grid-b {
+    height:200px;
 }
