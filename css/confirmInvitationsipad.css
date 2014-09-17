@@ -178,3 +178,13 @@ label .ui-btn #tags {
     font-size: 22px;
     font-family: PT Sans, sans-serif;
 }
+
+.timedate,.confirmdate {
+    font-size: 23px;
+    font-family: PT Sans Narrow;
+}
+
+a#InvitesSentId.confirminvitesButton.ui-link {
+    height:50px;
+    
+}

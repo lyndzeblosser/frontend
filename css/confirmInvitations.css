@@ -374,9 +374,16 @@ div#tags label{
 
 }
 
-.timedate{
+.timedate,.confirmdate {
+    font-size: 15px;
+    font-family: PT Sans Narrow;
+}
+
+a#InvitesSentId.confirminvitesButton.ui-link {
+    height:40px;
     
 }
+
 
 
 /* End of CSS document */
