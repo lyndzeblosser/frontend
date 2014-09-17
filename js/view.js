@@ -38,7 +38,7 @@ function getUserData() {
                         users[i]["first_name"] = data["firstname"];
                         users[i]["last_name"] = data["lastname"];
                         users[i]["bio"] = data["bio"];
-                        users[i]["image"] = "img/vaibhav.shah@ey.com.jpeg";
+                        users[i]["image"] = data["imageMasterLocation"];
                         if(table['user_to_'+(i+1)+'_status']!=="Pending")
                         {console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
                             users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Accepted"?"images/mycheck.png":"images/mycross.png"}
