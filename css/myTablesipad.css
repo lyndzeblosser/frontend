@@ -12,7 +12,7 @@
 }
 
 div.ui-bar.ui-bar-a {
-    
+    height:300px;
 }
 
 div.ui-grid-b {
@@ -20,3 +20,24 @@ div.ui-grid-b {
     padding: 0px;
 }
 
+.pendimg {
+  height:140px;
+  width:140px;
+}
+
+.imgblock {
+	height:300px;
+        
+}
+
+.text {
+font-size: 30px;
+height: 140px;
+font-family: PT Sans;
+background-color: #eee;
+text-shadow: none;
+}
+
+p {
+    font-size: 30px;
+}

@@ -80,3 +80,7 @@ img.addimg, img.rejectimg {
     height:100px;
     padding-top: 10px;
 }
+
+div.ui-bar.ui-bar-a.text {
+    height:300px;
+}

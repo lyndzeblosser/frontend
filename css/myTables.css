@@ -221,5 +221,9 @@ div.ui-bar.ui-bar-a.text {
    
 }
 
+#myTable, #invites, #login,#logout, #home {
+    background-color: #fff;
+}
+
 
 /* End of CSS document */
