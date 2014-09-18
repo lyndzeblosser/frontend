@@ -1,5 +1,17 @@
 var isLoggedIn,userId;
 
+$(document).ready(function(){
+    $("#myTable").click(function()
+    {
+       window.location.href = "myTables.html";
+    });
+    
+    $("#invites").click(function()
+    {
+       window.location.href = "pendingInvitations.html";
+    });
+});
+
 function getInvitations()
 {
     $.ajax({

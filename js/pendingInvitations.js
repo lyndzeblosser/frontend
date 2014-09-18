@@ -144,7 +144,7 @@ function accept(tableid){
         user_to:userid
     },
     function(data,status){
-         var url = "view.html?tableid"+tableid+"&user_from="+userid;
+         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
          window.location.href = url;
         console.log("Data: " + data + "\nStatus: " + status);
     });
@@ -158,7 +158,7 @@ function reject(tableid){
         user_to:userid
     },
     function(data,status){
-         var url = "view.html?tableid"+tableid+"&user_from="+userid;
+         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
          window.location.href = url;
         console.log("Data: " + data + "\nStatus: " + status);
     });
