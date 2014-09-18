@@ -37,10 +37,14 @@
 
 [role="main"] {
     background-image: url("../images/piclarge.jpg");
-    background-size: cover;
-    background-position: center;
-
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }
+
 
 fieldset label {
     height:50px;
@@ -111,4 +115,21 @@ fieldset.ui-grid-b {
     background-color: #fff;
     font-family: PT Sans;
     font-size: 25px;
+}
+
+.space {
+    height:550px;
+}
+
+html{
+    background:url('backgroundimage.jpg') no-repeat center center;
+    min-height:100%;
+    min-width:100%;
+    background-size:cover;
+}
+
+body{
+
+    min-height:100%;/*hack for some mobile browsers */
+    min-width:100%;
 }

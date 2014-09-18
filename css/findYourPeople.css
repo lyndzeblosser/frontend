@@ -253,11 +253,12 @@ fieldset .ui-grid-b  {
 
 [role="main"] {
     background-image: url("../images/piclarge.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }
 
 .ui-bar-a {
@@ -325,5 +326,8 @@ img#LeftPanelProfileImage {
     width:200px;
 }
 
+.space {
+    height:237px;
+}
 
 /* End of CSS document */
