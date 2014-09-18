@@ -111,7 +111,7 @@
     font-family: PT Sans Narrow;
 }
 .ui-checkbox label {
-    font-size: 20px;
+    font-size: 30px;
     width:180px;
 }
 
@@ -151,4 +151,31 @@ a#closeleftPanel {
  margin-top:45px;
  height:30px;
  width:30px;
+}
+
+.ui-checkbox.ui-mini {
+    height:110px;
+    
+}
+
+.ui-btn, label.ui-btn {
+    font-weight: 400;
+   
+}
+
+.ui-checkbox label.ui-checkbox-off {
+  background: #333333 !important;
+    font-family: Helvetica;
+   font-size: 30px;
+   text-shadow: none;
+   height:60px;
+  
+}
+
+/* checked */
+.ui-checkbox label.ui-checkbox-on {
+  background: #cc0000 !important;
+    font-family: Helvetica;
+   font-size: 30px;
+   text-shadow: none;
 }

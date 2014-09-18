@@ -350,4 +350,12 @@ img#LeftPanelProfileImage {
     height:200px;
     width:200px;
 }
+
+.ui-btn, label.ui-btn {
+    font-weight: 400;
+}
+
+.topicsList {
+    font-size: 20px;
+}
 /* End of CSS document */
