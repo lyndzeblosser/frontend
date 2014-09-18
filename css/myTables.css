@@ -144,6 +144,7 @@ div#pendingimg {
 .ui-bar-a .ui-bar {
 	padding: 0px;
 	margin: 0px;
+      
 }
 
 .ui-bar, .ui-body {
@@ -155,7 +156,7 @@ div#pendingimg {
 }
 
 .ui-grid-b {
-	height:130px;
+	height:140px;
 	padding: 0px;
 }
 
@@ -187,6 +188,7 @@ text-transform: uppercase;
 .namebar {
 text-align: center;
 font-size: 14px;
+font-family: PT Sans;
 text-transform: uppercase;
 }
 
@@ -228,5 +230,47 @@ div.ui-bar.ui-bar-a.text {
 img#LeftPanelProfileImage {
     height:200px;
     width:200px;
+}
+
+.ui-grid-b{
+    height:140px;
+}
+
+.ui-bar.ui-bar-a {
+    height:140px;
+}
+
+.ui-bar.ui-bar-a text {
+    height:140px;
+   
+}
+
+p {
+    font-size: 12px;
+}
+
+a.ui-link.ui-btn.ui-shadow.ui-corner-all {
+    font-size: 9px;
+    background-color: #eee;
+    border: none;
+}
+
+div.ui-bar.ui-bar-a.text {
+    margin-left: 4px;
+    margin-top: 4px;
+    font-size: 13px;
+    text-shadow: none;
+}
+
+.ui-block-b{
+    background-color: #eee;
+}
+
+.ui-grid-a {
+    height: 20px;
+}
+
+.info {
+    height: 30px;
 }
 /* End of CSS document */

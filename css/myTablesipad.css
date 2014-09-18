@@ -21,8 +21,8 @@ div.ui-grid-b {
 }
 
 .pendimg {
-  height:140px;
-  width:140px;
+  height:300px;
+  width:300px;
 }
 
 .imgblock {
@@ -32,7 +32,7 @@ div.ui-grid-b {
 
 .text {
 font-size: 30px;
-height: 140px;
+height: 300px;
 font-family: PT Sans;
 background-color: #eee;
 text-shadow: none;
@@ -40,4 +40,66 @@ text-shadow: none;
 
 p {
     font-size: 30px;
+}
+
+.ui-grid-b{
+    height:300px;
+}
+
+.ui-bar.ui-bar-a {
+    height:300px;
+}
+
+.ui-bar.ui-bar-a text {
+    height:300px;
+   
+}
+
+p {
+    font-size: 24px;
+}
+
+a.ui-link.ui-btn.ui-shadow.ui-corner-all {
+    font-size: 15px;
+    background-color: #eee;
+    border: none;
+}
+
+div.ui-bar.ui-bar-a.text {
+    margin-left: 14px;
+    margin-top: 14px;
+    font-size: 30px;
+    text-shadow: none;
+}
+
+.ui-block-b{
+    background-color: #eee;
+}
+
+.ui-grid-a {
+    height: 40px;
+    
+}
+
+.info {
+    height: 60px;
+   
+}
+
+.namebar {
+text-align: center;
+font-size: 24px;
+text-transform: uppercase;
+font-family: PT Sans;
+line-height: 38px;
+
+}
+
+.float-left {
+float:left;
+width:33%;
+font-size: 23px;
+line-height: 38px;
+font-family: PT Sans;
+text-transform: uppercase;
 }
