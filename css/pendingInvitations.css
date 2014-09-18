@@ -212,6 +212,7 @@ addbtn img {
 .namebar {
     text-align: center;
      font-size: 14px;
+     line-height: 20px;
      text-transform: uppercase;
      font-family: PT Sans;
 }
@@ -220,6 +221,7 @@ addbtn img {
     font-size: 10px;
     text-transform: uppercase;
     font-family: PT Sans;
+    line-height: 17px;
 }
 
 .float-left {
