@@ -138,6 +138,7 @@ h4 {
 div#pendingimg {
 	width:96px;
 	height:140px;
+        background-color: #eee;
 }
 
 .ui-bar-a .ui-bar {
@@ -162,6 +163,7 @@ div#pendingimg {
 .pendimg {
   height:150px;
   width:96px;
+  background-color: #eee;
 }
 
 .imgblock {
@@ -215,13 +217,15 @@ addbtn img {
      line-height: 20px;
      text-transform: uppercase;
      font-family: PT Sans;
+     text-shadow: none;
 }
 
 .infobar {
     font-size: 10px;
     text-transform: uppercase;
-    font-family: PT Sans;
-    line-height: 17px;
+    font-family: PT Sans Narrow;
+    line-height: 20px;
+    text-shadow:none;
 }
 
 .float-left {
@@ -252,4 +256,5 @@ img#LeftPanelProfileImage {
     height:200px;
     width:200px;
 }
+
 /* End of CSS document */
