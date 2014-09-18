@@ -195,3 +195,13 @@ a#InvitesSentId.confirminvitesButton.ui-link {
     height:50px;
     
 }
+
+.ui-panel {
+    width: 400px !important;
+}
+
+#myTable, #invites, #login, #logout, #home {
+    background-color: #fff;
+    font-family: PT Sans;
+    font-size: 25px;
+}

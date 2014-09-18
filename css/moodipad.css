@@ -180,3 +180,13 @@ a#closeleftPanel {
    text-shadow: none;
    height:60px;
 }
+
+.ui-panel {
+    width: 400px !important;
+}
+
+#myTable, #invites, #login, #logout {
+    background-color: #fff;
+    font-family: PT Sans;
+    font-size: 25px;
+}
