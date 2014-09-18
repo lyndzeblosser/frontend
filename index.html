@@ -23,6 +23,7 @@
        <link href="//fonts.googleapis.com/css?family=PT+Sans Narrow:400,700" rel="stylesheet" type="text/css">
        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:700' rel='stylesheet' type='text/css'>
        <link href='http://fonts.googleapis.com/css?family=PT+Sans:700,400' rel='stylesheet' type='text/css'>
+       
 
     </head>
 
@@ -34,8 +35,8 @@
                 <h3>WHAT ARE YOU IN THE MOOD FOR?</h3>
 
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-right:5px; margin-top:5px;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000; margin-right:5px; margin-top:5px;">Add</a>
+                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000;">Add</a>
             </div><!-- /header -->
 
 
@@ -152,10 +153,10 @@
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;"><br></a></li>
-                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li class="loggedInFields" data-icon="bell"><a id="invites">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
-                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
 
 
                 </ul>
