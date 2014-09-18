@@ -133,7 +133,17 @@ h4 {
     -webkit-box-shadow: none;
 }
 
-
+.ui-icon-mytables:after {
+	background-image: url("../images/tables.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
 
 .ui-listview .ui-li-static {
     padding: 0em;
@@ -372,6 +382,7 @@ fieldset#tags {
 
 #myTable, #invites, #login, #logout, #home {
     background-color: #fff;
+    font-family: PT Sans;
 }
 
 #userTop {

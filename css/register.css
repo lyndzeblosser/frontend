@@ -116,6 +116,17 @@
     -webkit-box-shadow: none;
 }
 
+.ui-icon-mytables:after {
+	background-image: url("../images/tables.png");
+	background-color: transparent;
+    box-shadow: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    border: none;
+    border-style: hidden;
+    -webkit-box-shadow: none;
+}
 
 #header a {
 	  border: 0px;
@@ -242,6 +253,7 @@ font-family: PT Sans;
 
 #myTable, #invites, #login, #logout {
     background-color: #fff;
+    font-family: PT Sans;
 }
 
 div.uploadcare-widget-button.uploadcare-widget-button-open {
