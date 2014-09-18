@@ -10,6 +10,11 @@ $(document).ready(function(){
     {
        window.location.href = "pendingInvitations.html";
     });
+    
+    $("#home").click(function()
+    {
+       window.location.href = "mood.html";
+    });
 });
 
 function getInvitations()
