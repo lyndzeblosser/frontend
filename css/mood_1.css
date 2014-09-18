@@ -335,6 +335,7 @@ h4 {
 #myTable, #invites, #login, #logout {
     background-color: #fff;
     font-family: PT Sans;
+    text-transform: uppercase;
 }
 
 a.activitiesImages.ui-btn {

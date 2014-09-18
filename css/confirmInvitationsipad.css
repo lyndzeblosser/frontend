@@ -204,4 +204,5 @@ a#InvitesSentId.confirminvitesButton.ui-link {
     background-color: #fff;
     font-family: PT Sans;
     font-size: 25px;
+    text-transform: uppercase;
 }

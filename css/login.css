@@ -304,6 +304,7 @@ height: 50px;
 #myTable, #invites, #login,#logout, #home {
     background-color: #fff;
     font-family: PT Sans;
+    text-transform: uppercase;
 }
 
 a#closeleftPanel {

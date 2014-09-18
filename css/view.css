@@ -361,6 +361,8 @@ div#tags label{
 
 #myTable, #invites, #login, #logout {
     background-color: #fff;
+    text-transform: uppercase;
+    font-family: PT Sans;
 }
 
 #userTop {
