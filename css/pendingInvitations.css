@@ -251,6 +251,7 @@ font-family: PT Sans;
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;
+}
 
 .addimg, .rejectimg {
     height:50px;
@@ -269,4 +270,8 @@ img#LeftPanelProfileImage {
     width:200px;
 }
 
+p {
+    font-family: Helvetica;
+    font-weight: 400;
+}
 /* End of CSS document */

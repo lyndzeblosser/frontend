@@ -73,10 +73,9 @@
 .float-left {
 float:left;
 width:33%;
-font-size: 23px;
+font-size: 27px;
+line-height: 36px;
 }
-
-
 
 img.addimg, img.rejectimg {
     height:100px;
@@ -96,4 +95,10 @@ div.ui-bar.ui-bar-a.text {
     font-family: PT Sans;
     font-size: 25px;
     text-transform: uppercase;
+}
+
+p {
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: 400;
 }
