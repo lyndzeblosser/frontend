@@ -56,7 +56,7 @@ function getRejects(table) {
 
 function getTagsDiv(tags1) {
     var tagList = tags1.split(",")
-    var html = "<p style=\"font-size:12px\">";
+    var html = "<p>";
     for (var i = 0; i < tagList.length; i++) {
         html += "&#8226 " + tags[tagList[i]]
     }
