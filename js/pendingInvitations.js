@@ -142,14 +142,15 @@ function accept(tableid){
     {
     $.post("http://evening-thicket-5124.herokuapp.com/credentialService/acceptTableInvitation",
     {
-        tableid:11,
+        tableid:tableid,
         user_from:tableIdToUser[tableid],
         user_to:userid
     },
     function(data,status){
-         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
-         window.location.href = url;
+//         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
         console.log("Data: " + data + "\nStatus: " + status);
+        alert(data); 
+        window.location.href = "mood.html";
     });
 }}
 
@@ -159,14 +160,16 @@ function reject(tableid){
     {
     $.post("http://evening-thicket-5124.herokuapp.com/credentialService/rejectTableInvitation",
     {
-        tableid:11,
+        tableid:tableid,
         user_from:tableIdToUser[tableid],
         user_to:userid
     },
     function(data,status){
-         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
-         window.location.href = url;
+//         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
         console.log("Data: " + data + "\nStatus: " + status);
+        alert(data);
+        window.location.href = "mood.html";
+        
     });
 }
 }
