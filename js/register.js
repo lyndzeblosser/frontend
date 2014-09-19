@@ -21,7 +21,7 @@ function submitForm()
                 {
                     console.log("Registration Form Submitted Successfully!");
                     var userid = $("#email").val();
-                    console.log(sortId);
+                    console.log(selectedTopic);
                     addUserTags(userid, sortId);
                     addUserHomeLocation(userid, homeLat, homeLng);
                     $("#successfulRegistrationPopup").popup("open");
@@ -136,14 +136,9 @@ $(document).ready(function()
         homeLng = place.geometry.location.lng();
         console.log(homeLat, homeLng)
     });
-$( "#submitRegistrationButton" ).click(function( event ) 
-    {
-        setupFormValidation();
-    }); 
     
-    //obtaining selected topics and disabling selection of any topic multiple times
-        $("button[id^='tag']").click(function()
-        {
+    $("label[id^='tag']").click(function()
+        { console.log("tag selected: tag" + $(this).val());
 
             if (selectedTopic === [])
             {
@@ -154,7 +149,7 @@ $( "#submitRegistrationButton" ).click(function( event )
                 selectedTopic.push($(this).val());
             }
 
-            for (var i = 0; i < lengthOfTopicsArray; i++)
+            for (var i = 0; i < data.length; i++)
             {
                 if ($(this).val().indexOf(data[i].tagName) > -1)
                 {
@@ -163,6 +158,13 @@ $( "#submitRegistrationButton" ).click(function( event )
             }
             $(this).addClass('ui-disabled');
         });
+    
+$( "#submitRegistrationButton" ).click(function( event ) 
+    {
+        setupFormValidation();
+    }); 
+    
+    
 //       $ = uploadcare.jQuery;
 $(function() {
   widget = uploadcare.Widget('input');
@@ -196,6 +198,9 @@ function getTopics()
         success: function(data) {
             for (var i = 0; i < data.length; i++) {
                 $("#topicsList").append("<label id=\"tag" + data[i]["tagId"] + "\" style=\"background-color:#b42723; color:#ffffff;\">" + data[i]["tagName"] + "<input id=\"tag" + data[i]["tagId"] + "\" value=\"" + data[i]["tagId"] + "\"  type=\"checkbox\"></label>");
+                //obtaining selected topics and disabling selection of any topic multiple times
+        
+                
             }
         }
     });
