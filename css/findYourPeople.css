@@ -187,6 +187,7 @@ h4 {
 
 .profilebio h3 {
     color: #cc0000;
+   
 }
 
 #userName {
@@ -196,13 +197,14 @@ h4 {
     font-family: PT Sans, sans-serif;
     font-size: 30px;
     text-shadow: none;
-    margin-left:9px;
+    margin-left:12px;
     margin-bottom: 5px;
     margin-top: 0px;
+    padding-top:10px;
 }
 
 .profilebio h4 {
-    color: #333333;
+    color: #000;
     font-size: 15px;
     font-family: PT Sans Narrow;
     text-shadow: none;
@@ -220,19 +222,21 @@ fieldset .ui-grid-b  {
 
 .preferredLocation {
     float: left;
-    margin-left: 10px;
+    margin-left: 13px;
     color: #ffffff;
     font-size: 13px;
-    font-family: PT Sans;
+    font-family: Helvetica;
+    font-weight: 400;
     text-transform: uppercase;
 
 }
 .preferredActivity {
     float: right;
-    margin-right: 10px;
+    margin-right: 13px;
     color: #ffffff;
     font-size: 13px;
-    font-family: PT Sans;
+    font-family: Helvetica;
+    font-weight: 400;
      text-transform: uppercase;
 }
 
@@ -291,24 +295,25 @@ fieldset label {
 }
 
 input#addButton {
+    margin-top: 5px;
     height:70px;
     width:106px;
 }
 
 input#moveOnButton{
     margin-top: 5px;
-    height:60px;
+    height:70px;
     width: 106px;
 }
 
 input#confirmButton {
     margin-top: 5px;
-    height:60px;
+    height:70px;
     width:106px;
 }
 
 fieldset.ui-grid-b {
-    height:70px;
+    height:80px;
 }
 
 #myTable, #invites, #login, #logout,#home {
@@ -319,8 +324,12 @@ fieldset.ui-grid-b {
 }
 
 h4#bioText {
-    font-family: PT Sans, sans-serif;
-    margin-left: 10px;
+    font-family: Helvetica, sans-serif;
+    margin-left: 12px;
+    font-weight: 400;
+    color:#000;
+    width:300px;
+    padding-top: 5px;
 }
 
 img#LeftPanelProfileImage {
