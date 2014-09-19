@@ -121,12 +121,39 @@ function setupFormValidation()
                 }
             });
 }
+function getParameterByName(name) 
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+function getUrlParams(){
+    var url="";
+    var parameters = location.search;
+     var parameter = parameters.split("?");
+     console.log(parameter);
+     console.log(getParameterByName('topics'));
+    if($("input[data-cacheval=\"false\"]").length==0){
+        
+        return null;
+    }
+    else{
+    
+        var topics=[]
+        $("input[data-cacheval=\"false\"]").each(function(){
+            topics.push(this.value)
+        })
+        url+="&topics="+topics.join();
+    }
+    
+    }
 $(document).ready(function()
 {
     //loggedInLoggedOutBehavior();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
-
+    getUrlParams ();
     getTopics();
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
