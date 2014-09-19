@@ -16,7 +16,16 @@ $(document).ready(function()
     });
     $("#forgotPwdButton").click(function()
     {
-
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/forgotPwd",
+    {
+        userid:userid
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        alert(data);
+        var url = "mood.html";
+         window.location.href = url;
+    });
     });
 });
 
