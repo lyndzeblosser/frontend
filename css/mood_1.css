@@ -339,8 +339,9 @@ h4 {
 }
 
 a.activitiesImages.ui-btn {
-	padding: 27px;
+	padding: 25px;
         border-color:#fff;
+       
 }
 
 div.ui-page.ui-page-theme-a.ui-page-header-fixed.ui-page-active {
@@ -359,4 +360,5 @@ img#LeftPanelProfileImage {
 .topicsList {
     font-size: 20px;
 }
+
 /* End of CSS document */
