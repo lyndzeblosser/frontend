@@ -16,16 +16,7 @@ $(document).ready(function()
     });
     $("#forgotPwdButton").click(function()
     {
-        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/forgotPwd",
-    {
-        userid:userid
-    },
-    function(data,status){
-        console.log("Data: " + data + "\nStatus: " + status);
-        alert(data);
-        var url = "mood.html";
-         window.location.href = url;
-    });
+        validateForgotPwd(userid);
     });
 });
 
@@ -42,6 +33,28 @@ function getParameterByName(name)
     results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
+
+function validateForgotPwd(userid)
+{
+    if (userid === 'NULL' || userid.length === 0)
+        {
+            alert("Please enter email");
+        }        
+    else {
+         $.post("http://evening-thicket-5124.herokuapp.com/credentialService/forgotPwd",
+        {
+            userid:userid
+        },
+        function(data,status){
+            console.log("Data: " + data + "\nStatus: " + status);
+            alert(data);
+            var url = "mood.html";
+             window.location.href = url;
+        });
+    }
+   
+}
+
 function validate(userid, password)
 {
     $.ajax({
