@@ -295,4 +295,8 @@ img#LeftPanelProfileImage {
     width:200px;
 }
 
+.ui-content {
+    background-color: #fff;
+}
+
 /* End of CSS document */
