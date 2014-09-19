@@ -363,6 +363,7 @@ div#tags label{
     background-color: #fff;
     text-transform: uppercase;
     font-family: PT Sans;
+    margin-right: 5px;
 }
 
 #userTop {

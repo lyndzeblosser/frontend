@@ -315,6 +315,7 @@ fieldset.ui-grid-b {
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;
+    margin-right: 5px;
 }
 
 h4#bioText {

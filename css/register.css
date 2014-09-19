@@ -255,6 +255,7 @@ font-family: PT Sans;
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;
+    margin-right: 5px;
 }
 
 div.uploadcare-widget-button.uploadcare-widget-button-open {

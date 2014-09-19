@@ -305,6 +305,7 @@ height: 50px;
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;
+    margin-right: 5px;
 }
 
 a#closeleftPanel {
