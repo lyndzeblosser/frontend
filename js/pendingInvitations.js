@@ -137,6 +137,9 @@ function getUserNameImage(userId){
 }
 
 function accept(tableid){
+  var alertConfirmation = confirm("Are you sure you want to accept this invitation?");
+    if (alertConfirmation)
+    {
     $.post("http://evening-thicket-5124.herokuapp.com/credentialService/acceptTableInvitation",
     {
         tableid:11,
@@ -148,9 +151,12 @@ function accept(tableid){
          window.location.href = url;
         console.log("Data: " + data + "\nStatus: " + status);
     });
-}
+}}
 
 function reject(tableid){
+ var alertConfirmation = confirm("Are you sure, you want to reject this Table?");
+    if (alertConfirmation)
+    {
     $.post("http://evening-thicket-5124.herokuapp.com/credentialService/rejectTableInvitation",
     {
         tableid:11,
@@ -162,4 +168,5 @@ function reject(tableid){
          window.location.href = url;
         console.log("Data: " + data + "\nStatus: " + status);
     });
+}
 }

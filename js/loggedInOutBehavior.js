@@ -87,7 +87,7 @@ function getUserProfile () {
                     {
                         data = data[0]
                         console.log(data)
-                        document.getElementById("LeftPanelLastName").value = data["lastname"];
+                        document.getElementById("LeftPanelFirstName").value = data["firstname"];
                         document.getElementById("LeftPanelLastName").value = data["lastname"];
                         document.getElementById("LeftPanelEmailAddress").value = data["userid"];
                         document.getElementById("LeftPanelBio").value = data["bio"];

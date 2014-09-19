@@ -7,7 +7,7 @@ $(document).ready(function()
     var parameter = parameters.split("?");
     getTags();
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('activity'), getParameterByName('selectedUsers'), getParameterByName('selectedUserNames'), getParameterByName('commonTags'), getParameterByName('inviteTime'));
-
+    loggedInLoggedOutBehavior();
 });
 
 function getParameterByName(name)
