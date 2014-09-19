@@ -171,6 +171,7 @@ a#closeleftPanel {
    font-size: 30px;
    text-shadow: none;
    height:60px;
+   line-height: 35px;
   
 }
 
@@ -181,6 +182,7 @@ a#closeleftPanel {
    font-size: 30px;
    text-shadow: none;
    height:60px;
+   line-height: 35px;
 }
 
 .ui-panel {
@@ -196,4 +198,11 @@ a#closeleftPanel {
 
 [data-role="controlgroup"] img {
     width: 200px;
+}
+
+fieldset#topicsList {
+    padding-top: 20px;
+   height:170px;
+   overflow-x: auto;
+   
 }

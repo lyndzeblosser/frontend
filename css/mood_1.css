@@ -9,6 +9,7 @@
 
 .activitypanel {
     padding: 0px !important;
+    background-color: #fff;
 }
 
 
@@ -278,7 +279,9 @@ h4 {
   background: #333333 !important;
     font-family: Helvetica;
    font-size: 15px;
+   line-height: 25px;
    text-shadow: none;
+   height:30px;
   
 }
 
@@ -288,6 +291,8 @@ h4 {
     font-family: Helvetica;
    font-size: 15px;
    text-shadow: none;
+   line-height: 25px;
+   height: 30px;
 }
 
 
@@ -301,7 +306,7 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 17px;
-    
+   
     
     
 }
@@ -358,8 +363,17 @@ img#LeftPanelProfileImage {
     font-weight: 400;
 }
 
-.topicsList {
+#topicsList {
     font-size: 20px;
+    
 }
+
+fieldset#topicsList {
+    padding-top: 10px;
+   height:70px;
+   overflow-x: auto;
+   
+}
+
 
 /* End of CSS document */
