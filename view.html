@@ -91,28 +91,31 @@
             </div><!-- /content -->
 
 
+
             <!-- This div is for the left panel-->
             <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
                 <ul data-role="listview">
                     <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
 
-                    <div style="text-align:center;"> <a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>
-
-
+                    <div style="text-align:center;" > 
+                        <img src="" id="LeftPanelProfileImage"/>
+                    </div>
+   <!--a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a-->
+                 
                     <label for="firstName" class="ui-hidden-accessible">First Name</label>
-                    <input name="firstName" id="firstName" placeholder="First Name" value="" type="text">
+                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled="">
 
                     <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-                    <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text">
+                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" disabled="">
 
                     <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
-                    <input name="emailAddress" id="emailAddress" placeholder="Email address" value="" type="text">
+                    <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="">
 
-                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-                    <input name="changePassword" id="changePassword" placeholder="Change Password" value="" type="text">
+                    <!--label for="changePassword" class="ui-hidden-accessible">Change Password</label>
+                    <input name="changePassword" id="LeftPanelChangePassword" placeholder="Change Password" value="" type="text"-->
 
                     <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="Bio" placeholder="Bio" value="" type="text">
+                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled="">
 
                     <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
 
@@ -124,16 +127,17 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close"><br></a></li>
-                     <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
-                    <li class="loggedInFields" data-icon="logoicon"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;"><br><br></a></li>
+                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
                     <li class="loggedInFields" data-icon="bell"><a id="invites">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
-                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a href="">Login</a></li>
-                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a href="">Logout</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
 
 
                 </ul>
             </div><!--  right panel -->
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
 
 
             <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
