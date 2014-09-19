@@ -2,9 +2,35 @@ var selectedTopic = [];
 
 var uploadInitCount = 0;
 var sortId = [];
+var userType = null;
 var homeLat, homeLng;
 
+function tagsValidation ()
+{
+    sortId = [];
+    
+            $("input[data-cacheval=\"false\"]").each(function(){
+            if(this.type == "checkbox")
+            {
+            sortId.push(this.value);
+        }
+        });
+console.log(sortId);
+if(sortId < 3)
+{
+    alert("Please select at least 2 topic tags");
+    return false;
+}
 
+if(($('input:radio[name=personTypetagId]:checked').length)==0)
+{
+    alert("Please select who you are");
+    return false;
+}
+
+    setupFormValidation ();
+    return true;
+}
 function submitForm()
 {
     //event.preventDefault();
@@ -12,6 +38,8 @@ function submitForm()
     // Get some values from elements on the page:
     var postData = $("#registerForm").serializeArray();
     var formURL = "http://evening-thicket-5124.herokuapp.com/credentialService/tempRegisterUser";
+    console.log(postData);
+    
     $.ajax(
             {
                 url: formURL,
@@ -37,6 +65,7 @@ function submitForm()
                 }
 
             });
+            
     function addUserTags(userid, tagsList)
     {
         console.log('tagsList: ' + tagsList);
@@ -80,7 +109,7 @@ function submitForm()
 function setupFormValidation()
 {
 
-    $("#registerForm").validate(
+$("#registerForm").validate(
             {
                 rules: {
                     firstName: "required",
@@ -150,7 +179,15 @@ function getUrlParams(){
     }
 $(document).ready(function()
 {
-    //loggedInLoggedOutBehavior();
+    //Adding Recuiter and Jobseeker tag;
+   /* var personTypeListtagName = "Recuiter";
+    var personTypeListtagId = 1;
+    $("#personTypeList").append("<label id=\"tag" + personTypeListtagId + "\" style=\"background-color:#b42723; color:#ffffff;\">" + personTypeListtagName + "<input id=\"tag" + personTypeListtagId + "\" value=\"" + personTypeListtagId + "\"  type=\"radio\"></label>");
+    
+    personTypeListtagName = "Job Seeker";
+    personTypeListtagId = 2;
+    $("#personTypeList").append("<label id=\"tag" + personTypeListtagId + "\" style=\"background-color:#b42723; color:#ffffff;\">" + personTypeListtagName + "<input id=\"tag" + personTypeListtagId + "\" value=\"" + personTypeListtagId + "\"  type=\"radio\"></label>");
+    */
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
     getUrlParams ();
@@ -188,15 +225,18 @@ $(document).ready(function()
     
 $( "#submitRegistrationButton" ).click(function( event ) 
     {
-        setupFormValidation();
+        
+        return tagsValidation();
     }); 
-    
-    
-//       $ = uploadcare.jQuery;
+startUploadImage();
+});
+
+function startUploadImage()
+{
 $(function() {
   widget = uploadcare.Widget('input');
   widget.openDialog(null, {
-        systemDialog: true,
+        systemDialog: false,
         imagesOnly: true
     });  
     widget.validators.push(imagesOnly);
@@ -211,11 +251,8 @@ $(function() {
             console.log("CDN Image URL for USers"+info.cdnUrl);
             $("#imageMasterLocation").attr("value",info.cdnUrl);
             });
-  });
-
-
-});
-
+  });    
+}
 function getTopics()
 {
     $.ajax({
