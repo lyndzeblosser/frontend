@@ -87,7 +87,7 @@ h4#bioText {
 
 p#location.preferredLocation {
     font-size: 20px;
-    height:30px;
+    
     
 }
 
@@ -98,9 +98,10 @@ p#location.preferredLocation {
     font-family: PT Sans, sans-serif;
     font-size: 40px;
     text-shadow: none;
-    margin-left:5px;
+    margin-left:15px;
     margin-bottom: 5px;
     margin-top: 0px;
+    padding-top:20px;
 }
 
 fieldset.ui-grid-b {
@@ -133,4 +134,76 @@ body{
 
     min-height:100%;/*hack for some mobile browsers */
     min-width:100%;
+}
+
+.preferredLocation {
+    float: left;
+    margin-left: 30px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+.preferredActivity {
+    float: right;
+    margin-right: 30px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: 400;
+     text-transform: uppercase;
+}
+
+p#location.preferredLocation {
+    font-size: 30px;
+    height:40px;
+    font-family: Helvetica;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.profilebio h4 {
+    color: #000;
+    font-size: 35px;
+    font-family: PT Sans Narrow;
+    text-shadow: none;
+    width:900px;
+    margin:0px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 5px;
+    -webkit-margin-end: 5px;
+}
+
+#userName {
+    color:#cc0000;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: PT Sans, sans-serif;
+    font-size: 50px;
+    text-shadow: none;
+    margin-left:22px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    padding-top:20px;
+}
+
+h4#bioText {
+    font-family: Helvetica, sans-serif;
+    margin-left: 30px;
+    font-weight: 400;
+    font-size: 40px;
+    color:#000;
+    width:900px;
+    padding-top: 15px;
+}
+
+.biodiv {
+    height:255px;
+}
+
+fieldset.ui-grid-b{
+    padding-right: 100px;
 }
