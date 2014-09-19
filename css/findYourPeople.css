@@ -246,10 +246,11 @@ fieldset .ui-grid-b  {
 }
 
 #location{
-    font-size: 14px;
-    width: 200px;
-    height: 16px;
-    font-family: PT Sans Narrow;
+    font-size: 13px;
+    font-weight: 400;
+   
+    font-family: Helvetica;
+    
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
