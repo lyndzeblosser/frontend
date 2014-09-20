@@ -3,6 +3,8 @@ var users = [], inviteUsers = [], tags=[],autocomplete,lat,lng;
 $(document).ready(function()
 {
     $("#InvitesSentId").hide();
+ //   $("#loadingImage").hide();
+
     var parameters = location.search;
     var parameter = parameters.split("?");
     getTags();
@@ -101,6 +103,7 @@ function getUserData(userIDs) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
         console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        $("#loadingImage").show();
         $.ajax(
                 {
                     url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
@@ -116,16 +119,18 @@ function getUserData(userIDs) {
                         users[i]["last_name"] = data["lastname"];
                         users[i]["bio"] = data["bio"];
                         users[i]["image"] = data["imageMasterLocation"];
+                        $("#loadingImage").hide();
 
                     },
                     error: function(error, message)
                     {
                         console.log("Failure: " + message);
+                        $("#loadingImage").hide();
                     },
                     complete: function(data)
                     {
-
-
+                        
+                    
                     }
                 });
     }
@@ -224,7 +229,9 @@ function confirmInvite(){
     var time=getTimeData();
     var alertConfirmation = confirm("Are you sure?");
     if (alertConfirmation)
-    { $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
+    {  $("#confirmInvitesButtonId").hide();
+    $("#InvitesSentId").show();
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userid'),
         user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],

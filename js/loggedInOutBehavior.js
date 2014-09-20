@@ -75,7 +75,6 @@ function loggedInLoggedOutBehavior(){
 }
 
 function getUserProfile () {
-    document.getElementById("LeftPanelFirstName").value = "test2";
     
     console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId)
         $.ajax(

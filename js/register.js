@@ -36,6 +36,8 @@ function submitForm()
     //event.preventDefault();
     console.log("validate function1");
     // Get some values from elements on the page:
+    $("#submitRegistrationButton").hide();
+    $("#sendingRegistrationId").show();
     var postData = $("#registerForm").serializeArray();
     var formURL = "http://evening-thicket-5124.herokuapp.com/credentialService/tempRegisterUser";
     console.log(postData);
@@ -179,17 +181,11 @@ function getUrlParams(){
     }
 $(document).ready(function()
 {
-    //Adding Recuiter and Jobseeker tag;
-   /* var personTypeListtagName = "Recuiter";
-    var personTypeListtagId = 1;
-    $("#personTypeList").append("<label id=\"tag" + personTypeListtagId + "\" style=\"background-color:#b42723; color:#ffffff;\">" + personTypeListtagName + "<input id=\"tag" + personTypeListtagId + "\" value=\"" + personTypeListtagId + "\"  type=\"radio\"></label>");
-    
-    personTypeListtagName = "Job Seeker";
-    personTypeListtagId = 2;
-    $("#personTypeList").append("<label id=\"tag" + personTypeListtagId + "\" style=\"background-color:#b42723; color:#ffffff;\">" + personTypeListtagName + "<input id=\"tag" + personTypeListtagId + "\" value=\"" + personTypeListtagId + "\"  type=\"radio\"></label>");
-    */
+    $("#loadingImage").hide();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
+    $("#sendingRegistrationId").hide();
+    
     getUrlParams ();
     getTopics();
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});

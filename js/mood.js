@@ -3,7 +3,7 @@ var autoComplete,currentLat,currentLng;
 $(document).ready(function(){
     preloadIrrepectiveOfLoggedInOut();
     loggedInLoggedOutBehavior();
-    
+    $("#loadingImage").hide();
 
 
 })
