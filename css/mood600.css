@@ -9,11 +9,14 @@
     overflow: visible !important;
     white-space: normal !important;
    font-family: PT Sans, sans-serif;
+
 }
 
 .coffee, .drinks,.dine {
     height:230px;
     width:100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 a.activitiesImages.ui-btn {

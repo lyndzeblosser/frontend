@@ -20,6 +20,10 @@
 	font-size: 15px;
 }
 
+[data-role="page"] {
+    background-color: #fff;
+}
+
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
