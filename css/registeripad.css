@@ -66,3 +66,7 @@ button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
     font-size: 25px;
     text-transform: uppercase;
 }
+
+.who {
+    style="font-family: PT Sans; font-size: 30px;
+}
