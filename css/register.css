@@ -237,7 +237,8 @@ font-family: PT Sans;
 .ui-checkbox label.ui-checkbox-off {
   background: #333333 !important;
   height:30px;
-   font-family: PT Sans;
+   font-family: Helvetica;
+   font-weight: 400;
    font-size: 15px;
    text-shadow: none;
 }
@@ -246,7 +247,8 @@ font-family: PT Sans;
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
   height:30px;
-   font-family: PT Sans;
+   font-family: Helvetica;
+   font-weight: 400;
    font-size: 15px;
    text-shadow: none;
 }
@@ -301,6 +303,16 @@ img#LeftPanelProfileImage {
 }
 
 .who {
-    style="font-family: PT Sans; font-size: 17px;
+    font-family: PT Sans;
+    font-size: 17px;
 }
+.topic .ui-collapsible-heading .ui-btn {
+    background-color: #ffffff;
+    color:#000000;
+   font-family: PT Sans;
+    border-color: #ffffff;
+    
+}
+
+
 /* End of CSS document */

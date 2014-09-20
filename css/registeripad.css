@@ -70,3 +70,23 @@ button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
 .who {
     style="font-family: PT Sans; font-size: 30px;
 }
+
+.ui-checkbox label.ui-checkbox-off {
+  background: #333333 !important;
+    font-family: Helvetica;
+   font-size: 35px;
+   text-shadow: none;
+   height:50px;
+   line-height: 60px;
+  
+}
+
+/* checked */
+.ui-checkbox label.ui-checkbox-on {
+  background: #cc0000 !important;
+    font-family: Helvetica;
+   font-size: 35px;
+   text-shadow: none;
+   height:50px;
+   line-height: 60px;
+}

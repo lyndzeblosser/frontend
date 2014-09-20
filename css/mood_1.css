@@ -285,7 +285,7 @@ h4 {
    font-size: 17px;
    line-height: 25px;
    text-shadow: none;
-   height:30px;
+   height:20px;
   
   
 }
@@ -297,7 +297,7 @@ h4 {
    font-size: 17px;
    text-shadow: none;
    line-height: 25px;
-   height: 30px;
+   height: 20px;
 }
 
 
@@ -369,12 +369,6 @@ img#LeftPanelProfileImage {
 .ui-btn, label.ui-btn {
     font-weight: 400;
 }
-
-#topicsList {
-    font-size: 20px;
-    
-}
-
 
 
 
