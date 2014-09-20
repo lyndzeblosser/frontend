@@ -282,10 +282,11 @@ h4 {
 .ui-checkbox label.ui-checkbox-off {
   background: #333333 !important;
     font-family: Helvetica;
-   font-size: 15px;
+   font-size: 17px;
    line-height: 25px;
    text-shadow: none;
    height:30px;
+  
   
 }
 
@@ -293,7 +294,7 @@ h4 {
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
     font-family: Helvetica;
-   font-size: 15px;
+   font-size: 17px;
    text-shadow: none;
    line-height: 25px;
    height: 30px;
@@ -374,12 +375,7 @@ img#LeftPanelProfileImage {
     
 }
 
-fieldset#topicsList {
-    padding-top: 10px;
-   height:70px;
-   overflow-x: auto;
-   
-}
+
 
 
 /* End of CSS document */

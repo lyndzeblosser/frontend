@@ -89,7 +89,7 @@
 .panel1 .ui-collapsible-heading .ui-btn {
     background-color: #333333;
     color:#ffffff;
-    height:30px;
+    height:40px;
     font-size: 32px;
     font-family: PT Sans Narrow;
     
@@ -98,7 +98,7 @@
 .time .ui-collapsible-heading .ui-btn {
     background-color: #ffbb00;
     color:#ffffff;
-     height:30px;
+     height:40px;
      font-size: 32px;
     font-family: PT Sans Narrow;
 }
@@ -106,13 +106,13 @@
 .place .ui-collapsible-heading .ui-btn {
     background-color: #88ccc1;
     color:#ffffff;
-     height:30px;
+     height:40px;
      font-size: 32px;
     font-family: PT Sans Narrow;
 }
 .ui-checkbox label {
     font-size: 30px;
-    width:180px;
+    
 }
 
 [data-role="listview"] .time li a {
@@ -169,10 +169,10 @@ a#closeleftPanel {
 .ui-checkbox label.ui-checkbox-off {
   background: #333333 !important;
     font-family: Helvetica;
-   font-size: 30px;
+   font-size: 35px;
    text-shadow: none;
    height:60px;
-   line-height: 35px;
+   line-height: 60px;
   
 }
 
@@ -180,10 +180,10 @@ a#closeleftPanel {
 .ui-checkbox label.ui-checkbox-on {
   background: #cc0000 !important;
     font-family: Helvetica;
-   font-size: 30px;
+   font-size: 35px;
    text-shadow: none;
    height:60px;
-   line-height: 35px;
+   line-height: 60px;
 }
 
 .ui-panel {
@@ -201,9 +201,3 @@ a#closeleftPanel {
     width: 200px;
 }
 
-fieldset#topicsList {
-    padding-top: 20px;
-   height:170px;
-   overflow-x: auto;
-   
-}
