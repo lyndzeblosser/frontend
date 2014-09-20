@@ -92,6 +92,9 @@ function getUserProfile () {
                         document.getElementById("LeftPanelEmailAddress").value = data["userid"];
                         document.getElementById("LeftPanelBio").value = data["bio"];
                         console.log(data["imageMasterLocation"]);
+                        console.log(data["userType"]);
+                        $.session.set('userType', data["userType"]);
+
                         document.getElementById("LeftPanelProfileImage").src = data["imageMasterLocation"];
 //                        document.getElementById("test111").css('background-image',data["imageMasterLocation"]);
 //                        body.css("a.ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom",data["imageMasterLocation"]);
