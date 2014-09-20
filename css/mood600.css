@@ -1,0 +1,25 @@
+@charset utf-8;
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 34px;
+    overflow: visible !important;
+    white-space: normal !important;
+   font-family: PT Sans, sans-serif;
+}
+
+.coffee, .drinks,.dine {
+    height:230px;
+    width:100px;
+}
+
+a.activitiesImages.ui-btn {
+	padding: 25px;
+        margin-top: 70px;
+       
+         margin-bottom: 0px;
+     
+}

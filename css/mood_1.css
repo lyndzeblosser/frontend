@@ -347,6 +347,8 @@ h4 {
 a.activitiesImages.ui-btn {
 	padding: 25px;
         border-color:#fff;
+        margin-top: 0px;
+        margin-bottom: 0px;
        
 }
 

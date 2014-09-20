@@ -127,13 +127,14 @@
 }
 
 .coffee, .drinks,.dine {
-    height:260px;
-    width:200px;
+    height:160px;
+    width:180px;
 }
 
 a.activitiesImages.ui-btn {
-	padding: 70px;
-        margin-top: 70px;
+	padding: 20px;
+        margin-top: 50px;
+         margin-bottom: 50px;
      
 }
 
