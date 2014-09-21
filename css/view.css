@@ -343,6 +343,7 @@ fieldset label {
 
 .imagesize {
     height:105px;
+    width: 100%;
 }
 
 div#confirmImg {
