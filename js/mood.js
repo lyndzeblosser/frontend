@@ -1,4 +1,5 @@
 var autoComplete,currentLat,currentLng;
+var sortId = [];
 
 $(document).ready(function(){
     preloadIrrepectiveOfLoggedInOut();
@@ -101,6 +102,7 @@ function findMyPeople(){
             $("#findppl").css("display","none");
             $("#loginBtn").css("display","");
         }else{
+            addUserTags($.session.get('userid'), sortId);
             var url = "findYourPeople.html?"+urlParams;
             window.location.href = url;
         }
@@ -128,11 +130,11 @@ function getUrlParams(){
         return null; 
     }
         else{
-        var topics=[]
+        
         $("input[data-cacheval=\"false\"]").each(function(){
-            topics.push(this.value)
+            sortId.push(this.value)
         })
-        url+="&topics="+topics.join();
+        url+="&topics="+sortId.join();
     }
 }
     
@@ -190,3 +192,27 @@ function updateUserLiveLocation(userid, lat, lng)
         console.log("Data: " + data + "\nStatus: " + status);
     });
 }
+
+    function addUserTags(userid, tagsList)
+    {
+        console.log('tagsList: ' + tagsList);
+        //    var tags = tagsList.split(",");
+        //    console.log('tags: ' + tags);
+        for (i = 0; i < tagsList.length; i++) {
+            addUserTag(userid, tagsList[i]);
+        }
+        
+    }
+
+    function addUserTag(userid, tag)
+    {
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserTag",
+                {
+                    userid: userid,
+                    tag: tag,
+                },
+                function(data, status) {
+                    console.log("Tags Data: " + data + "\nStatus: " + status);
+                    
+                });
+    }

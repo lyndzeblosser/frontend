@@ -3,6 +3,8 @@ var users = [], inviteUsers = [], tags=[],autocomplete,lat,lng;
 $(document).ready(function()
 {
     $("#InvitesSentId").hide();
+    $("#address").hide();
+
  //   $("#loadingImage").hide();
 
     var parameters = location.search;
@@ -241,7 +243,7 @@ function confirmInvite(){
         invite_date:time['date'],
         invite_time:time['time'],
         matching_tags:getParameterByName('commonTags'),
-        invite_location:$('#address').attr("value")
+        invite_location:$('#whereText').attr("value")
 
     },
     function(data,status){
@@ -261,6 +263,13 @@ function getTimeData(){
    time['date']=date.getUTCFullYear()+'-'+((date.getUTCMonth()+1)<10?'0'+(date.getUTCMonth()+1):(date.getUTCMonth()+1))+'-'+(date.getUTCDate()<10?'0'+date.getUTCDate():date.getUTCDate())
    time['time']=date.getHours()+":"+date.getMinutes()+":00"
    return time;
+}
+
+function changeWhereHeading(value,text){
+       
+    $("#whereText>a").text(text)
+    $("#whereText").attr("value",value)
+    
 }
 //function getReverseGeocodingData(lat, lng) 
 //{

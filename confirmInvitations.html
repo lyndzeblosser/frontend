@@ -94,7 +94,18 @@
                 <label for="location" class="ui-hidden-accessible">Location:</label>
                 <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
 
-                <div style="text-align:center; padding-top:5%">
+                <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
+                <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
+                        <h2 id="whereText" value="">WHERE?</h2>
+                        <ul data-role="listview" data-mini="true">
+                            <li onclick="changeWhereHeading('TT Zone 1','TT Zone 1')"><a href="#">TT Zone 1</a></li>
+                            <li onclick="changeWhereHeading('TT Zone 2','TT Zone 2')"><a href="#">TT Zone 2</a></li>
+                            <li onclick="changeWhereHeading('TT Zone 3','TT Zone 3')"><a href="#">TT Zone 3</a></li>
+                        </ul>
+                </li>
+                </ul>
+
+                    <div style="text-align:center; padding-top:5%">
                     <p style="float: left; margin-left:5%;" class="activitypicc"><img id="actpic" src="images/coffeeinvert.svg" class="actpic" style="border: dotted 1px #cc0000;"></p>
 
                     <a href="#" id = "confirmInvitesButtonId" class="confirminvitesButton" onclick="confirmInvite()" style="color:#ffffff; background-color: #cc0000;">SEND OUT INVITES</a>
