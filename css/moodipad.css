@@ -201,3 +201,33 @@ a#closeleftPanel {
     width: 200px;
 }
 
+#beta {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: PT Sans;
+    color:#999999;
+}
+
+#welcomemsg {
+    
+font-style:italic;
+padding:20px;
+line-height: 30px;
+text-align: center;
+color:#cc0000;
+font-family: Helvetica;
+font-size: 25px;
+font-weight: 700;
+}
+
+#vision {
+    font-style: italic;
+    padding:20px;
+    line-height: 29px;
+    text-align: center;
+    color:#cc0000;
+    font-family: PT Sans;
+    font-size: 23px;
+    font-weight: 700;
+    
+}
