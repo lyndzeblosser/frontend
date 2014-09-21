@@ -229,7 +229,13 @@ function autoCompleteLocation(){
 
 function confirmInvite(){
     var time=getTimeData();
-    var alertConfirmation = confirm("Are you sure?");
+    console.log("length = "+$('#whereText').attr("value").length);
+    if($('#whereText').attr("value").length < 1)
+    {
+        alert("Please selecte from the various Table Tribes Zone Areas to meet!");
+        return false;
+    }
+    var alertConfirmation = confirm("Everything looks good? Should we send out the invitations?");
     if (alertConfirmation)
     {  $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
@@ -248,7 +254,10 @@ function confirmInvite(){
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
-        alert(data);
+        if(status  == "success")
+            alert ("Success! - Invitations sent out!");
+        else
+            alert(data);
         window.location.href = "mood.html"
     });
     $("#confirmInvitesButtonId").hide();
