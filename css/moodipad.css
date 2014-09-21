@@ -212,7 +212,7 @@ a#closeleftPanel {
     
 font-style:italic;
 padding:20px;
-line-height: 30px;
+line-height: 40px;
 text-align: center;
 color:#cc0000;
 font-family: Helvetica;
@@ -223,7 +223,7 @@ font-weight: 700;
 #vision {
     font-style: italic;
     padding:20px;
-    line-height: 29px;
+    line-height: 40px;
     text-align: center;
     color:#cc0000;
     font-family: PT Sans;
