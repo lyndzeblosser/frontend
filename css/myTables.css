@@ -288,4 +288,11 @@ div.ui-bar.ui-bar-a.text {
 .info {
     height: 30px;
 }
+
+#beta {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: PT Sans;
+    color:blue;
+}
 /* End of CSS document */

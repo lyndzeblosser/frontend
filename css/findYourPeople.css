@@ -345,4 +345,11 @@ img#LeftPanelProfileImage {
 .biodiv {
 height:105px;
 }
+
+#beta {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: PT Sans;
+    color:blue;
+}
 /* End of CSS document */

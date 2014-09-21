@@ -371,10 +371,10 @@ img#LeftPanelProfileImage {
 }
 
 #beta {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     font-family: PT Sans;
-    color:#999999;
+    color:blue;
 }
 
 #welcomemsg {

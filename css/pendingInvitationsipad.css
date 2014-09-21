@@ -102,3 +102,10 @@ p {
     font-family: Helvetica;
     font-weight: 400;
 }
+
+#beta {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: PT Sans;
+    
+}

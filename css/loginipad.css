@@ -146,3 +146,9 @@ input {
     text-transform: uppercase;
 }
 
+#beta {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: PT Sans;
+    
+}

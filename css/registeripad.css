@@ -90,3 +90,10 @@ button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
    height:50px;
    line-height: 60px;
 }
+
+#beta {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: PT Sans;
+    
+}
