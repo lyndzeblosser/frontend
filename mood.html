@@ -130,19 +130,19 @@
    <!--a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a-->
                  
                     <label for="firstName" class="ui-hidden-accessible">First Name</label>
-                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled="">
+                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled="" style="color:#cc0000;">
 
                     <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" disabled="">
+                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" disabled="" style="color:#cc0000;">
 
                     <label for="emailAddress" class="ui-hidden-accessible">Email address</label>
-                    <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="">
+                    <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="" style="color:#cc0000;">
 
                     <!--label for="changePassword" class="ui-hidden-accessible">Change Password</label>
                     <input name="changePassword" id="LeftPanelChangePassword" placeholder="Change Password" value="" type="text"-->
 
                     <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled="">
+                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled="" style="color:#cc0000;">
 
                     <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
 
@@ -154,12 +154,14 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;"><br><br></a></li>
-                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                    <li class="loggedInFields" data-icon="bell"><a id="invites">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff; color:#999999; text-align: center; font-weight:700;" id="beta"><p>BETA</p><br></a></li>
+                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="bell"><a id="invites">Pending Invitations<span id="inviteNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>                    <li data-icon="logoicon"><a id="myTable" href="#">Terms and Condition</a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
                     <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <p id="welcomemsg" style="font-style: italic; padding:15px;  line-height: 20px; text-align: center;color:#cc0000; font-family: Helvetica; font-size: 17px; font-weight: 700;">Welcome to TableTribes!</p><p  style="font-style: italic; padding:10px; line-height: 20px; text-align: center;color:#cc0000; font-family: PT Sans; font-size: 15px; font-weight: 700;"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
 
+We’re building something new, and as an early-stage startup, your participation in our survey during this beta phase is crucial to us right now because it gives us feedback on how to make it better.<br><br>We’re keeping track of the issues but would also love to hear what happened from your perspective. As an early-stage startup, your participation in our survey during this beta phase is crucial to us right now.</p>
 
                 </ul>
             </div><!--  right panel -->

@@ -370,6 +370,11 @@ img#LeftPanelProfileImage {
     font-weight: 400;
 }
 
-
+#beta {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: PT Sans;
+    color#999999;
+}
 
 /* End of CSS document */
