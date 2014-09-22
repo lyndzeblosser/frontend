@@ -213,3 +213,27 @@ a#InvitesSentId.confirminvitesButton.ui-link {
     font-family: PT Sans;
     
 }
+
+#welcomemsg {
+    
+font-style:italic;
+padding:20px;
+line-height: 35px;
+text-align: center;
+color:#cc0000;
+font-family: Helvetica;
+font-size: 25px;
+font-weight: 400;
+}
+
+#vision {
+    font-style: italic;
+    padding:20px;
+    line-height: 35px;
+   
+    color:#cc0000;
+    font-family: PT Sans;
+    font-size: 23px;
+    font-weight: 400;
+    
+}

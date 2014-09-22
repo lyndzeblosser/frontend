@@ -421,4 +421,13 @@ img#LeftPanelProfileImage {
     color:blue;
 }
 
+#welcomemsg {
+    
+font-style:italic; padding:15px;  line-height: 25px; text-align: center;color:#cc0000; font-family: Helvetica; font-size: 17px; font-weight:400;
+}
+
+#vision {
+    font-style: italic; padding:15px; line-height: 25px; color:#cc0000; font-family: PT Sans; font-size: 15px; font-weight: 400; 
+    
+}
 /* End of CSS document */
