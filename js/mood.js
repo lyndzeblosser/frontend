@@ -102,7 +102,8 @@ function findMyPeople(){
             $("#findppl").css("display","none");
             $("#loginBtn").css("display","");
         }else{
-            addUserTags($.session.get('userid'), sortId);
+             // service call to add user tags
+            //           addUserTags($.session.get('userid'), sortId);
             var url = "findYourPeople.html?"+urlParams;
             window.location.href = url;
         }
