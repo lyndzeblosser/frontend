@@ -130,7 +130,7 @@ function getUrlParams(){
         return null; 
     }
         else{
-        
+        sortId = [];
         $("input[data-cacheval=\"false\"]").each(function(){
             sortId.push(this.value)
         })
