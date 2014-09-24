@@ -2,11 +2,13 @@ var autoComplete,currentLat,currentLng;
 var sortId = [];
 
 $(document).ready(function(){
+    if(!isLoggedIn){
+        var url = "login.html?";
+    window.location.href = url; 
+    }
     preloadIrrepectiveOfLoggedInOut();
     loggedInLoggedOutBehavior();
     $("#loadingImage").hide();
-
-
 })
 
 
