@@ -55,7 +55,7 @@ function submitForm()
                     addUserTags(userid, sortId);
                     addUserHomeLocation(userid, homeLat, homeLng);
                     $("#successfulRegistrationPopup").popup("open");
-                    alert("Registration Successfull!");
+                    alert("Registration Successfull! Please check your email for verification!");
                     window.location.href = "mood.html";
                 },
                 error: function(jqXHR, textStatus, errorThrown)
