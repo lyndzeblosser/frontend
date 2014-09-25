@@ -2,7 +2,7 @@ var selectedTopic = [];
 
 var uploadInitCount = 0;
 var sortId = [];
-var userType = null;
+//var userType = null;
 var homeLat, homeLng;
 
 function tagsValidation ()
@@ -22,12 +22,12 @@ if(sortId < 3)
     return false;
 }
 
-if(($('input:radio[name=userType]:checked').length)==0)
+/*if(($('input:radio[name=userType]:checked').length)==0)
 {
     alert("Please select who you are");
     return false;
 }
-
+*/
     setupFormValidation ();
     return true;
 }
