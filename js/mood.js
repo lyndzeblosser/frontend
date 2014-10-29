@@ -47,7 +47,7 @@ function activitiesImages(){
 function getTopics()
 {
     $.ajax({
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function (data){
@@ -81,10 +81,10 @@ function autoCompleteLocation(){
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
             $("#address").attr("placeholder", "Value set to your current location")
-            if (typeof $.session.get('userid') != "undefined")
+            if (typeof $.session.get('userHash') != "undefined")
             {
-                console.log("Update live location for user:" + $.session.get('userid'));
-                updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+                console.log("Update live location for user:" + $.session.get('userHash'));
+                updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
             }
         })
     }
@@ -107,7 +107,7 @@ function findMyPeople(){
             $("#loginBtn").css("display","");
         }else{
              // service call to add user tags
-            //           addUserTags($.session.get('userid'), sortId);
+            //           addUserTags($.session.get('userHash'), sortId);
             var url = "findYourPeople.html?"+urlParams;
             window.location.href = url;
         }
@@ -187,7 +187,7 @@ function register(){
 function updateUserLiveLocation(userid, lat, lng)
 {
 
-    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateLiveLocation",
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateLiveLocation",
     {
         userID:userid,
         latitude:lat,
@@ -211,7 +211,7 @@ function updateUserLiveLocation(userid, lat, lng)
 
     function addUserTag(userid, tag)
     {
-        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserTag",
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserTag",
                 {
                     userid: userid,
                     tag: tag,

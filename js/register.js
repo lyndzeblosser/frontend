@@ -39,7 +39,7 @@ function submitForm()
     $("#submitRegistrationButton").hide();
     $("#sendingRegistrationId").show();
     var postData = $("#registerForm").serializeArray();
-    var formURL = "http://evening-thicket-5124.herokuapp.com/credentialService/tempRegisterUser";
+    var formURL = "http://ancient-falls-9049.herokuapp.com/credentialService/tempRegisterUser";
     console.log(postData);
     
     $.ajax(
@@ -80,7 +80,7 @@ function submitForm()
 
     function addUserTag(userid, tag)
     {
-        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserTag",
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserTag",
                 {
                     userid: userid,
                     tag: tag,
@@ -92,7 +92,7 @@ function submitForm()
 
     function addUserHomeLocation(userid, homeLat, homeLng)
     {
-        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserHomeLocation",
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserHomeLocation",
                 {
                     userid: userid,
                     homeLat: homeLat,
@@ -252,7 +252,7 @@ $(function() {
 function getTopics()
 {
     $.ajax({
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function(data) {

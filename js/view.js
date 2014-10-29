@@ -1,7 +1,7 @@
 var table,tags=[],userid,inviteUsers=[],users=[];
 $(document).ready(function()
 {
-//    userid=$.session.get('userid')
+//    userid=$.session.get('userHash')
     userid = getParameterByName('user_from');
 
     getTableData(getParameterByName('tableid'))
@@ -23,10 +23,10 @@ function getUserData() {
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
-        console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
         $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -62,7 +62,7 @@ function getUserData() {
 function getTags(){
     $.ajax(
     {
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function(data)
@@ -96,7 +96,7 @@ function getParameterByName(name)
 function getTableData(tableid){
     $.ajax(
     {
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getTable?user_from="+userid+"&tableid="+tableid,
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?user_from="+userid+"&tableid="+tableid,
         async: false,
         dataType: "json",
         success: function(data)

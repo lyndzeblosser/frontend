@@ -66,7 +66,7 @@ function getResult(lat, lng, activity, selectedUsers, selectedUserNames, inviteT
     $("#confirmInvitesButton").click(function()
     {
         //assuming this page would always have userid logged in session
-        sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userid'), inviteTime);
+        sendInvitations(latitude, longitude, selectedUsers, activity, $.session.get('userHash'), inviteTime);
     });
 
 }
@@ -104,11 +104,11 @@ function getUserData(userIDs) {
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
-        console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
         $("#loadingImage").show();
         $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -158,7 +158,7 @@ function findAndRemove(id) {
 function getTags(){
     $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -239,9 +239,9 @@ function confirmInvite(){
     if (alertConfirmation)
     {  $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
-        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
     {
-        user_from:$.session.get('userid'),
+        user_from:$.session.get('userHash'),
         user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
         user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
         user_to_3:typeof users[2]=="undefined"?"":users[2]['id'],
@@ -483,7 +483,7 @@ function changeWhereHeading(value,text){
 ////                                    e.preventDefault();
 ////                                  });
 //
-//    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateInvitation",
+//    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateInvitation",
 //    {
 //        username_from:loggedInUserId,
 //        latitude_invite:latitude,

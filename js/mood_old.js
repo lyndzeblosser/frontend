@@ -10,7 +10,7 @@ $(document).ready(function()
     var sortId = [];
     var lengthOfTopics = getTopics();
     var activity;
-    var userid = $.session.get('userid');
+    var userid = $.session.get('userHash');
     ;
     var url;
 
@@ -86,7 +86,7 @@ $(document).ready(function()
     {
 
 
-        alert('user in session: ' + $.session.get('userid'));
+        alert('user in session: ' + $.session.get('userHash'));
         var userInvitations = getInvitations();
         var userTable = getUserTable();
 
@@ -114,7 +114,7 @@ $(document).ready(function()
                     {
 
 
-                        acceptInvite($(this).val(), $.session.get('userid'))
+                        acceptInvite($(this).val(), $.session.get('userHash'))
 
                         console.log('accepted invite from: ' + $(this).val());
                         $(this).addClass('ui-disabled');
@@ -149,9 +149,9 @@ $(document).ready(function()
         {
             if (validate(currentLat, currentLng, sortId, activity, getRadius(selectedLocation)))
             {
-                if (typeof $.session.get('userid') != "undefined")
+                if (typeof $.session.get('userHash') != "undefined")
                 {
-                    //                    updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+                    //                    updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
                     url = "findYourPeople.html?latitude=" + currentLat + "&longitude=" + currentLng + "&topics=" + sortId + "&activity=" + activity + "&radius=" + getRadius(selectedLocation) + "&userid=" + userid + "&selectedTime=" + selectedTime;
                     window.location.href = url;
                 }
@@ -200,9 +200,9 @@ $(document).ready(function()
             currentLng = position.coords.longitude;
             $("#address").attr("placeholder", "Value set to your current location")
             
-            if (typeof $.session.get('userid') != "undefined")
+            if (typeof $.session.get('userHash') != "undefined")
             {
-                updateUserLiveLocation($.session.get('userid'), currentLat, currentLng);
+                updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
             }
         });
     }
@@ -218,7 +218,7 @@ function getTopics()
 {
     var lengthOfTopicsArray;
     return $.ajax({
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json"
     });
@@ -228,12 +228,12 @@ function getTopics()
 function getInvitations()
 {
     var invitationsArray;
-    if ($.session.get('userid') === undefined) {
+    if ($.session.get('userHash') === undefined) {
         return null;
     }
     else {
         return $.ajax({
-            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getInvitations?userid=" + $.session.get('userid'),
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getInvitations?userid=" + $.session.get('userHash'),
             async: false,
             dataType: "json"
         });
@@ -244,12 +244,12 @@ function getInvitations()
 
 function getUserTable()
 {
-    if ($.session.get('userid') === undefined) {
+    if ($.session.get('userHash') === undefined) {
         return null;
     }
     else {
         return $.ajax({
-            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTable?userid=" + $.session.get('userid'),
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserTable?userid=" + $.session.get('userHash'),
             async: false,
             dataType: "json"
         });
@@ -334,7 +334,7 @@ function acceptInvite(username_from, username_to)
 function updateUserLiveLocation(userid, lat, lng)
 {
 
-    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateLiveLocation",
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateLiveLocation",
     {
         userID:userid,
         latitude:lat,

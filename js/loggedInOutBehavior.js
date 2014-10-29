@@ -20,7 +20,7 @@ $(document).ready(function(){
 function getInvitations()
 {
     $.ajax({
-            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
             async: false,
             dataType: "json",
             success: function(data){
@@ -35,7 +35,7 @@ function getInvitations()
 function getMyTable()
 {
     $.ajax({
-            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid=" +userId,
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" +userId,
             async: false,
             dataType: "json",
             success: function (data){
@@ -57,11 +57,11 @@ function login() {
 }
 
 function loggedInLoggedOutBehavior(){
-    isLoggedIn=typeof $.session.get('userid')!="undefined";
+    isLoggedIn=typeof $.session.get('userHash')!="undefined";
 
     if(isLoggedIn){
     $(".loggedOutFields").css("display","none")    
-    userId=$.session.get('userid');
+    userId=$.session.get('userHash');
     getInvitations()
     getMyTable();
     getUserProfile ();
@@ -76,10 +76,10 @@ function loggedInLoggedOutBehavior(){
 
 function getUserProfile () {
     
-    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId)
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId)
         $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId,
                     async: false,
                     dataType: "json",
                     success: function(data)

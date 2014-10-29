@@ -3,7 +3,7 @@
 var tables, tags = [], userid;
 $(document).ready(function()
 {
-    userid = $.session.get('userid')
+    userid = $.session.get('userHash')
     getTableData()
     getTags();
     loggedInLoggedOutBehavior();
@@ -65,10 +65,10 @@ function getTagsDiv(tags1) {
 }
 
 function getTableData() {
-    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid=" + $.session.get('userid'))
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" + $.session.get('userHash'))
     $.ajax(
             {
-                url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid=" + userid,
+                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" + userid,
                 async: false,
                 dataType: "json",
                 success: function(data)
@@ -93,7 +93,7 @@ function getTableData() {
 function getTags() {
     $.ajax(
             {
-                url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+                url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
                 async: false,
                 dataType: "json",
                 success: function(data)
@@ -120,7 +120,7 @@ function getUserNameImage(userId){
     var a=[];
     $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId,
                     async: false,
                     dataType: "json",
                     success: function(data)

@@ -6,7 +6,7 @@
 var tables,tags=[],userid,tableIdToUser=[];
 $(document).ready(function()
 {
-    userid = $.session.get('userid')
+    userid = $.session.get('userHash')
     getTableData()
     getTags();
     loggedInLoggedOutBehavior();
@@ -52,10 +52,10 @@ function getTagsDiv(tags1){
 }
 
 function getTableData(){
-    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/getUserTables?userid="+$.session.get('userid'))
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid="+$.session.get('userHash'))
     $.ajax(
     {
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getPendingInvitations?userid="+$.session.get('userid'),
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getPendingInvitations?userid="+$.session.get('userHash'),
         async: false,
         dataType: "json",
         success: function(data)
@@ -82,7 +82,7 @@ function getTableData(){
 function getTags(){
     $.ajax(
     {
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
         async: false,
         dataType: "json",
         success: function(data)
@@ -109,7 +109,7 @@ function getUserNameImage(userId){
     var a=[];
     $.ajax(
                 {
-                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId,
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -140,7 +140,7 @@ function accept(tableid){
   var alertConfirmation = confirm("Are you sure you want to accept this invitation?");
     if (alertConfirmation)
     {
-    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/acceptTableInvitation",
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/acceptTableInvitation",
     {
         tableid:tableid,
         user_from:tableIdToUser[tableid],
@@ -158,7 +158,7 @@ function reject(tableid){
  var alertConfirmation = confirm("Are you sure, you want to reject this Table?");
     if (alertConfirmation)
     {
-    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/rejectTableInvitation",
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/rejectTableInvitation",
     {
         tableid:tableid,
         user_from:tableIdToUser[tableid],

@@ -41,7 +41,7 @@ function validateForgotPwd(userid)
             alert("Please enter email");
         }        
     else {
-         $.post("http://evening-thicket-5124.herokuapp.com/credentialService/forgotPwd",
+         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/forgotPwd",
         {
             userid:userid
         },
@@ -57,13 +57,50 @@ function validateForgotPwd(userid)
 
 function validate(userid, password)
 {
-    $.ajax({
-//  url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/matchCredentials?{userid:" + userid + ",password:" + password + "}",
-        url: "http://evening-thicket-5124.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
-        context: document.body
-    }).done(function(data)
-    {
+//    $.ajax({
+////  url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/matchCredentials?{userid:" + userid + ",password:" + password + "}",
+//        url: "http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
+//        context: document.body
+//    }).done(function(data, status)
+//    {
+//        alert("inside funtion response!");
+//        if (userid === 'NULL' || userid.length === 0)
+//        {
+//            alert("userid can't be blank!");
+//        }
+//        else if (password === 'NULL' || password.length === 0)
+//        {
+//            alert("password can't be blank!");
+//        }
+//        else
+//        {
+//            if (status === '200')
+//            {
+//                alert("Welcome " + userid);
+////                $.session.set('userid', userid);
+//                $.session.set('userHash', data);
+//                if (getParameterByName("activity") != "")
+//                    window.location.href = "findYourPeople.html?latitude=" + getParameterByName('latitude') + "&longitude=" + getParameterByName('longitude') + "&topics=" + getParameterByName('topics') + "&activity=" + getParameterByName('activity') + "&radius=" + getParameterByName('radius') + "&userid=" + data.toString() + "&time=" + getParameterByName('time');
+//                else
+//                    window.location.href = "mood.html"
+//            }
+//            else
+//            {
+//                alert(data);
+//            }
+//
+//        }
+//
+//    });
 
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials",
+    {
+        userid:userid,
+        password:password
+    },
+    function(data,status){
+//         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
+        console.log("Data: " + data + "\nStatus: " + status);
         if (userid === 'NULL' || userid.length === 0)
         {
             alert("userid can't be blank!");
@@ -74,25 +111,22 @@ function validate(userid, password)
         }
         else
         {
-            if (data.toString() === "true")
+            if (status === 'success')
             {
                 alert("Welcome " + userid);
-                $.session.set('userid', userid);
+//                $.session.set('userid', userid);
+                $.session.set('userHash', data);
                 if (getParameterByName("activity") != "")
-                    window.location.href = "findYourPeople.html?latitude=" + getParameterByName('latitude') + "&longitude=" + getParameterByName('longitude') + "&topics=" + getParameterByName('topics') + "&activity=" + getParameterByName('activity') + "&radius=" + getParameterByName('radius') + "&userid=" + userid + "&time=" + getParameterByName('time');
+                    window.location.href = "findYourPeople.html?latitude=" + getParameterByName('latitude') + "&longitude=" + getParameterByName('longitude') + "&topics=" + getParameterByName('topics') + "&activity=" + getParameterByName('activity') + "&radius=" + getParameterByName('radius') + "&userid=" + data.toString() + "&time=" + getParameterByName('time');
                 else
                     window.location.href = "mood.html"
             }
             else
             {
-                alert("Invalid credentials entered. data obtained: " + data);
+                alert(status);
             }
 
         }
 
     });
-
-
-
-
 }
