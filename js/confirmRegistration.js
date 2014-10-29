@@ -9,7 +9,7 @@ $(document).ready(function()
         return vars;
 } ();
     
-      var formURL = "http://evening-thicket-5124.herokuapp.com/credentialService/registerUser?" + QueryString;
+      var formURL = "http://ancient-falls-9049.herokuapp.com/credentialService/registerUser?" + QueryString;
 			  
     $.ajax(
                                                     {
