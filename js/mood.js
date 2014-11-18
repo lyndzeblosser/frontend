@@ -4,15 +4,31 @@ var sortId = [];
 $(document).ready(function(){
    
     preloadIrrepectiveOfLoggedInOut();
-    loggedInLoggedOutBehavior();
+    
     $("#loadingImage").hide();
+    
+    if(!(getParameterByName('loggedinuser')=="")){
+        isLoggedIn=true;
+        $.session.set('userHash', getParameterByName('loggedinuser'));
+        
+    }
+    
      if(!isLoggedIn){
         var url = "login.html?";
     window.location.href = url; 
     }
+    
+    loggedInLoggedOutBehavior();
   
 })
 
+function getParameterByName(name) 
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 function preloadIrrepectiveOfLoggedInOut(){
     activitiesImages();

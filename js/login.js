@@ -1,7 +1,8 @@
+var twitter;
 $(document).ready(function()
 {
-
     loggedInLoggedOutBehavior();
+    
     $("#continueButton").click(function()
     {
         //alert("clicked");
@@ -18,6 +19,15 @@ $(document).ready(function()
     {
         validateForgotPwd(userid);
     });
+    
+    $("#twitterSignOn").click(function()
+    {
+        window.location.href = "login/redirect.php";
+
+    });
+    
+   // twitter=new Twitter(config);
+    
 });
 
 function getParameterByName(name)
