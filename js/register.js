@@ -210,6 +210,9 @@ $(document).ready(function()
         $("#ConfirmPassword").attr("value","dummy")
         $("#password").prop('disabled', true);
         $("#ConfirmPassword").prop('disabled', true);
+        $("#loginType").attr("value",getParameterByName('platform'));
+        $("#platformId").attr("value",getParameterByName('platformId'));
+        
         
     }
     var autocomplete = new google.maps.places.Autocomplete($("#homeTown")[0], {});

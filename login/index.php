@@ -28,16 +28,19 @@ $selected = mysql_select_db("heroku_87af94efd632cd6",$dbhandle)
 echo "Connected to MySQL1<br>";
 //
 //execute the SQL query and return records
-$result = mysql_query("Select md5UserIdHash from registration where email in (SELECT ttid FROM outside_app_logins where platform='Twitter' and platformid='".$content->id_str."')");
+$result = mysql_query("Select md5UserIdHash from registration where loginType='twitter' and platformId='".$content->id_str."'");
 
-$row = mysql_fetch_array($result);
+if($result === FALSE) {
+    die(mysql_error()); // TODO: better error handling
+}
+$row = mysql_fetch_row($result);
 echo $row[0];
 
 if(isset($row[0])){
-    header('Location: /mood.html?loggedinuser='.$row[0]);
+    header('Location: /frontend/mood.html?loggedinuser='.$row[0]);
     
 }else{
-    header('Location: /register.html?platform=twitter&platformId='. $content->id_str.'&name='.  urlencode($content->name).'&image_url='.  urlencode($content->profile_image_url));
+    header('Location: /frontend/register.html?platform=twitter&platformId='. $content->id_str.'&name='.  urlencode($content->name).'&image_url='.  urlencode($content->profile_image_url));
     
 }
 //echo "<pre>", print_r($content, true), "</pre>";
