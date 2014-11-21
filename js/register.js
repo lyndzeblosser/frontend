@@ -7,20 +7,20 @@ var homeLat, homeLng;
 
 function tagsValidation ()
 {
-    sortId = [];
-    
-    $("input[data-cacheval=\"false\"]").each(function(){
-        if(this.type == "checkbox")
-        {
-            sortId.push(this.value);
-        }
-    });
-    console.log(sortId);
-    if(sortId < 3)
-    {
-        alert("Please select at least 2 topic tags");
-        return false;
-    }
+//    sortId = [];
+//    
+//    $("input[data-cacheval=\"false\"]").each(function(){
+//        if(this.type == "checkbox")
+//        {
+//            sortId.push(this.value);
+//        }
+//    });
+//    console.log(sortId);
+//    if(sortId < 3)
+//    {
+//        alert("Please select at least 2 topic tags");
+//        return false;
+//    }
 
     /*if(($('input:radio[name=userType]:checked').length)==0)
 {
@@ -56,7 +56,7 @@ function submitForm()
             console.log("Registration Form Submitted Successfully!");
             var userid = $("#email").val();
             console.log(selectedTopic);
-            addUserTags(userid, sortId);
+//            addUserTags(userid, sortId);
             addUserHomeLocation(userid, homeLat, homeLng);
             $("#successfulRegistrationPopup").popup("open");
             alert("Registration Successfull! Please check your email for verification!");
@@ -192,7 +192,7 @@ $(document).ready(function()
     
     
     getUrlParams ();
-    getTopics();
+//    getTopics();
     if((getParameterByName('platform')!="")){
         //alert(getParameterByName('platform'))
         additionalFields['platform']={name:"platform",value:getParameterByName('platform')}
@@ -212,6 +212,13 @@ $(document).ready(function()
         $("#ConfirmPassword").prop('disabled', true);
         $("#loginType").attr("value",getParameterByName('platform'));
         $("#platformId").attr("value",getParameterByName('platformId'));
+        if((getParameterByName('location')!="")){
+            $("#homeTown").attr("value",getParameterByName('location'));
+            $("#homeTown").focus();
+        }
+        if((getParameterByName('bio')!="")){
+            $("#bio").append(getParameterByName('bio'));
+        }
         
         
     }
@@ -297,15 +304,15 @@ function getTopics()
 
 }
 
-function getTopicsString() {
-    if ($("input[data-cacheval=\"false\"]").length == 0) {
-        alert("No topics selected")
-        return null;
-    } else {
-        var topics = []
-        $("input[data-cacheval=\"false\"]").each(function() {
-            topics.push(this.value)
-        })
-        return topics.join();
-    }
-}
+//function getTopicsString() {
+//    if ($("input[data-cacheval=\"false\"]").length == 0) {
+//        alert("No topics selected")
+//        return null;
+//    } else {
+//        var topics = []
+//        $("input[data-cacheval=\"false\"]").each(function() {
+//            topics.push(this.value)
+//        })
+//        return topics.join();
+//    }
+//}

@@ -12,13 +12,20 @@ $(document).ready(function(){
         $.session.set('userHash', getParameterByName('loggedinuser'));
         
     }
+    if(!(getParameterByName('deviceToken')=="")){
+        $.session.set('deviceToken', getParameterByName('deviceToken'));
+    }
+    if(!(getParameterByName('iOSversion')=="")){
+        $.session.set('iOSversion', getParameterByName('iOSversion'));
+    }
+        loggedInLoggedOutBehavior();
+
     
      if(!isLoggedIn){
         var url = "login.html?";
     window.location.href = url; 
     }
     
-    loggedInLoggedOutBehavior();
   
 })
 

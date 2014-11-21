@@ -58,6 +58,7 @@ function login() {
 
 function loggedInLoggedOutBehavior(){
     isLoggedIn=typeof $.session.get('userHash')!="undefined";
+    hasDeviceInfo=typeof $.session.get('deviceToken')!="undefined";
 
     if(isLoggedIn){
     $(".loggedOutFields").css("display","none")    
@@ -66,6 +67,9 @@ function loggedInLoggedOutBehavior(){
     getMyTable();
     getUserProfile ();
     
+    if(hasDeviceInfo){
+        updateUserDeviceInfo($.session.get('userHash'), $.session.get('deviceToken'), $.session.get('iOSversion'))
+    }
     }else{
         $(".loggedInFields").css("display","none")
         $("#closeleftPanel").css("display","none")
@@ -73,7 +77,19 @@ function loggedInLoggedOutBehavior(){
     }
     
 }
+function updateUserDeviceInfo(userid, deviceToken, deviceVersion)
+{
 
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUserDeviceInfo",
+    {
+        userID:userid,
+        deviceToken:deviceToken,
+        deviceVersion:deviceVersion
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+    });
+}
 function getUserProfile () {
     
     console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId)
