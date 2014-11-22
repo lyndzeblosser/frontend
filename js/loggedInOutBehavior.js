@@ -59,17 +59,18 @@ function login() {
 function loggedInLoggedOutBehavior(){
     isLoggedIn=typeof $.session.get('userHash')!="undefined";
     hasDeviceInfo=typeof $.session.get('deviceToken')!="undefined";
-
+    console.log("hasDeviceInfo:" + hasDeviceInfo);
     if(isLoggedIn){
-    $(".loggedOutFields").css("display","none")    
-    userId=$.session.get('userHash');
-    getInvitations()
-    getMyTable();
-    getUserProfile ();
-    
-    if(hasDeviceInfo){
-        updateUserDeviceInfo($.session.get('userHash'), $.session.get('deviceToken'), $.session.get('iOSversion'))
-    }
+        $(".loggedOutFields").css("display","none")    
+        userId=$.session.get('userHash');
+        getInvitations()
+        getMyTable();
+        getUserProfile ();
+
+        if(hasDeviceInfo){
+            console.log("Updating device info for user:" + userId + "with deviceToken:" + $.session.get('deviceToken') + "and iOSVersion:" + $.session.get('iOSversion'))
+            updateUserDeviceInfo($.session.get('userHash'), $.session.get('deviceToken'), $.session.get('iOSversion'));
+        }
     }else{
         $(".loggedInFields").css("display","none")
         $("#closeleftPanel").css("display","none")
