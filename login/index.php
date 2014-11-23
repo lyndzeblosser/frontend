@@ -37,10 +37,10 @@ $row = mysql_fetch_row($result);
 echo $row[0];
 
 if(isset($row[0])){
-    header('Location: /frontend/mood.html?loggedinuser='.$row[0]);
+    header('Location: /mood.html?loggedinuser='.$row[0]);
     
 }else{
-    header('Location: /frontend/register.html?platform=twitter&platformId='. $content->id_str.'&name='.  urlencode($content->name).'&image_url='.  urlencode($content->profile_image_url).'&bio='.  urlencode($content->description).'&location='.  urlencode($content->location));
+    header('Location: /register.html?platform=twitter&platformId='. $content->id_str.'&name='.  urlencode($content->name).'&image_url='.  urlencode($content->profile_image_url).'&bio='.  urlencode($content->description).'&location='.  urlencode($content->location));
     
 }
 //echo "<pre>", print_r($content, true), "</pre>";
