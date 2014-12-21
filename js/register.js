@@ -2,6 +2,7 @@ var selectedTopic = [],additionalFields=[];
 
 var uploadInitCount = 0;
 var sortId = [];
+var imgURL;
 //var userType = null;
 var homeLat, homeLng;
 
@@ -189,8 +190,9 @@ $(document).ready(function()
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
     $("#sendingRegistrationId").hide();
+    $("#registerPage2").hide();
     
-    
+    $("#previewIMG").hide();
     getUrlParams ();
 //    getTopics();
     if((getParameterByName('platform')!="")){
@@ -259,7 +261,19 @@ $(document).ready(function()
         
         return tagsValidation();
     });
-    
+    $( "#nextPageButton" ).click(function( event ) 
+    {
+        
+    $("#loadingImage").hide();
+    $(".loggedInFields").css("display", "none")
+    $("#closeleftPanel").css("display", "none")
+    $("#sendingRegistrationId").hide();
+    $("#registerPage2").show();
+    $("#registerPage1").hide();
+    $("#previewIMG").show();
+
+
+    });
     
     startUploadImage();
 });
@@ -282,7 +296,14 @@ function startUploadImage()
             // Handle uploaded file info.
             console.log(widget.value());
             console.log("CDN Image URL for USers"+info.cdnUrl);
+            imgURL = info.cdnUrl;
             $("#imageMasterLocation").attr("value",info.cdnUrl);
+//            $.cloudinary.image(info.cdnUrl, { width: 100, height: 150, crop: 'fill' });
+            $(".imgUploadDIV").hide();
+            $("#previewIMG").show();
+            $("#previewIMG").attr("src",imgURL);
+            
+   
         });
     });    
 }

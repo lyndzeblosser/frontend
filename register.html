@@ -51,10 +51,14 @@
 
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+               <div class="imgUploadDIV">
                 <h2 class="who" style="text-align:center;">Please upload your profile image</h2>
                 <input type=hidden role="uploadcare-uploadeUpload your" data-system-dialog="true" data-images-only="true" >
-
-
+               </div>
+                <div class ="previewIMGDIV" style="text-align:center;">
+                <!--h2 class="who" style="text-align:center;"-->
+                <img id="previewIMG" src="" height="200px" width="200px" />
+                </div>    
                 <div style="text-align:center;" id="uploadImgDiv">  
                     <br>
                     <form method="post" id = "registerForm">
@@ -84,15 +88,9 @@
                                  </form> 
                             </li>
                         </ul>-->
-
-                        <input name="firstName" id="firstName" placeholder="First Name" value="" type="text"/>
-
-                        <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text"/>
-
-                        <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
-                        <input name="homeTown" id="homeTown" placeholder="Select a city" value="" type="text"/>
-
+                     
                         <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
+                        <div id="registerPage1">  
                         <input name="email" id="email" placeholder="Enter your email address" value="" type="email"/>
 
                         <label for="password" class="ui-hidden-accessible">Password</label>
@@ -101,9 +99,19 @@
                         <label for="ConfirmPassword" class="ui-hidden-accessible">Verify password</label>
                         <input name="ConfirmPassword" id="ConfirmPassword" placeholder="Verify password" value="" type="password"/>
 
+                        <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
+                        <input name="homeTown" id="homeTown" placeholder="Select a city" value="" type="text"/>
+                        
+                            <button id="nextPageButton">Next Page</button>
+
+                        </div>
+                        <div id="registerPage2"> 
+                        <input name="firstName" id="firstName" placeholder="First Name" value="" type="text"/>
+
+                        <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text"/>
 
                         <textarea cols="40" rows="8" name="bio" id="bio" placeholder="Bio (Max. 140 characters)"></textarea>
-
+                        
                         <!-- <label for="bio" class="ui-hidden-accessible">Bio</label>
                          <input name="bio" id="bio" placeholder="Bio" value="" type="text"/> -->
 
@@ -112,14 +120,11 @@
                         <input name="loginType" id="loginType" value="" type="hidden"/>
                         <input name="platformId" id="platformId" value="" type="hidden"/>
                         
-
-
-
-
                         <div style="text-align:center">
                             <button id="submitRegistrationButton">Submit</button>
                             <button id="sendingRegistrationId" class="confirminvitesButton" style="color:#ffffff; background-color: #cc0000; line-height: 40px; font-family: PT Sans;">Registering .... </button>
 
+                        </div>
                         </div>
                     </form>                
                     <img id="loadingImage" src ="images/loading.jpg"/>
