@@ -2,7 +2,7 @@ var selectedTopic = [],additionalFields=[];
 
 var uploadInitCount = 0;
 var sortId = [];
-var imgURL;
+var imgURL = null;
 //var userType = null;
 var homeLat, homeLng;
 
@@ -60,7 +60,7 @@ function submitForm()
 //            addUserTags(userid, sortId);
             addUserHomeLocation(userid, homeLat, homeLng);
             $("#successfulRegistrationPopup").popup("open");
-            alert("Registration Successfull! Please check your email for verification!");
+            alert("Registration Successfull!");
             window.location.href = "mood.html";
         },
         error: function(jqXHR, textStatus, errorThrown)
@@ -114,8 +114,7 @@ function submitForm()
     });
 }
 function setupFormValidation()
-{
-
+{   
     $("#registerForm").validate(
     {
         rules: {
@@ -186,6 +185,11 @@ function getUrlParams(){
 }
 $(document).ready(function()
 {
+    $(function() {
+    $( "#DOB" ).datepicker(
+            {maxDate: "-18y" }
+            );
+  });
     $("#loadingImage").hide();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
@@ -257,24 +261,37 @@ $(document).ready(function()
     });
     
     $( "#submitRegistrationButton" ).click(function( event ) 
-    {
+    {     
         
         return tagsValidation();
     });
-    $( "#nextPageButton" ).click(function( event ) 
+    $( "#nextPageButton" ).click(function() 
     {
-        
-    $("#loadingImage").hide();
-    $(".loggedInFields").css("display", "none")
-    $("#closeleftPanel").css("display", "none")
-    $("#sendingRegistrationId").hide();
+    if(!imgURL)
+    {
+        alert("Oops, please upload your profile pic!");
+    }
+    else
+    {
+
     $("#registerPage2").show();
     $("#registerPage1").hide();
     $("#previewIMG").show();
-
-
+     $(".imgUploadDIV").hide();
+    }
     });
+
+    $( "#previousPageButton" ).click(function() 
+    {
     
+    
+    $("#registerPage2").hide();
+    $("#registerPage1").show();
+    $("#previewIMG").show();
+     $(".imgUploadDIV").hide();
+    
+    });
+
     startUploadImage();
 });
 

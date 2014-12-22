@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
     <head> 
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tabletribes</title> 
@@ -33,6 +34,14 @@
         <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
         <script src="//ucarecdn.com/widget/1.4.2/uploadcare/uploadcare-1.4.2.min.js"></script>
+        
+        <meta charset="utf-8">
+  <!--jQuery UI Datepicker - Default functionality -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
     </head>
 
@@ -59,7 +68,7 @@
                 <!--h2 class="who" style="text-align:center;"-->
                 <img id="previewIMG" src="" height="200px" width="200px" />
                 </div>    
-                <div style="text-align:center;" id="uploadImgDiv">  
+                 
                     <br>
                     <form method="post" id = "registerForm">
                         <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
@@ -76,7 +85,7 @@
                                    <input type="radio" name="userType" value="Applicant">Artist</input>
                                    </label-->
 
-                        <br>  
+                          
 
 <!--                        <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
 
@@ -101,20 +110,19 @@
 
                         <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
                         <input name="homeTown" id="homeTown" placeholder="Select a city" value="" type="text"/>
+                        <button type = "Button" id="nextPageButton">Next Page</button>
                         
-                            <button id="nextPageButton">Next Page</button>
-
                         </div>
                         <div id="registerPage2"> 
                         <input name="firstName" id="firstName" placeholder="First Name" value="" type="text"/>
 
                         <input name="lastName" id="lastName" placeholder="Last Name" value="" type="text"/>
-
+                        <input name="DOB" id="DOB" type="text" placeholder="Date of Birth"/>
                         <textarea cols="40" rows="8" name="bio" id="bio" placeholder="Bio (Max. 140 characters)"></textarea>
-                        
+                        By creating an account, you acknowledge that you have read the Privacy Policy and agree to the Terms of Service.
                         <!-- <label for="bio" class="ui-hidden-accessible">Bio</label>
                          <input name="bio" id="bio" placeholder="Bio" value="" type="text"/> -->
-
+                        <button type="button" id="previousPageButton">Previous Page</button>
                         <input name="imageMasterLocation" id="imageMasterLocation" value="" type="hidden"/>
                         <input name="imageThumbnailLocation" id="imageThumbnailLocation" value="" type="hidden"/>
                         <input name="loginType" id="loginType" value="" type="hidden"/>
@@ -128,7 +136,7 @@
                         </div>
                     </form>                
                     <img id="loadingImage" src ="images/loading.jpg"/>
-                </div><!-- /content -->
+               <!-- /content -->
 
 
                 <!-- This is for the left panel-->
