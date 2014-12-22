@@ -57,18 +57,18 @@
                 <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel"  style="background:#cc0000; margin-right:5px;">Add</a>
             </div><!-- /header -->
 
-
-
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                <div class="imgUploadDIV">
                 <h2 class="who" style="text-align:center;">Please upload your profile image</h2>
-                <input type=hidden role="uploadcare-uploadeUpload your" data-system-dialog="true" data-images-only="true" >
+                <input type=hidden id="uploadCareInput" role="uploadcare-uploadeUpload your" data-system-dialog="true" data-images-only="true" >
                </div>
                 <div class ="previewIMGDIV" style="text-align:center;">
                 <!--h2 class="who" style="text-align:center;"-->
                 <img id="previewIMG" src="" height="200px" width="200px" />
                 </div>    
-                 
+                <div class="imgNotUploadedDIV" hidden="true">
+               <h2 class="who" style="text-align:center;">Oops, you seem to have missed uploading your image</h2>
+                </div>
                     <br>
                     <form method="post" id = "registerForm">
                         <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
@@ -99,9 +99,8 @@
                         </ul>-->
                      
                         <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
-                        <div id="registerPage1">  
+                        <div id="registerPage1">
                         <input name="email" id="email" placeholder="Enter email" value="" type="email"/>
-
                         <label for="password" class="ui-hidden-accessible">Password</label>
                         <input name="password" id="password" placeholder="Create Password (at least 6 characters)" value="" type="password"/>
 
@@ -110,7 +109,7 @@
 
                         <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
                         <input name="homeTown" id="homeTown" placeholder="What city do you live in?" value="" type="text"/>
-                        <button type = "Button" id="nextPageButton">Next Page</button>
+                        <button  id="nextPageButton">Next Page</button>
                         
                         </div>
                         <div id="registerPage2"> 

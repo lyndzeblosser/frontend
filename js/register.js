@@ -9,6 +9,14 @@ var imgTNailURL = null;
 var homeLat, homeLng;
 var userid;
 
+function form1Validated ()
+{
+    userid = $("#email").val();
+    $("#registerPage2").show();
+    $("#registerPage1").hide();
+    $("#previewIMG").show();
+     $(".imgUploadDIV").hide();
+    }
 function tagsValidation ()
 {
 //    sortId = [];
@@ -32,7 +40,7 @@ function tagsValidation ()
     return false;
 }
 */
-    setupFormValidation ();
+//    setupFormValidation ();
     return true;
 }
 function submitForm()
@@ -116,13 +124,11 @@ function submitForm()
         window.location.href = "mood.html";
     });
 }
-function setupFormValidation()
+function form1Validation()
 {   
     $("#registerForm").validate(
     {
         rules: {
-            firstName: "required",
-            lastName: "required",
             homeTown: "required",
             email: {
                 required: true,
@@ -134,14 +140,9 @@ function setupFormValidation()
             },
             ConfirmPassword: {
                 equalTo: "#password"
-            },
-            bio: {
-                required: true
             }
         },
         messages: {
-            firstName: "Please enter your First Name",
-            lastName: "Please enter your Last Name",
             homeTown: "Please enter your Home Town",
             password: {
                 required: "Please provide a Password",
@@ -150,11 +151,33 @@ function setupFormValidation()
             ConfirmPassword: {
                 equalTo: "Your passwords don't match"
             },
-            bio: "Please tell us something about you"
-            ,
             email: "Please enter a valid email address"
         },
         submitHandler: function(form) {
+            form1Validated();
+        }
+    });
+}
+function form2Validation()
+{   
+    $("#registerForm").validate(
+    {
+        rules: {
+            firstName: "required",
+            lastName: "required",
+            dateOfBirth: "required",            
+            bio: {
+                required: true
+            }
+        },
+        messages: {
+            firstName: "Please enter your First Name",
+            lastName: "Please enter your Last Name",
+            dateOfBirth: "Please tell us how young you feel",
+            bio: "Please tell us something about you"
+            },
+        submitHandler: function(form) {
+            
             submitForm();
         }
     });
@@ -201,7 +224,8 @@ $(document).ready(function()
     $("#closeleftPanel").css("display", "none")
     $("#sendingRegistrationId").hide();
     $("#registerPage2").hide();
-    
+//    $("#imgValid").css("display", "none");
+//    document.getElementById(imgValid).style.display = "hide";
     $("#previewIMG").hide();
     getUrlParams ();
 //    getTopics();
@@ -230,6 +254,7 @@ $(document).ready(function()
 //            $.cloudinary.image(info.cdnUrl, { width: 100, height: 150, crop: 'fill' });
 //            $(".imgUploadDIV").hide();
         imgURL = img400x400URL;
+        
         $("#previewIMG").show();
             $("#previewIMG").attr("src",img400x400URL);
         }    
@@ -282,35 +307,27 @@ $(document).ready(function()
     });
     
     $( "#submitRegistrationButton" ).click(function( event ) 
-    {     
-        
-        return tagsValidation();
+    {        
+        form2Validation ();
+        return true;
     });
     $( "#nextPageButton" ).click(function() 
-    {
-    if(!imgURL)
-    {
-        alert("Oops, please upload your profile pic!");
-    }
-    else
-    {
-    userid = $("#email").val();
-    $("#registerPage2").show();
-    $("#registerPage1").hide();
-    $("#previewIMG").show();
-     $(".imgUploadDIV").hide();
-    }
+    {   
+if(!imgURL)
+{$(".imgNotUploadedDIV").show();
+    return false;
+ }
+else
+    form1Validation();
+ return true;       
     });
 
     $( "#previousPageButton" ).click(function() 
     {
-    
-    
     $("#registerPage2").hide();
     $("#registerPage1").show();
     $("#previewIMG").show();
-     $(".imgUploadDIV").hide();
-    
+    $(".imgUploadDIV").hide();
     });
 
     startUploadImage();
@@ -337,6 +354,7 @@ function startUploadImage()
             imgURL = info.cdnUrl;
             $("#imageMasterLocation").attr("value",info.cdnUrl);
 //            $.cloudinary.image(info.cdnUrl, { width: 100, height: 150, crop: 'fill' });
+            $(".imgNotUploadedDIV").hide();
             $(".imgUploadDIV").hide();
             $("#previewIMG").show();
             $("#previewIMG").attr("src",imgURL);
