@@ -3,6 +3,8 @@ var selectedTopic = [],additionalFields=[];
 var uploadInitCount = 0;
 var sortId = [];
 var imgURL = null;
+var img400x400URL = null;
+var imgTNailURL = null;
 //var userType = null;
 var homeLat, homeLng;
 var userid;
@@ -216,12 +218,20 @@ $(document).ready(function()
             $("#lastName").attr("value",name.substring(index+1))
         }
         if((getParameterByName('image_url')!="")){
-           $("#imageMasterLocation").attr("value",getParameterByName('image_url'));
+            img400x400URL = getParameterByName('image_url');
+            img400x400URL = img400x400URL.replace("_normal", "_400x400");
+            imgTNailURL = getParameterByName('image_url');
+            imgTNailURL = imgTNailURL.replace("_normal", "_bigger");
+            console.log("img400x400URL: " + img400x400URL);
+            console.log("imgTNailURL: " + imgTNailURL);
+            
+           $("#imageMasterLocation").attr("value",img400x400URL);
+           $("#imageThumbnailLocation").attr("value",imgTNailURL);
 //            $.cloudinary.image(info.cdnUrl, { width: 100, height: 150, crop: 'fill' });
 //            $(".imgUploadDIV").hide();
-        imgURL = getParameterByName('image_url');
+        imgURL = img400x400URL;
         $("#previewIMG").show();
-            $("#previewIMG").attr("src",getParameterByName('image_url'));
+            $("#previewIMG").attr("src",img400x400URL);
         }    
         $("#password").attr("value","dummy")
         $("#ConfirmPassword").attr("value","dummy")
