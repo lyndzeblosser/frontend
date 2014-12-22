@@ -34,7 +34,7 @@
             <img id="loadingImage" src ="images/loading.jpg"/>
 
             <div data-role="header" id="header" data-position="fixed"> 
-                <h3>WHAT ARE YOU IN THE MOOD FOR?</h3>
+                <h3>TABLETRIBES</h3>
 
                 <!-- This is the  to initiate side panels-->
                 <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
@@ -62,7 +62,8 @@
                 <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
                     
                     <li data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
-                        <h2>WHAT DO YOU WANT TO TALK ABOUT?</h2>
+                        <h2>WHAT'S ON YOUR MIND THESE DAYS?</h2>
+                        <h3>CHOOSE UPTO 3 TAGS</h3>
                         <form>
                             <fieldset id="topicsList" data-role="controlgroup" data-mini="true"> 
                                
@@ -76,10 +77,10 @@
                     <li id="timeMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
                         <h2 id="timeText" value="">WHEN?</h2>
                         <ul data-role="listview" data-mini="true">
-                            <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
-                            <li onclick="changeTimeHeading(60,'In an hour')"><a href="#">In an hour</a></li>
-                            <li onclick="changeTimeHeading(120,'In +2 hours')"><a href="#">In +2 hours</a></li>
-                            <li onclick="changeTimeHeading(0,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                            <!--<li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>-->
+                            <li onclick="changeTimeHeading(60,'LET\'S MEET NOW')"><a href="#">LET'S MEET NOW</a></li>
+                            <li onclick="changeTimeHeading(120,'I CAN GET TOGETHER IN FEW HOURS')"><a href="#">I CAN GET TOGETHER IN FEW HOURS</a></li>
+                            <li onclick="changeTimeHeading(0,'GET IN TOUCH WHENEVER, I\'M FLEXIBLE')"><a href="#">GET IN TOUCH WHENEVER, I'M FLEXIBLE</a></li>
                         </ul>
                     </li>
 
@@ -88,10 +89,10 @@
                     <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
                         <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
-                            <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
-                            <li onclick="changeWhereHeading(10,'Up to 0.5 miles (10 blocks)')"><a href="#">Up to 0.5 miles (10 blocks)</a></li>
-                            <li onclick="changeWhereHeading(20,'Up to 1 mile (20 blocks)')"><a href="#">Up to 1 mile (20 blocks)</a></li>
-                            <li onclick="changeWhereHeading(1000,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                            <!--<li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>-->
+                            <li onclick="changeWhereHeading(10,'I WANT TO STAY IN THE NEIGHBORHOOD < 1/2 MILE')"><a href="#">I WANT TO STAY IN THE NEIGHBORHOOD <I>< 1/2 MILE</I></a></li>
+                            <li onclick="changeWhereHeading(100,'I DON\'T MIND EXPLORING A LITTLE < 5 MILES')"><a href="#">I DON'T MIND EXPLORING A LITTLE <I>< 5 MILES</I></a></li>
+                            <li onclick="changeWhereHeading(300,'I\'M FLEXIBLE, JUST KEEP IT REASONABLE < 15 MILES')"><a href="#">I'M FLEXIBLE, JUST KEEP IT REASONABLE <I>< 15 MILES</I></a></li>
                         </ul>
                     </li>
                     
@@ -105,7 +106,7 @@
 
                 <!-- This div is the Find my people button. Inactive once clicked-->
                 <div id="findppl" style="text-align:center">
-                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #cc0000;">FIND MY PEOPLE</a>
+                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #cc0000;">WHO'S AROUND?</a>
                 </div>
 
 
