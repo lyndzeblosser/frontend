@@ -5,6 +5,7 @@ var sortId = [];
 var imgURL = null;
 //var userType = null;
 var homeLat, homeLng;
+var userid;
 
 function tagsValidation ()
 {
@@ -55,13 +56,13 @@ function submitForm()
         success: function(data, textStatus, jqXHR)
         {
             console.log("Registration Form Submitted Successfully!");
-            var userid = $("#email").val();
-            console.log(selectedTopic);
+            console.log(userid);
+            console.log("userhash returned: " + data);
 //            addUserTags(userid, sortId);
             addUserHomeLocation(userid, homeLat, homeLng);
-            $("#successfulRegistrationPopup").popup("open");
+//            $("#successfulRegistrationPopup").popup("open");
             alert("Registration Successfull!");
-            window.location.href = "mood.html";
+            window.location.href = "mood.html?loggedinuser=" + data;
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
@@ -186,9 +187,12 @@ function getUrlParams(){
 $(document).ready(function()
 {
     $(function() {
-    $( "#DOB" ).datepicker(
-            {maxDate: "-18y" }
-            );
+    $( "#dateOfBirth" ).datepicker(
+            {maxDate: "-18y",
+             changeMonth: true,
+             changeYear: true,
+            });
+    $( "#dateOfBirth" ).datepicker("option", "dateFormat", "yy-mm-dd");
   });
     $("#loadingImage").hide();
     $(".loggedInFields").css("display", "none")
@@ -211,7 +215,14 @@ $(document).ready(function()
             $("#firstName").attr("value",name.substring(0,index))
             $("#lastName").attr("value",name.substring(index+1))
         }
-            
+        if((getParameterByName('image_url')!="")){
+           $("#imageMasterLocation").attr("value",getParameterByName('image_url'));
+//            $.cloudinary.image(info.cdnUrl, { width: 100, height: 150, crop: 'fill' });
+//            $(".imgUploadDIV").hide();
+        imgURL = getParameterByName('image_url');
+        $("#previewIMG").show();
+            $("#previewIMG").attr("src",getParameterByName('image_url'));
+        }    
         $("#password").attr("value","dummy")
         $("#ConfirmPassword").attr("value","dummy")
         $("#password").prop('disabled', true);
@@ -273,7 +284,7 @@ $(document).ready(function()
     }
     else
     {
-
+    userid = $("#email").val();
     $("#registerPage2").show();
     $("#registerPage1").hide();
     $("#previewIMG").show();
