@@ -16,6 +16,9 @@ function form1Validated ()
     $("#registerPage1").hide();
     $("#previewIMG").show();
      $(".imgUploadDIV").hide();
+    $("#submitRegistrationButton").show(); 
+//     form2Validation();
+  //   return false;
     }
 function tagsValidation ()
 {
@@ -46,11 +49,10 @@ function tagsValidation ()
 function submitForm()
 {
     //event.preventDefault();
-    console.log("validate function1");
     // Get some values from elements on the page:
     $("#submitRegistrationButton").hide();
     $("#sendingRegistrationId").show();
-    var postData = $("#registerForm").serializeArray();
+    var postData = $("#registerForm,#registerForm2").serializeArray();
     if(additionalFields.length!=0){
         postData.push(additionalFields['platform'])
         postData.push(additionalFields['platformId'])
@@ -127,7 +129,7 @@ function submitForm()
 function form1Validation()
 {   
     $("#registerForm").validate(
-    {
+    { 
         rules: {
             homeTown: "required",
             email: {
@@ -154,14 +156,16 @@ function form1Validation()
             email: "Please enter a valid email address"
         },
         submitHandler: function(form) {
+            console.log("form1submitted");
             form1Validated();
+ //           return false;
         }
     });
 }
 function form2Validation()
-{   
-    $("#registerForm").validate(
-    {
+{   console.log("form2Validation");
+    $("#registerForm2").validate(
+    { 
         rules: {
             firstName: "required",
             lastName: "required",
@@ -177,7 +181,7 @@ function form2Validation()
             bio: "Please tell us something about you"
             },
         submitHandler: function(form) {
-            
+            console.log("form2submitted");
             submitForm();
         }
     });
@@ -222,6 +226,7 @@ $(document).ready(function()
     $("#loadingImage").hide();
     $(".loggedInFields").css("display", "none")
     $("#closeleftPanel").css("display", "none")
+    $("#submitRegistrationButton").hide();
     $("#sendingRegistrationId").hide();
     $("#registerPage2").hide();
 //    $("#imgValid").css("display", "none");
@@ -308,8 +313,8 @@ $(document).ready(function()
     
     $( "#submitRegistrationButton" ).click(function( event ) 
     {        
-        form2Validation ();
-        return true;
+        form2Validation();
+ 
     });
     $( "#nextPageButton" ).click(function() 
     {   
@@ -328,6 +333,8 @@ else
     $("#registerPage1").show();
     $("#previewIMG").show();
     $(".imgUploadDIV").hide();
+    $("#submitRegistrationButton").hide();
+//    page1Display = true;
     });
 
     startUploadImage();
