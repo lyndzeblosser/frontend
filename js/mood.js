@@ -26,7 +26,11 @@ $(document).ready(function(){
     window.location.href = url; 
     }
     
-  
+    $('#topicsForm :checkbox').click(function() {
+    if (checkUserTagsCap()) {
+        $(this).prop('checked', false);
+    };
+    });
 })
 
 function getParameterByName(name) 
@@ -96,6 +100,14 @@ function changeWhereHeading(value,text){
     
 }
 
+function checkUserTagsCap () {
+    if(($('input[type=checkbox]:checked').length > 3))
+    {
+       alert("Sorry but only 3 topics can be selected");
+        return true; 
+    }
+}
+
 function autoCompleteLocation(){
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
     if (navigator.geolocation)
@@ -154,8 +166,8 @@ function getUrlParams(){
     else{
     if($("input[data-cacheval=\"false\"]").length>3)
     {
-       alert("Sorry but only 3 topics can be selected");
-        return null; 
+//       alert("Sorry but only 3 topics can be selected");
+//        return null; 
     }
         else{
         sortId = [];
