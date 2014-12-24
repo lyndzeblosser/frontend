@@ -240,7 +240,7 @@ h4 {
 
 /* style for the dropdown filter items */
 [data-role="listview"] .time li a:hover {
-	background-color: #ffbb00;
+	background-color: #88ccc1;
 	color: #ffffff;
         font-family: PT Sans Narrow;
         font-size: 17px;
@@ -249,7 +249,7 @@ h4 {
 }
 
 [data-role="listview"] .place li a:hover {
-	background-color: #88ccc1;
+	background-color: #424A49;
 	color: #ffffff;
          font-family: PT Sans Narrow;
          font-size: 17px;
@@ -280,7 +280,6 @@ h4 {
 
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
-  background: #333333 !important;
     font-family: Helvetica;
    font-size: 17px;
    line-height: 25px;
@@ -292,7 +291,7 @@ h4 {
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-  background: #cc0000 !important;
+  color: #cc0000 !important;
     font-family: Helvetica;
    font-size: 17px;
    text-shadow: none;

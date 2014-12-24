@@ -75,7 +75,7 @@ function getTopics()
         dataType: "json",
         success: function (data){
             for(var i=0;i<data.length;i++){
-                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"background-color:#cc0000; color:#ffffff;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
+                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"color:#B3AFA5;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
             }
         }
     });
@@ -188,7 +188,7 @@ function getUrlParams(){
     }
     
     if(isLoggedIn){
-        url+="&userid="+userId
+        url+="&userid="+$.session.get('userHash')
     }
     
     return url;
