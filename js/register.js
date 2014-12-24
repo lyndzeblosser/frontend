@@ -180,8 +180,8 @@ function form2Validation()
         messages: {
             firstName: "Please enter your First Name",
             lastName: "Please enter your Last Name",
-            dateOfBirth: "Please tell us how young you feel",
-            bio: "Please tell us something about you"
+            dateOfBirth: "How young do you feel?",
+            bio: "Of course we realize you can always fall back on your good looks, but this bio is used to give people a sense of your personality."
             },
         submitHandler: function(form) {
             console.log("form2submitted");
