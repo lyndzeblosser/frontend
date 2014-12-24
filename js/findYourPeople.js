@@ -87,7 +87,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     users[i]["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
                     users[i]["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
                     users[i]["userId"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
-                    users[i]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString() + " " + JSON.parse(JSON.stringify(data[i])).lastname.toString();
+                    users[i]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
                     users[i]["bio"] = JSON.parse(JSON.stringify(data[i])).bio.toString();
                     if (data[i].date_of_birth != null) {
                          users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
