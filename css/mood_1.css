@@ -301,9 +301,7 @@ h4 {
 }
 
 
-
-
-.panel1 .ui-collapsible-heading .ui-btn {
+.panel0 .ui-collapsible-heading .ui-btn {
     background-color: #333333;
     color:#ffffff;
     font-family: PT Sans Narrow;
@@ -316,7 +314,7 @@ h4 {
     
 }
 
-.time .ui-collapsible-heading .ui-btn {
+.panel1 .ui-collapsible-heading .ui-btn {
     background-color: #ffbb00;
     color:#ffffff;
     font-family: PT Sans Narrow;
@@ -324,14 +322,27 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 17px;
-    text-transform: uppercase;
+   
+    
+    
 }
 
-.place .ui-collapsible-heading .ui-btn {
+.time .ui-collapsible-heading .ui-btn {
     background-color: #88ccc1;
     color:#ffffff;
     font-family: PT Sans Narrow;
     border-color: #88ccc1;
+    text-shadow: none;
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.place .ui-collapsible-heading .ui-btn {
+    background-color: #424A49;
+    color:#ffffff;
+    font-family: PT Sans Narrow;
+    border-color: #424A49;
     text-shadow: none;
     text-align: center;
     font-size: 17px;
