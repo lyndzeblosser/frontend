@@ -78,7 +78,10 @@ function submitForm()
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            console.log("Registration Form was not Submitted!");
+//            console.log("Registration Form was not Submitted!");
+            alert("Registration Failed. " + jqXHR.responseText);   
+            window.location.href = "login.html";
+            
         },
         done: function()
         {
