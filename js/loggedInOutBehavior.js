@@ -103,17 +103,16 @@ function getUserProfile () {
                     {
                         data = data[0]
                         console.log(data)
-                        document.getElementById("LeftPanelFirstName").value = data["firstname"];
+                        document.getElementById("LeftPanelFirstName").value = data["firstname"]; 
+                        //+ data["lastname"];
                         document.getElementById("LeftPanelLastName").value = data["lastname"];
-                        document.getElementById("LeftPanelEmailAddress").value = data["userid"];
+                    //    document.getElementById("LeftPanelEmailAddress").value = data["userid"];
                         document.getElementById("LeftPanelBio").value = data["bio"];
+                        console.log("image master location");
                         console.log(data["imageMasterLocation"]);
-                        console.log(data["userType"]);
                         $.session.set('userType', data["userType"]);
 
                         document.getElementById("LeftPanelProfileImage").src = data["imageMasterLocation"];
-//                        document.getElementById("test111").css('background-image',data["imageMasterLocation"]);
-//                        body.css("a.ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom",data["imageMasterLocation"]);
                                               
                     },
                     error: function(error, message)
