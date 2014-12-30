@@ -220,9 +220,49 @@ fieldset .ui-grid-b  {
     border: solid 1px #cc0000;
 }
 
-.preferredLocation {
+.userTag1 {
     float: left;
     margin-left: 13px;
+    color: #cc0000;
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+}
+.userTag2 {
+    float: left;
+    margin-left: 30px;
+    color: #cc0000;
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: bolder;
+     text-transform: uppercase;
+}
+.userTag3 {
+    float: right;
+    margin-right: 13px;
+    color: #cc0000;
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: bolder;
+     text-transform: uppercase;
+}
+
+.preferredTime {
+    float: left;
+    margin-left: 13px;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+.preferredLocation {
+    float: left;
+    margin-left: 100px;
     color: #ffffff;
     font-size: 13px;
     font-family: Helvetica;
@@ -343,6 +383,7 @@ img#LeftPanelProfileImage {
 }
 
 .biodiv {
+    text-align: center;
 height:105px;
 }
 

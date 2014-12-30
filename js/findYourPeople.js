@@ -13,6 +13,7 @@ $(document).ready(function ()
     var parameter = parameters.split("?");
     loggedInLoggedOutBehavior();
     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
+    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
 });
 
@@ -147,7 +148,20 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
     
 }
 
+function getTopicNames(tags)
+{
+    $.ajax({
+        url: "https://ancient-falls-9049.herokuapp.com/credentialService/getTagNames?tags=" + tags,
+        async: false,
+        dataType: "json",
+        success: function (data){
+            for(var i=0;i<data.length;i++){
+                $("#tag"+i).text((JSON.parse(JSON.stringify(data[i])).tagName.toString()));
+            }
+        }
+    });
 
+}
 
 function loadUser(id){
     loadedUser=id;
@@ -208,15 +222,12 @@ function fillBaseDetails(lat,lng,radius,activity,time){
 function getTimeStringFromValue(time){
     switch(time){
         case 0:
-            return "I\'m Flexible";
-            break;
-        case 20:
-            return "In 20 minutes";
+            return "FLEXIBLE";
             break;
         case 60:
-            return "In an hour";
+            return "NOW";
         case 120:
-            return "In +2 hours";
+            return "IN FEW HOURS";
         default:
             return "N/A"
     }
@@ -224,16 +235,13 @@ function getTimeStringFromValue(time){
 
 function getRadiusStringFromValue(radius){
     switch(radius){
-        case 5:
-            return "Less than 250 ft (1 block)";
-            break;
         case 10:
-            return "Up to 0.5 miles (10 blocks)";
+            return "NEIGHBORHOOD";
             break;
-        case 20:
-            return "Up to 1 mile (20 blocks)";
-        case 1000:
-            return "I\'m Flexible";
+        case 100:
+            return "EXPLORE A LITTLE";
+        case 300:
+            return "FLEXIBLE";
         default:
             return "N/A"
     }

@@ -48,19 +48,32 @@
                 
 
                 <div data-position="fixed" data-tap-toggle="false" class="profilebio">
-                    <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName">NAME</h3>
-                        <div data-tap-toggle="false" style="overflow-y:scroll; padding:0px; background-color:#ffffff; opacity:0.7;" class="biodiv"> <h4 id="bioText" style="color:#000; opacity:1;">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. Nulla porttitor ac orci nec tincidunt.</h4></div>
-                    </div>
+                    <div style="background-color:#cc0000; opacity:0.7;">
+                         <div data-role="footer" data-tap-toggle="false">
 
- <fieldset class="ui-grid-b" style="border:1px solid #cc0000; background:#ffffff; margin-top:2px;">
+                            <div id="TAG" style="text-shadow: none;">
+                             <div id="tag0" class="userTag1"></div>
+                             <div id="tag1" class="userTag2"></div>
+                             <div id="tag2" class="userTag3"></div>
+                             <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+                <fieldset class="ui-grid-b" style="border:1px solid #cc0000; background:#ffffff; margin-top:2px;">
                     <div class="ui-block-a" class="AddButton"><input id="addButton" type="image" src="images/addprofile.svg"/></div>
                     <div class="ui-block-b" class="MoveOnButton"><input id="moveOnButton" type="image" src="images/moveon.svg"/></div>
                     <div class="ui-block-c" class="ConfirmButton"><input id="confirmButton" type="image" src="images/confirm.svg"/></div>
                 </fieldset>
-                </div><!-- /content -->
-               
+                        <div data-tap-toggle="false" style="overflow-y:scroll; padding:0px; background-color:#ffffff; opacity:0.7;" class="biodiv"> 
+                                                <div style="background-color:#ffffff; opacity:0.7;"><h3 id="userName">NAME</h3>
+                                                <h4 id="bioText" style="color:#000; opacity:1;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue ipsum, placerat vel gravida tempus, consequat sed ante. Nulla porttitor ac orci nec tincidunt.</h4></div>
+                    </div>
 
+               
 
             <!-- This div is for the left panel-->
             <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
@@ -115,22 +128,23 @@ We’re building something new, and as an early-stage startup, your participatio
 
                 <div data-role="footer" style="positoin:fixed" data-tap-toggle="false">
 
-                    <div id="BIO" style="background-color:#cc0000; text-shadow: none;">
+<!--                    <div id="BIO" style="background-color:#cc0000; text-shadow: none;">
                         <p id="location" class="preferredLocation"></p>
                         <p id="activity" class="preferredActivity"></p>
                         <div style="clear: both;"></div>
-                    </div>
+                    </div>-->
 
                     <div id="activityDetails" style="background-color:#999999; text-shadow:none;">
-                        <p id="time" class="preferredLocation"></p>
-                        <p id="radius" class="preferredActivity"></p>
+                        <p id="time" class="preferredTime"></p>
+                        <p id="radius" class="preferredLocation"></p>   
+                        <p id="activity" class="preferredActivity"></p>                        
+
                         <div style="clear: both;"></div>
                     </div>
 
 
 
                 </div> <!-Important-->
-
-            </div>
+        </div>
     </body>
 </html>
