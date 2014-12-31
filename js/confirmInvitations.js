@@ -4,6 +4,8 @@ $(document).ready(function()
 {
     $("#InvitesSentId").hide();
     $("#address").hide();
+    $("#dialog").hide();
+
 
  //   $("#loadingImage").hide();
 
@@ -254,11 +256,15 @@ function confirmInvite(){
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
-        if(status  == "success")
+        if(status  == "success") {
             alert ("Success! - Invitations sent out!");
-        else
+            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
             alert(data);
-        window.location.href = "mood.html"
+            sendToMoodPage();
+        }
     });
     $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
@@ -279,6 +285,12 @@ function changeWhereHeading(value,text){
     $("#whereText>a").text(text)
     $("#whereText").attr("value",value)
     
+}
+
+
+function sendToMoodPage() {
+    window.location.href = "mood.html"
+
 }
 //function getReverseGeocodingData(lat, lng) 
 //{
