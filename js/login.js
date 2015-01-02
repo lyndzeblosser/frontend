@@ -103,12 +103,13 @@ function validate(userid, password)
 //
 //    });
 
-    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials",
+   var jqxhr = $.post("http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials",
     {
         userid:userid,
         password:password
-    },
-    function(data,status){
+    })
+    
+            .done(function(data,status){
 //         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
         console.log("Data: " + data + "\nStatus: " + status);
         if (userid === 'NULL' || userid.length === 0)
@@ -123,7 +124,7 @@ function validate(userid, password)
         {
             if (status === 'success')
             {
-                alert("Welcome " + userid);
+//                alert("Welcome " + userid);
 //                $.session.set('userid', userid);
                 $.session.set('userHash', data);
                 if (getParameterByName("activity") != "")
@@ -131,12 +132,14 @@ function validate(userid, password)
                 else
                     window.location.href = "mood.html"
             }
-            else
+            else 
             {
                 alert(status);
             }
 
-        }
-
-    });
+            }
+         })
+            .fail(function(xhr, data, status){
+                    alert("Login Failed: " + xhr.responseText); 
+            });
 }
