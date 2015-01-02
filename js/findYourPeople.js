@@ -34,23 +34,23 @@ function getParameterByName(name)
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 // this function returns radius to show to user in bottom bar
-function getRadius(miles)
-{
-    //    console.log("getParameterByName: " + name);        
-    if (miles === '402') {
-        radius = 5;
-    }
-    else if (miles === '805') {
-        radius = 10;
-    }
-    else if (miles === '1610') {
-        radius = 20;
-    }
-    else if (miles === '80467') {
-        radius = 1000;
-    }
-    return radius;
-}
+//function getRadius(miles)
+//{
+//    //    console.log("getParameterByName: " + name);        
+//    if (miles === '402') {
+//        radius = 5;
+//    }
+//    else if (miles === '805') {
+//        radius = 10;
+//    }
+//    else if (miles === '1610') {
+//        radius = 20;
+//    }
+//    else if (miles === '80467') {
+//        radius = 1000;
+//    }
+//    return radius;
+//}
 
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
@@ -269,18 +269,15 @@ function codeLatLng(lat,lng) {
 function getRadius(selectedLocation) 
 {
 //    console.log("getParameterByName: " + name);        
-    radius = 0.724638;
-    if (selectedLocation == '5') {
-        radius = 402;
-    }
-    else if (selectedLocation == '10') {
+    radius = 5000;
+   if (selectedLocation == '10') {
         radius = 805;
     }
-    else if (selectedLocation == '20') {
-        radius = 1610;
+    else if (selectedLocation == '100') {
+        radius = 8050;
     }
-    else if (selectedLocation == '1000') {
-        radius = 80467;
+    else if (selectedLocation == '300') {
+        radius = 24150;
     }
     return radius;
 }
