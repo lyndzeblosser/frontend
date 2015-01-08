@@ -4,8 +4,8 @@ var users=[];
 var loadedUser;
 var totalSelected=0;
 var selectedUsers=[];
-
-
+var tableid=0;
+var usersSentInvite = 0;
 $(document).ready(function () 
 {
     			
@@ -120,16 +120,16 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
                 };
                     
-                confirmInvitation.onclick = function() {
-                    console.log('confirmInvitation clicked ');
-                    var selectedUsersString= getSUS();
-                    var selectedUsersNameString= getSUSN();
-                    if(selectedUsersString.length<1)
-                        alert ("Atleast 1 person has to be selected to send an invite. Please try again!"); 
-                    else
-                    window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags="+topics + "&inviteTime=" + selectedTime;
-
-                };
+//                confirmInvitation.onclick = function() {
+//                    console.log('confirmInvitation clicked ');
+//                    var selectedUsersString= getSUS();
+//                    var selectedUsersNameString= getSUSN();
+//                    if(selectedUsersString.length<1)
+//                        alert ("Atleast 1 person has to be selected to send an invite. Please try again!"); 
+//                    else
+//                    window.location.href = "confirmInvitations.html?latitude="+ latitude +"&longitude=" + longitude  + "&activity=" + activity + "&selectedUsers=" + selectedUsersString + "&selectedUserNames=" + selectedUsersNameString + "&commonTags="+topics + "&inviteTime=" + selectedTime;
+//
+//                };
 
                     
             }
@@ -168,7 +168,15 @@ function loadUser(id){
     body = $("#imageDiv");
     var initialImg = users[id]["image"];
     body.css("background-image","url("+initialImg+")");
-    var addButtonImg=users[id]["selected"]==0?"images/addprofile.svg":"images/removeprofile.svg";
+    
+    var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/removeprofile.svg";
+    if (users[id]["selected"]!=0) {
+        $("#addButton").prop("disabled",true);
+        console.log("User invite sent already");
+    }
+    else {
+        $("#addButton").removeAttr("disabled");
+    }
     $("#addButton").attr("src",addButtonImg)
     fillImgDetails(id)
     //
@@ -178,10 +186,18 @@ function addDeleteUser(){
     if(users[loadedUser]["selected"]==0 ){
         if(selectedUsers.length==3){
             alert("Sorry invites can be sent to only 3 people!")
-        }else{
+        }else if(selectedUsers.length >= 1){
             users[loadedUser]["selected"]=1;
             selectedUsers.push(loadedUser);
             loadUser(loadedUser);
+            addUserToTable(loadedUser);
+        }
+        
+        else{
+            users[loadedUser]["selected"]=1;
+            selectedUsers.push(loadedUser);
+            loadUser(loadedUser);
+            confirmInvite(loadedUser);
         }
     }else{
         users[loadedUser]["selected"]=0;
@@ -281,7 +297,101 @@ function getRadius(selectedLocation)
     }
     return radius;
 }
+function confirmInvite(i){
+    
+    var userName = users[i]["name"];
+    
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
+    {
+        user_from:$.session.get('userHash'),
+        user_to_1:users[i]["userId"],
+        activity:getParameterByName('activity'),
+//        invite_date:time['date'],
+//        invite_time:time['time'],
+        matching_tags:getParameterByName('topics'),
+        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+            alert ("Invite sent to " + userName);
+            tableid = data;
+            usersSentInvite = 1;
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+//            sendToMoodPage();
+        }
+    });
+   
 
 
+}
 
+function addUserToTable(i){
+    
+    var userName = users[i]["name"];
+    if (usersSentInvite == 1) {
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+    {
+        tableid:tableid,
+        user_from:$.session.get('userHash'),
+        user_to_2:users[i]["userId"],
+        activity:getParameterByName('activity'),
+//        invite_date:time['date'],
+//        invite_time:time['time'],
+        matching_tags:getParameterByName('topics'),
+        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+            alert ("Invite sent to " + userName);
+            usersSentInvite=2;
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+//            sendToMoodPage();
+        }
+    });
+        
+    }
+    else if (usersSentInvite == 2) {
+           $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+    {
+        tableid:tableid,
+        user_from:$.session.get('userHash'),
+        user_to_3:users[i]["userId"],
+        activity:getParameterByName('activity'),
+//        invite_date:time['date'],
+//        invite_time:time['time'],
+        matching_tags:getParameterByName('topics'),
+        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+            alert ("Invite sent to " + userName);
+            usersSentInvite=3;
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+//            sendToMoodPage();
+        }
+    }); 
+    }
+    
+   
+
+
+}
 

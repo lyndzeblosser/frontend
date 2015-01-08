@@ -124,7 +124,9 @@ function getResult()
     $("#address").attr("value",table['invite_location'])
     $("#dateString").html(table['invite_date'])
     getUserData();
-    $("#basicExample1").attr("value",table['invite_time'].slice(0,table['invite_time'].indexOf(":00 "))+" "+table['invite_time'].slice(table['invite_time'].indexOf(":00 ")+4))
+    if (table['invite_time'] != null) {
+        $("#basicExample1").attr("value",table['invite_time'].slice(0,table['invite_time'].indexOf(":00 "))+" "+table['invite_time'].slice(table['invite_time'].indexOf(":00 ")+4))
+    }
     prepareTagsDiv(table['matching_tags'])
     var noEmptyDivs = 3 - users.length;
     var userDivDataTop = "";

@@ -25,8 +25,9 @@ function prepareTableDiv(table) {
     user['image'] = userInfo['image']
     user['name'] = userInfo['name']
     user['actvity'] = table['activity']
-    user['time'] = table['invite_time'].slice(0, table['invite_time'].indexOf(":00 ")) + " " + table['invite_time'].slice(table['invite_time'].indexOf(":00 ") + 4)
-   
+    if (table['invite_time'] != null ) {
+        user['time'] = table['invite_time'].slice(0, table['invite_time'].indexOf(":00 ")) + " " + table['invite_time'].slice(table['invite_time'].indexOf(":00 ") + 4)
+    }
     user['location'] = table['invite_location']
     user['tags'] = getTagsDiv(table['matching_tags'])
     user['accepts'] = getAccepts(table)
