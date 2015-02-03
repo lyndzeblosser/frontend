@@ -34,7 +34,7 @@
             <img id="loadingImage" src ="images/loading.jpg"/>
 
             <div data-role="header" id="header" data-position="fixed"> 
-                <h3>WHAT ARE YOU IN THE MOOD FOR?</h3>
+                <h3>TABLETRIBES</h3>
 
                 <!-- This is the  to initiate side panels-->
                 <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
@@ -43,16 +43,17 @@
 
 
 
-            <div role="main" class="ui-content jqm-content jqm-fullwidth activitypanel"> <!-- Important-->
-
-                <!-- This is the preference panel div-->
-                <div data-role="controlgroup" data-type="horizontal" style="text-align:center; padding: 0px; margin: 0px; width:100%">
+            <div role="main" class="ui-content jqm-content jqm-fullwidth activitypanel"> 
+                <div data-role="collapsible" data-collapsed="false" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel0">
+                   <h2>COFFEE, DRINKS, FOOD?</h2>
+                   <div data-role="controlgroup" data-type="horizontal" style="text-align:center; padding: 0px; margin: 0px; width:100%">
 
                     <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="coffee" style="background:#ffffff;"><img src="images/coffee.svg" class="coffee"></a>
                     <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;"><img src="images/drinks.svg" class="drinks"></a>
                     <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;"><img src="images/dine.svg" class="dine"></a>
                   
                 </div>
+               </div>
             </div>
             
              <div role="main" class="ui-content jqm-content jqm-fullwidth" style="padding-top:0px">
@@ -61,9 +62,10 @@
                 <!-- This is the the preference form div-->
                 <ul data-role="listview" style="margin-bottom:10px; padding-top: 10px;" data-mini="true">
                     
-                    <li data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#333333;" class="panel1">
-                        <h2>WHAT DO YOU WANT TO TALK ABOUT?</h2>
-                        <form>
+                    <li data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u" data-iconpos="right" data-inset="false" data-mini="true" style="background-color:#ffbb00;" class="panel1">
+                        <h2>WHAT'S ON YOUR MIND?</h2>
+                        <h3>CHOOSE UPTO 3 TAGS</h3>
+                        <form id="topicsForm">
                             <fieldset id="topicsList" data-role="controlgroup" data-mini="true"> 
                                
 
@@ -73,25 +75,25 @@
 
 
 
-                    <li id="timeMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#ffbb00;">
+<!--                    <li id="timeMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="time" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
                         <h2 id="timeText" value="">WHEN?</h2>
                         <ul data-role="listview" data-mini="true">
                             <li onclick="changeTimeHeading(20,'In 20 minutes')"><a href="#">In 20 minutes</a></li>
-                            <li onclick="changeTimeHeading(60,'In an hour')"><a href="#">In an hour</a></li>
-                            <li onclick="changeTimeHeading(120,'In +2 hours')"><a href="#">In +2 hours</a></li>
-                            <li onclick="changeTimeHeading(0,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                            <li onclick="changeTimeHeading(60,'LET\'S MEET NOW')"><a href="#">LET'S MEET NOW</a></li>
+                            <li onclick="changeTimeHeading(120,'I CAN GET TOGETHER IN FEW HOURS')"><a href="#">I CAN GET TOGETHER IN FEW HOURS</a></li>
+                            <li onclick="changeTimeHeading(0,'GET IN TOUCH WHENEVER, I\'M FLEXIBLE')"><a href="#">GET IN TOUCH WHENEVER, I'M FLEXIBLE</a></li>
                         </ul>
-                    </li>
+                    </li>-->
 
 
 
-                    <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#88ccc1;">
+                    <li id="whereMenu" data-role="collapsible" data-collapsed-icon="arrow-d ui-nodisc-icon" data-expanded-icon="arrow-u ui-nodisc-icon" data-iconpos="right" class="place" data-inset="false" data-mini="true" style="background-color:#424A49;">
                         <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
-                            <li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>
-                            <li onclick="changeWhereHeading(10,'Up to 0.5 miles (10 blocks)')"><a href="#">Up to 0.5 miles (10 blocks)</a></li>
-                            <li onclick="changeWhereHeading(20,'Up to 1 mile (20 blocks)')"><a href="#">Up to 1 mile (20 blocks)</a></li>
-                            <li onclick="changeWhereHeading(1000,'I\'m flexible')"><a href="#">I'm flexible</a></li>
+                            <!--<li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>-->
+                            <li onclick="changeWhereHeading(10,'NEIGHBORHOOD < 1/2 MILE')"><a href="#">NEIGHBORHOOD <I>< 1/2 MILE</I></a></li>
+                            <li onclick="changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES')"><a href="#">EXPLORE A LITTLE<I>< 5 MILES</I></a></li>
+                            <li onclick="changeWhereHeading(300,'FLEXIBLE < 15 MILES')"><a href="#">FLEXIBLE<I>< 15 MILES</I></a></li>
                         </ul>
                     </li>
                     
@@ -105,7 +107,7 @@
 
                 <!-- This div is the Find my people button. Inactive once clicked-->
                 <div id="findppl" style="text-align:center">
-                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #cc0000;">FIND MY PEOPLE</a>
+                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #cc0000;">WHO'S AROUND?</a>
                 </div>
 
 
@@ -122,29 +124,14 @@
             <!-- This div is for the left panel-->
             <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
                 <ul data-role="listview">
-                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
-
-                    <div style="text-align:center;" > 
-                        <img src="" id="LeftPanelProfileImage"/>
-                    </div>
-   <!--a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a-->
-                 
-                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
-                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
-                    <!-- <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="" style="color:blue; font-weight: bold;"> -->
-
-                    <!--label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-                    <input name="changePassword" id="LeftPanelChangePassword" placeholder="Change Password" value="" type="text"-->
-
-                    <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS</a></li>                   
+                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <p id="welcomemsg">Welcome to TableTribes!</p>
 
                 </ul>
 
