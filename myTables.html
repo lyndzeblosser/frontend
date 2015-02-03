@@ -49,29 +49,14 @@
             <!-- This div is for the left panel-->
             <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
                 <ul data-role="listview">
-                    <li data-icon="profile"><a href="#" data-rel="close"><h4>PROFILE</h4></a></li>
-
-                    <div style="text-align:center;" > 
-                        <img src="" id="LeftPanelProfileImage"/>
-                    </div>
-   <!--a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a-->
-                 
-                    <label for="firstName" class="ui-hidden-accessible">First Name</label>
-                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <label for="lastName" class="ui-hidden-accessible">Last Name</label>
-                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
-                    <!-- <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="" style="color:blue; font-weight: bold;"> -->
-
-                    <!--label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-                    <input name="changePassword" id="LeftPanelChangePassword" placeholder="Change Password" value="" type="text"-->
-
-                    <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
-
-                    <div style="text-align:center";><img src="images/panel-logoicon.png"></div>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS</a></li>                   
+                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <p id="welcomemsg">Welcome to TableTribes!</p>
 
                 </ul>
 
