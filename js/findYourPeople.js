@@ -13,7 +13,7 @@ $(document).ready(function ()
     var parameter = parameters.split("?");
     loggedInLoggedOutBehavior();
     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
-    getTopicNames(getParameterByName('topics'));
+//    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
 });
 
@@ -21,6 +21,7 @@ function fillImgDetails(id){
     $("#userName").text(users[id]["name"]);
       
     $("#bioText").text(users[id]["bio"]);
+    getTopicNames(users[id]["commonTags"]);
 
     
     
@@ -93,7 +94,11 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     if (data[i].date_of_birth != null) {
                          users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
                      }
+                    
+                    users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
+                     
                     users[i]["selected"] = 0;
+                    
                     
                     console.log(users[i])
                
