@@ -66,10 +66,10 @@ function getTagsDiv(tags1) {
 }
 
 function getTableData() {
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" + $.session.get('userHash'))
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getMyPastTables?userid=" + $.session.get('userHash'))
     $.ajax(
             {
-                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" + userid,
+                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getMyPastTables?userid=" + userid,
                 async: false,
                 dataType: "json",
                 success: function(data)

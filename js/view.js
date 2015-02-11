@@ -2,12 +2,15 @@ var table,tags=[],userid,inviteUsers=[],users=[];
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
+    $("#InvitesSentId").hide();
+
     userid = getParameterByName('user_from');
 
     getTableData(getParameterByName('tableid'))
     getTags();
     getResult();
     loggedInLoggedOutBehavior();
+    autoCompleteLocation();
    // $("#main").html(prepareTablesDiv())
 
 });
@@ -125,7 +128,7 @@ function getResult()
     $("#dateString").html(table['invite_date'])
     getUserData();
     if (table['invite_time'] != null) {
-        $("#basicExample1").attr("value",table['invite_time'].slice(0,table['invite_time'].indexOf(":00 "))+" "+table['invite_time'].slice(table['invite_time'].indexOf(":00 ")+4))
+        $("#inviteTimePicker").attr("value",table['invite_time'].slice(0,table['invite_time'].indexOf(":00 "))+" "+table['invite_time'].slice(table['invite_time'].indexOf(":00 ")+4))
     }
     prepareTagsDiv(table['matching_tags'])
     var noEmptyDivs = 3 - users.length;
@@ -204,4 +207,81 @@ function prepareTagsDiv(inviteTags){
         html+="<label style=\"background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+tags[inviteTags[i]]+"<input type=\"checkbox\"></label>"
     }
     $("#tags").html(html);
+}
+
+function getTimeData(){
+   var date= $('#inviteTimePicker').timepicker('getTime',[ new Date()]);
+   var time=[]
+   time['date']=date.getUTCFullYear()+'-'+((date.getUTCMonth()+1)<10?'0'+(date.getUTCMonth()+1):(date.getUTCMonth()+1))+'-'+(date.getUTCDate()<10?'0'+date.getUTCDate():date.getUTCDate())
+   time['time']=date.getHours()+":"+date.getMinutes()+":00"
+   return time;
+}
+
+function confirmTable(){
+    var time=getTimeData();
+//    console.log("length = "+$('#whereText').attr("value").length);
+//    if($('#whereText').attr("value").length < 1)
+//    {
+//        alert("Please selecte from the various Table Tribes Zone Areas to meet!");
+//        return false;
+//    }
+    $("#confirmInvitesButtonId").hide();
+    $("#InvitesSentId").show();
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/confirmTable",
+    {
+        user_from:$.session.get('userHash'),
+        user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
+        user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
+        user_to_3:typeof users[2]=="undefined"?"":users[2]['id'],
+        tableid:getParameterByName('tableid'),
+        invite_date:time['date'],
+        invite_time:time['time'],
+//        matching_tags:getParameterByName('commonTags'),
+        invite_location:$('#address').attr("value")
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+            alert ("Success! - Invitations sent out!");
+            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+            sendToMoodPage();
+        }
+    });
+    $("#confirmInvitesButtonId").hide();
+    $("#InvitesSentId").show();
+
+
+}
+
+function autoCompleteLocation(){
+    autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
+//    if (navigator.geolocation)
+//    {
+//        navigator.geolocation.getCurrentPosition(function(position){
+//            currentLat = position.coords.latitude;
+//            currentLng = position.coords.longitude;
+//            $("#address").attr("placeholder", "Value set to your current location")
+//            if (typeof $.session.get('userHash') != "undefined")
+//            {
+//                console.log("Update live location for user:" + $.session.get('userHash'));
+//                updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
+//            }
+//        })
+//    }
+    
+    google.maps.event.addListener(autoComplete, 'place_changed', function()
+    {
+        var place = autoComplete.getPlace();
+        currentLat = place.geometry.location.lat();
+        currentLng = place.geometry.location.lng();
+        console.log(currentLat, currentLng);
+        console.log(place.formatted_address);
+
+        $("#address").attr("value",place.formatted_address);
+    });
 }

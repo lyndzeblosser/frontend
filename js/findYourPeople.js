@@ -305,14 +305,29 @@ function getRadius(selectedLocation)
 function confirmInvite(i){
     
     var userName = users[i]["name"];
+    var oldDateObj = new Date();
+    
+    var d = new Date();
+    var ud = new Date(d.getTime() + 30*60000)
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+    var h = ud.getHours();
+    var m = ud.getMinutes();
+    var s = ud.getSeconds();
+
+    var inviteDate = d.getFullYear() + '-' +
+    ((''+month).length<2 ? '0' : '') + month + '-' +
+    ((''+day).length<2 ? '0' : '') + day;
+    
+    var inviteTime = h + ":" + m + ":" + s;
     
     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userHash'),
         user_to_1:users[i]["userId"],
         activity:getParameterByName('activity'),
-//        invite_date:time['date'],
-//        invite_time:time['time'],
+        invite_date:inviteDate,
+        invite_time:inviteTime,
         matching_tags:getParameterByName('topics'),
         invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
 

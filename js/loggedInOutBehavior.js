@@ -1,9 +1,9 @@
 var isLoggedIn,userId;
 
 $(document).ready(function(){
-    $("#myTable").click(function()
+    $("#myTablesToBeConfirmed").click(function()
     {
-       window.location.href = "myTables.html";
+       window.location.href = "myTablesToBeConfirmed.html";
     });
     
     $("#invites").click(function()
@@ -14,6 +14,14 @@ $(document).ready(function(){
     $("#home").click(function()
     {
        window.location.href = "mood.html";
+    });
+    $("#myUpcomingTables").click(function()
+    {
+       window.location.href = "myUpcomingTables.html";
+    });
+    $("#myPastTables").click(function()
+    {
+       window.location.href = "myPastTables.html";
     });
 });
 
@@ -32,14 +40,29 @@ function getInvitations()
 
 }
 
-function getMyTable()
+function getMyTablesToBeConfirmed()
 {
     $.ajax({
-            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserTables?userid=" +userId,
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getMyTablesToBeConfirmed?userid=" +userId,
             async: false,
             dataType: "json",
             success: function (data){
                  $("#tableNo").text(data.length)
+            }
+        });
+ 
+
+
+}
+
+function getMyUpcomingTables()
+{
+    $.ajax({
+            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getMyUpcomingTables?userid=" +userId,
+            async: false,
+            dataType: "json",
+            success: function (data){
+                 $("#upComingTableNo").text(data.length)
             }
         });
  
@@ -64,7 +87,8 @@ function loggedInLoggedOutBehavior(){
         $(".loggedOutFields").css("display","none")    
         userId=$.session.get('userHash');
         getInvitations()
-        getMyTable();
+        getMyTablesToBeConfirmed();
+        getMyUpcomingTables();
         getUserProfile ();
 
         if(hasDeviceInfo){

@@ -19,11 +19,17 @@
         <script src="js/view.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script src="js/jQuery.timepicker.js"></script>
-        <script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker.css" />
         <script>
-             
-        </script>    
+             $(function() {
+                    var timeInMs=(new Date()).getTime()+getParameterByName('inviteTime')*60*1000;
+                    var date=new Date(timeInMs)
+                    var dateString=(date.getUTCMonth()+1)+"-"+date.getUTCDate()+"-"+date.getUTCFullYear()
+                    $('#inviteTimePicker').timepicker({ 'step': 15 });
+//                    $('#inviteTimePicker').timepicker('setTime', date);
+                    $('#dateString').text(dateString)
+                });
+  
+        </script>      
 
         <link rel="stylesheet" type="text/css" href="css/view.css">
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/viewipad.css">
@@ -73,7 +79,7 @@
                                     
                                     <label for="select-native-11"></label>
                                     <div style="position:relative;">
-                                    <input id="basicExample1" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:#cc0000;" disabled>
+                                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:#cc0000;">
                                    
                                 </fieldset>
                             </form>
@@ -83,13 +89,18 @@
 
 
                 <label for="location" class="ui-hidden-accessible">Location:</label>
-                <input id="address" name="location"  placeholder="Location" value="" type="text" disabled>
+                <input id="address" name="location"  placeholder="Location" value="" type="text">
 
-                <div style="text-align:center; padding-top:5%">
+<!--                <div style="text-align:center; padding-top:5%">
                     <p style="float: left; margin-left:10px;" class="activitypicc"><img id="actpic" src="images/coffeeinvertbig.png" class="actpic" style="border: dotted 1px#b42723;"></p>
 
-            </div><!-- /content -->
+            </div> /content -->
+                <div style="text-align:center; padding-top:5%">
+                    <p style="float: left; margin-left:5%;" class="activitypicc"><img id="actpic" src="images/coffeeinvert.svg" class="actpic" style="border: dotted 1px #cc0000;"></p>
 
+                    <a href="#" id = "confirmInvitesButtonId" class="confirminvitesButton" onclick="confirmTable()" style="color:#ffffff; background-color: #cc0000;">CONFIRM TABLE</a>
+                    <a id = "InvitesSentId" class="confirminvitesButton" style="color:#ffffff; background-color: #cc0000; line-height: 40px; font-family: PT Sans;">CONFIRMING TABLE ... </a>
+                </div>
 
 
             <!-- This div is for the left panel-->
