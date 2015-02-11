@@ -15,6 +15,7 @@ $(document).ready(function(){
     {
        window.location.href = "mood.html";
     });
+<<<<<<< HEAD
     $("#myUpcomingTables").click(function()
     {
        window.location.href = "myUpcomingTables.html";
@@ -39,7 +40,8 @@ $(document).ready(function(){
     {
 //       window.location.href = "mood.html";
     });
-//    loggedInLoggedOutBehavior();
+    loggedInLoggedOutBehavior();
+
 });
 
 function getInvitations()
