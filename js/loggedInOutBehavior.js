@@ -23,6 +23,23 @@ $(document).ready(function(){
     {
        window.location.href = "myPastTables.html";
     });
+    $("#LeftPanelProfile").click(function()
+    {
+       window.location.href = "profile.html";
+    });
+    $("#LeftPanelTopicTags").click(function()
+    {
+ //      window.location.href = "mood.html";
+    });
+    $("#LeftPanelConnectMeTo").click(function()
+    {
+  //     window.location.href = "mood.html";
+    });
+    $("#LeftPanelLinkAccounts").click(function()
+    {
+//       window.location.href = "mood.html";
+    });
+//    loggedInLoggedOutBehavior();
 });
 
 function getInvitations()
@@ -127,11 +144,13 @@ function getUserProfile () {
                     {
                         data = data[0]
                         console.log(data)
-                        document.getElementById("LeftPanelFirstName").value = data["firstname"]; 
+                        document.getElementById("LeftPanelFirstName").value = data["firstname"]+" " +data["lastname"]; 
                         //+ data["lastname"];
-                        document.getElementById("LeftPanelLastName").value = data["lastname"];
+//                        document.getElementById("LeftPanelLastName").value = data["lastname"];
                     //    document.getElementById("LeftPanelEmailAddress").value = data["userid"];
                         document.getElementById("LeftPanelBio").value = data["bio"];
+                        document.getElementById("LeftPanelBirthday").value = data["date_of_birth"];
+                        document.getElementById("LeftPanelCity").value = data["hometown"];
                         console.log("image master location");
                         console.log(data["imageMasterLocation"]);
                         $.session.set('userType', data["userType"]);
