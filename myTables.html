@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tabletribes</title> 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+
+
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+        <script src="js/jquery.session.js"></script>
+        <script src="js/loggedInOutBehavior.js"></script>
+        <script src="js/myTables.js"></script>
+
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+        
+        
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:700,400' rel='stylesheet' type='text/css'>
+        <link href="//fonts.googleapis.com/css?family=PT+Sans Narrow:400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/myTables.css">
+        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/myTablesipad.css">
+    </head>
+
+    <body>
+
+        <div data-role="page" data-theme="a">
+
+            <div data-role="header" id="header" data-position="fixed"> 
+                <h3>MY TABLES</h3>
+
+                <!-- This is the  to initiate side panels-->
+                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-left:5px; margin-top:5px;">Menu</a>
+                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000;  margin-right:5px; margin-top:5px;">Add</a>
+            </div><!-- /header -->
+
+
+
+            <div id="main" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+                
+
+            </div><!-- /content -->
+
+
+            <!-- This div is for the left panel-->
+            <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS</a></li>                   
+                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <p id="welcomemsg">Welcome to TableTribes!</p>
+
+                </ul>
+
+            </div><!-- left panel -->
+
+
+            <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff; text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                     <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
+                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                    <li class="loggedInFields" data-icon="bell"><a id="invites">Respond To Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
+                   
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+<p id="welcomemsg">Welcome to TableTribes!</p><p id="vision"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
+
+We’re building something new, and as an early-stage startup, your participation in our survey during this beta phase is crucial to us right now because it gives us feedback on how to make it better.<br><br><a href="https://www.surveymonkey.com/s/TTbeta_mediarise" style="text-decoration: none;">Go To Survey</a> <br>
+
+<br>Thank you for being part of this journey!</p>
+
+                </ul>
+            </div><!--  right panel -->
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
+        </div>
+    </body>
+</html>
