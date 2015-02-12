@@ -74,12 +74,13 @@ function activitiesImages(){
 function getTopics()
 {
     $.ajax({
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
+        url: "login/getTrends.php",
         async: false,
         dataType: "json",
-        success: function (data){
+        success: function (trends){
+            data = trends[0]["trends"]
             for(var i=0;i<data.length;i++){
-                $("#topicsList").append("<label id=\"tag"+data[i]["tagId"]+"label\" style=\"color:#B3AFA5;\">"+data[i]["tagName"]+"<input id=\"tag"+data[i]["tagId"]+"\" value=\""+data[i]["tagId"]+"\"  type=\"checkbox\"></label>");
+                $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+data[i]["name"]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(data[i]["name"]).html()+"\"  type=\"checkbox\"></label>");
             }
         }
     });
