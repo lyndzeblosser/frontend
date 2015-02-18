@@ -21,7 +21,7 @@ function fillImgDetails(id){
     $("#userName").text(users[id]["name"]);
       
     $("#bioText").text(users[id]["bio"]);
-    getTopicNames(users[id]["commonTags"]);
+ //   getTopicNames(users[id]["commonTags"]);
 
     
     
@@ -95,7 +95,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                          users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
                      }
                     
-                    users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
+       //             users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
                      
                     users[i]["selected"] = 0;
                     

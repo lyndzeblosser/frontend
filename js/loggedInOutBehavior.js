@@ -107,7 +107,7 @@ function loggedInLoggedOutBehavior(){
         getInvitations()
         getMyTablesToBeConfirmed();
         getMyUpcomingTables();
-        getUserProfile ();
+//        getUserProfile ();
 
         if(hasDeviceInfo){
             console.log("Updating device info for user:" + userId + "with deviceToken:" + $.session.get('deviceToken') + "and iOSVersion:" + $.session.get('iOSversion'))

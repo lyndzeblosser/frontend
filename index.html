@@ -142,8 +142,11 @@
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview">
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
-                    <li class="loggedInFields" data-icon="mytables"><a id="myTable">My Tables<span id="tableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
-                    <li class="loggedInFields" data-icon="bell"><a id="invites">Respond To Invitations<span id="inviteNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>                   
+                    <li class="loggedInFields"><a id="invites">RESPOND TO INVITES<span id="inviteNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>                   
+                    <li class="loggedInFields"><a id="myTablesToBeConfirmed">CONFIRM FINAL DETAILS<span id="tableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myUpcomingTables">UPCOMING TABLES<span id="upComingTableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myPastTables">PAST TABLES</a></li>
+                    
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
                     <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
                     <p id="welcomemsg">Welcome to TableTribes!</p><p id="vision"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
