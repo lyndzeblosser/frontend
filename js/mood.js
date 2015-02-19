@@ -116,11 +116,13 @@ function autoCompleteLocation(){
         navigator.geolocation.getCurrentPosition(function(position){
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
-            $("#address").attr("placeholder", "Value set to your current location")
+            $("#address").attr("placeholder", "Value set to your current location");
+            alert("test2");
             if (typeof $.session.get('userHash') != "undefined")
             {
                 console.log("Update live location for user:" + $.session.get('userHash'));
                 updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
+                alert("test1");
             }
         })
     }
@@ -230,7 +232,10 @@ function updateUserLiveLocation(userid, lat, lng)
         longitude:lng
     },
     function(data,status){
-        console.log("Data: " + data + "\nStatus: " + status);
+        console.log("update user location - Data: " + data + "\nStatus: " + status);
+        
+        console.log(userid+lat+lng);
+        alert("test");
     });
 }
 
