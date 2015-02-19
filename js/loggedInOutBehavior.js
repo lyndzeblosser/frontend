@@ -1,4 +1,4 @@
-var isLoggedIn,userId;
+var isLoggedIn,userId, notficationNo;
 
 $(document).ready(function(){
     $("#myTablesToBeConfirmed").click(function()
@@ -50,7 +50,8 @@ function getInvitations()
             async: false,
             dataType: "json",
             success: function(data){
-                $("#inviteNo").text(data.length)
+                $("#inviteNo").text(data.length);
+                notficationNo=data.length;
             }
         });
     
@@ -65,7 +66,9 @@ function getMyTablesToBeConfirmed()
             async: false,
             dataType: "json",
             success: function (data){
-                 $("#tableNo").text(data.length)
+                 $("#tableNo").text(data.length);
+                 notficationNo+=data.length;
+                 
             }
         });
  
@@ -107,6 +110,11 @@ function loggedInLoggedOutBehavior(){
         getInvitations()
         getMyTablesToBeConfirmed();
         getMyUpcomingTables();
+        $("#notificationNo").text(notficationNo);
+        if(notficationNo == 0)
+            $("#notificationNo").hide();
+        else
+            $("#notificationNo").show();
 //        getUserProfile ();
 
         if(hasDeviceInfo){
