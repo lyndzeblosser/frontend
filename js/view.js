@@ -17,12 +17,14 @@ $(document).ready(function()
 
 function getUserData() {
     var userIDs=[];
+    console.log(table);
     for(var j=1;j<4;j++){
         if(table['user_to_'+j]!=="null" && table['user_to_'+j]!==""){
             userIDs.push(table['user_to_'+j]);
         }
     }
-    console.log("uid"+userIDs)
+        console.log(userIDs.length);
+    console.log("uid"+userIDs);
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
@@ -200,11 +202,11 @@ function prepareEmptyInnerBlockBottom() {
 
 function prepareTagsDiv(inviteTags){
    
-    inviteTags=inviteTags.split(",")
+    inviteTags=inviteTags.split(",");
     var html="";
     for(var i=0;i<inviteTags.length;i++){
-        console.log(i,inviteTags[i])
-        html+="<label style=\"background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+tags[inviteTags[i]]+"<input type=\"checkbox\"></label>"
+        console.log(i,inviteTags[i]);
+        html+="<label style=\"background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+[inviteTags[i]]+"<input type=\"checkbox\"></label>";
     }
     $("#tags").html(html);
 }
@@ -257,7 +259,10 @@ function confirmTable(){
 
 
 }
-
+function sendToMoodPage()
+{
+    window.location.href = "mood.html";
+}
 function autoCompleteLocation(){
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
 //    if (navigator.geolocation)

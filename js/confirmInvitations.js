@@ -252,7 +252,8 @@ function confirmInvite(){
         invite_time:time['time'],
         matching_tags:getParameterByName('commonTags'),
         invite_location:$('#whereText').attr("value")
-
+        
+        
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
