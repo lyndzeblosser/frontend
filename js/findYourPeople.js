@@ -69,8 +69,8 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("Oooops, we could not find anyone that matched your search criteria! Please try again");
-               // window.location.href = "mood.html";
+                alert("oops, we could not find anyone that matched your search criteria! Please try again");
+                window.location.href = "mood.html";
             }
                 
             else(data != "undefined")
@@ -116,11 +116,13 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 };
 
                 MoveOnButton.onclick = function() {
+                    console.log("USER LENGHT"+users.length);
+                    if(users.length === 1)
+                        alert("Looks like we could only find " +users[0]["name"] +" right now. Please check back later to connect with more people");
                     $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                     var nextUser=(loadedUser+1)%(users.length);
                     loadUser(nextUser);
                     $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
-                
                 };
                     
 //                confirmInvitation.onclick = function() {
@@ -172,7 +174,7 @@ function loadUser(id){
     var initialImg = users[id]["image"];
     body.css("background-image","url("+initialImg+")");
     
-    var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/removeprofile.svg";
+    var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/ConfirmingIcon.png";
     if (users[id]["selected"]!=0) {
         $("#addButton").prop("disabled",true);
         console.log("User invite sent already");
