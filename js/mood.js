@@ -78,7 +78,7 @@ function getTopics()
         async: false,
         dataType: "json",
         success: function (trends){
-            data = trends[0]["trends"]
+            data = trends[0]["trends"];
             for(var i=0;i<data.length;i++){
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+data[i]["name"]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(data[i]["name"]).html()+"\"  type=\"checkbox\"></label>");
             }
@@ -117,12 +117,12 @@ function autoCompleteLocation(){
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
             $("#address").attr("placeholder", "Value set to your current location");
-            alert("test2");
+           
             if (typeof $.session.get('userHash') != "undefined")
             {
                 console.log("Update live location for user:" + $.session.get('userHash'));
                 updateUserLiveLocation($.session.get('userHash'), currentLat, currentLng);
-                alert("test1");
+                
             }
         })
     }
@@ -235,7 +235,7 @@ function updateUserLiveLocation(userid, lat, lng)
         console.log("update user location - Data: " + data + "\nStatus: " + status);
         
         console.log(userid+lat+lng);
-        alert("test");
+        
     });
 }
 

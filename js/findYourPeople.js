@@ -69,8 +69,8 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("Oops, we could not find anyone that matched your search criteria! Please try again");
-                window.location.href = "mood.html";
+                alert("Oooops, we could not find anyone that matched your search criteria! Please try again");
+               // window.location.href = "mood.html";
             }
                 
             else(data != "undefined")
@@ -98,9 +98,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
        //             users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
                      
                     users[i]["selected"] = 0;
-                    
-                    
-                    console.log(users[i])
+                    console.log(users[i]);
                
                 }
                 

@@ -297,7 +297,8 @@ fieldset .ui-grid-b  {
 }
 
 [role="main"] {
-    background-image: url("../images/piclarge.jpg");
+    background-image: url("../images/pic1.png");
+   background-position: center;
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
@@ -338,13 +339,13 @@ fieldset label {
 input#addButton {
     margin-top: 5px;
     height:70px;
-    width:106px;
+    width:49%;
 }
 
 input#moveOnButton{
     margin-top: 5px;
     height:70px;
-    width: 106px;
+    width: 49%;
 }
 
 input#confirmButton {
