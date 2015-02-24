@@ -5,7 +5,19 @@ $(document).ready(function(){
     getUserProfile ();
 });
 
-
+function updateUserProfile (){
+     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
+    {
+        email:"vaibhavbshah@gmail.com",
+        bio:"test BIO update"
+    },
+    function(data,status){
+        console.log("update user Profile \nStatus: " + status);
+        
+//        console.log(userid+lat+lng);
+        
+    });
+}
 
 function getUserProfile () {
     
