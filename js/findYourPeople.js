@@ -94,9 +94,9 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     if (data[i].date_of_birth != null) {
                          users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
                      }
-                    
-       //             users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
-                     
+                    if (data[i].commonTags != null) {
+                        users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
+                    } 
                     users[i]["selected"] = 0;
                     console.log(users[i]);
                

@@ -8,7 +8,7 @@ $(document).ready(function(){
 function updateUserProfile (){
      $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
     {
-        email:"vaibhavbshah@gmail.com",
+        userHash:userId,
         bio:"test BIO update"
     },
     function(data,status){
