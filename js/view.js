@@ -256,9 +256,44 @@ function confirmTable(){
     });
     $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
-
-
 }
+
+function sendTableMessage() {
+    var time=getTimeData();
+//    console.log("length = "+$('#whereText').attr("value").length);
+//    if($('#whereText').attr("value").length < 1)
+//    {
+//        alert("Please selecte from the various Table Tribes Zone Areas to meet!");
+//        return false;
+//    }
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/sendTableMessage",
+    {
+        user_from:$.session.get('userHash'),
+        user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
+        user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
+        user_to_3:typeof users[2]=="undefined"?"":users[2]['id'],
+        tableid:getParameterByName('tableid'),
+        invite_date:time['date'],
+        invite_time:time['time'],
+//        matching_tags:getParameterByName('commonTags'),
+        invite_location:$('#address').attr("value"),
+        table_message:$('#table_message').val()
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+            alert ("Success! - Message sent out!");
+            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+            sendToMoodPage();
+        }
+    });
+}
+
 function sendToMoodPage()
 {
     window.location.href = "mood.html";
