@@ -2,21 +2,55 @@ var isLoggedIn,userId;
 $(document).ready(function(){
     isLoggedIn=typeof $.session.get('userHash')!="undefined";
     userId=$.session.get('userHash');
+    autoCompleteLocation();
     getUserProfile ();
 });
 
 function updateUserProfile (){
-     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
+    if(document.getElementById("LeftPanelChangePassword").value == "")
+    {
+        console.log("Null");
+    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
     {
         userHash:userId,
-        bio:"test BIO update"
+        bio:document.getElementById("LeftPanelBio").value,
+        firstName:document.getElementById("LeftPanelFirstName").value,
+        lastName:document.getElementById("LeftPanelLastName").value
+       // password:document.getElementById("LeftPanelChangePassword").value
+       
     },
     function(data,status){
         console.log("update user Profile \nStatus: " + status);
-        
-//        console.log(userid+lat+lng);
-        
+        if(status=="nocontent")
+            alert("Success! Your information was successfully updated");
+        else
+            alert("Oops, something went wrong. Please try again.");
+ 
+    });        
+    }
+    else
+    {
+        console.log("Not Null");
+            $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
+    {
+        userHash:userId,
+        bio:document.getElementById("LeftPanelBio").value,
+        firstName:document.getElementById("LeftPanelFirstName").value,
+        lastName:document.getElementById("LeftPanelLastName").value,
+        password:document.getElementById("LeftPanelChangePassword").value
+       
+    },
+    function(data,status){
+        console.log("update user Profile \nStatus: " + status);
+        if(status=="nocontent")
+            alert("Success! Your information was successfully updated");
+        else
+            alert("Oops, something went wrong. Please try again.");
+ 
     });
+    }
+        
+
 }
 
 function getUserProfile () {
@@ -31,17 +65,14 @@ function getUserProfile () {
                     {
                         data = data[0]
                         console.log(data)
-                        document.getElementById("LeftPanelFirstName").value = data["firstname"]+" " +data["lastname"]; 
-                        //+ data["lastname"];
-//                        document.getElementById("LeftPanelLastName").value = data["lastname"];
-                    //    document.getElementById("LeftPanelEmailAddress").value = data["userid"];
+                        document.getElementById("LeftPanelFirstName").value = data["firstname"]; 
+                        document.getElementById("LeftPanelLastName").value = data["lastname"];
                         document.getElementById("LeftPanelBio").value = data["bio"];
                         document.getElementById("LeftPanelBirthday").value = data["date_of_birth"];
                         document.getElementById("LeftPanelCity").value = data["hometown"];
-                        console.log("image master location");
+                        console.log("Password: "+document.getElementById("LeftPanelChangePassword").value);
                         console.log(data["imageMasterLocation"]);
                         $.session.set('userType', data["userType"]);
-
                         document.getElementById("LeftPanelProfileImage").src = data["imageMasterLocation"];
                                               
                     },
@@ -55,4 +86,15 @@ function getUserProfile () {
 
                     }
                 });
+}
+
+function autoCompleteLocation(){
+    autoComplete = new google.maps.places.Autocomplete($("#LeftPanelCity")[0], {});  
+    google.maps.event.addListener(autoComplete, 'place_changed', function()
+    {
+        var place = autoComplete.getPlace();
+        currentLat = place.geometry.location.lat();
+        currentLng = place.geometry.location.lng();
+        console.log(currentLat, currentLng)
+    });
 }

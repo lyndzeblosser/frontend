@@ -36,8 +36,8 @@ function getUserData() {
                     dataType: "json",
                     success: function(data)
                     {
-                        data = data[0]
-                        console.log(data)
+                        data = data[0];
+                        console.log("DATA - "+data);
 
                         users[i]["id"] = data["userid"];
                         users[i]["first_name"] = data["firstname"];
@@ -201,12 +201,12 @@ function prepareEmptyInnerBlockBottom() {
 }
 
 function prepareTagsDiv(inviteTags){
-   
+    
     inviteTags=inviteTags.split(",");
     var html="";
+    console.log("tag lenght -"+inviteTags.length);
     for(var i=0;i<inviteTags.length;i++){
-        console.log(i,inviteTags[i]);
-        html+="<label style=\"background-color:#333333; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+[inviteTags[i]]+"<input type=\"checkbox\"></label>";
+        html+="<label style=\"background-color:#333333; text-align:center; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+[inviteTags[i]]+"<input type=\"checkbox\"></label>";
     }
     $("#tags").html(html);
 }
