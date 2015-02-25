@@ -1,6 +1,14 @@
 var isLoggedIn,userId, notficationNo;
 
 $(document).ready(function(){
+    $(document).ajaxStart(function () {
+  //  $loading.show();
+    $.mobile.loading( 'show');
+  })
+  .ajaxStop(function () {
+  //  $loading.hide();
+    $.mobile.loading( "hide" );
+  });
     $("#myTablesToBeConfirmed").click(function()
     {
        window.location.href = "myTablesToBeConfirmed.html";

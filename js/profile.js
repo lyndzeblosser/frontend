@@ -4,6 +4,29 @@ $(document).ready(function(){
     userId=$.session.get('userHash');
     autoCompleteLocation();
     getUserProfile ();
+//    var $loading = $('#loadingDiv').hide();
+/*$(document)
+  .ajaxStart(function () {
+  //  $loading.show();
+    $.mobile.loading( 'show');
+  })
+  .ajaxStop(function () {
+  //  $loading.hide();
+    $.mobile.loading( "hide" );
+  });
+  
+$(document).on( "click", ".show-page-loading-msg", function() {
+  var $this = $( this ),
+    html = $this.jqmData( "html" ) || "";
+$.mobile.loading( 'show', {
+  html: html
+  });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+  $.mobile.loading( "hide" );
+}); */
+  
+  
 });
 
 function updateUserProfile (){
