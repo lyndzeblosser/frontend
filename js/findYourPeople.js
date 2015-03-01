@@ -15,6 +15,7 @@ $(document).ready(function ()
     console.log("getParameterByName: radius: " + getParameterByName('radius')); 
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
+    google.maps.event.addDomListener(window, 'load', initialize);
 });
 
 function fillImgDetails(id){
@@ -52,7 +53,51 @@ function getParameterByName(name)
 //    }
 //    return radius;
 //}
+//
+//function autoCompleteLocation(){
+//    autoComplete = new google.maps.places.Autocomplete('Starbucks');
+////    if (navigator.geolocation)
+////    {
+////        navigator.geolocation.getCurrentPosition(function(position){
+////            currentLat = position.coords.latitude;
+////            currentLng = position.coords.longitude;
+////            $("#address").attr("placeholder", "Value set to nearest Starbucks");
+////           
+////        })
+////    }
+//    var place = autoComplete.getPlace();
+//        currentLat = place.geometry.location.lat();
+//        currentLng = place.geometry.location.lng();
+//        console.log(currentLat, currentLng);
+//
+//         var address = '';
+//    if (place.address_components) {
+//      address = [
+//        (place.address_components[0] && place.address_components[0].short_name || ''),
+//        (place.address_components[1] && place.address_components[1].short_name || ''),
+//        (place.address_components[2] && place.address_components[2].short_name || '')
+//      ].join(' ');
+//      }
+//      var inviteLocation = place.name + ' ' + address;
+//      $("#address").val(inviteLocation);
+//      
+//        
+// 
+//}
+function initialize() {
+  var service = new google.maps.places.AutocompleteService();
+  service.getPlacePredictions({ input: 'Starbucks' }, callback);
+}
 
+function callback(predictions, status) {
+  if (status != google.maps.places.PlacesServiceStatus.OK) {
+    alert(status);
+    return;
+  }
+
+  $("#address").val(predictions[0].description);
+
+}
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
     console.log(latitude,longitude,radius,activity,selectedTime)
@@ -329,7 +374,7 @@ function confirmInvite(i){
         invite_date:inviteDate,
         invite_time:inviteTime,
         matching_tags:getParameterByName('topics'),
-        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+        invite_location:$("#address").val()
 
     },
     function(data,status){
@@ -364,7 +409,7 @@ function addUserToTable(i){
 //        invite_date:time['date'],
 //        invite_time:time['time'],
         matching_tags:getParameterByName('topics'),
-        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+        invite_location:$("#address").val()
 
     },
     function(data,status){

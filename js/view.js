@@ -245,9 +245,9 @@ function confirmTable(){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Success! - Invitations sent out!");
-            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
- 
+            alert ("Table updated!");
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+            sendToMoodPage(); 
         }
         else {
             alert(data);
@@ -283,9 +283,9 @@ function sendTableMessage() {
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Success! - Message sent out!");
-            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
- 
+            alert ("Message Sent!");
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+            sendToMoodPage();
         }
         else {
             alert(data);
