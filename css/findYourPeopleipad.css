@@ -112,7 +112,7 @@ fieldset.ui-grid-b {
     width: 400px !important;
 }
 
-#myTable, #invites, #login, #logout, #home {
+#myTable, #login, #logout, #home {
     background-color: #fff;
     font-family: PT Sans;
     font-size: 25px;

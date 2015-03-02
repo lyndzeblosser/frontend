@@ -247,7 +247,7 @@ text-shadow: none;
 font-family: PT Sans;
 }
 
-#myTable, #invites, #login,#logout, #home {
+#myTable, #login,#logout, #home {
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;

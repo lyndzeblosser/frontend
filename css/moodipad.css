@@ -190,7 +190,7 @@ a#closeleftPanel {
     width: 400px !important;
 }
 
-#myTable, #invites, #login, #logout {
+#myTable, #home, #login, #logout {
     background-color: #fff;
     font-family: PT Sans;
     font-size: 25px;

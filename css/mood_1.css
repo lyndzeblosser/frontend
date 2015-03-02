@@ -352,7 +352,7 @@ h4 {
     height:65px;
     width:50px;
 }
-#myTable, #invites, #login, #logout {
+#myTable, #home, #login, #logout {
     background-color: #fff;
     font-family: PT Sans;
     text-transform: uppercase;
