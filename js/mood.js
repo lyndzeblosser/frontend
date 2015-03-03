@@ -175,7 +175,9 @@ function getUrlParams(){
         else{
         sortId = [];
         $("input[data-cacheval=\"false\"]").each(function(){
-            sortId.push(this.value)
+            var tagValue = this.value;
+            tagValue = tagValue.replace('#', '');
+            sortId.push(tagValue);
         })
         url+="&topics="+sortId.join();
     }
