@@ -19,7 +19,7 @@ function getUserData() {
     var userIDs=[];
     console.log(table);
     for(var j=1;j<4;j++){
-        if(table['user_to_'+j]!=="null" && table['user_to_'+j]!==""){
+        if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
         }
     }
@@ -145,6 +145,7 @@ function getResult()
         userDivDataTop += prepareEmptyDivTop(letter);
     }
     for (i = 0; i < users.length; i++) {
+        console.log("users length: " + users.length)
         letter = String.fromCharCode(97 + count)
         count++;
         userDivDataTop += prepareUserDivTop(i, letter)

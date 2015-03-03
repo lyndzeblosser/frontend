@@ -22,6 +22,13 @@ function fillImgDetails(id){
     $("#userName").text(users[id]["name"]);
       
     $("#bioText").text(users[id]["bio"]);
+    if (users[id]["commonTags"] != null) {
+        commonTagsArray = users[id]["commonTags"].split(",")
+        for (i=0; i < commonTagsArray.length; i++) {
+            $("#tag"+i).text(commonTagsArray[i]);
+        }
+    }
+    
  //   getTopicNames(users[id]["commonTags"]);
 
     
