@@ -66,41 +66,38 @@
                
             <input id="address" name="location" id="location" placeholder="Location" value="" type="hidden">
 
-            <!-- This div is for the left panel-->
+                      <!-- This div is for the left panel-->
             <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
-               <ul data-role="listview">
+                <ul data-role="listview">
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
                     <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
-                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS</a></li>                   
-                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO</a></li>
-                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>                   
+                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
                     <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
                     <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
                     <p id="welcomemsg">Welcome to TableTribes!</p>
-
                 </ul>
-
             </div><!-- left panel -->
 
-
-                <!-- This is for the right panel-->
-                <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
-                    <ul data-role="listview">
-                        <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff; text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
-                        <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
-                        <li class="loggedInFields" data-icon="mytables"><a id="myTable" href="#">My Tables<span id="tableNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                        <li class="loggedInFields" data-icon="bell"><a id="invites" href="">Respond To Invitations<span id="inviteNo" class="ui-li-count" style="color:#b42723;">0</span></a></li>
-                        
-                        <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
-                        <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
-<p id="welcomemsg">Welcome to TableTribes!</p><p id="vision"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
+            <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
+                    <li class="loggedInFields"><a id="invites">RESPOND TO INVITES<span id="inviteNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>                   
+                    <li class="loggedInFields"><a id="myTablesToBeConfirmed">CONFIRM FINAL DETAILS<span id="tableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myUpcomingTables">UPCOMING TABLES<span id="upComingTableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myPastTables">PAST TABLES</a></li>                 
+                    <p id="welcomemsg">Welcome to TableTribes!</p><p id="vision"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
 
 We’re building something new, and as an early-stage startup, your participation in our survey during this beta phase is crucial to us right now because it gives us feedback on how to make it better.<br><br><a href="https://www.surveymonkey.com/s/TTbeta_mediarise" style="text-decoration: none;">Go To Survey</a> <br>
 
 <br>Thank you for being part of this journey!</p>
 
-                    </ul>
-                </div><!--  right panel -->
+                </ul>
+            </div><!--  right panel -->
+
 
                 <div data-role="footer" style="positoin:fixed" data-tap-toggle="false">
 
