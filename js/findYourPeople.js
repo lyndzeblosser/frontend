@@ -229,10 +229,21 @@ function loadUser(id){
     var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/ConfirmingIcon.png";
     if (users[id]["selected"]!=0) {
         $("#addButton").prop("disabled",true);
+        $('#imageDiv').block({
+                message: 'Invite Sent! You should hear back soon. In the meantime, you can send invites to at max 3 people.',
+                css: { border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#ffbb00' }
+            });
         console.log("User invite sent already");
     }
     else {
         $("#addButton").removeAttr("disabled");
+        $('#imageDiv').unblock();
     }
     $("#addButton").attr("src",addButtonImg)
     fillImgDetails(id)
@@ -390,6 +401,16 @@ function confirmInvite(i){
             alert ("Invite sent to " + userName);
             tableid = data;
             usersSentInvite = 1;
+            $('#imageDiv').block({
+                message: 'Invite Sent! You should hear back soon. In the meantime, you can send invites to at max 3 people.',
+                css: { border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#ffbb00' }
+            });
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
         }
