@@ -262,7 +262,7 @@ h4 {
 
 .confirminvitesButton {
     margin-left: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
     -moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
     -webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
     box-shadow:inset 0px 1px 0px 0px #c62d1f;
@@ -283,11 +283,11 @@ h4 {
     border:1px solid #d02718;
     display:inline-block;
     font-family: PT Sans Narrow;
-    font-size:17px;
+    font-size:22px;
     font-weight:bold;
     font-style:normal;
-    height:40px;
-    line-height:40px;
+    height:80px;
+    line-height:80px;
     width:190px;
     text-decoration:none;
     text-align:center;
@@ -299,6 +299,49 @@ h4 {
     background-color:#d33021;
 }
 .confirminvitesButton:active {
+    position:relative;
+    top:1px;
+}
+
+.sendNoteButton {
+    margin-left: 10px;
+    margin-top: 10px;
+    -moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    box-shadow:inset 0px 1px 0px 0px #c62d1f;
+    background-color:#c62d1f;
+    -webkit-border-top-left-radius:6px;
+    -moz-border-radius-topleft:6px;
+    border-top-left-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    -moz-border-radius-topright:6px;
+    border-top-right-radius:6px;
+    -webkit-border-bottom-right-radius:6px;
+    -moz-border-radius-bottomright:6px;
+    border-bottom-right-radius:6px;
+    -webkit-border-bottom-left-radius:6px;
+    -moz-border-radius-bottomleft:6px;
+    border-bottom-left-radius:6px;
+    text-indent:0px;
+    border:1px solid #d02718;
+    display:inline-block;
+    font-family: PT Sans Narrow;
+    font-size:18px;
+    font-weight:bold;
+    font-style:normal;
+    height:40px;
+    line-height:40px;
+    width:190px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #810e05;
+    color: #ffffff;
+}
+
+ .sendNoteButton:hover {
+    background-color:#d33021;
+}
+.sendNoteButton:active {
     position:relative;
     top:1px;
 }
@@ -342,12 +385,12 @@ fieldset label {
 }
 
 .imagesize {
-    height:105px;
+    height:125px;
     width: 100%;
 }
 
 div#confirmImg {
-    height:105px;
+    height:125px;
 }
 
 div#confirm img {

@@ -138,31 +138,31 @@ function getResult()
     var userDivDataBottom = "";
     var count = 0, letter = '';
 
-
-    for (var i = 0; i < noEmptyDivs; i++) {
-        letter = String.fromCharCode(97 + count)
-        count++;
-        userDivDataTop += prepareEmptyDivTop(letter);
-    }
-    for (i = 0; i < users.length; i++) {
+for (i = 0; i < users.length; i++) {
         console.log("users length: " + users.length)
         letter = String.fromCharCode(97 + count)
         count++;
         userDivDataTop += prepareUserDivTop(i, letter)
     }
-
-    count = 0;
-
-    for (i = 0; i < noEmptyDivs; i++) {
+ /*   for (var i = 0; i < noEmptyDivs; i++) {
         letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataBottom += prepareEmptyDivBottom(letter);
+        userDivDataTop += prepareEmptyDivTop(letter);
     }
-    for (i = 0; i < users.length; i++) {
+   */ 
+
+    count = 0;
+for (i = 0; i < users.length; i++) {
         letter = String.fromCharCode(97 + count)
         count++;
         userDivDataBottom += prepareUserDivBottom(i, letter)
     }
+    /*for (i = 0; i < noEmptyDivs; i++) {
+        letter = String.fromCharCode(97 + count)
+        count++;
+        userDivDataBottom += prepareEmptyDivBottom(letter);
+    }*/
+    
 
     $("#userTop").html(userDivDataTop)
     $("#confirmImg").html(userDivDataBottom)
@@ -205,9 +205,11 @@ function prepareTagsDiv(inviteTags){
     
     inviteTags=inviteTags.split(",");
     var html="";
-    console.log("tag lenght -"+inviteTags.length);
+    var lableSize = (screen.width/inviteTags.length)-26.5;
+    console.log("tag lenght -"+inviteTags.length+"Screen width - "+lableSize);
+    
     for(var i=0;i<inviteTags.length;i++){
-        html+="<label style=\"background-color:#333333; text-align:center; color:#ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+[inviteTags[i]]+"<input type=\"checkbox\"></label>";
+        html+="<label style=\"background-color:#333333; text-align:center; color:#ffffff; width:"+lableSize+"px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">"+[inviteTags[i]]+"<input type=\"checkbox\"></label>";
     }
     $("#tags").html(html);
 }

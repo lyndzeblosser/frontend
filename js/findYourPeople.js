@@ -229,7 +229,7 @@ function loadUser(id){
     var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/ConfirmingIcon.png";
     if (users[id]["selected"]!=0) {
         $("#addButton").prop("disabled",true);
-        $('#imageDiv').block({
+     /*   $('#imageDiv').block({
                 message: 'Invite Sent! You should hear back soon. In the meantime, you can send invites to at max 3 people.',
                 css: { border: 'none', 
             padding: '15px', 
@@ -238,8 +238,8 @@ function loadUser(id){
             '-moz-border-radius': '10px', 
             opacity: .5, 
             color: '#ffbb00' }
-            });
-        console.log("User invite sent already");
+            });*/
+        console.log("User invite on its way");
     }
     else {
         $("#addButton").removeAttr("disabled");
@@ -398,10 +398,10 @@ function confirmInvite(i){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Invite sent to " + userName);
+            alert ("Invite sent to "+userName+"! You should hear back soon. In the meantime, you can invite upto 3 people for this table");
             tableid = data;
             usersSentInvite = 1;
-            $('#imageDiv').block({
+/*            $('#imageDiv').block({
                 message: 'Invite Sent! You should hear back soon. In the meantime, you can send invites to at max 3 people.',
                 css: { border: 'none', 
             padding: '15px', 
@@ -410,7 +410,7 @@ function confirmInvite(i){
             '-moz-border-radius': '10px', 
             opacity: .5, 
             color: '#ffbb00' }
-            });
+            });*/
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
         }
