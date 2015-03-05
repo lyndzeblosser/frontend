@@ -221,6 +221,7 @@ $(document).ready(function()
     $(function() {
     $( "#dateOfBirth" ).datepicker(
             {maxDate: "-18y",
+            yearRange: "-100:-18",
              changeMonth: true,
              changeYear: true,
             });
