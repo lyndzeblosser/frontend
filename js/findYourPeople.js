@@ -382,7 +382,7 @@ function confirmInvite(i){
     ((''+month).length<2 ? '0' : '') + month + '-' +
     ((''+day).length<2 ? '0' : '') + day;
     
-    var inviteTime = h + ":" + m + ":" + s;
+    var inviteTime = h + ":" + m;
     
     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
     {
