@@ -82,7 +82,7 @@ function getTopics()
             for(var i=0;i<5;i++){
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+data[i]["name"]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(data[i]["name"]).html()+"\"  type=\"checkbox\"></label>");
             }
-            var TTtags = ["Inclusion","Technology","Community","Health","Startups","Pets","Parenting","Education","Craft","Global Citizen"];
+            var TTtags = ["Inclusion","Technology","Community","Health","Startups","Pets","Parenting","Education","Crafts","Global Citizen"];
             var NoRepeatTTTags = [];
             var TTtagdId = Math.floor((Math.random() * 10));
             NoRepeatTTTags [0]=Math.floor((Math.random() * 10));

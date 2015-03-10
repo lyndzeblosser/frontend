@@ -288,7 +288,7 @@ function sendTableMessage() {
         if(status  == "success") {
             alert ("Message Sent!");
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
-            sendToMoodPage();
+//            sendToMoodPage();
         }
         else {
             alert(data);
@@ -299,7 +299,8 @@ function sendTableMessage() {
 
 function sendToMoodPage()
 {
-    window.location.href = "mood.html";
+    //window.location.href = "mood.html";
+    window.location.href = "myTablesToBeConfirmed.html";
 }
 function autoCompleteLocation(){
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
