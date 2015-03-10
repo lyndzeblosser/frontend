@@ -79,14 +79,14 @@ function getTopics()
         dataType: "json",
         success: function (trends){
             data = trends[0]["trends"];
-            for(var i=0;i<5;i++){
+            for(var i=0;i<2;i++){
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+data[i]["name"]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(data[i]["name"]).html()+"\"  type=\"checkbox\"></label>");
             }
             var TTtags = ["Inclusion","Technology","Community","Health","Startups","Pets","Parenting","Education","Crafts","Global Citizen"];
             var NoRepeatTTTags = [];
             var TTtagdId = Math.floor((Math.random() * 10));
             NoRepeatTTTags [0]=Math.floor((Math.random() * 10));
-                for(var i=1; i<5;i++)
+                for(var i=1; i<3;i++)
                 {   
                 NoRepeatTTTags [i] = Math.floor((Math.random() * 10));
                   for(var j=0;j<i; j++)
@@ -96,7 +96,7 @@ function getTopics()
                j=0;
                 }}
               
-            for(var i=0;i<5;i++){
+            for(var i=0;i<3;i++){
                   
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[NoRepeatTTTags[i]]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[NoRepeatTTTags[i]]).html()+"\"  type=\"checkbox\"></label>");
             }
