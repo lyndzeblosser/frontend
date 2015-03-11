@@ -101,9 +101,30 @@ function callback(predictions, status) {
     alert(status);
     return;
   }
+  var place_id = predictions[0].place_id;
+  console.log('place_id: ' + place_id);
+  var placesService = new google.maps.places.PlacesService($('#address').get(0));
+  placesService.getDetails({ placeId: place_id }, placeDetailsCallback);
+  
 
-  $("#address").val(predictions[0].description);
+}
 
+function placeDetailsCallback(placeResult, status) {
+    
+        var place = placeResult;
+        var address = '';
+//    if (place.formatted_address) {
+//      address = [
+//        (place.address_components[0] && place.address_components[0].short_name || ''),
+//        (place.address_components[1] && place.address_components[1].short_name || ''),
+//        (place.address_components[2] && place.address_components[2].short_name || '')
+//      ].join(' ');
+        address = place.formatted_address;
+//      }
+      var inviteLocation = place.name + ' ' + address;
+      console.log('Invite Location set:' + inviteLocation);
+      $("#address").val(inviteLocation);
+//    $("#address").val(predictions[0].description);
 }
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
