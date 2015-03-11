@@ -248,9 +248,11 @@ function confirmTable(){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
+           
+            document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
             alert ("Table updated!");
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
-            sendToMoodPage(); 
+//            sendToMoodPage(); 
         }
         else {
             alert(data);
