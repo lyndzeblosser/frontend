@@ -48,8 +48,13 @@ function getUserData() {
                         {console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
                             users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Accepted"?"images/mycheck.png":"images/mycross.png"}
                         else
-                          users[i]["status"]=""  
-
+                          users[i]["status"]="";
+                      
+                      if(users[i]["status"]=="images/mycheck.png")
+                      document.getElementById("inviteTimePicker").disabled = true; ;
+                    //  timepicker.get_dateInput().disable();
+                    //  document.getElementById("inviteTimePicker").disabled = false;  
+                      
                     },
                     error: function(error, message)
                     {
