@@ -148,7 +148,7 @@ function accept(tableid){
     function(data,status){
 //         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
         console.log("Data: " + data + "\nStatus: " + status);
-        alert(data); 
+        alert(data+"! Do not forget to confirm the final details from the right side menu!"); 
         window.location.href = "mood.html";
     });
 }}
