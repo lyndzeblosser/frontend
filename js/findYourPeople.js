@@ -190,6 +190,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 
                 MoveOnButton.onclick = function() {
                     console.log("USER LENGHT"+users.length);
+                    loggedInLoggedOutBehavior();
                     if(users.length === 1)
                         alert("Looks like we could only find " +users[0]["name"] +" right now. Please check back later to connect with more people");
                     $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
