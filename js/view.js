@@ -18,6 +18,9 @@ $(document).ready(function()
 function getUserData() {
     var userIDs=[];
     console.log(table);
+    console.log();
+    if(table["table_confirmed"]=="YES")
+       document.getElementById("inviteTimePicker").disabled = true; ;
     for(var j=1;j<4;j++){
         if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
@@ -25,6 +28,7 @@ function getUserData() {
     }
         console.log(userIDs.length);
     console.log("uid"+userIDs);
+    
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
@@ -50,8 +54,6 @@ function getUserData() {
                         else
                           users[i]["status"]="";
                       
-                      if(users[i]["status"]=="images/mycheck.png")
-                      document.getElementById("inviteTimePicker").disabled = true; ;
                     //  timepicker.get_dateInput().disable();
                     //  document.getElementById("inviteTimePicker").disabled = false;  
                       
