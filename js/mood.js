@@ -52,6 +52,8 @@ function preloadIrrepectiveOfLoggedInOut(){
 
 function activitiesImages(){
     $(".activitiesImages").click(function(){
+alert("Sorry only Coffee is available right now - We are working on expanding it :)");
+/*
         if(this.getAttribute("selected")==0){
             $(".activitiesImages").each(function(){
                 this.setAttribute("selected",0);
@@ -67,7 +69,7 @@ function activitiesImages(){
             $(this).css("background","#ffffff")
         }
         
-        
+   */     
     })
 }
 
