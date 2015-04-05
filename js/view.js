@@ -17,10 +17,27 @@ $(document).ready(function()
 
 function getUserData() {
     var userIDs=[];
+    var confirmCount = 0;
     console.log(table);
     console.log();
-    if(table["table_confirmed"]=="YES")
-       document.getElementById("inviteTimePicker").disabled = true; ;
+//    if(table["table_confirmed"]=="YES")
+    if(table['user_from_status']==="Confirmed") {
+     confirmCount++;   
+    }
+    if(table['user_to_1_status']==="Confirmed") {
+        confirmCount++;
+    }
+    if(table['user_to_2_status']==="Confirmed") {
+        confirmCount++;
+    }
+    if(table['user_to_3_status']==="Confirmed") {
+        confirmCount++;
+    }
+    console.log("ConfirmCount: " + confirmCount);
+    if (confirmCount > 1) {
+        document.getElementById("inviteTimePicker").disabled = true;
+        document.getElementById("address").disabled = true;
+    }
     for(var j=1;j<4;j++){
         if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
@@ -49,8 +66,10 @@ function getUserData() {
                         users[i]["bio"] = data["bio"];
                         users[i]["image"] = data["imageMasterLocation"];
                         if(table['user_to_'+(i+1)+'_status']!=="Pending")
-                        {console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
-                            users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Accepted"?"images/mycheck.png":"images/mycross.png"}
+                        {
+                          console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
+                          users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i+1)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png")
+                        }                        
                         else
                           users[i]["status"]="";
                       
