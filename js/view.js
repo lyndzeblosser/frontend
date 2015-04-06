@@ -2,6 +2,7 @@ var table,tags=[],userid,inviteUsers=[],users=[];
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
+   
     $("#InvitesSentId").hide();
 
     userid = getParameterByName('user_from');
@@ -22,7 +23,17 @@ function getUserData() {
     console.log();
 //    if(table["table_confirmed"]=="YES")
     if(table['user_from_status']==="Confirmed") {
-     confirmCount++;   
+     confirmCount++;  
+     if($.session.get('userHash') == table['user_from'])
+       {
+        console.log("Lock for this user");
+        document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
+        document.getElementById('confirmInvitesButtonId').onclick = function(){return false};                  
+        }
+                    
+
+     
+     
     }
     if(table['user_to_1_status']==="Confirmed") {
         confirmCount++;
@@ -72,7 +83,15 @@ function getUserData() {
                         }                        
                         else
                           users[i]["status"]="";
-                      
+                      if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
+                      {
+                          console.log("Lock for this user");
+                          document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
+                          document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+                          
+                      }
+                    
+
                     //  timepicker.get_dateInput().disable();
                     //  document.getElementById("inviteTimePicker").disabled = false;  
                       
