@@ -104,8 +104,9 @@ var currentLoc = new google.maps.LatLng(getParameterByName('latitude'),getParame
 
   var request = {
     location: currentLoc,
-    radius: '500',
-    name: 'Starbucks'
+//    radius: '11265',
+    name: 'Starbucks',
+    rankBy: google.maps.places.RankBy.DISTANCE
   };
 
   service = new google.maps.places.PlacesService(map);
