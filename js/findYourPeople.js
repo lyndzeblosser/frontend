@@ -92,8 +92,24 @@ function getParameterByName(name)
 // 
 //}
 function initialize() {
-  var service = new google.maps.places.AutocompleteService();
-  service.getPlacePredictions({ input: 'Starbucks' }, callback);
+//  var service = new google.maps.places.AutocompleteService();
+//  service.getPlacePredictions({ input: 'Starbucks' }, callback);
+
+var currentLoc = new google.maps.LatLng(getParameterByName('latitude'),getParameterByName('longitude'));
+
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: currentLoc,
+      zoom: 15
+    });
+
+  var request = {
+    location: currentLoc,
+    radius: '500',
+    name: 'Starbucks'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 }
 
 function callback(predictions, status) {
