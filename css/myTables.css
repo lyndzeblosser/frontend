@@ -217,8 +217,8 @@ text-shadow: none;
 }
 
 .pendimg {
-height: 140px;
-width: 96px;
+height: 100%;
+width: 100%;
 }
 
 .ui-block-c, .ui-bar-a {

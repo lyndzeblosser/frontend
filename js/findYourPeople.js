@@ -265,7 +265,7 @@ function loadUser(id){
     var initialImg = users[id]["image"];
     body.css("background-image","url("+initialImg+")");
     
-    var addButtonImg=users[id]["selected"]==0?"images/confirm.svg":"images/ConfirmingIcon.png";
+    var addButtonImg=users[id]["selected"]==0?"images/confirm.jpg":"images/confirmed.jpg";
     if (users[id]["selected"]!=0) {
         $("#addButton").prop("disabled",true);
      /*   $('#imageDiv').block({
