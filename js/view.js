@@ -295,9 +295,10 @@ function confirmTable(){
         if(status  == "success") {
            
             document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
-            alert ("Table updated!");
-//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
-//            sendToMoodPage(); 
+            
+             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+                window.location.href = "mood.html";
+                alert ("Table updated!");
         }
         else {
             alert(data);

@@ -143,6 +143,10 @@ function placeDetailsCallback(placeResult, status) {
       $("#address").val(inviteLocation);
 //    $("#address").val(predictions[0].description);
 }
+function sendToMoodPage ()
+{
+    window.location.href = "mood.html";
+}
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
     console.log(latitude,longitude,radius,activity,selectedTime)
@@ -159,7 +163,8 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("oops, we could not find anyone that matched your search criteria! Please try again");
+            //    alert("oops, we could not find anyone that matched your search criteria! Please try again");
+                $.mobile.changePage( "NoResultFound.html", { role: "dialog" , transition:"slideup" });
                 window.location.href = "mood.html";
             }
                 

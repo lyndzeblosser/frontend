@@ -259,8 +259,7 @@ function confirmInvite(){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
             alert ("Success! - Invitations sent out!");
-            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
- 
+            
         }
         else {
             alert(data);
