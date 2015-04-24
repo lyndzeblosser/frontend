@@ -296,9 +296,10 @@ function confirmTable(){
            
             document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
             
-             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
-                window.location.href = "mood.html";
-                alert ("Table updated!");
+//             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+//                window.location.href = "mood.html";
+//                alert ("Table updated!");
+        $( "#preConversationPopup" ).popup( "open" );
         }
         else {
             alert(data);
@@ -348,7 +349,12 @@ function sendTableMessage() {
 function sendToMoodPage()
 {
     //window.location.href = "mood.html";
-    window.location.href = "myTablesToBeConfirmed.html";
+//    window.location.href = "myTablesToBeConfirmed.html";
+    $( "#preConversationPopup" ).popup( "close" );
+}
+function showPreConvPopup()
+{
+    $( "#preConversationPopup" ).popup( "open" );
 }
 function autoCompleteLocation(){
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
