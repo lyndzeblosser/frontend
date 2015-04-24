@@ -21,6 +21,10 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:700,400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/findYourPeopleipad.css">
         <script src="js/analytics.js"></script>
+        <script src="js/jquery.flip.js"></script>
+        <script src="js/jquery.flip.min.js"></script>
+        <script src="js/jquery.popupoverlay.js"></script>
+        
     </head>
 
     <body>
@@ -35,11 +39,22 @@
                 <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-left:5px; margin-top:5px;">Menu</a>
                 <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000;margin-left:5px; margin-top:5px;">Add</a>
             </div><!-- /header -->
+            
+    
+            
             <div id="imageDiv" role="main" > <!-- Important-->
 
-             
-                <div class="space"></div>
-              
+           <div data-role="popup" id="myPopup">
+  <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+  ...popup contents go here...
+</div>
+           
+                <div id="flipbox" class="space"></div>
+         
+     
+  
+  
+  
 
                 <div data-position="fixed" data-tap-toggle="false" class="profilebio">
                     <div style="background-color:#cc0000; opacity:0.7;">

@@ -75,7 +75,7 @@ alert("Sorry only Coffee is available right now - We are working on expanding it
 
 function getTopics()
 {
-    $.ajax({
+/*    $.ajax({
         url: "login/getTrends.php",
         async: false,
         dataType: "json",
@@ -84,29 +84,32 @@ function getTopics()
             for(var i=0;i<2;i++){
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+data[i]["name"]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(data[i]["name"]).html()+"\"  type=\"checkbox\"></label>");
             }
-            var TTtags = ["Inclusivity","Community","Education","Trust","Compassion","Participation","Development"];
+          
+        }
+    });
+*/
+  var TTtags = ["Inclusivity","Community","Education","Trust","Compassion","Participation","Development"];
             var NoRepeatTTTags = [];
             var TTtagdId = Math.floor((Math.random() * 10));
- //           var TTtagdId = TTtagId%6;
-            NoRepeatTTTags [0]=Math.floor((Math.random() * 10));
+//                TTtagdId = TTtagdId % 6;
+            NoRepeatTTTags [0]=TTtagdId%6;
                 for(var i=1; i<3;i++)
                 {   
                 NoRepeatTTTags [i] = Math.floor((Math.random() * 10));
-   //             NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;
+                NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;
                   for(var j=0;j<i; j++)
                     if(NoRepeatTTTags [i] == NoRepeatTTTags[j])
                 {
                 NoRepeatTTTags[i] = Math.floor((Math.random() * 10));
-     //           NoRepeatTTTags[i] = NoRepeatTTTags[i]%6;
+                NoRepeatTTTags[i] = NoRepeatTTTags[i]%6;
                     j=0;
                 }}
               
             for(var i=0;i<3;i++){
-                  
+                  console.log(NoRepeatTTTags[i]);
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[NoRepeatTTTags[i]]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[NoRepeatTTTags[i]]).html()+"\"  type=\"checkbox\"></label>");
             }
-        }
-    });
+
 
 }
 
