@@ -12,6 +12,7 @@ $(document).ready(function()
     getResult();
     loggedInLoggedOutBehavior();
     autoCompleteLocation();
+    getTableMessages(getParameterByName('tableid'));
    // $("#main").html(prepareTablesDiv())
 
 });
@@ -166,6 +167,39 @@ function getTableData(tableid){
 
         }
     });
+}
+function getTableMessages(tableid){
+    $.ajax(
+    {
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTableMessages?tableid=" + tableid,
+        async: false,
+        dataType: "json",
+        success: function(data)
+        {
+            var html="";
+            for(var i=0;i<data.length;i++){
+                html += data[i]["user_from"];
+                html += " on ";
+                html += data[i]["message_date"];
+                html += " at ";
+                html += data[i]["message_time"];
+                html += " wrote : ";
+                html += data[i]["message"];
+                html += "\n\n";
+            }
+            $("#tableMessages").text(html);
+        },
+        error: function(error, message)
+        {
+            console.log("Failure: " + message);
+        },
+        complete: function(data)
+        {
+
+
+        }
+    });
+    
 }
 
 function getResult()
@@ -329,8 +363,9 @@ function sendTableMessage() {
         invite_time:time['time'],
 //        matching_tags:getParameterByName('commonTags'),
         invite_location:$('#address').attr("value"),
-        table_message:$('#table_message').val()
-
+        table_message:$('#table_message').val(),
+        message_date:getDate(),
+        message_time:getTime()
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
@@ -352,6 +387,45 @@ function sendToMoodPage()
 //    window.location.href = "myTablesToBeConfirmed.html";
     $( "#preConversationPopup" ).popup( "close" );
 }
+
+function getDate() {
+    var now     = new Date(); 
+    var year    = now.getFullYear();
+    var month   = now.getMonth()+1; 
+    var day     = now.getDate();
+    
+    if(month.toString().length == 1) {
+        var month = '0'+month;
+    }
+    if(day.toString().length == 1) {
+        var day = '0'+day;
+    }   
+    
+    var dateTime = year+'-'+month+'-'+day;   
+     return dateTime;
+}
+
+
+function getTime() {
+    var now     = new Date(); 
+   
+    var hour    = now.getHours();
+    var minute  = now.getMinutes();
+    var second  = now.getSeconds();
+
+    if(hour.toString().length == 1) {
+        var hour = '0'+hour;
+    }
+    if(minute.toString().length == 1) {
+        var minute = '0'+minute;
+    }
+    if(second.toString().length == 1) {
+        var second = '0'+second;
+    }   
+    var dateTime = hour+':'+minute+':'+second;   
+     return dateTime;
+}
+
 function showPreConvPopup()
 {
     $( "#preConversationPopup" ).popup( "open" );
