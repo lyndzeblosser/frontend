@@ -163,9 +163,9 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-//                alert("oops, we could not find anyone that matched your search criteria! Please try again");
+                alert("oops, we could not find anyone that matched your search criteria! Please try again");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
-                window.location.href = "myPopup";
+                window.location.href = "mood.html";
 /*                    $("#flipbox").flip({
 	direction:'tb',
         content:'Oops, we could not find anyone that matched your search criteria! Please try again'
