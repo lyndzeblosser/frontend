@@ -4,7 +4,7 @@ $(document).ready(function()
 //    userid=$.session.get('userHash')
    
     $("#InvitesSentId").hide();
-
+    $("#preConvoPopupButton").hide();
     userid = getParameterByName('user_from');
 
     getTableData(getParameterByName('tableid'))
@@ -29,9 +29,10 @@ function getUserData() {
        {
         console.log("Lock for this user");
         document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
-        document.getElementById('confirmInvitesButtonId').onclick = function(){return false};                  
+        document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+        $("#preConvoPopupButton").show();
+        document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
         }
-                    
 
      
      
@@ -89,8 +90,11 @@ function getUserData() {
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
                           document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
-                          
+                          $("#preConvoPopupButton").show();
+                          document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+
                       }
+                    
                     
 
                     //  timepicker.get_dateInput().disable();
@@ -428,6 +432,36 @@ function getTime() {
 
 function showPreConvPopup()
 {
+//    document.getElementById('preConvoText').innerHTML = "What does progress mean to me? What kind of awareness helps me broaden my perspective about my place in the world?";
+    
+    var randomLink=new Array(2)
+for (i=0; i <5; i++)
+    randomLink[i]=new Array(2)
+ //   var randomLinkTopic = [];
+    
+    randomLink[0][0] = "Why saying is believing the science of self talk"; 
+    randomLink[0][1] = "http://www.npr.org/blogs/health/2014/10/07/353292408/why-saying-is-believing-the-science-of-self-talk"; 
+
+
+
+   document.getElementById("preConvoLink1").innerHTML=randomLink[0][0];
+   document.getElementById("preConvoLink1").href=randomLink[0][1];
+   
+    randomLink[0][0] = "When life overwhelms this group lends a healthy hand"; 
+    randomLink[0][1] = "http://www.npr.org/blogs/health/2015/03/12/391872813/when-life-overwhelms-this-group-lends-a-healthy-hand"; 
+
+   
+   document.getElementById("preConvoLink2").innerHTML=randomLink[0][0];
+   document.getElementById("preConvoLink2").href=randomLink[0][1];
+
+    randomLink[0][0] = "Homeless man encourages others on the streets to get up"; 
+    randomLink[0][1] = "http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up"; 
+
+   
+   document.getElementById("preConvoLink3").innerHTML=randomLink[0][0];
+   document.getElementById("preConvoLink3").href=randomLink[0][1];
+
+   
     $( "#preConversationPopup" ).popup( "open" );
 }
 function autoCompleteLocation(){

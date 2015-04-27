@@ -88,24 +88,24 @@ function getTopics()
         }
     });
 */
-  var TTtags = ["Inclusivity","Community","Education","Trust","Compassion","Participation","Development"];
+  var TTtags = ["Community","Trust","Transformation","Inclusivity","Education","Urban Planning ","Compassion","Participation","Language","Technology",];
             var NoRepeatTTTags = [];
             var TTtagdId = Math.floor((Math.random() * 10));
 //                TTtagdId = TTtagdId % 6;
-            NoRepeatTTTags [0]=TTtagdId%6;
-                for(var i=1; i<3;i++)
+            NoRepeatTTTags [0]=TTtagdId;
+                for(var i=1; i<5;i++)
                 {   
                 NoRepeatTTTags [i] = Math.floor((Math.random() * 10));
-                NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;
+//                NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;
                   for(var j=0;j<i; j++)
                     if(NoRepeatTTTags [i] == NoRepeatTTTags[j])
                 {
                 NoRepeatTTTags[i] = Math.floor((Math.random() * 10));
-                NoRepeatTTTags[i] = NoRepeatTTTags[i]%6;
+ //               NoRepeatTTTags[i] = NoRepeatTTTags[i]%6;
                     j=0;
                 }}
               
-            for(var i=0;i<3;i++){
+            for(var i=0;i<5;i++){
                   console.log(NoRepeatTTTags[i]);
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[NoRepeatTTTags[i]]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[NoRepeatTTTags[i]]).html()+"\"  type=\"checkbox\"></label>");
             }
