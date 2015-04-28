@@ -433,34 +433,94 @@ function getTime() {
 function showPreConvPopup()
 {
 //    document.getElementById('preConvoText').innerHTML = "What does progress mean to me? What kind of awareness helps me broaden my perspective about my place in the world?";
-    
+    var randomId = Math.floor((Math.random() * 10)); 
+    randomId = randomId % 8;
+        
     var randomLink=new Array(2)
-for (i=0; i <5; i++)
+for (i=0; i <8; i++)
     randomLink[i]=new Array(2)
  //   var randomLinkTopic = [];
     
-    randomLink[0][0] = "Why saying is believing the science of self talk"; 
+    randomLink[0][0] = "Why saying is believing the science of self talk?"; 
     randomLink[0][1] = "http://www.npr.org/blogs/health/2014/10/07/353292408/why-saying-is-believing-the-science-of-self-talk"; 
 
+    randomLink[1][0] = "Can a computer change the essence of who you are?"; 
+    randomLink[1][1] = "http://www.npr.org/blogs/health/2015/02/13/385205570/can-a-computer-change-the-essence-of-who-you-are";
+
+    randomLink[2][0] = "Maybe isolation and not loneliness shortens life"; 
+    randomLink[2][1] = "http://www.npr.org/blogs/health/2013/03/26/175283008/maybe-isolation-not-loneliness-shortens-life";
+
+    randomLink[3][0] = "Society's fear of black men and it's consequences"; 
+    randomLink[3][1] = "http://www.npr.org/2015/03/31/396415737/societys-fear-of-black-men-and-its-consequences";
+
+    randomLink[4][0] = "Is conflict good for progress?"; 
+    randomLink[4][1] = "http://www.npr.org/2013/08/23/174037793/is-conflict-good-for-progress";
+
+    randomLink[5][0] = "Uncomfortable Conversations: Talking About Race In The Classroom"; 
+    randomLink[5][1] = "http://www.npr.org/blogs/ed/2015/04/24/401214280/uncomfortable-conversations-talking-about-race-in-the-classroom";
+
+    randomLink[6][0] = "'Sliver Of Hope' In Freddie Gray Case, Former Baltimore Police Chief Says"; 
+    randomLink[6][1] = "http://www.npr.org/blogs/thetwo-way/2015/04/22/401436003/former-baltimore-police-head-sees-sliver-of-hope-in-freddie-gray-case";
+
+    randomLink[7][0] = "In San Jose, The Public Has An Eye On Police Conduct"; 
+    randomLink[7][1] = "http://www.npr.org/2015/04/26/402353848/in-san-jose-the-public-has-an-eye-on-police-conduct";
 
 
-   document.getElementById("preConvoLink1").innerHTML=randomLink[0][0];
-   document.getElementById("preConvoLink1").href=randomLink[0][1];
+   document.getElementById("preConvoLink1").innerHTML=randomLink[randomId][0];
+   document.getElementById("preConvoLink1").href=randomLink[randomId][1];
    
+    randomId = randomId % 7;
+
     randomLink[0][0] = "When life overwhelms this group lends a healthy hand"; 
     randomLink[0][1] = "http://www.npr.org/blogs/health/2015/03/12/391872813/when-life-overwhelms-this-group-lends-a-healthy-hand"; 
 
+    randomLink[1][0] = "Gentrification progress or destruction?"; 
+    randomLink[1][1] = "http://www.npr.org/2014/03/13/289798823/gentrification-progress-or-destruction";
+
+    randomLink[2][0] = "First book gets reading material into the hands of low income students"; 
+    randomLink[2][1] = "http://www.npr.org/2014/12/29/373729964/first-book-gets-reading-material-into-the-hands-of-low-income-students";
+
+    randomLink[3][0] = "DC's mayor for life ends his reign"; 
+    randomLink[3][1] = "http://www.npr.org/2014/11/24/366259632/d-c-s-mayor-for-life-ends-his-reign-marion-barry-dies-at-78";
+
+    randomLink[4][0] = "Gentrification May Actually Be Boon To Longtime Residents"; 
+    randomLink[4][1] = "http://www.npr.org/2014/01/22/264528139/long-a-dirty-word-gentrification-may-be-losing-its-stigma";
+
+    randomLink[5][0] = "Addiction Battled Ambition For Reporter Caught In D.C.'s Crack Epidemic"; 
+    randomLink[5][1] = "http://www.npr.org/2014/07/03/327824529/addiction-battled-ambition-for-reporter-caught-in-d-c-s-crack-epidemic";
+
+    randomLink[6][0] = "What Does Martin Luther King Jr.'s Legacy Look Like To A 5-Year-Old?"; 
+    randomLink[6][1] = "http://www.npr.org/2015/01/19/377794772/what-does-martin-luther-kings-legacy-look-like-to-a-5-year-old";
+
    
-   document.getElementById("preConvoLink2").innerHTML=randomLink[0][0];
-   document.getElementById("preConvoLink2").href=randomLink[0][1];
+   document.getElementById("preConvoLink2").innerHTML=randomLink[randomId][0];
+   document.getElementById("preConvoLink2").href=randomLink[randomId][1];
 
     randomLink[0][0] = "Homeless man encourages others on the streets to get up"; 
     randomLink[0][1] = "http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up"; 
 
-   
-   document.getElementById("preConvoLink3").innerHTML=randomLink[0][0];
-   document.getElementById("preConvoLink3").href=randomLink[0][1];
+    randomLink[1][0] = "In Berlin, Grassroots Efforts Work To Integrate Inner-City Schools"; 
+    randomLink[1][1] = "http://www.npr.org/blogs/parallels/2015/03/05/390753243/in-berlin-integration-is-child-s-play";
 
+    randomLink[2][0] = "A Texas Community Takes On Racial Tensions Once Hidden Under The Surface"; 
+    randomLink[2][1] = "http://www.npr.org/2015/02/13/385495327/a-community-takes-on-racial-tensions-once-hidden-under-the-surface";
+
+    randomLink[3][0] = "From Skid Row To Rome: The Story Of An Unusual Running Club"; 
+    randomLink[3][1] = "http://www.npr.org/2015/03/20/394035236/from-skid-row-to-rome-the-story-of-an-unusual-running-club";
+
+    randomLink[4][0] = "New Orleans Educator Dreams Of Teaching Tech To Beat The Streets"; 
+    randomLink[4][1] = "http://www.npr.org/2015/04/07/397044111/new-orleans-educator-dreams-of-teaching-tech-to-beat-the-streets";
+   
+    randomLink[5][0] = "Ferguson Activists Hope That Momentum Sparks A National Movement"; 
+    randomLink[5][1] = "http://www.npr.org/2015/04/06/396780902/ferguson-activists-hope-that-momentum-sparks-a-national-movement";
+
+    randomLink[6][0] = "For Students In Ohio, A Crib Sheet For Interacting With Police"; 
+    randomLink[6][1] = "http://www.npr.org/2015/02/20/387535400/for-students-in-ohio-a-crib-sheet-for-interacting-with-police";
+   
+      
+   document.getElementById("preConvoLink3").innerHTML=randomLink[randomId][0];
+   document.getElementById("preConvoLink3").href=randomLink[randomId][1];
+   console.log("random id "+randomId);
    
     $( "#preConversationPopup" ).popup( "open" );
 }

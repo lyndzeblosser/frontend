@@ -6,7 +6,7 @@ $(document).ready(function(){
     preloadIrrepectiveOfLoggedInOut();
     
     $("#loadingImage").hide();
-    
+       
     if(!(getParameterByName('loggedinuser')=="")){
         isLoggedIn=true;
         $.session.set('userHash', getParameterByName('loggedinuser'));
@@ -31,6 +31,7 @@ $(document).ready(function(){
         $(this).prop('checked', false);
     };
     });
+//    changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES');
 })
 
 function getParameterByName(name) 
@@ -124,7 +125,7 @@ function changeWhereHeading(value,text){
        
     $("#whereText>a").text(text)
     $("#whereText").attr("value",value)
-    
+
 }
 
 function checkUserTagsCap () {
