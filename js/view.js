@@ -28,7 +28,7 @@ function getUserData() {
      if($.session.get('userHash') == table['user_from'])
        {
         console.log("Lock for this user");
-        document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
+        document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
         document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
         $("#preConvoPopupButton").show();
         document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
@@ -88,7 +88,7 @@ function getUserData() {
                       if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
                       {
                           console.log("Lock for this user");
-                          document.getElementById('confirmInvitesButtonId').innerHTML = "TABLE CONFIRMED!";
+                          document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
                           document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
