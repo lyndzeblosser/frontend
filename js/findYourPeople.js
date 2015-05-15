@@ -16,6 +16,22 @@ $(document).ready(function ()
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
     google.maps.event.addDomListener(window, 'load', initialize);
+//    $( "#dialog-confirm" ).dialog("close");
+//    $( "#dialog-confirm" ).dialog({
+//                  autoOpen : false,
+//                  resizable: false,
+//                  height:140,
+//                  modal: true,
+//                  buttons: {
+//                    "Add more people": function() {
+//                      $( this ).dialog( "close" );
+//                      $("#moveOnButton").click();
+//                    },
+//                    "Confirm Table": function() {
+//                      $( this ).dialog( "close" );
+//                    }
+//                  }
+//                });
 });
 
 function fillImgDetails(id){
@@ -416,6 +432,17 @@ function getRadius(selectedLocation)
     }
     return radius;
 }
+
+function confirmInvitation() {
+//    $( "#inviteSentPopup" ).popup("close");
+    window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
+}
+
+function addMorePeople() {
+    $("#moveOnButton").click();
+    $( "#inviteSentPopup" ).popup("close");  
+}
+
 function confirmInvite(i){
     
     var userName = users[i]["name"];
@@ -449,7 +476,9 @@ function confirmInvite(i){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Invite sent to "+userName+"! You should hear back soon. In the meantime, you can invite upto 3 people for this table");
+                  
+//            alert ("Invite sent to "+userName+"! You should hear back soon. In the meantime, you can invite upto 3 more people for this table or confirm this table");
+            $( "#inviteSentPopup" ).popup("open");
             tableid = data;
             usersSentInvite = 1;
 /*            $('#imageDiv').block({
@@ -463,7 +492,6 @@ function confirmInvite(i){
             color: '#ffbb00' }
             });*/
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
- 
         }
         else {
             alert(data);
@@ -494,7 +522,8 @@ function addUserToTable(i){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Invite sent to " + userName);
+//            alert ("Invite sent to " + userName);
+            $( "#inviteSentPopup" ).popup("open");
             usersSentInvite=2;
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
@@ -522,7 +551,8 @@ function addUserToTable(i){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-            alert ("Invite sent to " + userName);
+//            alert ("Invite sent to " + userName);
+            $( "#inviteSentPopup" ).popup("open");
             usersSentInvite=3;
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
