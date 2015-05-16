@@ -1,4 +1,4 @@
-var table,tags=[],userid,inviteUsers=[],users=[];
+var table,tags=[],userid,inviteUsers=[],users=[],lat,long;
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
@@ -180,8 +180,16 @@ function getTableMessages(tableid){
         dataType: "json",
         success: function(data)
         {
+         var MessageSender;
+            
+         
             var html="";
             for(var i=0;i<data.length;i++){
+                for(j=0;j<users.length;j++)
+//             if(data[i]["user_from"] == users[j]["id"])
+//         { MessageSender = users[j]["first_name"];
+         console.log(data[i]);
+  //              }
                 html += data[i]["user_from"];
                 html += " on ";
                 html += data[i]["message_date"];
@@ -249,10 +257,35 @@ for (i = 0; i < users.length; i++) {
 
     $("#userTop").html(userDivDataTop)
     $("#confirmImg").html(userDivDataBottom)
+   autoCompleteLocation();
+   var currentAddreess = $('#address').val();
+   console.log("test123 "+currentAddreess);
+   lat="42.345573";
+   long="-71.098326";
+   
+   
+  
+   
+        var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': currentAddreess }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    lat = results[0].geometry.location.lat();
+                    long = results[0].geometry.location.lng();
+                     currentAddreess = lat +"," +long;
+     $('#map_canvas').gmap({'center': currentAddreess})
+$('#map_canvas').gmap('option', 'zoom', 15);
+$('#map_canvas').gmap('addMarker', {'position': currentAddreess }).click(function() {
+    //$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+});
+     
+                } else {
+                    alert("Request failed.")
+                }
+            });
 
+   console.log(users);
 
    
-
 }
 
 
@@ -545,7 +578,9 @@ function autoCompleteLocation(){
         var place = autoComplete.getPlace();
         currentLat = place.geometry.location.lat();
         currentLng = place.geometry.location.lng();
-        console.log(currentLat, currentLng);
+        lat=currentLat;
+        long=currentLng;
+        console.log("finally "+lat, long);
         console.log(place.formatted_address);
 
         $("#address").attr("value",place.formatted_address);
