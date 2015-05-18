@@ -26,6 +26,7 @@ $(document).ready(function(){
     window.location.href = url; 
     }
     
+    
     $('#topicsForm :checkbox').click(function() {
     if (checkUserTagsCap()) {
         $(this).prop('checked', false);
@@ -73,7 +74,17 @@ alert("Sorry only Coffee is available right now - We are working on expanding it
    */     
     })
 }
-
+//    
+//function prepareNotificationDiv(userPanelNotification) {
+//    
+//    var ul = document.getElementById("rightpanellist");
+//    var li = document.createElement("li");
+//    li.appendChild(document.createTextNode(userPanelNotification['message']));
+//    li.setAttribute("notification_id",userPanelNotification['notification_id']);
+//    ul.appendChild(li); 
+//
+//
+//}    
 function getTopics()
 {
 /*    $.ajax({

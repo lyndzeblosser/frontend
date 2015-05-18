@@ -1,4 +1,4 @@
-var isLoggedIn,userId, notficationNo;
+var userPanelNotifications,isLoggedIn,userId, notficationNo;
 
 $(document).ready(function(){
     $(document).ajaxStart(function () {
@@ -118,6 +118,8 @@ function loggedInLoggedOutBehavior(){
         getInvitations()
         getMyTablesToBeConfirmed();
         getMyUpcomingTables();
+        getUserPanelNotifications();
+        prepareRightPanelDiv();
         $("#notificationNo").text(notficationNo);
         if(notficationNo == 0)
             $("#notificationNo").hide();
@@ -186,3 +188,62 @@ function getUserProfile () {
                     }
                 });
 }
+function getUserPanelNotifications() {
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash'))
+    $.ajax(
+            {
+                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash'),
+                async: false,
+                dataType: "json",
+                success: function(data)
+                {
+                    userPanelNotifications = data;
+                    console.log(data)
+
+
+                },
+                error: function(error, message)
+                {
+                    console.log("Failure: " + message);
+                },
+                complete: function(data)
+                {
+
+
+                }
+            });
+}
+
+function prepareRightPanelDiv() {
+    var html="";
+    if (userPanelNotifications != null) {
+        for (var i = 0; i < userPanelNotifications.length; i++) {
+        html += prepareNotificationDiv(userPanelNotifications[i]);
+    }
+    $('#panelMain').html(html);
+    }
+    
+    
+}
+    
+function prepareNotificationDiv(userPanelNotification) {
+    
+//    var ul = document.getElementById("rightpanellist");
+//    var li = document.createElement("li");
+    var notification_read_icon = '';
+    if (userPanelNotification['acted_upon'] === 'NO'){
+        notification_read_icon = 'ui-icon-red-dot';
+    }
+    else {
+        notification_read_icon = 'ui-icon-red-ring-dot';
+    } 
+        
+    var notification = "<li><a href=\"view.html?tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";
+    return notification;
+//    li.appendChild(document.createTextNode(notification));
+//    li.setAttribute("notification_id",userPanelNotification['notification_id']);
+//    li.setAttribute("class","loggedInFields");
+//    ul.appendChild(li); 
+
+
+}  
