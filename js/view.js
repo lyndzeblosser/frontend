@@ -27,7 +27,7 @@ function getUserData() {
      confirmCount++;  
      if($.session.get('userHash') == table['user_from'])
        {
-        console.log("Lock for this user");
+        console.log("Lock for this user_from user");
         document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
         document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
         $("#preConvoPopupButton").show();

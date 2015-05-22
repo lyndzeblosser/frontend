@@ -1,4 +1,4 @@
-var userPanelNotifications,isLoggedIn,userId, notficationNo;
+var userPanelNotifications,isLoggedIn,userId, notficationNo, table, users=[];
 
 $(document).ready(function(){
     $(document).ajaxStart(function () {
@@ -230,15 +230,21 @@ function prepareNotificationDiv(userPanelNotification) {
     
 //    var ul = document.getElementById("rightpanellist");
 //    var li = document.createElement("li");
-    var notification_read_icon = '';
+    var notification_read_icon, notification = '';
     if (userPanelNotification['acted_upon'] === 'NO'){
         notification_read_icon = 'ui-icon-red-dot';
     }
     else {
         notification_read_icon = 'ui-icon-red-ring-dot';
     } 
-        
-    var notification = "<li><a href=\"view.html?tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";
+    if (userPanelNotification['message'] === 'Confirmed Table') {
+        getTableData(userPanelNotification['tableid']);
+        var imageStringHtml = getUserProfileData();
+        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Upcoming Details </p> " + imageStringHtml + " </a></li>";
+    }   
+    else {
+        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";   
+    }
     return notification;
 //    li.appendChild(document.createTextNode(notification));
 //    li.setAttribute("notification_id",userPanelNotification['notification_id']);
@@ -247,3 +253,107 @@ function prepareNotificationDiv(userPanelNotification) {
 
 
 }  
+
+function getTableData(tableid){
+    $.ajax(
+    {
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?tableid="+tableid,
+        async: false,
+        dataType: "json",
+        success: function(data)
+        {   console.log(data)
+            table=data[0];
+            console.log(data)
+                      
+
+        },
+        error: function(error, message)
+        {
+            console.log("Failure: " + message);
+        },
+        complete: function(data)
+        {
+
+
+        }
+    });
+}
+
+function getUserProfileData() {
+    var userIDs=[];
+    var imageStringHtml = "<div class=\"ui-grid-b\"> ";
+ 
+//    if (confirmCount > 1) {
+//        document.getElementById("inviteTimePicker").disabled = true;
+//        document.getElementById("address").disabled = true;
+//    }
+    for(var j=1;j<4;j++){
+        if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
+            userIDs.push(table['user_to_'+j]);
+        }
+    }
+        console.log(userIDs.length);
+    console.log("uid"+userIDs);
+    count = 0;
+    for (var i = 0; i < userIDs.length; i++) {
+//        inviteUsers.push(userIDs[i])
+        letter = String.fromCharCode(97 + count)
+        count++;
+        users[i] = [];
+        console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        $.ajax(
+                {
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data[0];
+//                        console.log("DATA - "+data);
+
+                        users[i]["id"] = data["userid"];
+                        users[i]["first_name"] = data["firstname"];
+                        users[i]["last_name"] = data["lastname"];
+                        users[i]["bio"] = data["bio"];
+                        users[i]["image"] = data["imageMasterLocation"];
+                        if (users[i]["image"] != null && users[i]["image"].length>0) { 
+                            imageStringHtml += "<div id=\"bottom-block-" + letter + "\" class=\"ui-block-"+letter+"\"><img src=\""+users[i]["image"]+"\"  class=\"imagesize\"> </div>";
+                        }
+//                        if(table['user_to_'+(i+1)+'_status']!=="Pending")
+//                        {
+//                          console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
+//                          users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i+1)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png")
+//                        }                        
+//                        else
+//                          users[i]["status"]="";
+//                      if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
+//                      {
+//                          console.log("Lock for this user");
+//                          document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
+//                          document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+//                          $("#preConvoPopupButton").show();
+//                          document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+//
+//                      }
+                    
+                    
+
+                    //  timepicker.get_dateInput().disable();
+                    //  document.getElementById("inviteTimePicker").disabled = false;  
+                    console.log("imageStringHtml: " + imageStringHtml);
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
+    }
+    imageStringHtml += "</div>";
+return imageStringHtml;
+
+}
