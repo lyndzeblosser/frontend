@@ -402,7 +402,7 @@ img#LeftPanelProfileImage {
 .ui-btn, label.ui-btn {
     font-weight: 400;
 }
-.imagesize {
+.panelimagesize {
     height:50px;
     /*width: 100%;*/
 }

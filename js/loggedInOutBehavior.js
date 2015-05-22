@@ -1,4 +1,4 @@
-var userPanelNotifications,isLoggedIn,userId, notficationNo, table, users=[];
+var userPanelNotifications,isLoggedIn,userId, notficationNo, table, panelUsers=[];
 
 $(document).ready(function(){
     $(document).ajaxStart(function () {
@@ -51,21 +51,21 @@ $(document).ready(function(){
 
 });
 
-function getInvitations()
-{
-    $.ajax({
-            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
-            async: false,
-            dataType: "json",
-            success: function(data){
-                $("#inviteNo").text(data.length);
-                notficationNo=data.length;
-            }
-        });
-    
-
-
-}
+//function getInvitations()
+//{
+//    $.ajax({
+//            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
+//            async: false,
+//            dataType: "json",
+//            success: function(data){
+//                $("#inviteNo").text(data.length);
+//                notficationNo=data.length;
+//            }
+//        });
+//    
+//
+//
+//}
 
 function getMyTablesToBeConfirmed()
 {
@@ -115,7 +115,7 @@ function loggedInLoggedOutBehavior(){
     if(isLoggedIn){
         $(".loggedOutFields").css("display","none")    
         userId=$.session.get('userHash');
-        getInvitations()
+//        getInvitations()
         getMyTablesToBeConfirmed();
         getMyUpcomingTables();
         getUserPanelNotifications();
@@ -216,11 +216,16 @@ function getUserPanelNotifications() {
 
 function prepareRightPanelDiv() {
     var html="";
-    if (userPanelNotifications != null) {
+    var pendingCount = 0;
+    if (userPanelNotifications !== null) {
         for (var i = 0; i < userPanelNotifications.length; i++) {
+            if (userPanelNotifications[i]['acted_upon'] === 'NO') {
+                pendingCount++;
+            }
         html += prepareNotificationDiv(userPanelNotifications[i]);
     }
     $('#panelMain').html(html);
+    notficationNo = pendingCount;
     }
     
     
@@ -292,6 +297,7 @@ function getUserProfileData() {
             userIDs.push(table['user_to_'+j]);
         }
     }
+    userIDs.push(table['user_from']);
         console.log(userIDs.length);
     console.log("uid"+userIDs);
     count = 0;
@@ -299,7 +305,7 @@ function getUserProfileData() {
 //        inviteUsers.push(userIDs[i])
         letter = String.fromCharCode(97 + count)
         count++;
-        users[i] = [];
+        panelUsers[i] = [];
         console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
         $.ajax(
                 {
@@ -311,13 +317,13 @@ function getUserProfileData() {
                         data = data[0];
 //                        console.log("DATA - "+data);
 
-                        users[i]["id"] = data["userid"];
-                        users[i]["first_name"] = data["firstname"];
-                        users[i]["last_name"] = data["lastname"];
-                        users[i]["bio"] = data["bio"];
-                        users[i]["image"] = data["imageMasterLocation"];
-                        if (users[i]["image"] != null && users[i]["image"].length>0) { 
-                            imageStringHtml += "<div id=\"bottom-block-" + letter + "\" class=\"ui-block-"+letter+"\"><img src=\""+users[i]["image"]+"\"  class=\"imagesize\"> </div>";
+                        panelUsers[i]["id"] = data["userid"];
+                        panelUsers[i]["first_name"] = data["firstname"];
+                        panelUsers[i]["last_name"] = data["lastname"];
+                        panelUsers[i]["bio"] = data["bio"];
+                        panelUsers[i]["image"] = data["imageMasterLocation"];
+                        if (panelUsers[i]["image"] != null && panelUsers[i]["image"].length>0) { 
+                            imageStringHtml += "<div id=\"bottom-block-" + letter + "\" class=\"ui-block-"+letter+"\"><img src=\""+panelUsers[i]["image"]+"\"  class=\"panelimagesize\"> </div>";
                         }
 //                        if(table['user_to_'+(i+1)+'_status']!=="Pending")
 //                        {
