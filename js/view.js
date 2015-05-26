@@ -5,6 +5,7 @@ $(document).ready(function()
    
     $("#InvitesSentId").hide();
     $("#preConvoPopupButton").hide();
+    $("#articlesDiv").hide();
     userid = getParameterByName('user_from');
 
     getTableData(getParameterByName('tableid'))
@@ -12,7 +13,7 @@ $(document).ready(function()
     getResult();
     loggedInLoggedOutBehavior();
     autoCompleteLocation();
-    getTableMessages(getParameterByName('tableid'));
+//    getTableMessages(getParameterByName('tableid'));
    // $("#main").html(prepareTablesDiv())
 
 });
@@ -23,6 +24,12 @@ function getUserData() {
     console.log(table);
     console.log();
 //    if(table["table_confirmed"]=="YES")
+    if($.session.get('userHash') == table['user_from'])
+       {
+        document.getElementById('confirmInvitesButtonId').innerHTML = "Confirm Table";
+        $('#rejectInviteButtonId').hide();
+
+        }
     if(table['user_from_status']==="Confirmed") {
      confirmCount++;  
      if($.session.get('userHash') == table['user_from'])
@@ -32,6 +39,8 @@ function getUserData() {
         document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
         $("#preConvoPopupButton").show();
         document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+        $('#rejectInviteButtonId').hide();
+
         }
 
      
@@ -50,7 +59,10 @@ function getUserData() {
     if (confirmCount > 1) {
         document.getElementById("inviteTimePicker").disabled = true;
         document.getElementById("address").disabled = true;
+        $("#articlesDiv").show();
     }
+    
+    
     for(var j=1;j<4;j++){
         if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
@@ -90,11 +102,21 @@ function getUserData() {
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
                           document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+                          $('#rejectInviteButtonId').hide();
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
 
                       }
-                    
+                    if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Rejected")
+                      {
+                          console.log("Lock for this user");
+                          document.getElementById('confirmInvitesButtonId').innerHTML = "REJECTED";
+                          document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+                          $('#rejectInviteButtonId').hide();
+
+                          document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+
+                      }
                     
 
                     //  timepicker.get_dateInput().disable();
@@ -155,7 +177,7 @@ function getTableData(tableid){
         async: false,
         dataType: "json",
         success: function(data)
-        {   console.log(data)
+        {   
             table=data[0];
             console.log(data)
                       
@@ -347,6 +369,8 @@ function confirmTable(){
 //        return false;
 //    }
     $("#confirmInvitesButtonId").hide();
+    $('#rejectInviteButtonId').hide();
+
     $("#InvitesSentId").show();
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/confirmTable",
     {
@@ -366,18 +390,55 @@ function confirmTable(){
         if(status  == "success") {
            
             document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
+                $('#rejectInviteButtonId').hide();
+
             
 //             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
 //                window.location.href = "mood.html";
 //                alert ("Table updated!");
-        $( "#preConversationPopup" ).popup( "open" );
+//        $( "#preConversationPopup" ).popup( "open" );
         }
         else {
             alert(data);
-            sendToMoodPage();
+//            sendToMoodPage();
         }
     });
     $("#confirmInvitesButtonId").hide();
+    $("#InvitesSentId").show();
+    $('#rejectInviteButtonId').hide();
+
+}
+
+function rejectTable(){
+    var time=getTimeData();
+//    console.log("length = "+$('#whereText').attr("value").length);
+//    if($('#whereText').attr("value").length < 1)
+//    {
+//        alert("Please selecte from the various Table Tribes Zone Areas to meet!");
+//        return false;
+//    }
+    $("#confirmInvitesButtonId").hide();
+    $("#rejectInviteButtonId").hide();
+//    $("#InvitesSentId").show();
+    var alertConfirmation = confirm("Are you sure, you want to reject this table?");
+    if (alertConfirmation)
+        {
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/rejectTableInvitation",
+        {
+            tableid:getParameterByName('tableid'),
+            user_from:table['user_from'],
+            user_to:$.session.get('userHash')
+        },
+        function(data,status){
+    //         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
+//            console.log("Data: " + data + "\nStatus: " + status);
+//            alert(data);
+            document.getElementById("InvitesSentId").innerHTML="REJECTED";
+            window.location.href = "mood.html";
+
+        });
+        }
+    $("#rejectInviteButtonId").hide();
     $("#InvitesSentId").show();
 }
 

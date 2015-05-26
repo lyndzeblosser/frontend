@@ -1,4 +1,4 @@
-var userPanelNotifications,isLoggedIn,userId, notficationNo, table, panelUsers=[];
+var userPanelNotifications, imageStringHtml, isLoggedIn,userId, notficationNo, panelTable, panelUsers=[];
 
 $(document).ready(function(){
     $(document).ajaxStart(function () {
@@ -116,8 +116,8 @@ function loggedInLoggedOutBehavior(){
         $(".loggedOutFields").css("display","none")    
         userId=$.session.get('userHash');
 //        getInvitations()
-        getMyTablesToBeConfirmed();
-        getMyUpcomingTables();
+//        getMyTablesToBeConfirmed();
+//        getMyUpcomingTables();
         getUserPanelNotifications();
         prepareRightPanelDiv();
         $("#notificationNo").text(notficationNo);
@@ -189,10 +189,15 @@ function getUserProfile () {
                 });
 }
 function getUserPanelNotifications() {
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash'))
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth(); //January is 0!
+    var yyyy = today.getFullYear();
+    var epochMs = new Date(yyyy, mm, dd).getTime()/1000;
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash')) + "&epochMs=" + epochMs
     $.ajax(
             {
-                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash'),
+                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash') + "&epochMs=" + epochMs,
                 async: false,
                 dataType: "json",
                 success: function(data)
@@ -243,8 +248,8 @@ function prepareNotificationDiv(userPanelNotification) {
         notification_read_icon = 'ui-icon-red-ring-dot';
     } 
     if (userPanelNotification['message'] === 'Confirmed Table') {
-        getTableData(userPanelNotification['tableid']);
-        var imageStringHtml = getUserProfileData();
+        getPanelTableData(userPanelNotification['tableid']);
+//        var imageStringHtml = getUserProfileData();
         notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Upcoming Details </p> " + imageStringHtml + " </a></li>";
     }   
     else {
@@ -259,17 +264,17 @@ function prepareNotificationDiv(userPanelNotification) {
 
 }  
 
-function getTableData(tableid){
+function getPanelTableData(tableid){
     $.ajax(
     {
         url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?tableid="+tableid,
         async: false,
         dataType: "json",
         success: function(data)
-        {   console.log(data)
-            table=data[0];
-            console.log(data)
-                      
+        {   //console.log(data)
+            panelTable=data[0];
+            console.log(data[0])
+            imageStringHtml = getPanelUserProfileData();
 
         },
         error: function(error, message)
@@ -284,7 +289,7 @@ function getTableData(tableid){
     });
 }
 
-function getUserProfileData() {
+function getPanelUserProfileData() {
     var userIDs=[];
     var imageStringHtml = "<div class=\"ui-grid-b\"> ";
  
@@ -293,11 +298,11 @@ function getUserProfileData() {
 //        document.getElementById("address").disabled = true;
 //    }
     for(var j=1;j<4;j++){
-        if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
-            userIDs.push(table['user_to_'+j]);
+        if(panelTable['user_to_'+j]!=null && panelTable['user_to_'+j]!=""){
+            userIDs.push(panelTable['user_to_'+j]);
         }
     }
-    userIDs.push(table['user_from']);
+    userIDs.push(panelTable['user_from']);
         console.log(userIDs.length);
     console.log("uid"+userIDs);
     count = 0;
