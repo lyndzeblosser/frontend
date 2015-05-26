@@ -83,8 +83,6 @@ function getUserData() {
                     success: function(data)
                     {
                         data = data[0];
-                        console.log("DATA - "+data);
-
                         users[i]["id"] = data["userid"];
                         users[i]["first_name"] = data["firstname"];
                         users[i]["last_name"] = data["lastname"];
@@ -92,12 +90,18 @@ function getUserData() {
                         users[i]["image"] = data["imageMasterLocation"];
                         if(table['user_to_'+(i+1)+'_status']!=="Pending")
                         {
-                          console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
-                          users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i+1)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png")
+                       //   console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
+                       
+                       $('#notConfirmTableText').hide();
+                       $('#confirmTableText').show();
+                            users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i+1)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png")
                         }                        
                         else
-                          users[i]["status"]="";
-                      if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
+                        {  $('#confirmTableText').hide();
+                            $('#notConfirmTableText').show();
+                            users[i]["status"]="";
+                        }
+                        if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
                       {
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
@@ -279,18 +283,23 @@ for (i = 0; i < users.length; i++) {
 
     $("#userTop").html(userDivDataTop)
     $("#confirmImg").html(userDivDataBottom)
-   autoCompleteLocation();
+
+
+   console.log(users);
+   prepareMapDiv();
+
+   
+}
+
+function prepareMapDiv ()
+{
+    $('#map_canvas').gmap('destroy');   
    var currentAddreess = $('#address').val();
-   console.log("test123 "+currentAddreess);
-   lat="42.345573";
-   long="-71.098326";
-   
-   
-  
-   
+   console.log("load maps 1 ");
         var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': currentAddreess }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
+                    console.log("load maps 2 ");
                     lat = results[0].geometry.location.lat();
                     long = results[0].geometry.location.lng();
                      currentAddreess = lat +"," +long;
@@ -304,12 +313,7 @@ $('#map_canvas').gmap('addMarker', {'position': currentAddreess }).click(functio
                     alert("Request failed.")
                 }
             });
-
-   console.log(users);
-
-   
 }
-
 
 function prepareEmptyDivTop(letter) {
     return "<div class=\"ui-block-" + letter + "\"><div class=\"ui-bar ui-bar-a\" style=\"height:95px; border:none;\"></div></div>"
@@ -645,5 +649,8 @@ function autoCompleteLocation(){
         console.log(place.formatted_address);
 
         $("#address").attr("value",place.formatted_address);
+        prepareMapDiv();
+        var currentAddreess = $('#address').val();
+        console.log("CASDF "+currentAddreess);
     });
 }

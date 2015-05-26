@@ -203,9 +203,7 @@ function getUserPanelNotifications() {
                 success: function(data)
                 {
                     userPanelNotifications = data;
-                    console.log(data)
-
-
+                    
                 },
                 error: function(error, message)
                 {
@@ -241,6 +239,8 @@ function prepareNotificationDiv(userPanelNotification) {
 //    var ul = document.getElementById("rightpanellist");
 //    var li = document.createElement("li");
     var notification_read_icon, notification = '';
+    
+
     if (userPanelNotification['acted_upon'] === 'NO'){
         notification_read_icon = 'ui-icon-red-dot';
     }
@@ -249,8 +249,12 @@ function prepareNotificationDiv(userPanelNotification) {
     } 
     if (userPanelNotification['message'] === 'Confirmed Table') {
         getPanelTableData(userPanelNotification['tableid']);
+        
 //        var imageStringHtml = getUserProfileData();
-        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Upcoming Details </p> " + imageStringHtml + " </a></li>";
+     
+     
+        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Tables </p> " + imageStringHtml + " </a></li>";
+    
     }   
     else {
         notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";   
@@ -273,7 +277,6 @@ function getPanelTableData(tableid){
         success: function(data)
         {   //console.log(data)
             panelTable=data[0];
-            console.log(data[0])
             imageStringHtml = getPanelUserProfileData();
 
         },

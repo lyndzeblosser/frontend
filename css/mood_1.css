@@ -90,7 +90,6 @@ h4 {
 }
 
 .ui-icon-red-ring-dot:after {
-	background-image: url("../images/red-ring-dot.png");
 	background-color: transparent;
     box-shadow: none;
     -moz-border-radius: 0px;
