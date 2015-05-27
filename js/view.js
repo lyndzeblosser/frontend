@@ -1,4 +1,4 @@
-var table,tags=[],userid,inviteUsers=[],users=[],lat,long;
+var table,tags=[],userid,inviteUsers=[],users=[],lat,long, organizer=[];;
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
@@ -7,7 +7,8 @@ $(document).ready(function()
     $("#preConvoPopupButton").hide();
     $("#articlesDiv").hide();
     userid = getParameterByName('user_from');
-
+    console.log("Initial User Id "+userid);
+    
     getTableData(getParameterByName('tableid'))
     getTags();
     getResult();
@@ -21,8 +22,7 @@ $(document).ready(function()
 function getUserData() {
     var userIDs=[];
     var confirmCount = 0;
-    console.log(table);
-    console.log();
+    
 //    if(table["table_confirmed"]=="YES")
     if($.session.get('userHash') == table['user_from'])
        {
@@ -62,14 +62,16 @@ function getUserData() {
         $("#articlesDiv").show();
     }
     
-    
+    userIDs.push(table['user_from']);
     for(var j=1;j<4;j++){
         if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
         }
+        organizer.push(table['user_from']);
     }
-        console.log(userIDs.length);
-    console.log("uid"+userIDs);
+        console.log("user ID lengtsh "+userIDs.length);
+    console.log("uid - "+userIDs);
+    
     
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
@@ -88,20 +90,44 @@ function getUserData() {
                         users[i]["last_name"] = data["lastname"];
                         users[i]["bio"] = data["bio"];
                         users[i]["image"] = data["imageMasterLocation"];
-                        if(table['user_to_'+(i+1)+'_status']!=="Pending")
+                        
+                        
+                        if(table['table_confirmed']=="NO")
                         {
-                       //   console.log(table['user_to_'+(i+1)+'_status'],table['user_to_'+j+'_status']!=="Pending")
-                       
+                            $('#confirmTableText').hide();
+                            $('#notConfirmTableText').show();
+                        }  
+                        else
+                        {
                        $('#notConfirmTableText').hide();
                        $('#confirmTableText').show();
-                            users[i]["status"]=table['user_to_'+(i+1)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i+1)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png")
-                        }                        
-                        else
-                        {  $('#confirmTableText').hide();
-                            $('#notConfirmTableText').show();
-                            users[i]["status"]="";
                         }
-                        if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Confirmed")
+                        
+                        users[i]["status"]="";
+                        if(i==0)
+                        {
+                           console.log("TAble confirmed? "+table['table_confirmed']);
+                           users[i]["status"]=table['user_from_status']==="Confirmed"?"images/mycheck.png":(table['user_from_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png"); 
+                         
+                            if($.session.get('userHash') == userIDs[i] && table['user_from_status']=="Confirmed")
+                      {
+                          console.log("Lock for this user");
+                          document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
+                          document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+                          $('#rejectInviteButtonId').hide();
+                          $("#preConvoPopupButton").show();
+                          document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+                          
+                      }
+                        }
+                        else
+                        {
+                           if(table['user_to_'+(i)+'_status']!=="Pending")
+                        {
+                    
+                            users[i]["status"]=table['user_to_'+(i)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png");
+                        }
+                         if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i)+'_status']=="Confirmed")
                       {
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
@@ -111,7 +137,11 @@ function getUserData() {
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
 
                       }
-                    if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i+1)+'_status']=="Rejected")
+                        }
+                                              
+                       
+                       
+                    if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i)+'_status']=="Rejected")
                       {
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "REJECTED";
@@ -255,12 +285,14 @@ function getResult()
     var userDivDataBottom = "";
     var count = 0, letter = '';
 
+
 for (i = 0; i < users.length; i++) {
         console.log("users length: " + users.length)
         letter = String.fromCharCode(97 + count)
         count++;
         userDivDataTop += prepareUserDivTop(i, letter)
     }
+    
  /*   for (var i = 0; i < noEmptyDivs; i++) {
         letter = String.fromCharCode(97 + count)
         count++;
@@ -379,9 +411,9 @@ function confirmTable(){
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/confirmTable",
     {
         user_from:$.session.get('userHash'),
-        user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
-        user_to_2:typeof users[1]=="undefined"?"":users[1]['id'],
-        user_to_3:typeof users[2]=="undefined"?"":users[2]['id'],
+        user_to_1:typeof users[1]=="undefined"?"":users[1]['id'],
+        user_to_2:typeof users[2]=="undefined"?"":users[2]['id'],
+        user_to_3:typeof users[3]=="undefined"?"":users[3]['id'],
         tableid:getParameterByName('tableid'),
         invite_date:time['date'],
         invite_time:time['time'],
@@ -395,7 +427,7 @@ function confirmTable(){
            
             document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
                 $('#rejectInviteButtonId').hide();
-
+        window.location.reload(false);         
             
 //             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
 //                window.location.href = "mood.html";

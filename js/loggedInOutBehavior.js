@@ -253,7 +253,7 @@ function prepareNotificationDiv(userPanelNotification) {
 //        var imageStringHtml = getUserProfileData();
      
      
-        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Tables </p> " + imageStringHtml + " </a></li>";
+        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Table </p> " + imageStringHtml + " </a></li>";
     
     }   
     else {
