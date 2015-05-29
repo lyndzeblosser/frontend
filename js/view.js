@@ -1,8 +1,9 @@
-var table,tags=[],userid,inviteUsers=[],users=[],lat,long, organizer=[];;
+var table,tags=[],userid,inviteUsers=[],users=[],lat,long, validUsers;
+var rejectedUsers = "";
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
-   
+    $("#addMoreButtonId").hide();
     $("#InvitesSentId").hide();
     $("#preConvoPopupButton").hide();
     $("#articlesDiv").hide();
@@ -22,7 +23,7 @@ $(document).ready(function()
 function getUserData() {
     var userIDs=[];
     var confirmCount = 0;
-    
+    validUsers = 1;
 //    if(table["table_confirmed"]=="YES")
     if($.session.get('userHash') == table['user_from'])
        {
@@ -31,7 +32,8 @@ function getUserData() {
 
         }
     if(table['user_from_status']==="Confirmed") {
-     confirmCount++;  
+     confirmCount++;
+     
      if($.session.get('userHash') == table['user_from'])
        {
         console.log("Lock for this user_from user");
@@ -49,12 +51,23 @@ function getUserData() {
     if(table['user_to_1_status']==="Confirmed") {
         confirmCount++;
     }
+    
     if(table['user_to_2_status']==="Confirmed") {
         confirmCount++;
     }
     if(table['user_to_3_status']==="Confirmed") {
         confirmCount++;
     }
+    
+    if(table['user_to_1_status']==="Confirmed" ||table['user_to_1_status']==="Pending" ) 
+        validUsers++;
+    
+    if(table['user_to_2_status']==="Confirmed" ||table['user_to_2_status']==="Pending") 
+        validUsers++;
+    
+    if(table['user_to_3_status']==="Confirmed" ||table['user_to_3_status']==="Pending") 
+        validUsers++;
+    
     console.log("ConfirmCount: " + confirmCount);
     if (confirmCount > 1) {
         document.getElementById("inviteTimePicker").disabled = true;
@@ -67,7 +80,7 @@ function getUserData() {
         if(table['user_to_'+j]!=null && table['user_to_'+j]!=""){
             userIDs.push(table['user_to_'+j]);
         }
-        organizer.push(table['user_from']);
+        
     }
         console.log("user ID lengtsh "+userIDs.length);
     console.log("uid - "+userIDs);
@@ -107,10 +120,13 @@ function getUserData() {
                         if(i==0)
                         {
                            console.log("TAble confirmed? "+table['table_confirmed']);
-                           users[i]["status"]=table['user_from_status']==="Confirmed"?"images/mycheck.png":(table['user_from_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png"); 
-                         
+                            if(table['user_from_status']=="Confirmed")
+                           
+                            users[i]["status"]="images/mycheck.png";
+                        
                             if($.session.get('userHash') == userIDs[i] && table['user_from_status']=="Confirmed")
                       {
+                          $("#addMoreButtonId").show();
                           console.log("Lock for this user");
                           document.getElementById('confirmInvitesButtonId').innerHTML = "CONFIRMED!";
                           document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
@@ -126,6 +142,12 @@ function getUserData() {
                         {
                     
                             users[i]["status"]=table['user_to_'+(i)+'_status']==="Confirmed"?"images/mycheck.png":(table['user_to_'+(i)+'_status']==="Accepted"?"images/unconfirmed.png":"images/mycross.png");
+                            if(users[i]["status"]=="images/mycross.png")
+                            {   if(rejectedUsers!=="")
+                                rejectedUsers+=",";
+                              rejectedUsers+=i;
+                          
+                          }
                         }
                          if($.session.get('userHash') == userIDs[i] && table['user_to_'+(i)+'_status']=="Confirmed")
                       {
@@ -654,6 +676,40 @@ for (i=0; i <8; i++)
    
     $( "#preConversationPopup" ).popup( "open" );
 }
+function addMore()
+{
+    
+ if(validUsers>2)   
+ alert("Sorry, but there can only be maximum of 3 people in 1 table");
+ else
+ {  var urlParams=getUrlParams();
+    var url = "findYourPeople.html?"+urlParams;
+    window.location.href = url; 
+        console.log("constructed url test - "+url);
+    
+ }
+}
+
+function getUrlParams(){
+    var url="";
+    
+        url+="activity="+table['activity'];
+        var tags = table['matching_tags'];
+            tags = tags.replace('#', '');
+        url+="&topics="+tags;
+        url+="&radius=100";
+        url+="&latitude="+lat+"&longitude="+long;
+    
+    if(isLoggedIn){
+        url+="&userid="+$.session.get('userHash')
+    }
+    url+="&AddingtoCurrentTable=Yes";
+    url+="&TableId="+table['tableid'];
+    url+="&RejectedIdNum="+rejectedUsers;
+    return url;
+}
+
+
 function autoCompleteLocation(){
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
 //    if (navigator.geolocation)

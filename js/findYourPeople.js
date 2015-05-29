@@ -6,13 +6,39 @@ var totalSelected=0;
 var selectedUsers=[];
 var tableid=0;
 var usersSentInvite = 0;
+var AddingtoCurrentTable = "No";
+var table;
+var alreadyInvitedUsers=[];
 $(document).ready(function () 
 {
     			
     var parameters = location.search;
     var parameter = parameters.split("?");
     loggedInLoggedOutBehavior();
-    console.log("getParameterByName: radius: " + getParameterByName('radius')); 
+    console.log("getParameterByName: AddingtoCurrentTable: " + getParameterByName('AddingtoCurrentTable')); 
+    if(getParameterByName('AddingtoCurrentTable')=="Yes")
+    {   AddingtoCurrentTable = "Yes";
+        tableid=getParameterByName('TableId');
+        getTableData(tableid);
+        selectedUsers.push(tableid);
+  
+        
+        if(table['user_to_1_status']==="Rejected")
+        usersSentInvite = 0;
+        else if(isNaN(table['user_to_2_status']) || table['user_to_2_status']==="Rejected")
+                 usersSentInvite = 1;
+            else usersSentInvite = 2;
+                                   
+        if(table['user_to_1_status']==="Rejected" || table['user_to_1_status']==="Pending")
+            alreadyInvitedUsers.push(table['user_to_1']);
+        if( table['user_to_2_status']==="Rejected" || table['user_to_2_status']==="Pending")
+                alreadyInvitedUsers.push(table['user_to_2']);
+        if( table['user_to_3_status']==="Rejected" || table['user_to_3_status']==="Pending")
+                alreadyInvitedUsers.push(table['user_to_2']);
+    
+                
+        console.log("Rejected Users "+alreadyInvitedUsers);
+    }
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
     google.maps.event.addDomListener(window, 'load', initialize);
@@ -181,6 +207,9 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
             {
                 alert("oops, we could not find anyone that matched your search criteria! Please try again");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
+                if(AddingtoCurrentTable === "Yes")
+                window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
+                else
                 window.location.href = "mood.html";
 /*                    $("#flipbox").flip({
 	direction:'tb',
@@ -192,34 +221,41 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
  }
                 
             else(data != "undefined")
-            {    
-                for(var i=0;i<data.length;i++)
-                {
+            {   
+                //k is for users[] and i for data[]
+                var k=0; 
+                       for(var i=0;i<data.length;i++)
+                { var alreadyInvitedUsersFound =0;
+                    for(var j=0;j<alreadyInvitedUsers.length;j++)
+                        if(JSON.parse(JSON.stringify(data[i])).userid.toString()==alreadyInvitedUsers[j])
+                    alreadyInvitedUsersFound = 1;
                         
-                    users[i]=[];    
+                    if(alreadyInvitedUsersFound == 0)
+                    {
+                    users[k]=[];    
 //                    users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg';
                     if (data[i].imageMasterLocation != null) {
-                        users[i]["image"] = JSON.parse(JSON.stringify(data[i])).imageMasterLocation.toString();                    
+                        users[k]["image"] = JSON.parse(JSON.stringify(data[i])).imageMasterLocation.toString();                    
                     }
                     else {
-                       users[i]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg'; 
+                       users[k]["image"] = '../img/' + JSON.parse(JSON.stringify(data[i])).userid.toString() + '.jpeg'; 
                     }
-                    users[i]["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
-                    users[i]["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
-                    users[i]["userId"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
-                    users[i]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
-                    users[i]["bio"] = JSON.parse(JSON.stringify(data[i])).bio.toString();
+                    users[k]["title"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                    users[k]["userName"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
+                    users[k]["userId"] = JSON.parse(JSON.stringify(data[i])).userid.toString();
+                    users[k]["name"] = JSON.parse(JSON.stringify(data[i])).firstname.toString();
+                    users[k]["bio"] = JSON.parse(JSON.stringify(data[i])).bio.toString();
                     if (data[i].date_of_birth != null) {
-                         users[i]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
+                         users[k]["birthDay"] = JSON.parse(JSON.stringify(data[i])).date_of_birth.toString();
                      }
-                    if (data[i].commonTags != null) {
-                        users[i] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
+                    if (data[k].commonTags != null) {
+                        users[k] ["commonTags"] = JSON.parse(JSON.stringify(data[i])).commonTags.toString();
                     } 
-                    users[i]["selected"] = 0;
-                    console.log(users[i]);
-               
+                    users[k]["selected"] = 0;
+                    console.log("User ID - "+users[k]["userId"]);
+                    k++;
                 }
-                
+            }
                 loadUser(0);
                     
                 var AddPeople = document.getElementById( 'addButton' ),
@@ -272,6 +308,31 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
     
 }
 
+function getTableData(tableid){
+    $.ajax(
+    {
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?user_from="+$.session.get('userHash')+"&tableid="+tableid,
+        async: false,
+        dataType: "json",
+        success: function(data)
+        {   
+            table=data[0];
+            console.log(data)
+                      
+
+        },
+        error: function(error, message)
+        {
+            console.log("Failure: " + message);
+        },
+        complete: function(data)
+        {
+
+
+        }
+    });
+}
+
 function getTopicNames(tags)
 {
     $.ajax({
@@ -319,22 +380,19 @@ function loadUser(id){
 
 function addDeleteUser(){
     if(users[loadedUser]["selected"]==0 ){
-        if(selectedUsers.length==3){
-            alert("Sorry invites can be sent to only 3 people!")
-        }else if(selectedUsers.length >= 1){
-            users[loadedUser]["selected"]=1;
-            selectedUsers.push(loadedUser);
-            loadUser(loadedUser);
-            addUserToTable(loadedUser);
+        if(selectedUsers.length>1){
+            alert("Sorry invites can be sent to only 2 other people!")
+        }else{ 
+                users[loadedUser]["selected"]=1;
+                selectedUsers.push(loadedUser);
+                loadUser(loadedUser);
+            
+            if(AddingtoCurrentTable === "Yes" ||selectedUsers.length >1)
+                addUserToTable(loadedUser);
+            else
+                confirmInvite(loadedUser);
         }
-        
-        else{
-            users[loadedUser]["selected"]=1;
-            selectedUsers.push(loadedUser);
-            loadUser(loadedUser);
-            confirmInvite(loadedUser);
-        }
-    }else{
+        }else{
         users[loadedUser]["selected"]=0;
         findAndRemove(loadedUser)
         loadUser(loadedUser);
@@ -506,6 +564,50 @@ function confirmInvite(i){
 function addUserToTable(i){
     
     var userName = users[i]["name"];
+    if (usersSentInvite == 0) {
+        alert("yes it's here");
+        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+    {
+        tableid:tableid,
+        user_from:$.session.get('userHash'),
+        user_to_1:users[i]["userId"],
+        activity:getParameterByName('activity'),
+        invite_date:time['date'],
+        invite_time:time['time'],
+        matching_tags:getParameterByName('topics'),
+        invite_location:$("#address").val()
+
+    },
+    function(data,status){
+        console.log("Data: " + data + "\nStatus: " + status);
+        if(status  == "success") {
+//            alert ("Invite sent to " + userName);
+            $( "#inviteSentPopup" ).popup("open");
+            
+            if(AddingtoCurrentTable === "Yes")
+            { 
+                if(isNaN(table['user_to_2_status']) || table['user_to_2_status']==="Rejected")
+                usersSentInvite = 1;
+                else 
+                {usersSentInvite = 2;
+                selectedUsers.push(tableid);
+                }
+            }
+            else usersSentInvite=2;
+           
+        
+            
+//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
+ 
+        }
+        else {
+            alert(data);
+//            sendToMoodPage();
+        }
+    });
+        
+    }
+    else
     if (usersSentInvite == 1) {
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
     {
