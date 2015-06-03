@@ -565,15 +565,15 @@ function addUserToTable(i){
     
     var userName = users[i]["name"];
     if (usersSentInvite == 0) {
-        alert("yes it's here");
+        alert("Issue uncovered");
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
     {
         tableid:tableid,
         user_from:$.session.get('userHash'),
         user_to_1:users[i]["userId"],
         activity:getParameterByName('activity'),
-        invite_date:time['date'],
-        invite_time:time['time'],
+//        invite_date:time['date'],
+//        invite_time:time['time'],
         matching_tags:getParameterByName('topics'),
         invite_location:$("#address").val()
 
