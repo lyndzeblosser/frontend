@@ -235,7 +235,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("oops, we could not find anyone that matched your search criteria! Please try again");
+                alert("Oops, we could not find anyone that matched your search criteria! Please try again");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
                 if(AddingtoCurrentTable === "Yes")
                 window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');

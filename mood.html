@@ -91,16 +91,16 @@
                         <h2 id="whereText" value="">WHERE?</h2>
                         <ul data-role="listview" data-mini="true">
                             <!--<li onclick="changeWhereHeading(5,'Less than 250 ft (1 block)')"><a href="#">Less than 250 ft (1 block)</a></li>-->
-                            <li onclick="changeWhereHeading(10,'NEIGHBORHOOD < 1/2 MILE')"><a href="#">NEIGHBORHOOD <I>< 1/2 MILE</I></a></li>
-                            <li onclick="changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES')"><a href="#">EXPLORE A LITTLE<I>< 5 MILES</I></a></li>
-                            <li onclick="changeWhereHeading(300,'FLEXIBLE < 15 MILES')"><a href="#">FLEXIBLE<I>< 15 MILES</I></a></li>
+                            <li onclick="changeWhereHeading(10,'NEIGHBORHOOD < 1/2 MILE')"><a id="radius1" href="#">NEIGHBORHOOD <I>< 1/2 MILE</I></a></li>
+                            <li onclick="changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES')"><a id="radius2" href="#">EXPLORE A LITTLE<I>< 5 MILES</I></a></li>
+                            <li onclick="changeWhereHeading(300,'FLEXIBLE < 15 MILES')"><a id="radius3" href="#">FLEXIBLE<I>< 15 MILES</I></a></li>
                         </ul>
                     </li>
                     
 
                     <!-- This is the location filter div-->
                     <label for="location" class="ui-hidden-accessible">Location:</label>
-                    <input id="address" name="location" id="location" placeholder="Location" value="" type="text">
+                    <input onclick="autoCompleteLocation()" id="address" name="location" id="location" placeholder="Location" value="" type="text">
                     <img src="img/powered-by-google-on-white.png">
 
                 </ul> <!--ends the preference list-->

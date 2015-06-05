@@ -4,27 +4,50 @@ var NoRepeatTTTags = [];
 var redirectedFromSearchScreen = false;
 var topicCount=1;
 var topicsFromURL =[];
+var radiusId, radiusValue, loadInitialLocation;
 
 $(document).ready(function(){
    
     if(getParameterByName('redirectedFromSearchScreen') === "Yes")
     {redirectedFromSearchScreen = true;
+    loadInitialLocation = true;
     topicCount=getTopicCount(getParameterByName('topics'));
     getTagsFromURL(getParameterByName('topics'));
+    var radius = getParameterByName('radius');
+    var radiusText ;
+    if(radius == 10)
+    {   radiusValue = 10; 
+        radiusText= 'NEIGHBORHOOD < 1/2 MILE'; 
+        radiusId= "#radius1";
     }
-    preloadIrrepectiveOfLoggedInOut();
-    for(var i=0; i<5;i++)
+    else if(radius == 100)
+    {   radiusValue = 100; 
+        radiusText= 'EXPLORE A LITTLE < 5 MILES'; 
+        radiusId= "#radius2";
+    }    else
+    {   radiusValue = 300; 
+        radiusText= 'FLEXIBLE < 15 MILES'; 
+        radiusId= "#radius3";
+    }
+        
+      changeWhereHeading(radiusValue,radiusText);
+      $(radiusId).attr("style","background-color:#424A49;");
+      $("#whereText").text(radiusText);
+      
+       for(var i=0; i<5;i++)
     $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
         if (i<topicCount)
+        { $(this).attr("data-cacheval", false);
         return !val;
-        
+    }
 });
+    } 
+      
+    preloadIrrepectiveOfLoggedInOut();
+     
+   
+     $("#loadingImage").hide();
     
-    
-    $("#loadingImage").hide();
-       changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES');
-       $("#whereText>a").text("test");
-    $("#whereText").attr("value",100);
     if(!(getParameterByName('loggedinuser')=="")){
         isLoggedIn=true;
         $.session.set('userHash', getParameterByName('loggedinuser'));
@@ -47,12 +70,12 @@ $(document).ready(function(){
     
        
     $('#topicsForm :checkbox').click(function() {
-     
         if (checkUserTagsCap()) {
      $(this).prop('checked', false);
     };
     });
-//    changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES');
+   
+
 })
 
 
@@ -87,8 +110,6 @@ function preloadIrrepectiveOfLoggedInOut(){
     getTopics();
     autoCompleteLocation();
   
-    
-    
 }
 
 function activitiesImages(){
@@ -188,9 +209,13 @@ function changeTimeHeading(value,text){
 
 function changeWhereHeading(value,text){
        
-    $("#whereText>a").text(text)
-    $("#whereText").attr("value",value)
-
+    $("#whereText>a").text(text);
+    $("#whereText").attr("value",value);
+    if(value !==radiusValue)
+    $(radiusId).attr("style","background-color:#999;");
+    else
+    $(radiusId).attr("style","background-color:#424A49;");
+    
 }
 
 function checkUserTagsCap () {
@@ -202,12 +227,13 @@ function checkUserTagsCap () {
 }
 
 function autoCompleteLocation(){
-    if(redirectedFromSearchScreen === true)
+    if(redirectedFromSearchScreen === true && loadInitialLocation === true)
     {
-        $("#address").attr("placeholder", "Value set to your current location");
+        $("#address").attr("placeholder", "Value set to your previous location");
         currentLat = getParameterByName('latitude');
         currentLng = getParameterByName('longitude');
         console.log(currentLat, currentLng);
+        loadInitialLocation = false;
     }
     else
     {
