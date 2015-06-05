@@ -1,17 +1,36 @@
 var autoComplete,currentLat,currentLng;
 var sortId = [];
+var NoRepeatTTTags = [];
+var redirectedFromSearchScreen = false;
+var topicCount=1;
+var topicsFromURL =[];
 
 $(document).ready(function(){
    
+    if(getParameterByName('redirectedFromSearchScreen') === "Yes")
+    {redirectedFromSearchScreen = true;
+    topicCount=getTopicCount(getParameterByName('topics'));
+    getTagsFromURL(getParameterByName('topics'));
+    }
     preloadIrrepectiveOfLoggedInOut();
+    for(var i=0; i<5;i++)
+    $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
+        if (i<topicCount)
+        return !val;
+        
+});
+    
     
     $("#loadingImage").hide();
-       
+       changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES');
+       $("#whereText>a").text("test");
+    $("#whereText").attr("value",100);
     if(!(getParameterByName('loggedinuser')=="")){
         isLoggedIn=true;
         $.session.set('userHash', getParameterByName('loggedinuser'));
         
     }
+    
     if(!(getParameterByName('deviceToken')=="")){
         $.session.set('deviceToken', getParameterByName('deviceToken'));
     }
@@ -26,14 +45,16 @@ $(document).ready(function(){
     window.location.href = url; 
     }
     
-    
+       
     $('#topicsForm :checkbox').click(function() {
-    if (checkUserTagsCap()) {
-        $(this).prop('checked', false);
+     
+        if (checkUserTagsCap()) {
+     $(this).prop('checked', false);
     };
     });
 //    changeWhereHeading(100,'EXPLORE A LITTLE < 5 MILES');
 })
+
 
 function getParameterByName(name) 
 {
@@ -41,6 +62,24 @@ function getParameterByName(name)
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
     results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function getTopicCount(topic)
+{
+     var count = topic.split(",");
+     return count.length;
+    }
+
+function getTagsFromURL(topic)
+{var sub;
+    for(i=1;i<topicCount;i++)
+    {
+       sub = topic.split(',')[0];
+        topicsFromURL.push(sub); 
+        topic = topic.slice(sub.length+1);
+   }
+   topicsFromURL.push(topic); 
+  
 }
 
 function preloadIrrepectiveOfLoggedInOut(){
@@ -101,11 +140,26 @@ function getTopics()
     });
 */
   var TTtags = ["Community","Trust","Transformation","Inclusivity","Education","Urban Planning ","Compassion","Participation","Language","Technology",];
-            var NoRepeatTTTags = [];
+            
             var TTtagdId = Math.floor((Math.random() * 10));
+            var k=0;
 //                TTtagdId = TTtagdId % 6;
-            NoRepeatTTTags [0]=TTtagdId;
-                for(var i=1; i<5;i++)
+            if(getParameterByName('redirectedFromSearchScreen') === "Yes")            
+            {
+             for(var i=0; i<10;i++)
+                for(var j=0; j<topicCount;j++) 
+                if(TTtags[i]===topicsFromURL[j])
+                {
+                   NoRepeatTTTags[k]=i;
+                   k++;
+                }
+           }
+            else NoRepeatTTTags [0]=TTtagdId;
+            console.log()    
+                
+                
+                
+            for(var i=topicCount; i<5;i++)
                 {   
                 NoRepeatTTTags [i] = Math.floor((Math.random() * 10));
 //                NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;

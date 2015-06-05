@@ -39,6 +39,7 @@ $(document).ready(function ()
                 
         console.log("Rejected Users "+alreadyInvitedUsers);
     }
+    
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
     google.maps.event.addDomListener(window, 'load', initialize);
@@ -59,6 +60,35 @@ $(document).ready(function ()
 //                  }
 //                });
 });
+
+function redirectToMoodScreen()
+{
+    
+   var urlParams=getUrlParams();
+    var url = "mood.html?"+urlParams;
+    window.location.href = url; 
+        console.log("constructed url test - "+url);
+    
+ 
+}
+
+    function getUrlParams(){
+    var url="";
+    
+        url+="activity="+getParameterByName('activity');
+        var tags = getParameterByName('topics')
+            tags = tags.replace('#', '');
+        url+="&topics="+tags;
+        url+="&radius="+getParameterByName('radius');
+        url+="&latitude="+getParameterByName('latitude')+"&longitude="+getParameterByName('longitude');
+    
+    if(isLoggedIn){
+        url+="&userid="+$.session.get('userHash')
+    }
+    url+="&redirectedFromSearchScreen=Yes";
+    
+    return url;
+}
 
 function fillImgDetails(id){
     $("#userName").text(users[id]["name"]);
@@ -210,7 +240,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 if(AddingtoCurrentTable === "Yes")
                 window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
                 else
-                window.location.href = "mood.html";
+                redirectToMoodScreen();
 /*                    $("#flipbox").flip({
 	direction:'tb',
         content:'Oops, we could not find anyone that matched your search criteria! Please try again'
