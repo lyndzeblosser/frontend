@@ -202,6 +202,15 @@ function checkUserTagsCap () {
 }
 
 function autoCompleteLocation(){
+    if(redirectedFromSearchScreen === true)
+    {
+        $("#address").attr("placeholder", "Value set to your current location");
+        currentLat = getParameterByName('latitude');
+        currentLng = getParameterByName('longitude');
+        console.log(currentLat, currentLng);
+    }
+    else
+    {
     autoComplete = new google.maps.places.Autocomplete($("#address")[0], {});
     if (navigator.geolocation)
     {
@@ -226,6 +235,7 @@ function autoCompleteLocation(){
         currentLng = place.geometry.location.lng();
         console.log(currentLat, currentLng)
     });
+}
 }
 
 function findMyPeople(){
