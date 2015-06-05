@@ -21,8 +21,7 @@ $(document).ready(function ()
         tableid=getParameterByName('TableId');
         getTableData(tableid);
         selectedUsers.push(tableid);
-  
-        
+          
         if(table['user_to_1_status']==="Rejected")
         usersSentInvite = 0;
         else if(isNaN(table['user_to_2_status']) || table['user_to_2_status']==="Rejected")
@@ -235,19 +234,13 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("Oops, we could not find anyone that matched your search criteria! Please try again");
+                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
                 if(AddingtoCurrentTable === "Yes")
                 window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
                 else
                 redirectToMoodScreen();
-/*                    $("#flipbox").flip({
-	direction:'tb',
-        content:'Oops, we could not find anyone that matched your search criteria! Please try again'
-                
-});
- */
-               $( "#myPopup" ).popup("open");
+             
  }
                 
             else(data != "undefined")
@@ -286,6 +279,17 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     k++;
                 }
             }
+                
+                 if(users.length == 0)
+            {
+                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
+//                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
+                if(AddingtoCurrentTable === "Yes")
+                window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
+                else
+                redirectToMoodScreen();
+             
+ }
                 loadUser(0);
                     
                 var AddPeople = document.getElementById( 'addButton' ),
@@ -564,11 +568,19 @@ function confirmInvite(i){
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
-                  
+              usersSentInvite = 1;    
 //            alert ("Invite sent to "+userName+"! You should hear back soon. In the meantime, you can invite upto 3 more people for this table or confirm this table");
+            if(selectedUsers >1 || users.length == usersSentInvite)
+            {
+              $("#popupAddMoreButton").hide();
+              if(AddingtoCurrentTable === "Yes")
+                 $("#popUpText").text("Invite sent! You should hear back soon.");
+              else
+                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+            }
             $( "#inviteSentPopup" ).popup("open");
             tableid = data;
-            usersSentInvite = 1;
+            
 /*            $('#imageDiv').block({
                 message: 'Invite Sent! You should hear back soon. In the meantime, you can send invites to at max 3 people.',
                 css: { border: 'none', 
@@ -612,7 +624,7 @@ function addUserToTable(i){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
 //            alert ("Invite sent to " + userName);
-            $( "#inviteSentPopup" ).popup("open");
+            
             
             if(AddingtoCurrentTable === "Yes")
             { 
@@ -624,8 +636,15 @@ function addUserToTable(i){
                 }
             }
             else usersSentInvite=2;
-           
-        
+            if(selectedUsers >1 || users.length == usersSentInvite)
+            {
+              $("#popupAddMoreButton").hide();
+              if(AddingtoCurrentTable === "Yes")
+                 $("#popUpText").text("Invite sent! You should hear back soon.");
+              else
+                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+            }
+            $( "#inviteSentPopup" ).popup("open");
             
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
@@ -655,8 +674,18 @@ function addUserToTable(i){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
 //            alert ("Invite sent to " + userName);
-            $( "#inviteSentPopup" ).popup("open");
+            
             usersSentInvite=2;
+              if(selectedUsers >1 || users.length == usersSentInvite)
+            {
+              $("#popupAddMoreButton").hide();
+              if(AddingtoCurrentTable === "Yes")
+                 $("#popUpText").text("Invite sent! You should hear back soon.");
+              else
+                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+            }
+            $( "#inviteSentPopup" ).popup("open");
+            
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
         }
@@ -684,8 +713,17 @@ function addUserToTable(i){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
 //            alert ("Invite sent to " + userName);
-            $( "#inviteSentPopup" ).popup("open");
+            
             usersSentInvite=3;
+              if(selectedUsers >1 || users.length == usersSentInvite)
+            {
+              $("#popupAddMoreButton").hide();
+              if(AddingtoCurrentTable === "Yes")
+                 $("#popUpText").text("Invite sent! You should hear back soon.");
+              else
+                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+            }
+            $( "#inviteSentPopup" ).popup("open");
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
  
         }

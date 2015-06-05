@@ -7,12 +7,16 @@ var topicsFromURL =[];
 var radiusId, radiusValue, loadInitialLocation;
 
 $(document).ready(function(){
-   
-    if(getParameterByName('redirectedFromSearchScreen') === "Yes")
-    {redirectedFromSearchScreen = true;
-    loadInitialLocation = true;
-    topicCount=getTopicCount(getParameterByName('topics'));
+   if(getParameterByName('redirectedFromSearchScreen') === "Yes")
+   {
+       redirectedFromSearchScreen = true;
+       topicCount=getTopicCount(getParameterByName('topics'));
     getTagsFromURL(getParameterByName('topics'));
+    loadInitialLocation = true;
+    }
+    preloadIrrepectiveOfLoggedInOut();
+    if(redirectedFromSearchScreen === true)
+    {
     var radius = getParameterByName('radius');
     var radiusText ;
     if(radius == 10)
@@ -43,7 +47,7 @@ $(document).ready(function(){
 });
     } 
       
-    preloadIrrepectiveOfLoggedInOut();
+    
      
    
      $("#loadingImage").hide();
