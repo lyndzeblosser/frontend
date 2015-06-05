@@ -414,7 +414,10 @@ function getTimeData(){
    var date= $('#inviteTimePicker').timepicker('getTime',[ new Date()]);
    var time=[]
    time['date']=date.getUTCFullYear()+'-'+((date.getUTCMonth()+1)<10?'0'+(date.getUTCMonth()+1):(date.getUTCMonth()+1))+'-'+(date.getUTCDate()<10?'0'+date.getUTCDate():date.getUTCDate())
-   time['time']=date.getHours()+":"+date.getMinutes()+":00"
+   time['time']=date.getHours()+":"+date.getMinutes()+":00";
+   var tz = jstz.determine();// Determines the time zone of the browser client
+    time['tz']=tz.name();
+    time['tz_offset']=new Date().getTimezoneOffset();
    return time;
 }
 
@@ -428,7 +431,7 @@ function confirmTable(){
 //    }
     $("#confirmInvitesButtonId").hide();
     $('#rejectInviteButtonId').hide();
-
+    console.log("tz: " + time['tz']);
     $("#InvitesSentId").show();
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/confirmTable",
     {
@@ -439,6 +442,8 @@ function confirmTable(){
         tableid:getParameterByName('tableid'),
         invite_date:time['date'],
         invite_time:time['time'],
+        invite_tz:time['tz'],
+        invite_tz_offset:time['tz_offset'],
 //        matching_tags:getParameterByName('commonTags'),
         invite_location:$('#address').attr("value")
 
