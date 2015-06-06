@@ -9,6 +9,7 @@ var imgTNailURL = null;
 var homeLat, homeLng;
 var userid;
 
+
 function form1Validated ()
 {
     userid = $("#email").val();
@@ -134,6 +135,10 @@ function form1Validation()
     $("#registerForm").validate(
     { 
         rules: {
+            betaAccessCode: {
+                required: true,
+                equalTo: "#test"
+            },
             homeTown: "required",
             email: {
                 required: true,
@@ -148,6 +153,10 @@ function form1Validation()
             }
         },
         messages: {
+            betaAccessCode: {
+                required: "We are performing a closed Beta testing. Please enter the access code",
+                equalTo: "Sorry invalid access code"
+            },
             homeTown: "Please enter your Home Town",
             password: {
                 required: "Please provide a Password",
@@ -218,6 +227,7 @@ function getUrlParams(){
 }
 $(document).ready(function()
 {
+    $("#test").hide();
     $(function() {
     $( "#dateOfBirth" ).datepicker(
             {maxDate: "-18y",

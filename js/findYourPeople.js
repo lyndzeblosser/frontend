@@ -70,6 +70,17 @@ function redirectToMoodScreen()
     
  
 }
+     function popTryAgain() {
+//$( "#noUserFoundPopup" ).popup("close");
+window.location.reload(true);
+     }
+         function popupGoBack(){
+         
+                    if(AddingtoCurrentTable === "Yes")
+                window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
+                else
+                redirectToMoodScreen();
+        }
 
     function getUrlParams(){
     var url="";
@@ -234,13 +245,10 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
             if(data.length == 0)
             {
-                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
+//                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
-                if(AddingtoCurrentTable === "Yes")
-                window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
-                else
-                redirectToMoodScreen();
-             
+                $("#noUserFoundPopup").popup("open");
+           
  }
                 
             else(data != "undefined")
@@ -282,15 +290,12 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                 
                  if(users.length == 0)
             {
-                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
+//                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
-                if(AddingtoCurrentTable === "Yes")
-                window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
-                else
-                redirectToMoodScreen();
+                 $( "#noUserFoundPopup" ).popup("open");
              
- }
-                loadUser(0);
+            }
+                else {   loadUser(0);
                     
                 var AddPeople = document.getElementById( 'addButton' ),
                 MoveOnButton = document.getElementById( 'moveOnButton' ),
@@ -313,7 +318,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                     loadUser(nextUser);
                     $(".ui-fixed-hidden").removeClass("ui-fixed-hidden")
                 };
-                    
+            }   
 //                confirmInvitation.onclick = function() {
 //                    console.log('confirmInvitation clicked ');
 //                    var selectedUsersString= getSUS();
@@ -579,6 +584,8 @@ function confirmInvite(i){
                   $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
             }
             $( "#inviteSentPopup" ).popup("open");
+            
+            
             tableid = data;
             
 /*            $('#imageDiv').block({

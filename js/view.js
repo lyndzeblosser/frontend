@@ -15,7 +15,7 @@ $(document).ready(function()
     getResult();
     loggedInLoggedOutBehavior();
     autoCompleteLocation();
-//    getTableMessages(getParameterByName('tableid'));
+    getTableMessages(getParameterByName('tableid'));
    // $("#main").html(prepareTablesDiv())
 
 });
@@ -532,8 +532,7 @@ function sendTableMessage() {
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
             alert ("Message Sent!");
-//            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
-//            sendToMoodPage();
+            window.location.reload(false); 
         }
         else {
             alert(data);

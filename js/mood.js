@@ -164,7 +164,7 @@ function getTopics()
         }
     });
 */
-  var TTtags = ["Community","Trust","Transformation","Inclusivity","Education","Urban Planning ","Compassion","Participation","Language","Technology",];
+  var TTtags = ["Creativity","Art","Faith","Context","Identity","Purpose","Language","Urban Planning","Education","Economics"];
             
             var TTtagdId = Math.floor((Math.random() * 10));
             var k=0;
