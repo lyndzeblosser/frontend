@@ -231,8 +231,7 @@ function sendToMoodPage ()
 }
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
-    console.log(latitude,longitude,radius,activity,selectedTime)
-    fillBaseDetails(latitude,longitude,radius,activity,selectedTime)
+    console.log(latitude,longitude,radius,activity,selectedTime);    
     $.ajax(
     {
             
@@ -295,7 +294,9 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
                  $( "#noUserFoundPopup" ).popup("open");
              
             }
-                else {   loadUser(0);
+                else {   
+                    fillBaseDetails(latitude,longitude,radius,activity,selectedTime);
+                    loadUser(0);
                     
                 var AddPeople = document.getElementById( 'addButton' ),
                 MoveOnButton = document.getElementById( 'moveOnButton' ),
@@ -579,9 +580,9 @@ function confirmInvite(i){
             {
               $("#popupAddMoreButton").hide();
               if(AddingtoCurrentTable === "Yes")
-                 $("#popUpText").text("Invite sent! You should hear back soon.");
+                 $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back.");
               else
-                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+                  $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back. Please finalize your details.");
             }
             $( "#inviteSentPopup" ).popup("open");
             
@@ -647,9 +648,9 @@ function addUserToTable(i){
             {
               $("#popupAddMoreButton").hide();
               if(AddingtoCurrentTable === "Yes")
-                 $("#popUpText").text("Invite sent! You should hear back soon.");
+                 $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back.");
               else
-                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+                  $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back. Please finalize your details.");
             }
             $( "#inviteSentPopup" ).popup("open");
             
@@ -687,9 +688,9 @@ function addUserToTable(i){
             {
               $("#popupAddMoreButton").hide();
               if(AddingtoCurrentTable === "Yes")
-                 $("#popUpText").text("Invite sent! You should hear back soon.");
+                 $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back.");
               else
-                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+                  $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back. Please finalize your details.");
             }
             $( "#inviteSentPopup" ).popup("open");
             
@@ -726,9 +727,9 @@ function addUserToTable(i){
             {
               $("#popupAddMoreButton").hide();
               if(AddingtoCurrentTable === "Yes")
-                 $("#popUpText").text("Invite sent! You should hear back soon.");
+                 $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back.");
               else
-                  $("#popUpText").text("Invite sent! You should hear back soon. Please confirm this table");
+                  $("#popUpText").text("Invite sent! We’ll let you know as soon as we hear back. Please finalize your details.");
             }
             $( "#inviteSentPopup" ).popup("open");
 //            $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });

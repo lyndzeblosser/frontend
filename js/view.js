@@ -3,6 +3,7 @@ var rejectedUsers = "";
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
+    $('#messagesDIV').hide();
     $("#addMoreButtonId").hide();
     $("#InvitesSentId").hide();
     $("#preConvoPopupButton").hide();
@@ -16,6 +17,7 @@ $(document).ready(function()
     loggedInLoggedOutBehavior();
     autoCompleteLocation();
     getTableMessages(getParameterByName('tableid'));
+    
    // $("#main").html(prepareTablesDiv())
 
 });
@@ -27,7 +29,7 @@ function getUserData() {
 //    if(table["table_confirmed"]=="YES")
     if($.session.get('userHash') == table['user_from'])
        {
-        document.getElementById('confirmInvitesButtonId').innerHTML = "Confirm Table";
+        document.getElementById('confirmInvitesButtonId').innerHTML = "YES";
         $('#rejectInviteButtonId').hide();
 
         }
@@ -133,7 +135,11 @@ function getUserData() {
                           $('#rejectInviteButtonId').hide();
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
-                          
+                           $('#confirmInvitesButtonId').hide();
+                          $('#messagesDIV').show();
+                          if(table['table_confirmed']=="NO")
+                          document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
+                           
                       }
                         }
                         else
@@ -157,6 +163,10 @@ function getUserData() {
                           $('#rejectInviteButtonId').hide();
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+                          $('#confirmInvitesButtonId').hide();
+                          $('#messagesDIV').show();
+                                                    if(table['table_confirmed']=="NO")
+                          document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
 
                       }
                         }
@@ -171,7 +181,7 @@ function getUserData() {
                           $('#rejectInviteButtonId').hide();
 
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
-
+                          
                       }
                     
 
@@ -588,11 +598,14 @@ function getTime() {
 
 function showPreConvPopup()
 {
+    var randomLink=new Array(2);
+    randomLink[0][0] = "Tolerance and Intolerance in the City"; 
+    randomLink[0][1] = "http://www.citylab.com/housing/2015/05/tolerance-and-intolerance-in-the-city/394385/"; 
+    var randomId = 0;
 //    document.getElementById('preConvoText').innerHTML = "What does progress mean to me? What kind of awareness helps me broaden my perspective about my place in the world?";
-    var randomId = Math.floor((Math.random() * 10)); 
+/*    var randomId = Math.floor((Math.random() * 10)); 
     randomId = randomId % 8;
         
-    var randomLink=new Array(2)
 for (i=0; i <8; i++)
     randomLink[i]=new Array(2)
  //   var randomLinkTopic = [];
@@ -673,12 +686,13 @@ for (i=0; i <8; i++)
     randomLink[6][0] = "For Students In Ohio, A Crib Sheet For Interacting With Police"; 
     randomLink[6][1] = "http://www.npr.org/2015/02/20/387535400/for-students-in-ohio-a-crib-sheet-for-interacting-with-police";
    
-      
+*/      
    document.getElementById("preConvoLink3").innerHTML=randomLink[randomId][0];
    document.getElementById("preConvoLink3").href=randomLink[randomId][1];
    console.log("random id "+randomId);
    
     $( "#preConversationPopup" ).popup( "open" );
+
 }
 function addMore()
 {

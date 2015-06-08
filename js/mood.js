@@ -164,7 +164,7 @@ function getTopics()
         }
     });
 */
-  var TTtags = ["Creativity","Art","Faith","Context","Identity","Purpose","Language","Urban Planning","Education","Economics"];
+  var TTtags = ["Creativity","Art","Faith","Context","Identity","Purpose","Language","Urban Planning","Family","Community"];
             
             var TTtagdId = Math.floor((Math.random() * 10));
             var k=0;

@@ -85,16 +85,16 @@
            
             <div data-role="popup" id="inviteSentPopup" data-transition="flow" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                
-                <h3 id="popUpText" class="ui-title">Invite sent! You should hear back soon. In the meantime, you can invite upto 2 people for this table or confirm this table</h3>
+                <h3 id="popUpText" class="ui-title">Invite sent! We’ll let you know as soon as we hear back. In the meantime, invite up to 2 more people or finalize your details.</h3>
                 <a href="#" id = "popupAddMoreButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" onclick="addMorePeople() ">Add more</a>
                 <a href="#" id = "popupConfirmButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow" onclick="confirmInvitation()" >Confirm Invite</a>
                 <br>
             </div>
             <div data-role="popup" id="noUserFoundPopup" data-transition="flow" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                
-                <h3 id="noUserFoundPopupText" class="ui-title">Oops, looks like we could not find anyone right now. Would you like to try again or go back?</h3>
-                <a href="#" id = "popupTryAgainButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" onclick="popTryAgain()">Try again</a>
-                <a href="#" id = "popupGoBackButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow" onclick="popupGoBack()" >Go Back</a>
+                <h3 id="noUserFoundPopupText" class="ui-title">Sorry, doesn’t look like anyone’s around yet. Refresh this screen in 30 sec or go back to choose new selections.</h3>
+                <a href="#" id = "popupTryAgainButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" onclick="popTryAgain()">REFRESH</a>
+                <a href="#" id = "popupGoBackButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow" onclick="popupGoBack()" >GO BACK</a>
                 <br>
             </div>
                       <!-- This div is for the left panel-->

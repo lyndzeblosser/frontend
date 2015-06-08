@@ -58,7 +58,7 @@
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                 <div id="articlesDiv" class="ui-grid-b" style="height:160px;line-height: 160px">
                     <div role="heading">
-                    <a id="preConvoLink1" href="http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up">Why saying is believing: The Science of Self-Talk</a> 
+                    <a id="preConvoLink1" href="http://www.citylab.com/housing/2015/05/tolerance-and-intolerance-in-the-city/394385/">Tolerance and Intolerance in the City</a> 
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                 <div style="text-align:center; padding-top:5%">
                     <!--<p style="float: left; margin-left:5%;" class="activitypicc"><img id="actpic" src="images/coffeeinvert.svg" class="actpic" style="border: dotted 1px #cc0000;"></p>-->
                     <h3 id="confirmTableText"> Table is Confirmed! </h3>
-                    <h3 id="notConfirmTableText"> Table is pending Confirmation (by at least 2)</h3>
+                    <h3 id="notConfirmTableText">We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed. In the meantime, do these details look ok?</h3>
                     <a href="#" id = "confirmInvitesButtonId" class="confirminvitesButton" onclick="confirmTable()" style="color:#ffffff; background-color: #cc0000;">Yes, I'll Join</a>
                     <a id = "InvitesSentId" class="sendNoteButton" onclick="showPreConvPopup()" style="color:#ffffff; background-color: #cc0000; ">CONFIRMING ... </a>
                     <a href="#" id = "rejectInviteButtonId" class="confirminvitesButton" onclick="rejectTable()" style="color:#ffffff; background-color: #cc0000;">No, I'll Pass</a>
@@ -114,14 +114,16 @@
                     
                     <!--<a id="preConvoPopupButton"class="sendNoteButton" onclick="showPreConvPopup()" style="color:#ffffff; background-color: #cc0000; ">Show Links </a>-->
                 </div>
-       <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="While we build the chat functionality, please use this space if you wish to inform anything to others like &#34I am running 10 min late&#34 or &#34Sorry, I have an emergency and I will not be able to make it&#34 "></textarea>
+       <div id="messagesDIV">
+       <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="Have fun! Message them here if you’re running late or looking for each other."></textarea>
        <div style="text-align:center">
-       <a href="#" id = "sendNoteButtonId" class="sendNoteButton" onclick="sendTableMessage()" style=" color:#ffffff; background-color: #cc0000;">SEND NOTE</a>
+       <a href="#" id = "sendNoteButtonId" class="sendNoteButton" onclick="sendTableMessage()" style=" color:#ffffff; background-color: #cc0000;">CHAT</a>
        </div>
        <div style="background-color:#ffffff; opacity:0.7;">
-            <h3> Past Messages: </h3>
+            <h3> Chat Messages: </h3>
             <h4 id="tableMessages" style="color:#000; opacity:1;"></h4>
        </div>
+                </div>
              <div data-role="popup" id="preConversationPopup">
                 <h3>Thank you for being part of the TableTribes journey and helping us test our product. We'll be following up about your experience by email. <h3>
                 <br>
