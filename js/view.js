@@ -183,8 +183,26 @@ function getUserData() {
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
                           
                       }
+                    var userPresent = false;  
+                    for(var j=1;j<4;j++)
+                        if(table['user_to_'+(j)]===$.session.get('userHash'))
+                            userPresent = true;
+                        
+                    if(table['user_from']===$.session.get('userHash'))
+                            userPresent = true;
                     
-
+                    if(userPresent == false)
+                    {
+                        document.getElementById('confirmInvitesButtonId').innerHTML = "REJECTED";
+                          document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
+                          $('#rejectInviteButtonId').hide();
+                          $('#confirmTableText').hide();
+                          $('#notConfirmTableText').hide();
+                          $('#notPartOfTablePopup').popup();
+                          $('#notPartOfTablePopup').popup("open");
+                          alert("Oops, looks like you are no longer part of this table. We will redirect you momentarily");
+                          window.location.href = "mood.html";
+                    }
                     //  timepicker.get_dateInput().disable();
                     //  document.getElementById("inviteTimePicker").disabled = false;  
                       
@@ -493,7 +511,7 @@ function rejectTable(){
     $("#confirmInvitesButtonId").hide();
     $("#rejectInviteButtonId").hide();
 //    $("#InvitesSentId").show();
-    var alertConfirmation = confirm("Are you sure, you want to reject this table?");
+    var alertConfirmation = confirm("Are you sure, you will pass?");
     if (alertConfirmation)
         {
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/rejectTableInvitation",

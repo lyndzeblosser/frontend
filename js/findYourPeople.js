@@ -615,7 +615,7 @@ function addUserToTable(i){
     
     var userName = users[i]["name"];
     if (usersSentInvite == 0) {
-        alert("Issue uncovered");
+        
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
     {
         tableid:tableid,
