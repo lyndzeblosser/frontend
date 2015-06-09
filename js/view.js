@@ -1,5 +1,6 @@
 var table,tags=[],userid,inviteUsers=[],users=[],lat,long, validUsers;
 var rejectedUsers = "";
+var userPresent = false; 
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
@@ -21,7 +22,12 @@ $(document).ready(function()
    // $("#main").html(prepareTablesDiv())
 
 });
-
+function redirectToMoosScreen()
+{
+   alert("Oops, looks like you are no longer part of this table. We will redirect you to the home page");
+  window.location.href = "mood.html";
+   
+}
 function getUserData() {
     var userIDs=[];
     var confirmCount = 0;
@@ -136,10 +142,11 @@ function getUserData() {
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
                            $('#confirmInvitesButtonId').hide();
-                          $('#messagesDIV').show();
+                          
                           if(table['table_confirmed']=="NO")
                           document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
-                           
+                          else
+                           $('#messagesDIV').show();
                       }
                         }
                         else
@@ -164,10 +171,10 @@ function getUserData() {
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
                           $('#confirmInvitesButtonId').hide();
-                          $('#messagesDIV').show();
-                                                    if(table['table_confirmed']=="NO")
-                          document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
-
+                          if(table['table_confirmed']=="NO")
+                            document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
+                          else 
+                           $('#messagesDIV').show();  
                       }
                         }
                                               
@@ -181,9 +188,12 @@ function getUserData() {
                           $('#rejectInviteButtonId').hide();
 
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
+                          $('#notPartOfTablePopup').popup();
+                          
+                          redirectToMoosScreen();
                           
                       }
-                    var userPresent = false;  
+                     
                     for(var j=1;j<4;j++)
                         if(table['user_to_'+(j)]===$.session.get('userHash'))
                             userPresent = true;
@@ -199,9 +209,9 @@ function getUserData() {
                           $('#confirmTableText').hide();
                           $('#notConfirmTableText').hide();
                           $('#notPartOfTablePopup').popup();
-                          $('#notPartOfTablePopup').popup("open");
-                          alert("Oops, looks like you are no longer part of this table. We will redirect you momentarily");
-                          window.location.href = "mood.html";
+                          
+                          redirectToMoosScreen();
+//                          
                     }
                     //  timepicker.get_dateInput().disable();
                     //  document.getElementById("inviteTimePicker").disabled = false;  
@@ -368,6 +378,7 @@ for (i = 0; i < users.length; i++) {
 
 
    console.log(users);
+   
    prepareMapDiv();
 
    
