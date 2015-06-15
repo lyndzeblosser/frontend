@@ -9,7 +9,9 @@ var imgTNailURL = null;
 var homeLat, homeLng;
 var userid;
 
-
+function login() {
+    window.location.href = "login.html";
+}
 function form1Validated ()
 {
     userid = $("#email").val();

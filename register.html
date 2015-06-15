@@ -49,12 +49,15 @@
 
         <div data-role="page" data-theme="a">
 
-            <div data-role="header" id="header" data-position:"fixed"> 
-                 <h3>CREATE A NEW PROFILE</h3>
-
+           <div data-role="header" id="header" data-position="fixed">  
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">CREATE A NEW PROFILE</h3>
+                
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel"  style="background:#cc0000; margin-right:5px;">Add</a>
+                
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 9px"></a>
+                
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
+                
             </div><!-- /header -->
             
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
@@ -101,7 +104,7 @@
                      
                         <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
                         <div id="registerPage1">
-                        <input name="test" id="test" placeholder="Enter Beta Access Code" value="ttradius" type="password"/> 
+                        <input name="test" id="test" placeholder="Enter Beta Access Code" value="blwl" type="password"/> 
                         <input name="betaAccessCode" id="betaAccessCode" placeholder="Enter Beta Access Code" value="" type="password"/> 
                         <input name="email" id="email" placeholder="Enter email" value="" type="email"/>
                         <label for="password" class="ui-hidden-accessible">Password</label>

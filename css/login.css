@@ -12,8 +12,25 @@
 }
 
 
+.ui-leftNavButton {
+    background-image: url("../images/LeftNavButton.png");
+    background-color: #fff;
+    height: 24px;
+    width: 28px;
+    
+}
+
+.ui-rightNavButton {
+    background-image: url("../images/RightNavButton.png");
+    height: 30px;
+    width: 32px;
+    background-color: #fff;
+   
+    
+}
+
 [data-role= "header"] h3{
-	color: #ffffff;
+//	color: #ffffff;
 	text-shadow: none;
 	font-weight: bold;
 	font-size: 15px;
@@ -22,19 +39,17 @@
 .ui-header .ui-title {
     margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 1%;
-    margin-top: 1%;
-    font-size: 15px;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    font-size: 20px;
     overflow: visible !important;
     white-space: normal !important;
     font-family: PT Sans, sans-serif;
-   
-
 }
 
 
 #header {
-	background: #cc0000 !important;
+	background: #ffffff !important;
 }
 
 
