@@ -43,23 +43,30 @@
 
         <div data-role="page" data-theme="a">
 
-            <div data-role="header" id="header" data-position="fixed"> 
-              <h3     >CONFIRMATION
-                    <span id="notificationNo" style="font-size: large; float:right; color:#fff; "/></h3>
-
-
+            <div data-role="header" id="header" data-position="fixed">  
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">CONFIRMATION 
+                    <span id="notificationNo" class="ui-header-notificationNo"/></h3>
+                
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-left:5px; margin-top:5px;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000; margin-right:5px; margin-top:5px;">Add</a>
+                
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 7px"></a>
+                
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 7px"></a>
+                
             </div><!-- /header -->
 
 
 
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
-                <div id="articlesDiv" class="ui-grid-b" style="height:160px;line-height: 160px">
-                    <div role="heading">
-                    <a id="preConvoLink1" href="http://www.citylab.com/housing/2015/05/tolerance-and-intolerance-in-the-city/394385/">Tolerance and Intolerance in the City (by Richard Florida, The Atlantic: CITYLAB)</a> 
-                    </div>
+                <div id="articlesDiv" class="ui-grid-b" style="height:100%;">
+                        <div style="width:25%;float:left;">
+                        <img src="images/logoiconhead.png" style="width:100%;">
+                        </div>
+                        <div style="width:72%;float:left; padding-top:5%; padding-left: 2.75%; padding-right: 0.25%; ">
+                        <a 
+                            id="preConvoLink1" href="http://www.citylab.com/housing/2015/05/tolerance-and-intolerance-in-the-city/394385/">Tolerance and Intolerance in the City (by Richard Florida, The Atlantic: CITYLAB)</a> 
+                        </div>
+                    
                 </div>
 
                <div id="userTop" class="ui-grid-b Names" style="background-color:#ffbb00; width:100%; text-transform: uppercase; padding-top:10px;">

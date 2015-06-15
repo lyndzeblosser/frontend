@@ -41,7 +41,7 @@ $(document).ready(function ()
     
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
-    google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
 //    $( "#dialog-confirm" ).dialog("close");
 //    $( "#dialog-confirm" ).dialog({
 //                  autoOpen : false,
@@ -69,6 +69,75 @@ function redirectToMoodScreen()
         console.log("constructed url test - "+url);
     
  
+}
+
+function callTimer()
+{
+
+    var $countdown;
+    var $form;
+    var incrementTime = 5;
+    var currentTime = 30000; // 5 minutes (in milliseconds)
+    
+    $(function() {
+
+        // Setup the timer
+        $countdown = $('#noUserFoundPopupCounterText');
+        var Example2 = $.timer(updateTimer, incrementTime, true);
+
+        // Setup form
+        $form = $('#example2form');
+        $form.bind('submit', function() {
+            Example2.resetCountdown();
+            return false;
+        });
+
+    });
+
+    function updateTimer() {
+
+        // Output timer position
+        var timeString = formatTime(currentTime);
+        $countdown.html(timeString);
+
+        // If timer is complete, trigger alert
+        if (currentTime == 0) {
+    //        Example2.Timer.stop();
+            popTryAgain();
+    //        Example2.resetCountdown();
+            return;
+        }
+
+        // Increment timer position
+        currentTime -= incrementTime;
+        if (currentTime < 0) currentTime = 0;
+
+    }
+    function pad(number, length) {
+    var str = '' + number;
+    while (str.length < length) {str = '0' + str;}
+    return str;
+}
+function formatTime(time) {
+    time = time / 10;
+    var min = parseInt(time / 6000),
+        sec = parseInt(time / 100) - (min * 60);
+   //     hundredths = pad(time - (sec * 100) - (min * 6000), 2);
+    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2);
+}
+    this.resetCountdown = function() {
+
+        // Get time from form
+        var newTime = parseInt($form.find('input[type=text]').val()) * 1000;
+        if (newTime > 0) {currentTime = newTime;}
+        {
+        // Stop and reset timer
+        Example2.Timer.stop().once();
+        alert("YYYESSSSs");
+        }
+    };
+
+//$('#noUserFoundPopupText').html("++count");   
 }
      function popTryAgain() {
 //$( "#noUserFoundPopup" ).popup("close");
@@ -246,6 +315,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
             {
 //                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
+                callTimer();
                 $("#noUserFoundPopup").popup("open");
            
  }
@@ -291,10 +361,15 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
             {
 //                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
 //                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
-                 $( "#noUserFoundPopup" ).popup("open");
+                 callTimer();
+                    $( "#noUserFoundPopup" ).popup("open");
+                 callTimer();
+                 
+           
              
             }
                 else {   
+                        
                     fillBaseDetails(latitude,longitude,radius,activity,selectedTime);
                     loadUser(0);
                     

@@ -31,13 +31,14 @@
             <img id="loadingImage" src ="images/loading.jpg"/>
 
             <div data-role="header" id="header" data-position="fixed">  
-                <h3     style ="padding-top: 5px; padding-bottom: 16px;">TABLETRIBES 
-                    <span id="notificationNo" style="font-size: large; float:right; color:#fff; "/></h3>
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">TABLETRIBES 
+                    <span id="notificationNo" class="ui-header-notificationNo"/></h3>
                 
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000;">Menu</a>
                 
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style=" background:#cc0000;">Add</a>
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 7px"></a>
+                
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 7px"></a>
                 
             </div><!-- /header -->
 
@@ -123,7 +124,7 @@
 
 
             <!-- This div is for the left panel-->
-            <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
+            <div data-role="panel" data-position-fixed="true"  id="nav-panel">
                 <ul data-role="listview">
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
                     <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>

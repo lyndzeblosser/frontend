@@ -24,19 +24,24 @@
         <script src="js/jquery.flip.js"></script>
         <script src="js/jquery.flip.min.js"></script>
         
+        <script type="text/javascript" src="http://jchavannes.com/include/scripts/3p/jquery.timer.js"></script>
+        
     </head>
 
     <body>
 
         <div data-role="page" data-theme="a">
 
-            <div  data-role="header" id="header" data-position:"fixed"> 
-                                <h3     style ="padding-top: 5px; padding-bottom: 16px;">FIND YOUR PEOPLE
-                    <span id="notificationNo" style="font-size: large; float:right; color:#fff; "/></h3>
-    
+         <div data-role="header" id="header" data-position="fixed">  
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">FIND YOUR PEOPLE 
+                    <span id="notificationNo" class="ui-header-notificationNo"/></h3>
+                
                 <!-- This is the  to initiate side panels-->
-                <a href="#nav-panel" data-icon="mygear" id="closeleftPanel" class="ios app-theme-none notext" data-iconpos="notext" style="background:#cc0000; margin-left:5px; margin-top:5px;">Menu</a>
-                <a href="#add-form" data-icon="dot" data-iconpos="notext" id="closerightPanel" style="background:#cc0000;margin-left:5px; margin-top:5px;">Add</a>
+                
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 7px"></a>
+                
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 7px"></a>
+                
             </div><!-- /header -->
             
     
@@ -92,7 +97,9 @@
             </div>
             <div data-role="popup" id="noUserFoundPopup" data-transition="flow" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                
-                <h3 id="noUserFoundPopupText" class="ui-title">Sorry, doesn’t look like anyone’s around yet. Refresh this screen in 30 sec or go back to choose new selections.</h3>
+                <h3 id="noUserFoundPopupText" class="ui-title">Sorry, doesn’t look like anyone’s around yet. You can go back or this screen will auto refresh in 30 sec</h3>
+                <h3 id="noUserFoundPopupCounterText" class="ui-title">TEST</h3>
+                
                 <a href="#" id = "popupTryAgainButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" onclick="popTryAgain()">REFRESH</a>
                 <a href="#" id = "popupGoBackButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow" onclick="popupGoBack()" >GO BACK</a>
                 <br>

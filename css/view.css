@@ -17,29 +17,57 @@ text-shadow: none;
     padding: 0px !important;
 }
 
-
-[data-role= "header"] h3{
-    color: #ffffff;
-    text-shadow: none;
-    font-weight: bold;
-    font-size: 15px;
+.ui-header-notificationNo {
+    font-size: 20px; 
+    float:right; 
+    color:#ffffff; 
+    background-image: url("../images/notificationBackground.png");
+    height: 30px;
+    width: 30px;
 }
 
+.ui-leftNavButton {
+    background-image: url("../images/LeftNavButton.png");
+    background-color: #fff;
+    height: 24px;
+    width: 28px;
+    
+}
+
+.ui-rightNavButton {
+    background-image: url("../images/RightNavButton.png");
+    height: 28px;
+    width: 12px;
+    background-color: #fff;
+   
+    
+}
+
+[data-role= "header"] h3{
+//	color: #ffffff;
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+
 .ui-header .ui-title {
-    margin-right: 14%;
+    margin-right: 10%;
     margin-left: 10%;
-    margin-bottom: 2%;
-    font-size: 17px;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    font-size: 20px;
     overflow: visible !important;
     white-space: normal !important;
-   font-family: PT Sans Narrow; 
-   
+    font-family: PT Sans, sans-serif;
 }
 
 
 #header {
-    background: #cc0000 !important;
+    background: #ffffff !important;
 }
+
+
 
 #header a {
     border: 0px;
