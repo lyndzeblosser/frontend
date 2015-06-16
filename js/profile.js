@@ -93,7 +93,7 @@ function getUserProfile () {
                         document.getElementById("LeftPanelBio").value = data["bio"];
                         document.getElementById("LeftPanelBirthday").value = data["date_of_birth"];
                         document.getElementById("LeftPanelCity").value = data["hometown"];
-                        console.log("Password: "+document.getElementById("LeftPanelChangePassword").value);
+                      //  console.log("Password: "+document.getElementById("LeftPanelChangePassword").value);
                         console.log(data["imageMasterLocation"]);
                         $.session.set('userType', data["userType"]);
                         document.getElementById("LeftPanelProfileImage").src = data["imageMasterLocation"];
