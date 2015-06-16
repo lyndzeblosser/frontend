@@ -635,6 +635,11 @@ function confirmInvite(i){
     
     var inviteTime = h + ":" + m;
     
+    var tz = jstz.determine();// Determines the time zone of the browser client
+    var tzName = tz.name();
+    var tzOffset = new Date().getTimezoneOffset();
+    
+    
     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userHash'),
@@ -642,6 +647,8 @@ function confirmInvite(i){
         activity:getParameterByName('activity'),
         invite_date:inviteDate,
         invite_time:inviteTime,
+        invite_tz:tzName,
+        invite_tz_offset:tzOffset,
         matching_tags:getParameterByName('topics'),
         invite_location:$("#address").val()
 
