@@ -8,6 +8,7 @@ var tableid=0;
 var usersSentInvite = 0;
 var AddingtoCurrentTable = "No";
 var table;
+var inviteTime;
 var alreadyInvitedUsers=[];
 $(document).ready(function () 
 {
@@ -38,7 +39,7 @@ $(document).ready(function ()
                 
         console.log("Rejected Users "+alreadyInvitedUsers);
     }
-    
+    getSenderName($.session.get('userHash'));
 //    getTopicNames(getParameterByName('topics'));
     getResult(getParameterByName('latitude'), getParameterByName('longitude'), getParameterByName('topics'), getParameterByName('radius'), getParameterByName('activity'), getParameterByName('time'));
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -611,6 +612,36 @@ function confirmInvitation() {
     window.location.href = "view.html?tableid="+tableid+"&user_from="+$.session.get('userHash');
 }
 
+function getSenderName (senderId) {
+    
+    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + senderId)
+        $.ajax(
+                {
+                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + senderId,
+                    async: false,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data[0]
+                        console.log(data)
+                        var senderName = data["firstname"]+" " +data["lastname"]; 
+                       
+                        $.session.set('senderName', senderName);
+
+                                              
+                    },
+                    error: function(error, message)
+                    {
+                        console.log("Failure: " + message);
+                    },
+                    complete: function(data)
+                    {
+
+
+                    }
+                });
+}
+
 function addMorePeople() {
     $("#moveOnButton").click();
     $( "#inviteSentPopup" ).popup("close");  
@@ -633,12 +664,12 @@ function confirmInvite(i){
     ((''+month).length<2 ? '0' : '') + month + '-' +
     ((''+day).length<2 ? '0' : '') + day;
     
-    var inviteTime = h + ":" + m;
+    inviteTime = h + ":" + m;
     
     var tz = jstz.determine();// Determines the time zone of the browser client
     var tzName = tz.name();
     var tzOffset = new Date().getTimezoneOffset();
-    
+    var tableName = $.session.get('senderName') + "\''s table at "+ inviteTime;
     
     $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
     {
@@ -650,7 +681,8 @@ function confirmInvite(i){
         invite_tz:tzName,
         invite_tz_offset:tzOffset,
         matching_tags:getParameterByName('topics'),
-        invite_location:$("#address").val()
+        invite_location:$("#address").val(),
+        table_name:tableName
 
     },
     function(data,status){
@@ -696,6 +728,7 @@ function confirmInvite(i){
 function addUserToTable(i){
     
     var userName = users[i]["name"];
+    var tableName = $.session.get('senderName') + "\''s table at " + inviteTime;
     if (usersSentInvite == 0) {
         
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
@@ -707,7 +740,8 @@ function addUserToTable(i){
 //        invite_date:time['date'],
 //        invite_time:time['time'],
         matching_tags:getParameterByName('topics'),
-        invite_location:$("#address").val()
+        invite_location:$("#address").val(),
+        table_name:tableName
 
     },
     function(data,status){
@@ -757,7 +791,8 @@ function addUserToTable(i){
 //        invite_date:time['date'],
 //        invite_time:time['time'],
         matching_tags:getParameterByName('topics'),
-        invite_location:$("#address").val()
+        invite_location:$("#address").val(),
+        table_name:tableName
 
     },
     function(data,status){
@@ -796,7 +831,8 @@ function addUserToTable(i){
 //        invite_date:time['date'],
 //        invite_time:time['time'],
         matching_tags:getParameterByName('topics'),
-        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius')))
+        invite_location:getRadiusStringFromValue(parseInt(getParameterByName('radius'))),
+        table_name:tableName
 
     },
     function(data,status){

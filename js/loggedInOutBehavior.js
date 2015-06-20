@@ -1,4 +1,4 @@
-var userPanelNotifications, imageStringHtml, isLoggedIn,userId, notficationNo, panelTable, panelUsers=[];
+var userPanelNotifications, lastTableName, imageStringHtml, isLoggedIn,userId, notficationNo, panelTable, panelUsers=[];
 
 $(document).ready(function(){
     $(document).ajaxStart(function () {
@@ -239,7 +239,10 @@ function prepareNotificationDiv(userPanelNotification) {
 //    var ul = document.getElementById("rightpanellist");
 //    var li = document.createElement("li");
     var notification_read_icon, notification = '';
-    
+
+    if (lastTableName !== userPanelNotification['table_name']){
+        notification = "<li data-icon=\"delete\" style=\"background-color: #ffbb00;text-align: center; font-weight:700;\" id=\"panelTableHeader\"><p>" + userPanelNotification['table_name'] + "</p></li>";
+    }
 
     if (userPanelNotification['acted_upon'] === 'NO'){
         notification_read_icon = 'ui-icon-red-dot';
@@ -253,12 +256,13 @@ function prepareNotificationDiv(userPanelNotification) {
 //        var imageStringHtml = getUserProfileData();
      
      
-        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Table </p> " + imageStringHtml + " </a></li>";
+        notification += "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Table </p> " + imageStringHtml + " </a></li>";
     
     }   
     else {
-        notification = "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";   
+        notification += "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";   
     }
+    lastTableName = userPanelNotification['table_name']
     return notification;
 //    li.appendChild(document.createTextNode(notification));
 //    li.setAttribute("notification_id",userPanelNotification['notification_id']);

@@ -472,6 +472,8 @@ function confirmTable(){
     $('#rejectInviteButtonId').hide();
     console.log("tz: " + time['tz']);
     $("#InvitesSentId").show();
+    var tableNameNew = table['table_name'];
+    tableNameNew = tableNameNew.replace("'", "\''");
         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/confirmTable",
     {
         user_from:$.session.get('userHash'),
@@ -484,8 +486,8 @@ function confirmTable(){
         invite_tz:time['tz'],
         invite_tz_offset:time['tz_offset'],
 //        matching_tags:getParameterByName('commonTags'),
-        invite_location:$('#address').attr("value")
-
+        invite_location:$('#address').attr("value"),
+        table_name:tableNameNew
     },
     function(data,status){
         console.log("Data: " + data + "\nStatus: " + status);
