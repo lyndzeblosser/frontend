@@ -524,6 +524,8 @@ function rejectTable(){
     $("#confirmInvitesButtonId").hide();
     $("#rejectInviteButtonId").hide();
 //    $("#InvitesSentId").show();
+    var tableNameNew = table['table_name'];
+    tableNameNew = tableNameNew.replace("'", "\''");
     var alertConfirmation = confirm("Are you sure, you will pass?");
     if (alertConfirmation)
         {
@@ -531,7 +533,8 @@ function rejectTable(){
         {
             tableid:getParameterByName('tableid'),
             user_from:table['user_from'],
-            user_to:$.session.get('userHash')
+            user_to:$.session.get('userHash'),
+            table_name:tableNameNew
         },
         function(data,status){
     //         var url = "view.html?tableid="+tableid+"&user_from="+tableIdToUser[tableid];
