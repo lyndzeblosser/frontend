@@ -1,0 +1,229 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tabletribes</title> 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <link rel="stylesheet" href="css/timepicker.css">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=true"></script>
+       
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.map.js"></script>
+
+        <script src="js/jquery.session.js"></script>
+        <script src="js/loggedInOutBehavior.js"></script>
+        <script src="js/view1.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/jQuery.timepicker.js"></script>
+        <script src="js/jstz-1.0.4.min.js"></script>
+
+        <script>
+             $(function() {
+                    var timeInMs=(new Date()).getTime()+getParameterByName('inviteTime')*60*1000;
+                    var date=new Date(timeInMs)
+                    var dateString=(date.getUTCMonth()+1)+"-"+date.getUTCDate()+"-"+date.getUTCFullYear()
+                    $('#inviteTimePicker').timepicker({ 'step': 15 });
+//                    $('#inviteTimePicker').timepicker('setTime', date);
+//                    $('#dateString').text(dateString)
+                });
+  
+        </script>  
+
+        <link rel="stylesheet" type="text/css" href="css/view.css">
+        <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/viewipad.css">
+        <link href="//fonts.googleapis.com/css?family=PT+Sans Narrow:400,700" rel="stylesheet" type="text/css">
+        <script src="js/analytics.js"></script>
+    </head>
+
+    <body>
+
+        <div data-role="page" data-theme="a">
+
+            <div data-role="header" id="header" data-position="fixed">  
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">CONFIRMATION 
+                    <a href="#add-form"> <span id="notificationNo" class="ui-header-notificationNo"/></a></h3>
+                
+                <!-- This is the  to initiate side panels-->
+                
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 9px"></a>
+                
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
+                
+            </div><!-- /header -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+       
+            <div data-role="tabs" id="tabs">
+  <div data-role="navbar" >
+    <ul >
+      <li ><a href="#one" data-ajax="false" style="font-size:inherit;">DETAILS</a></li>
+      <li><a href="#two" data-ajax="false" style="font-size:inherit;">PEOPLE</a></li>
+      <li><a href="#three" data-ajax="false" style="font-size:inherit;">TOPIC</a></li>
+    </ul>
+  </div>
+                
+             
+  <div id="one" class="ui-body-d ui-content" >
+      <div id="locationDiv" class="ui-grid-b" >
+          <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:100%;">
+      </div>
+                <div id="map_canvas" class="ui-grid-b" style="height:160px;">
+                </div>  
+     <div class="ui-grid-b" style=" padding:0px; background-color: #88ccc1;">
+                    <div class="ui-block-b confirmdate"><div class="ui-bar ui-bar-a" style="  font-size:25px; height:80px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
+                                                 <form>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:2px;width:130px">
+                                    
+                                    <label for="select-native-11"></label>
+                                    <div style="position:relative;">
+                                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:blue; font-weight: 800; font-size: 20px">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div></div>
+                    <div class="ui-block-c">
+                        <div id="dateString" class="ui-bar ui-bar-a" style="height:80px; color:#cc0000; background-color:#88ccc1; border: none; text-shadow: none; font-size:20px;">10.09.2014</div></div>
+                </div>
+                    
+  </div>
+                
+  <div id="two">
+    <div style="width:100%; height:250PX; float: none ">
+      <div style=" width: 49.4%; height:100%;float: left; border: 1px solid black">
+          <img id="peopleDiv0" style=" width: 100%; height:100%;"/>
+      </div>
+        
+      <div style=" width: 49.4%; height:100%; float: right; border: 1px solid black">
+          <img id="peopleDiv1" style=" width: 100%; height:100%;"/>
+      </div>
+        
+    </div>
+      
+    <div style="width:100%; height:250PX; float: none ">
+      <div style=" width: 49.4%; height:100%;float: left; border: 1px solid black">
+          <img id="peopleDiv2" style=" width: 100%; height:100%;"/>
+      </div>
+        
+      <div style="width: 49.4%; height:100%; float: right; border: 1px solid black">
+          <img id="peopleDiv3" style=" width: 100%; height:100%;"/>
+      </div>
+        
+    </div>
+      
+  </div>             
+                
+    <div id="three" class="ui-body-d ui-content">
+          <div id="articlesDiv" class="ui-grid-b" style="height:100%;">
+                        <div style="width:25%;float:left;">
+                        <img src="images/logoiconhead.png" style="width:100%; margin-top:25%;">
+                        </div>
+                        <div style="width:72%;float:left; padding-top:2%; padding-left: 2.75%; padding-right: 0.25%; ">
+                        <a style="font-size: 0.75em;" id="preConvoLink1" href="http://www.npr.org/sections/codeswitch/2015/06/21/415542992/project-fatherhood-in-a-struggling-neighborhood-dads-are-helping-dads">'Project Fatherhood': In A Struggling Neighborhood, Dads Are Helping Dads (NPR)</a> 
+                            <p style="font-size: 0.75em;">• What do I want to see more of in myself, my family, my community, and my city?</p>
+                            <p style="font-size: 0.75em;">• How do I best contribute right now to making that happen?</p>
+                        </div>
+                    
+                </div>
+
+               
+             <div data-role="popup" id="preConversationPopup">
+                <h3>Thank you for being part of the TableTribes journey and helping us test our product. We'll be following up about your experience by email. <h3>
+                <br>
+                <h3>Until then, here's one more link we thought you might appreciate. Featuring stories from Morning Edition of NPR. ,<h3>
+                        <br>
+                        <h3>PROGRESS</h3>
+                <h3 id="preConvoText1"> What does progress mean to me? What kind of awareness helps me broaden my perspective about my place in the world?<h3>                
+                <a id="preConvoLink1" href="http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up">Homeless man encourages others on the streets to get up</a> 
+                <br> <br>                      
+
+                <h3 id="preConvoText2"> What does progress mean to my city? What do you want to see more of in DC?<h3>                
+                <a id="preConvoLink2" href="http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up">Homeless man encourages others on the streets to get up</a>                         
+                <br> <br>
+
+                <h3 id="preConvoText3"> How do we achieve progress as a society? What are examples of things I can do right now to improve the lives of me and people around me? <h3>                
+                <a id="preConvoLink3" href="http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up">Homeless man encourages others on the streets to get up</a> 
+                <br>
+                <a href="#" id = "redirectToMoodButton" class="confirminvitesButton" onclick="sendToMoodPage()" style="color:#ffffff; background-color: #cc0000;">OK</a>
+                <br>
+             </div> 
+  </div>
+                <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #cc0000;">JOIN THIS CONVERSATION</a>
+                <div id="messagesDIV">
+       <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="Have fun! Message them here if you’re running late or looking for each other."></textarea>
+       <div style="text-align:center">
+       <a href="#" id = "sendNoteButtonId" class="sendNoteButton" onclick="sendTableMessage()" style=" color:#ffffff; background-color: #cc0000;">CHAT</a>
+       </div>
+       <div style="background-color:#ffffff; opacity:0.7;">
+            <h3> Chat Messages: </h3>
+            <h4 id="tableMessages" style="color:#000; opacity:1;"></h4>
+       </div>
+                </div>
+  </div>              
+                  
+         
+                <!-- This div is for the left panel-->
+            <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>                   
+                    <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
+                    <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <p id="welcomemsg">Welcome to TableTribes!</p>
+                </ul>
+            </div><!-- left panel -->
+
+           <!-- This is for the right panel-->
+            <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+                <ul data-role="listview" id="rightpanellist">
+                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>NOTIFICATIONS</p></a></li>
+                    <div id="panelMain" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+                
+
+                    </div>
+          <!--          <li class="loggedInFields"><a id="invites">RESPOND TO INVITES<span id="inviteNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>                   
+                    <li class="loggedInFields"><a id="myTablesToBeConfirmed">TABLES WAITING FOR CONFIRMATION<span id="tableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myUpcomingTables">CONFIRMED TABLES<span id="upComingTableNo" class="ui-li-count" style="color:#cc0000;">0</span></a></li>
+                    <li class="loggedInFields"><a id="myPastTables">PAST TABLES</a></li>                 
+                    <p id="welcomemsg">Welcome to TableTribes!</p><p id="vision"> Our vision is to spark a change in how we interact with the people around us by creating tools that enable more meaningful connections on a day-to-day basis. 
+
+We’re building something new, and as an early-stage startup, your participation in our survey during this beta phase is crucial to us right now because it gives us feedback on how to make it better.<br><br><a href="https://www.surveymonkey.com/r/7DFCM5J" style="text-decoration: none;">Go To Survey</a> <br>
+
+<br>Thank you for being part of this journey!</p>-->
+
+                </ul>
+            </div><!--  right panel -->
+
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
+
+            <!--<div data-role="footer" data-position="fixed"></div> <!-Important -->
+
+        </div>
+                <!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=10329186; 
+var sc_invisible=1; 
+var sc_security="d7a91fbb"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/10329186/0/d7a91fbb/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+    </body>
+</html>
