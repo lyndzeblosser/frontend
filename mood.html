@@ -14,6 +14,7 @@
         <script src="js/mood.js"></script>
         <script src="js/analytics.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/jstz-1.0.4.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/mood_1.css">
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/moodipad.css">
@@ -103,6 +104,8 @@
                     <label for="location" class="ui-hidden-accessible">Location:</label>
                     <input onclick="autoCompleteLocation()" id="address" name="location" id="location" placeholder="Location" value="" type="text">
                     <img src="img/powered-by-google-on-white.png">
+                <input id="sbucksAddress" name="location" id="location" placeholder="Location" value="" type="hidden">
+            <div id="map"></div>   
 
                 </ul> <!--ends the preference list-->
                 <br>

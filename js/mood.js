@@ -15,6 +15,8 @@ $(document).ready(function(){
     loadInitialLocation = true;
     }
     preloadIrrepectiveOfLoggedInOut();
+//    google.maps.event.addDomListener(window, 'load', initialize);
+
     if(redirectedFromSearchScreen === true)
     {
     var radius = getParameterByName('radius');
@@ -248,7 +250,7 @@ function autoCompleteLocation(){
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
             $("#address").attr("placeholder", "Value set to your current location");
-           
+           initialize();
             if (typeof $.session.get('userHash') != "undefined")
             {
                 console.log("Update live location for user:" + $.session.get('userHash'));
@@ -278,8 +280,20 @@ function findMyPeople(){
         }else{
              // service call to add user tags
             //           addUserTags($.session.get('userHash'), sortId);
-            var url = "findYourPeople.html?"+urlParams;
-            window.location.href = url;
+//            var url = "findYourPeople.html?"+urlParams;
+//            window.location.href = url;
+            var activity = $(".activitiesImages[selected=\"1\"]").attr("activity");
+            sortId = [];
+            $("input[data-cacheval=\"false\"]").each(function(){
+                var tagValue = this.value;
+                tagValue = tagValue.replace('#', '');
+                sortId.push(tagValue);
+            })
+            var topics = sortId.join();
+            var selectedTime = $("#timeText").attr("value");
+            var radius = $("#whereText").attr("value");
+            
+            getResult(currentLat, currentLng, topics, radius, activity, selectedTime);
         }
     }
 }
@@ -396,3 +410,124 @@ function updateUserLiveLocation(userid, lat, lng)
                     
                 });
     }
+function initialize() {
+//  var service = new google.maps.places.AutocompleteService();
+//  service.getPlacePredictions({ input: 'Starbucks' }, callback);
+
+var currentLoc = new google.maps.LatLng(currentLat,currentLng);
+
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: currentLoc,
+      zoom: 15
+    });
+
+  var request = {
+    location: currentLoc,
+//    radius: '11265',
+    name: 'Starbucks',
+    rankBy: google.maps.places.RankBy.DISTANCE
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(predictions, status) {
+  if (status != google.maps.places.PlacesServiceStatus.OK) {
+    alert(status);
+    return;
+  }
+  var place_id = predictions[0].place_id;
+  console.log('place_id: ' + place_id);
+  var placesService = new google.maps.places.PlacesService($('#address').get(0));
+  placesService.getDetails({ placeId: place_id }, placeDetailsCallback);
+  
+
+}
+
+function placeDetailsCallback(placeResult, status) {
+    
+        var place = placeResult;
+        var address = '';
+//    if (place.formatted_address) {
+//      address = [
+//        (place.address_components[0] && place.address_components[0].short_name || ''),
+//        (place.address_components[1] && place.address_components[1].short_name || ''),
+//        (place.address_components[2] && place.address_components[2].short_name || '')
+//      ].join(' ');
+        address = place.formatted_address;
+//      }
+      var inviteLocation = place.name + ' ' + address;
+      console.log('Invite Location set:' + inviteLocation);
+      $("#sbucksAddress").val(inviteLocation);
+//    $("#address").val(predictions[0].description);
+}  
+function getRadius(selectedLocation) 
+{
+//    console.log("getParameterByName: " + name);        
+    radius = 5000;
+   if (selectedLocation == '10') {
+        radius = 805;
+    }
+    else if (selectedLocation == '100') {
+        radius = 8050;
+    }
+    else if (selectedLocation == '300') {
+        radius = 24150;
+    }
+    return radius;
+}
+
+function getResult(latitude, longitude, topics, radius, activity, selectedTime)
+{
+    console.log(latitude,longitude,radius,activity,selectedTime);    
+    var d = new Date();
+    var ud = new Date(d.getTime() + 30*60000)
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+    var h = ud.getHours();
+    var m = (ud.getMinutes()<10?'0':'') + ud.getMinutes();
+    var s = ud.getSeconds();
+
+    var inviteDate = d.getFullYear() + '-' +
+    ((''+month).length<2 ? '0' : '') + month + '-' +
+    ((''+day).length<2 ? '0' : '') + day;
+    
+    inviteTime = h + ":" + m;
+    
+    var tz = jstz.determine();// Determines the time zone of the browser client
+    var tzName = tz.name();
+    var tzOffset = new Date().getTimezoneOffset();
+    var senderName = $.session.get('senderName');
+    $.ajax(
+    {
+            
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/assignTable?searchLat="
+        + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius="
+        + getRadius(radius) + "&userid=" + $.session.get('userHash') 
+        + "&userType=" + $.session.get('userType')
+        + "&userName=" + senderName
+        + "&search_date=" + inviteDate
+        + "&search_time=" + inviteTime
+        + "&search_tz=" + tzName
+        + "&search_tz_offset=" + tzOffset
+        + "&inviteLocation=" + $("#sbucksAddress").val(),
+        async: true,
+        dataType: "json",
+        success: function (data) 
+        {
+            console.log("success data-------" + JSON.stringify(data));
+            var table=data;
+            window.location.href="view.html?tableid="+table['tableid']+"&user_from="+table['user_from'];
+                
+//            if(data.length == 0)
+//            {
+////                alert("Oops, we could not find anyone that matched your search criteria! Please try again later");
+////                $.mobile.changePage( "login.html", { role: "dialog" , transition:"slideup", reloadPage:"true" });
+//                callTimer();
+//                $("#noUserFoundPopup").popup("open");
+//           
+//            }
+        }
+    });
+}

@@ -302,10 +302,37 @@ function sendToMoodPage ()
 function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 {
     console.log(latitude,longitude,radius,activity,selectedTime);    
+    var d = new Date();
+    var ud = new Date(d.getTime() + 30*60000)
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+    var h = ud.getHours();
+    var m = (ud.getMinutes()<10?'0':'') + ud.getMinutes();
+    var s = ud.getSeconds();
+
+    var inviteDate = d.getFullYear() + '-' +
+    ((''+month).length<2 ? '0' : '') + month + '-' +
+    ((''+day).length<2 ? '0' : '') + day;
+    
+    inviteTime = h + ":" + m;
+    
+    var tz = jstz.determine();// Determines the time zone of the browser client
+    var tzName = tz.name();
+    var tzOffset = new Date().getTimezoneOffset();
+    var senderName = $.session.get('senderName');
     $.ajax(
     {
             
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius=" + getRadius(radius) + "&userid=" + $.session.get('userHash') + "&userType=" + $.session.get('userType'),
+        url: "http://ancient-falls-9049.herokuapp.com/credentialService/assignTable?searchLat="
+        + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius="
+        + getRadius(radius) + "&userid=" + $.session.get('userHash') 
+        + "&userType=" + $.session.get('userType')
+        + "&userName=" + senderName
+        + "&search_date=" + inviteDate
+        + "&search_time=" + inviteTime
+        + "&search_tz=" + tzName
+        + "&search_tz_offset=" + tzOffset
+        + "&inviteLocation=" + $("#address").val(),
         async: true,
         dataType: "json",
         success: function (data) 
@@ -657,7 +684,7 @@ function confirmInvite(i){
     var month = d.getMonth()+1;
     var day = d.getDate();
     var h = ud.getHours();
-    var m = ud.getMinutes();
+    var m = (ud.getMinutes()<10?'0':'') + ud.getMinutes();
     var s = ud.getSeconds();
 
     var inviteDate = d.getFullYear() + '-' +
