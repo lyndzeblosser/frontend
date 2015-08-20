@@ -350,9 +350,7 @@ for (i = 0; i < users.length; i++) {
         console.log("users length: " + users.length)
         letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataTop += prepareUserDivTop(i, letter);
-        $("#peopleDiv"+(i+1)).attr("src",users[i]["image"]);
-      
+        userDivDataTop += prepareUserDivTop(i, letter)
     }
     
  /*   for (var i = 0; i < noEmptyDivs; i++) {

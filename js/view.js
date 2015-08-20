@@ -1,4 +1,5 @@
 var table,tags=[],userid,inviteUsers=[],users=[],lat,long, validUsers;
+var confirmCount = 0;
 var rejectedUsers = "";
 var userPresent = false; 
 $(document).ready(function()
@@ -28,14 +29,28 @@ function redirectToMoosScreen()
   window.location.href = "mood.html";
    
 }
+
+function checkConfirmedUsers ()
+{
+          if (confirmCount == 0)
+    {
+        var result = confirm("Looks like you are the first one here. Please join the conversation and we will let you know when we get confirmation from others to meet you for this table");
+
+if (result) {
+    // Delete the user
+} else {
+    // Do nothing; they cancelled
+}
+    }
+}
 function getUserData() {
     var userIDs=[];
-    var confirmCount = 0;
+    
     validUsers = 1;
 //    if(table["table_confirmed"]=="YES")
     if($.session.get('userHash') == table['user_from'])
        {
-        document.getElementById('confirmInvitesButtonId').innerHTML = "YES";
+        document.getElementById('confirmInvitesButtonId').innerHTML = "JOIN THIS CONVERSATION";
         $('#rejectInviteButtonId').hide();
 
         }
@@ -77,6 +92,7 @@ function getUserData() {
         validUsers++;
     
     console.log("ConfirmCount: " + confirmCount);
+    
     if (confirmCount > 1) {
         document.getElementById("inviteTimePicker").disabled = true;
         document.getElementById("address").disabled = true;
@@ -143,10 +159,10 @@ function getUserData() {
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
                            $('#confirmInvitesButtonId').hide();
                           
-                          if(table['table_confirmed']=="NO")
-                          document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
-                          else
-                           $('#messagesDIV').show();
+     //                     if(table['table_confirmed']=="NO")
+      //                    document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
+      //                    else
+      //                     $('#messagesDIV').show();
                       }
                         }
                         else
@@ -350,7 +366,14 @@ for (i = 0; i < users.length; i++) {
         console.log("users length: " + users.length)
         letter = String.fromCharCode(97 + count)
         count++;
-        userDivDataTop += prepareUserDivTop(i, letter)
+        userDivDataTop += prepareUserDivTop(i, letter);
+        if(i==0)
+        { if(table['user_from_status']=="Confirmed")
+                $("#peopleDiv"+(i)).attr("src",users[i]["image"]);}
+        else
+                if(table['user_to_'+(i)+'_status']=="Confirmed")
+        $("#peopleDiv"+(i)).attr("src",users[i]["image"]);
+      
     }
     
  /*   for (var i = 0; i < noEmptyDivs; i++) {
@@ -493,7 +516,7 @@ function confirmTable(){
         console.log("Data: " + data + "\nStatus: " + status);
         if(status  == "success") {
            
-            document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
+        //    document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
                 $('#rejectInviteButtonId').hide();
         window.location.reload(false);         
             
