@@ -33,7 +33,8 @@ $(document).ready(function(){
     });
     $("#LeftPanelProfile").click(function()
     {
-       window.location.href = "profile.html";
+       userId=$.session.get('userHash');
+       window.location.href = "profile.html?userId="+userId;
     });
     $("#LeftPanelTopicTags").click(function()
     {

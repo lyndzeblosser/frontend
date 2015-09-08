@@ -15,7 +15,6 @@
         <script src="js/analytics.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script src="js/jstz-1.0.4.min.js"></script>
-
         <link rel="stylesheet" type="text/css" href="css/mood_1.css">
         <link rel="stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/moodipad.css">
         <link rel="stylesheet" media="screen and (min-width:600px)" type="text/css" href="css/mood600.css">
@@ -37,7 +36,7 @@
                 
                 <!-- This is the  to initiate side panels-->
                 
-                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 9px"></a>
+                <a href="#nav-panel"  id="closeleftPanel" data-role="none"  style="margin-top: 9px"></a>
                 
                 <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
                 
@@ -127,10 +126,9 @@
 
 
             <!-- This div is for the left panel-->
-            <div data-role="panel" data-position-fixed="true"  id="nav-panel">
+<!--            <div data-role="panel" data-position-fixed="true"  id="nav-panel">
                 <ul data-role="listview">
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
-                    <li class="loggedInFields" ><a id="LeftPanelProfile">PROFILE</a></li>
                     <li class="loggedInFields" ><a id="LeftPanelTopicTags">TOPIC TAGS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>                   
                     <li class="loggedInFields" ><a id="LeftPanelConnectMeTo" href="">CONNECT ME TO <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
                     <li class="loggedInFields" ><a id="LeftPanelLinkAccounts" href="">LINK ACCOUNTS <FONT size="2" COLOR="blue">-WIP</FONT></a></li>
@@ -138,13 +136,19 @@
                     <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
                     <p id="welcomemsg">Welcome to TableTribes!</p>
                 </ul>
-            </div><!-- left panel -->
+            </div>
+!-->
+<!-- left panel -->
 
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview" id="rightpanellist">
-                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
-                    <li data-icon="logoicon"><a id="home" href="#">Home</a></li>
+                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
+                    <li data-icon="logoicon"><a id="home" href="#">HOME</a></li>
+                    <li data-icon="logoicon"><a id="LeftPanelProfile">MY PROFILE</a></li>
+                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
+                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    
                     <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>NOTIFICATIONS</p></a></li>
                     <div id="panelMain" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                 

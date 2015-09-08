@@ -1,9 +1,16 @@
 var isLoggedIn,userId;
 $(document).ready(function(){
+    loggedInLoggedOutBehavior();
+    var parameters = location.search;
+    var parameter = parameters.split("?");
+    console.log(parameter);
+    console.log(getParameterByName('userId'));
+    userId=getParameterByName('userId');
     isLoggedIn=typeof $.session.get('userHash')!="undefined";
-    userId=$.session.get('userHash');
+//    userId=$.session.get('userHash');
     autoCompleteLocation();
     getUserProfile ();
+  
 //    var $loading = $('#loadingDiv').hide();
 /*$(document)
   .ajaxStart(function () {
@@ -28,6 +35,14 @@ $.mobile.loading( 'show', {
   
   
 });
+
+function getParameterByName(name) 
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 function updateUserProfile (){
     if(document.getElementById("LeftPanelChangePassword").value == "")

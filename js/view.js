@@ -2,6 +2,7 @@ var table,tags=[],userid,inviteUsers=[],users=[],lat,long, validUsers;
 var confirmCount = 0;
 var rejectedUsers = "";
 var userPresent = false; 
+var userIdProfile=[];
 $(document).ready(function()
 {
 //    userid=$.session.get('userHash')
@@ -345,7 +346,28 @@ function getTableMessages(tableid){
     });
     
 }
+function goToProfile0()
+{
+    window.location.href = "profile.html?userId="+table['user_from'];
 
+//alert ("Np idea"+table['user_from']);
+}
+
+function goToProfile1()
+{
+    window.location.href = "profile.html?userId="+userIdProfile[1];
+//alert (userIdProfile[1]);
+}
+
+function goToProfile2()
+{
+    window.location.href = "profile.html?userId="+userIdProfile[2];
+}
+
+function goToProfile3()
+{
+    window.location.href = "profile.html?userId="+userIdProfile[3];
+}
 function getResult()
 {
     $("#actpic").attr("src","images/"+table['activity']+"invert.png")
@@ -369,11 +391,17 @@ for (i = 0; i < users.length; i++) {
         userDivDataTop += prepareUserDivTop(i, letter);
         if(i==0)
         { if(table['user_from_status']=="Confirmed")
-                $("#peopleDiv"+(i)).attr("src",users[i]["image"]);}
+                $("#peopleDiv"+(i)).attr("src",users[i]["image"]);
+//                $("#peopleDiv"+(i)).attr ("onclick", "goToProfile(xyz)");
+console.log(table['user_from']);
+userIdProfile[0]=table['user_from'];
+console.log(userIdProfile[0]);
+}   
         else
                 if(table['user_to_'+(i)+'_status']=="Confirmed")
         $("#peopleDiv"+(i)).attr("src",users[i]["image"]);
-      
+console.log(table['user_to_1']);  
+userIdProfile[i]=table['user_to_'+(i)];
     }
     
  /*   for (var i = 0; i < noEmptyDivs; i++) {
