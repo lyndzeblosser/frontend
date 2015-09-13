@@ -10,7 +10,7 @@ $(document).ready(function()
     $("#addMoreButtonId").hide();
     $("#InvitesSentId").hide();
     $("#preConvoPopupButton").hide();
-    $("#articlesDiv").hide();
+  //  $("#articlesDiv").hide();
     userid = getParameterByName('user_from');
     console.log("Initial User Id "+userid);
     
@@ -35,8 +35,15 @@ function checkConfirmedUsers ()
 {
           if (confirmCount == 0)
     {
-        var result = confirm("Looks like you are the first one here. Please join the conversation and we will let you know when we get confirmation from others to meet you for this table");
-
+        setTimeout(
+  function() 
+  {
+    //do something special
+    var result = confirm("Looks like you’re the first one here! Do all the details look ok? If yes, click JOIN to start this table");
+// $('#headerId').innerHTML = ""
+// document.getElementById('headerId').innerHTML = "<a href=\"#add-form\"> <span id=\"notificationNo\" class=\"ui-header-notificationNo\"/></a>";
+  }, 5);
+        
 if (result) {
     // Delete the user
 } else {
@@ -53,7 +60,7 @@ function getUserData() {
        {
         document.getElementById('confirmInvitesButtonId').innerHTML = "JOIN THIS CONVERSATION";
         $('#rejectInviteButtonId').hide();
-
+        $('#notificationNo').hide();
         }
     if(table['user_from_status']==="Confirmed") {
      confirmCount++;
@@ -546,6 +553,9 @@ function confirmTable(){
            
         //    document.getElementById("InvitesSentId").innerHTML="CONFIRMED";
                 $('#rejectInviteButtonId').hide();
+               
+                
+                alert("Great! We'll let you know as soon as others join.");
         window.location.reload(false);         
             
 //             $.mobile.changePage( "preConversationLinks.html", { role: "dialog" , transition:"slideup" });
@@ -561,7 +571,7 @@ function confirmTable(){
     $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
     $('#rejectInviteButtonId').hide();
-
+    
 }
 
 function rejectTable(){
