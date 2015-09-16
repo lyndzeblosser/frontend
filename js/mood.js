@@ -5,6 +5,7 @@ var redirectedFromSearchScreen = false;
 var topicCount=1;
 var topicsFromURL =[];
 var radiusId, radiusValue, loadInitialLocation;
+var nativeLocationSet = false;
 
 $(document).ready(function(){
    if(getParameterByName('redirectedFromSearchScreen') === "Yes")
@@ -232,6 +233,13 @@ function checkUserTagsCap () {
     }
 }
 
+function sendNativeCurrentLocation (lat, lng) {
+    currentLat = lat;
+    currentLng = lng;
+    $("#address").attr("placeholder", "Value set to your current location");
+    nativeLocationSet = true;
+}
+
 function autoCompleteLocation(){
     if(redirectedFromSearchScreen === true && loadInitialLocation === true)
     {
@@ -240,6 +248,9 @@ function autoCompleteLocation(){
         currentLng = getParameterByName('longitude');
         console.log(currentLat, currentLng);
         loadInitialLocation = false;
+    }
+    else if (nativeLocationSet === true) {
+        
     }
     else
     {
