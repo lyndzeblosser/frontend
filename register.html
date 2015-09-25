@@ -47,7 +47,7 @@
 
     <body>
 
-        <div data-role="page" data-theme="a">
+        <div data-role="page" data-theme="a" data-add-back-btn="true">
 
            <div data-role="header" id="header" data-position="fixed">  
                 <h3     style ="padding-top: 11px; padding-bottom: 10px;">CREATE ACCOUNT</h3>
@@ -117,10 +117,10 @@
                 </div>
                 <br>
                         <input name="test" id="test" placeholder="Enter Beta Access Code" value="tt" type="password"/> 
-                        <input name="betaAccessCode" id="betaAccessCode" placeholder="Enter Beta Access Code" value="" type="password"/> 
-                        <input name="email" id="email" placeholder="Enter email" value="" type="email"/>
+                        <input name="betaAccessCode" id="betaAccessCode" placeholder="ENTER BETA ACCESS CODE" value="" type="password"/> 
+                        <input name="email" id="email" placeholder="EMAIL" value="" type="email"/>
                         <label for="password" class="ui-hidden-accessible">Password</label>
-                        <input name="password" id="password" placeholder="Create Password (at least 6 characters)" value="" type="password"/>
+                        <input name="password" id="password" placeholder="PASSWORD (at least 6 characters)" value="" type="password"/>
 
 <!--                        <label for="ConfirmPassword" class="ui-hidden-accessible">Verify password</label>
                         <input name="ConfirmPassword" id="ConfirmPassword" placeholder="Verify password" value="" type="password"/>-->
@@ -132,29 +132,29 @@
                     </form>
                     <form method="post" id = "registerForm2">
                         <div id="registerPage2"> 
-                        <input name="firstName" id="firstName" placeholder="First name (for your profile)" value="" type="text"/>
+                        <input name="firstName" id="firstName" placeholder="FIRST NAME (for your profile)" value="" type="text"/>
 
-                        <input name="lastName" id="lastName" placeholder="Last name (won't be revealed)" value="" type="text"/>
-                        <input name="dateOfBirth" id="dateOfBirth" type="text" placeholder="When's your birthday?"/>
+                        <input name="lastName" id="lastName" placeholder="LAST NAME (won't be revealed)" value="" type="text"/>
+                        <!--<input name="dateOfBirth" id="dateOfBirth" type="text" placeholder="BIRTHDAY"/>-->
                          <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
-                        <input name="homeTown" id="homeTown" placeholder="What city do you live in?" value="" type="text"/>
-                        <textarea cols="40" rows="3" name="bio" id="bio" placeholder="Who/what was your first music concert? Or what was the first album or song you ever purchased?"></textarea>
-                        <br><br>
-                        <div id="disclaimertext" style="font-size:14">
-                        By creating an account, you acknowledge that you have read the Privacy Policy and agree to the Terms of Service.
-                        </div>
+                        <input name="homeTown" id="homeTown" placeholder="CITY" value="" type="text"/>
+                        <textarea cols="40" rows="1" name="bio" id="bio" placeholder="What was your first music concert?"></textarea>                        
                         <!-- <label for="bio" class="ui-hidden-accessible">Bio</label>
                          <input name="bio" id="bio" placeholder="Bio" value="" type="text"/> -->
-                        <button type="button" id="previousPageButton">Previous Page</button>
+<!--                        <button type="button" id="previousPageButton">Previous Page</button>-->
                         <input name="imageMasterLocation" id="imageMasterLocation" value="" type="hidden"/>
                         <input name="imageThumbnailLocation" id="imageThumbnailLocation" value="" type="hidden"/>
+                        
                         <input name="loginType" id="loginType" value="" type="hidden"/>
                         <input name="platformId" id="platformId" value="" type="hidden"/>
-                        </div>
                         <div style="text-align:center">
-                            <button id="submitRegistrationButton">Submit</button>
-                            <button id="sendingRegistrationId" class="confirminvitesButton" style="color:#ffffff; background-color: #cc0000; line-height: 40px; font-family: PT Sans;">Registering .... </button>
-
+                            <button id="submitRegistrationButton" style="color:#ffffff; background-color: #ff3300; margin-top:10px;">SUBMIT </button>
+                            <button id="sendingRegistrationId"  style="color:#ffffff; background-color: #ff3300; margin-top:10px;">REGISTERING...</button>
+                        <div id="disclaimertext" class='ui-disclaimer'>
+                        By clicking “SUBMIT”, you agree to our Terms and Privacy Policy.
+                        <br>
+                        </div>
+                        </div>
                         </div>
                         
                     </form>                

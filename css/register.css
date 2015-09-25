@@ -41,9 +41,13 @@
     font-size: 20px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans, sans-serif;
+    font-family: Helvetica;
 }
 
+.ui-disclaimer {
+    font-size: 10px;
+    font-family: Helvetica;
+}
 
 #header {
 	background: #ffffff !important;
@@ -274,8 +278,8 @@ h4 {
 
 
 div[role="main"] input {
-height: 50px;
-font-family: PT Sans;
+height: 45px;
+font-family: Helvetica;
 }
 
 /* un-checked */
@@ -314,7 +318,7 @@ div.uploadcare-widget-button.uploadcare-widget-button-open {
    
 }
 
-button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
+/*button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
     background: #ff3300;
 	display:inline-block;
 	font-family: Helvetica;
@@ -329,10 +333,10 @@ button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
 	color: #ffffff;
         height: 50px;
         
-}
+}*/
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
-    font-family: PT Sans;
-    font-size: 17px;
+    font-family: Helvetica;
+    font-size: 16px;
    
 }
 

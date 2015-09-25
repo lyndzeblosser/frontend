@@ -56,7 +56,7 @@
     font-size: 20px;
     overflow: visible !important;
     white-space: normal !important;
-    font-family: PT Sans, sans-serif;
+    font-family: Helvetica;
 }
 
 
@@ -199,10 +199,7 @@ h4 {
 /* style for the action buttons */
 
 .findpplBtn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #cc0000;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #cc0000;
-	box-shadow:inset 0px 1px 0px 0px #cc0000;
-	background-color:#cc0000;
+	
 	-webkit-border-top-left-radius:6px;
 	-moz-border-radius-topleft:6px;
 	border-top-left-radius:6px;
@@ -216,10 +213,9 @@ h4 {
 	-moz-border-radius-bottomleft:6px;
 	border-bottom-left-radius:6px;
 	text-indent:0px;
-	border:1px solid #d02718;
 	display:inline-block;
-	font-family: PT Sans Narrow;
-	font-size:17px;
+	font-family: Helvetica;
+	font-size:15px;
 	font-weight:bold;
 	font-style:normal;
 	height:40px;
@@ -295,10 +291,9 @@ h4 {
 }
 
 [data-role="listview"] .place li a:hover {
-	background-color: #424A49;
-	color: #ffffff;
-         font-family: PT Sans Narrow;
-         font-size: 17px;
+        color: #ff3300;
+         font-family: Helvetica;
+         font-size: 15px;
          text-transform: uppercase;
         
 }
@@ -314,10 +309,10 @@ h4 {
 
 [data-role="listview"] .place li a {
     text-transform: uppercase;
-    background-color: #999999;
-    color: #ffffff;
+    color: #009999;
     text-shadow: none;
-   font-family: PT Sans Narrow;
+   font-family: Helvetica;
+   font-size: 15px
 }
 
 .activitiesImages{
@@ -327,8 +322,8 @@ h4 {
 /* un-checked */
 .ui-checkbox label.ui-checkbox-off {
     font-family: Helvetica;
-   font-size: 17px;
-   line-height: 25px;
+   font-size: 15px;
+   line-height: 20px;
    text-shadow: none;
    height:20px;
   
@@ -337,39 +332,42 @@ h4 {
 
 /* checked */
 .ui-checkbox label.ui-checkbox-on {
-  color: #cc0000 !important;
+  color: #ff3300 !important;
     font-family: Helvetica;
-   font-size: 17px;
+   font-size: 15px;
    text-shadow: none;
-   line-height: 25px;
+   line-height: 20px;
    height: 20px;
 }
 
 
 .panel0 .ui-collapsible-heading .ui-btn {
-    background-color: #333333;
+    background-color: #ff3300;
     color:#ffffff;
-    font-family: PT Sans Narrow;
-    border-color: #333333;
+    font-family: Helvetica;
+    border-color: #ff3300;
     text-shadow: none;
     text-align: center;
-    font-size: 17px;
-    width: 83%
+    font-size: 15px;
+    
     
     
 }
 
 .panel1 .ui-collapsible-heading .ui-btn {
-    background-color: #ffbb00;
+    background-color: #ffcc99;
     color:#ffffff;
-    font-family: PT Sans Narrow;
-    border-color: #ffbb00;
+    font-family: Helvetica;
+    border-color: #ffcc99;
     text-shadow: none;
     text-align: center;
-    font-size: 17px;
+    font-size: 15px;
    
-    
-    
+}
+
+.ui-tags-text {
+    font-size: 15px;
+    font-family: Helvetica;
 }
 
 .time .ui-collapsible-heading .ui-btn {
@@ -384,14 +382,13 @@ h4 {
 }
 
 .place .ui-collapsible-heading .ui-btn {
-    background-color: #424A49;
+    background-color: #009999;
     color:#ffffff;
-    font-family: PT Sans Narrow;
-    border-color: #424A49;
+    font-family: Helvetica;
+    border-color: #009999;
     text-shadow: none;
     text-align: center;
-    font-size: 17px;
-    text-transform: uppercase;
+    font-size: 15px;
 }
 
 .coffee, .drinks, .dine {

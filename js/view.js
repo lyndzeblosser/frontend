@@ -378,7 +378,7 @@ function goToProfile3()
 function getResult()
 {
     $("#actpic").attr("src","images/"+table['activity']+"invert.png")
-    $("#address").attr("value",table['invite_location'])
+    $("#address").val(table['invite_location'])
     $("#dateString").html(table['invite_date'])
     getUserData();
     if (table['invite_time'] != null) {
@@ -544,7 +544,7 @@ function confirmTable(){
         invite_tz:time['tz'],
         invite_tz_offset:time['tz_offset'],
 //        matching_tags:getParameterByName('commonTags'),
-        invite_location:$('#address').attr("value"),
+        invite_location:$('#address').val(),
         table_name:tableNameNew
     },
     function(data,status){
@@ -628,7 +628,7 @@ function sendTableMessage() {
         invite_date:time['date'],
         invite_time:time['time'],
 //        matching_tags:getParameterByName('commonTags'),
-        invite_location:$('#address').attr("value"),
+        invite_location:$('#address').val(),
         table_message:$('#table_message').val(),
         message_date:getDate(),
         message_time:getTime()

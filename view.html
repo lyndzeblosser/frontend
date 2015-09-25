@@ -56,37 +56,40 @@
             </div><!-- /header -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
        
-            <div data-role="tabs" id="tabs" style="padding:0">
+            <div data-role="tabs" id="tabs" style="padding:0;">
   <div data-role="navbar" >
     <ul >
-      <li ><a href="#one" data-ajax="false" style="font-size:inherit;">DETAILS</a></li>
-      <li><a href="#two" onclick="checkConfirmedUsers()" data-ajax="false" style="font-size:inherit;">PEOPLE</a></li>
-      <li><a href="#three"  data-ajax="false" style="font-size:inherit;">TOPIC</a></li>
+      <li ><a href="#one" data-ajax="false" style="color: white ; font-size:15px; background-color: purple; font-family: Helvetica">DETAILS</a></li>
+      <li><a href="#two" onclick="checkConfirmedUsers()" data-ajax="false" style="color: white ; font-size:15px; background-color: purple">PEOPLE</a></li>
+      <li><a href="#three"  data-ajax="false" style="color: white ; font-size:15px; background-color: purple">TOPIC</a></li>
     </ul>
   </div>
                 
              
   <div id="one" class="ui-body-d ui-content" >
-      <div id="locationDiv" class="ui-grid-b" >
-          <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:100%;">
-      </div>
+<!--      <div id="locationDiv" class="ui-grid-b" >
+      </div>-->
                 <div id="map_canvas" class="ui-grid-b" style="height:260px;">
                 </div>  
-     <div class="ui-grid-b" style=" padding:0px; background-color: #88ccc1;">
-                    <div class="ui-block-b confirmdate"><div class="ui-bar ui-bar-a" style="  font-size:25px; height:80px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
-                                                 <form>
+     <div class="ui-grid-custom" style=" padding:0px; background-color: purple;">
+                    <div class="ui-block-a confirmdate"><div class="ui-bar ui-bar-a" style="width:35%  font-size:25px; height:80px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
+                        <div id="dateString" style="height:25px; background-color: purple; color:#ffffff; border: none; text-shadow: none; font-size:20px;">10.09.2014</div></div>
+     
+                            <form>
                                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:2px;width:130px">
                                     
                                     <label for="select-native-11"></label>
                                     <div style="position:relative;">
-                                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="background-color:#88ccc1; color:blue; font-weight: 800; font-size: 20px">
+                                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="height:15px; color:#ffffff; background-color: purple; border: none; text-shadow: none; font-size:25px; text-align: center; font-weight: bold">
                                     </div>
                                 </fieldset>
                             </form>
-                        </div></div>
-                    <div class="ui-block-c" style="align-items: center;padding-top: 5%; padding-left: 5%; width: 50%;">
-                        <div id="dateString" class="ui-bar ui-bar-a" style="height:80px; color:#cc0000; background-color:#88ccc1; border: none; text-shadow: none; font-size:20px;">10.09.2014</div></div>
-                </div>
+                        </div>
+                  <div class="ui-block-b" style="width:65%; align-items: center; ">
+                                  <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; color:#ffffff; background-color: purple; border: none; text-shadow: none; font-size:15px; text-align: center;">
+                 </div>
+     </div>
+                   
                     
   </div>
                 
@@ -151,11 +154,11 @@
                 <h3 id="preConvoText3"> How do we achieve progress as a society? What are examples of things I can do right now to improve the lives of me and people around me? <h3>                
                 <a id="preConvoLink3" href="http://www.npr.org/2015/01/28/377473153/homeless-man-encourages-others-on-the-streets-to-get-up">Homeless man encourages others on the streets to get up</a> 
                 <br>
-                <a href="#" id = "redirectToMoodButton" class="confirminvitesButton" onclick="sendToMoodPage()" style="color:#ffffff; background-color: #cc0000;">OK</a>
+                <a href="#" id = "redirectToMoodButton" class="confirminvitesButton" onclick="sendToMoodPage()" style="color:#ffffff; background-color: #009999;">OK</a>
                 <br>
              </div> 
   </div>
-                <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #cc0000;">JOIN THIS CONVERSATION</a>
+                <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #009999;">JOIN THIS CONVERSATION</a>
                 <div id="messagesDIV">
        <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="Have fun! Message them here if you’re running late or looking for each other."></textarea>
        <div style="text-align:center">

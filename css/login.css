@@ -12,6 +12,11 @@
     background-color:#ffffff;
 }
 
+.ui-background {
+    background-image: url("../images/ios_launchscreen_final.png");
+     background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
 .ui-leftNavButton {
     background-image: url("../images/LeftNavButton.png");
