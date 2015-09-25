@@ -11,7 +11,7 @@
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <script src="js/jquery.session.js"></script>
         <script src="js/loggedInOutBehavior.js"></script>
-        <script src="js/login.js"></script> 
+        <script src="js/initial.js"></script> 
         
 
         <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -26,7 +26,7 @@
         <div data-role="page" data-theme="a" class="ui-content">
 
               <div data-role="header" id="header" data-position="fixed">  
-                <h3     style ="padding-top: 11px; padding-bottom: 10px;">SIGN IN</h3>
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;"></h3>
                 
                 <!-- This is the  to initiate side panels-->
                 
@@ -38,32 +38,28 @@
 
 
 
-            <div role="main" class="ui-content jqm-content jqm-fullwidth" style="margin-top:100px;"> <!-- Important-->
-                
-                <div  style="text-align:center">
-                    <a id="twitterSignOn" class="findpplBtn" style="color:#ffffff; background-color: #55acee; margin-top:10px;" >CONNECT WITH TWITTER</a>
-                </div>
-                <br>
-                <div  style="text-align:center">
-                    OR
-                </div>
-                <br>
-                <label for="userid" class="ui-hidden-accessible">Email</label>
+            <div role="main" class="ui-content jqm-content jqm-fullwidth" style="margin-top:20px;"> <!-- Important-->
+
+
+
+<!--                <label for="userid" class="ui-hidden-accessible">Email</label>
                 <input name="userid" id="userid" placeholder="Email" value="" type="email">
                 <br>
                 <label for="password" class="ui-hidden-accessible">Password</label>
                 <input name="password" id="password" placeholder="Password" value="" type="password">
-                <span id=”login”></span>
+                <span id=”login”></span>-->
 
-                <div style="text-align:center">
-                    <a href="#" id="continueButton" class="findpplBtn" style="color:#ffffff; background-color: #ff3300; margin-top:10px;" >LOG IN</a>
-                </div>
+<!--                <div style="text-align:center">
+                    <a href="#" id="continueButton" class="findpplBtn" style="color:#ffffff; background-color: #cc0000; margin-top:10px;" >LOG IN</a>
+                </div>-->
                 
                 <br><br>
-<!--                <div  style="text-align:center">
-                    <a href="#" id="registerButton" class="findpplBtn" style="color:#ffffff; background-color: #cc0000; margin-top:10px;" >SIGN UP WITH EMAIL</a>
-                </div>     -->
-                
+                <div  style="text-align:center">
+                    <a href="#" id="logInButton" class="findpplBtn" style="color:#ffffff; background-color: #ff3300; margin-top:10px;" >LOG IN</a>
+                </div>     
+                <div  style="text-align:center">
+                    <a id="signUpButton" class="findpplBtn" style="color:#ffffff; background-color: #ffcc99; margin-top:10px;" >SIGN UP</a>
+                </div>
 
 <!--                <div style="text-align:center; margin-top:10px;"> 
                     <a href="#" id="forgotPwdButton">Forgot your password?</a>

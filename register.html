@@ -50,17 +50,20 @@
         <div data-role="page" data-theme="a">
 
            <div data-role="header" id="header" data-position="fixed">  
-                <h3     style ="padding-top: 11px; padding-bottom: 10px;">CREATE A NEW PROFILE</h3>
+                <h3     style ="padding-top: 11px; padding-bottom: 10px;">CREATE ACCOUNT</h3>
                 
                 <!-- This is the  to initiate side panels-->
                 
                 <a href="#nav-panel"  id="closeleftPanel" data-role="none"  class="ui-leftNavButton" style="margin-top: 9px"></a>
                 
-                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
+                <!--<a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>-->
                 
             </div><!-- /header -->
             
             <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+                
+                 
+                
                 
                <div class="imgUploadDIV">
                 <h2 class="who" style="text-align:center;">Please upload your profile image</h2>
@@ -103,19 +106,27 @@
                         </ul>-->
                      
                         <!-- <label for="emailAddress" class="ui-hidden-accessible">Email address</label> -->
+                        
                         <div id="registerPage1">
+                            <div  style="text-align:center">
+                            <a id="twitterSignOn" class="twitterSignInBtn" style="color:#ffffff; background-color: #55acee; margin-top:50px;" >CONNECT WITH TWITTER</a>
+                        </div>
+                    <br>
+                    <div  style="text-align:center">
+                    OR
+                </div>
+                <br>
                         <input name="test" id="test" placeholder="Enter Beta Access Code" value="tt" type="password"/> 
                         <input name="betaAccessCode" id="betaAccessCode" placeholder="Enter Beta Access Code" value="" type="password"/> 
                         <input name="email" id="email" placeholder="Enter email" value="" type="email"/>
                         <label for="password" class="ui-hidden-accessible">Password</label>
                         <input name="password" id="password" placeholder="Create Password (at least 6 characters)" value="" type="password"/>
 
-                        <label for="ConfirmPassword" class="ui-hidden-accessible">Verify password</label>
-                        <input name="ConfirmPassword" id="ConfirmPassword" placeholder="Verify password" value="" type="password"/>
+<!--                        <label for="ConfirmPassword" class="ui-hidden-accessible">Verify password</label>
+                        <input name="ConfirmPassword" id="ConfirmPassword" placeholder="Verify password" value="" type="password"/>-->
 
-                        <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
-                        <input name="homeTown" id="homeTown" placeholder="What city do you live in?" value="" type="text"/>
-                        <button  id="nextPageButton">Next Page</button>
+                       
+                        <button  id="nextPageButton" style="color:#ffffff; background-color: #ff3300; margin-top:10px;">NEXT</button>
                         
                         </div>
                     </form>
@@ -125,9 +136,13 @@
 
                         <input name="lastName" id="lastName" placeholder="Last name (won't be revealed)" value="" type="text"/>
                         <input name="dateOfBirth" id="dateOfBirth" type="text" placeholder="When's your birthday?"/>
-                        <textarea cols="40" rows="8" name="bio" id="bio" placeholder="We believe that you’re more than just a pretty face. Create a quick bio (max 140 characters) that gets to the heart of who you are. It can be edited later in the Settings."></textarea>
+                         <label for="homeTown" class="ui-hidden-accessible">Select a city</label>
+                        <input name="homeTown" id="homeTown" placeholder="What city do you live in?" value="" type="text"/>
+                        <textarea cols="40" rows="3" name="bio" id="bio" placeholder="Who/what was your first music concert? Or what was the first album or song you ever purchased?"></textarea>
                         <br><br>
+                        <div id="disclaimertext" style="font-size:14">
                         By creating an account, you acknowledge that you have read the Privacy Policy and agree to the Terms of Service.
+                        </div>
                         <!-- <label for="bio" class="ui-hidden-accessible">Bio</label>
                          <input name="bio" id="bio" placeholder="Bio" value="" type="text"/> -->
                         <button type="button" id="previousPageButton">Previous Page</button>

@@ -159,8 +159,6 @@ h4 {
 
 .findpplBtn {
 	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #c62d1f;
-	box-shadow:inset 0px 1px 0px 0px #c62d1f;
 	background-color:#c62d1f;
 	-webkit-border-top-left-radius:6px;
 	-moz-border-radius-topleft:6px;
@@ -175,18 +173,47 @@ h4 {
 	-moz-border-radius-bottomleft:6px;
 	border-bottom-left-radius:6px;
 	text-indent:0px;
-	border:1px solid #d02718;
 	display:inline-block;
-	 font-family: PT Sans Narrow;
-	font-size:13px;
-	font-weight:bold;
+	font-family: Helvetica;
+	font-size:16px;
+	font-weight:500;
 	font-style:normal;
 	height:40px;
 	line-height:40px;
-	width:120px;
+	width:250px;
 	text-decoration:none;
 	text-align:center;
-	text-shadow:1px 1px 0px #810e05;
+	color: #ffffff;
+
+}
+
+
+.twitterSignInBtn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #c62d1f;
+	background-color:#c62d1f;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0px;
+	display:inline-block;
+	font-family: Helvetica;
+	font-size:16px;
+	font-weight:500;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:250px;
+	text-decoration:none;
+	text-align:center;
 	color: #ffffff;
 
 }
@@ -224,7 +251,7 @@ h4 {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
-	color: #ffffff;
+	color: #ff3300;
 
 }
 
@@ -288,19 +315,17 @@ div.uploadcare-widget-button.uploadcare-widget-button-open {
 }
 
 button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {
-    background: #cc0000;
-    border:1px solid #d02718;
+    background: #ff3300;
 	display:inline-block;
-	font-family: PT Sans;
-	font-size:20px;
+	font-family: Helvetica;
+	font-size:16px;
 	font-weight:bold;
 	font-style:normal;
 	height:20px;
 	line-height:20px;
-	width:190px;
+	width:200px;
 	text-decoration:none;
 	text-align:center;
-	text-shadow:1px 1px 0px #810e05;
 	color: #ffffff;
         height: 50px;
         

@@ -354,6 +354,12 @@ else
     });
 
     startUploadImage();
+    
+    $("#twitterSignOn").click(function()
+    {
+        window.location.href = "login/redirect.php";
+
+    });
 });
 
 function startUploadImage()
