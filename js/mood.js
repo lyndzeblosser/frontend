@@ -71,7 +71,7 @@ $(document).ready(function(){
 
     
      if(!isLoggedIn){
-        var url = "login.html?";
+        var url = "initial.html?";
     window.location.href = url; 
     }
     
