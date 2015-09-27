@@ -59,9 +59,9 @@
             <div data-role="tabs" id="tabs" style="padding:0;">
   <div data-role="navbar" >
     <ul >
-      <li ><a href="#one" data-ajax="false" style="color: white ; font-size:15px; background-color: purple; font-family: Helvetica">DETAILS</a></li>
-      <li><a href="#two" onclick="checkConfirmedUsers()" data-ajax="false" style="color: white ; font-size:15px; background-color: purple">PEOPLE</a></li>
-      <li><a href="#three"  data-ajax="false" style="color: white ; font-size:15px; background-color: purple">TOPIC</a></li>
+      <li ><a href="#one" data-ajax="false" style="font-size:15px; font-weight: 400; font-family: Helvetica">DETAILS</a></li>
+      <li><a href="#two" onclick="checkConfirmedUsers()" data-ajax="false" style="font-size:15px; font-weight: 400; font-family: Helvetica">PEOPLE</a></li>
+      <li><a href="#three"  data-ajax="false" style="font-size:15px; font-weight: 400; font-family: Helvetica">TOPIC</a></li>
     </ul>
   </div>
                 
@@ -71,28 +71,30 @@
       </div>-->
                 <div id="map_canvas" class="ui-grid-b" style="height:260px;">
                 </div>  
-     <div class="ui-grid-custom" style=" padding:0px; background-color: purple;">
+                <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; border: none; text-shadow: none; font-size:15px; text-align: center;">
+                <div id="dateString" style="height:25px; border: none; text-shadow: none; font-size:20px;">10.09.2014</div>
+                <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="height:15px; border: none; text-shadow: none; font-size:25px; text-align: center;">
+
+<!--     <div class="ui-grid-custom" style=" padding:0px; background-color: #ff3300;">
                     <div class="ui-block-a confirmdate"><div class="ui-bar ui-bar-a" style="width:35%  font-size:25px; height:80px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
-                        <div id="dateString" style="height:25px; background-color: purple; color:#ffffff; border: none; text-shadow: none; font-size:20px;">10.09.2014</div></div>
      
                             <form>
                                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:2px;width:130px">
                                     
                                     <label for="select-native-11"></label>
                                     <div style="position:relative;">
-                                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="height:15px; color:#ffffff; background-color: purple; border: none; text-shadow: none; font-size:25px; text-align: center; font-weight: bold">
                                     </div>
                                 </fieldset>
                             </form>
                         </div>
                   <div class="ui-block-b" style="width:65%; align-items: center; ">
-                                  <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; color:#ffffff; background-color: purple; border: none; text-shadow: none; font-size:15px; text-align: center;">
+                                  <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; color:#ffffff; background-color: #ff3300; border: none; text-shadow: none; font-size:15px; text-align: center;">
                  </div>
-     </div>
+            </div>
                    
                     
-  </div>
-                
+     </div>-->
+  </div>              
   <div id="two">
       
     <div style="width:100%; height:250PX; float: none ">
@@ -158,7 +160,7 @@
                 <br>
              </div> 
   </div>
-                <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #009999;">JOIN THIS CONVERSATION</a>
+                <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #ff3300;">JOIN THIS CONVERSATION</a>
                 <div id="messagesDIV">
        <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="Have fun! Message them here if you’re running late or looking for each other."></textarea>
        <div style="text-align:center">

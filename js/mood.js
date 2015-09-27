@@ -302,7 +302,9 @@ function findMyPeople(){
             })
             var topics = sortId.join();
             var selectedTime = $("#timeText").attr("value");
-            var radius = $("#whereText").attr("value");
+            //            var radius = $("#whereText").attr("value");
+//          setting to 0.5 mile 
+            var radius = 10;
             
             getResult(currentLat, currentLng, topics, radius, activity, selectedTime);
         }

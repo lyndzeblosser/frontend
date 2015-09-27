@@ -12,10 +12,9 @@
     background-color: #fff;
 }
 .ui-header-notificationNo {
-    font-size: 20px; 
+    font-size: 17px; 
     float:right; 
-    color:#ffffff; 
-    background-image: url("../images/notificationBackground.png");
+    color:#ff3300; 
     height: 30px;
     width: 30px;
 }
@@ -368,6 +367,8 @@ h4 {
 .ui-tags-text {
     font-size: 15px;
     font-family: Helvetica;
+    text-align: center;
+    font-weight: 100;
 }
 
 .time .ui-collapsible-heading .ui-btn {
