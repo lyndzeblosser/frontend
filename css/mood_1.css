@@ -199,31 +199,18 @@ h4 {
 
 .findpplBtn {
 	
-	-webkit-border-top-left-radius:6px;
-	-moz-border-radius-topleft:6px;
-	border-top-left-radius:6px;
-	-webkit-border-top-right-radius:6px;
-	-moz-border-radius-topright:6px;
-	border-top-right-radius:6px;
-	-webkit-border-bottom-right-radius:6px;
-	-moz-border-radius-bottomright:6px;
-	border-bottom-right-radius:6px;
-	-webkit-border-bottom-left-radius:6px;
-	-moz-border-radius-bottomleft:6px;
-	border-bottom-left-radius:6px;
-	text-indent:0px;
-	display:inline-block;
-	font-family: Helvetica;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:40px;
-	line-height:40px;
-	width:230px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #810e05;
-	color: #ffffff;
+    text-indent:0px;
+    display:inline-block;
+    font-family: Helvetica;
+    font-size:15px;
+    font-weight:500;
+    height:50px;
+    line-height:50px;
+    width:95%;
+    text-decoration:none;
+    text-align:center;
+    color: #ffffff;
+    text-shadow: none;
 
 }
 
@@ -348,10 +335,11 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 15px;
-    
+    font-weight: 500;
     
     
 }
+
 
 .panel1 .ui-collapsible-heading .ui-btn {
     background-color: #ffcc99;
@@ -361,7 +349,7 @@ h4 {
     text-shadow: none;
     text-align: center;
     font-size: 15px;
-   
+    font-weight: 500;
 }
 
 .ui-tags-text {
@@ -393,7 +381,7 @@ h4 {
 }
 
 .coffee, .drinks, .dine {
-    height:65px;
+    height:50px;
     width:50px;
 }
 #myTable, #home, #login, #logout {
@@ -421,7 +409,7 @@ img#LeftPanelProfileImage {
 }
 
 .ui-btn, label.ui-btn {
-    font-weight: 400;
+    font-weight: 500;
 }
 .panelimagesize {
     height:50px;

@@ -44,7 +44,7 @@
         <div data-role="page" data-theme="a">
 
             <div data-role="header" id="header" data-position="fixed">  
-                <h3 id="headerId" style ="padding-top: 11px; padding-bottom: 10px;">CONFIRM
+                <h3 id="headerId" style ="padding-top: 11px; padding-bottom: 10px; font-weight: 500">CONFIRM
                     <a href="#add-form"> <span id="notificationNo" class="ui-header-notificationNo"/></a></h3>
                 
                 <!-- This is the  to initiate side panels-->
@@ -54,7 +54,7 @@
                 <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
                 
             </div><!-- /header -->
-    <div role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth" style="background-color: #ffffff"> <!-- Important-->
        
             <div data-role="tabs" id="tabs" style="padding:0;">
   <div data-role="navbar" >
@@ -71,29 +71,28 @@
       </div>-->
                 <div id="map_canvas" class="ui-grid-b" style="height:260px;">
                 </div>  
-                <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; border: none; text-shadow: none; font-size:15px; text-align: center;">
-                <div id="dateString" style="height:25px; border: none; text-shadow: none; font-size:20px;">10.09.2014</div>
-                <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="height:15px; border: none; text-shadow: none; font-size:25px; text-align: center;">
+                <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:40px; border: none; text-shadow: none; font-size:15px; text-align: center;">
 
-<!--     <div class="ui-grid-custom" style=" padding:0px; background-color: #ff3300;">
-                    <div class="ui-block-a confirmdate"><div class="ui-bar ui-bar-a" style="width:35%  font-size:25px; height:80px; margin:0px; padding:0px; background-color:#ffbb00; border: none; text-shadow: none;">
+     <div class="ui-grid-a" style=" padding:0px; background: #ffffff">
+                    <div class="ui-block-a" style="font-size:15px; background-color:#ffffff; border: none; text-shadow: none; ">
      
-                            <form>
+<!--                            <form>
                                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:2px;width:130px">
                                     
                                     <label for="select-native-11"></label>
                                     <div style="position:relative;">
                                     </div>
                                 </fieldset>
-                            </form>
+                            </form>-->
+                <div id="dateString" style="height:25px; border: none; text-shadow: none; font-size:15px; line-height: 50px">10.09.2014</div>
+
                         </div>
-                  <div class="ui-block-b" style="width:65%; align-items: center; ">
-                                  <input id="address" name="location"  placeholder="Location" value="" type="text" style="height:60px; color:#ffffff; background-color: #ff3300; border: none; text-shadow: none; font-size:15px; text-align: center;">
+                  <div class="ui-block-b" style="font-size:15px; background-color:#ffffff; border: none; text-shadow: none; margin: none">
+                    <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="margin: none; height:15px; border: none; text-shadow: none; font-size:15px; text-align: center;">
                  </div>
-            </div>
                    
                     
-     </div>-->
+     </div>
   </div>              
   <div id="two">
       

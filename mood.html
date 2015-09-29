@@ -31,7 +31,7 @@
             <img id="loadingImage" src ="images/loading.jpg"/>
 
             <div data-role="header" id="header" data-position="fixed">  
-                <h3     style ="padding-top: 11px; padding-bottom: 10px;">TABLETRIBES 
+                <h3     style ="padding-top: 11px; padding-bottom: 10px; font-weight: 500">TABLETRIBES 
                     <a href="#add-form"><span  id="notificationNo" class="ui-header-notificationNo" /></a></h3>
                 
                 <!-- This is the  to initiate side panels-->
@@ -50,9 +50,9 @@
                    <h2>CHOOSE ONE</h2>
                    <div data-role="controlgroup" data-type="horizontal" style="text-align:center; padding: 0px; margin: 0px; width:100%">
 
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="1" activity="coffee" style="background:#ff3300;"><img src="images/coffeeselect.svg" class="coffee"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;"><img src="images/drinks.svg" class="drinks"></a>
-                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;"><img src="images/dine.svg" class="dine"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="1" activity="coffee" style="background:#ffffff;"><img src="images/coffee_orange.png" class="coffee"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="drinks" style="background:#ffffff;"><img src="images/drink_grey.png" class="drinks"></a>
+                    <a href="#" class="activitiesImages ui-btn ui-corner-all" selected="0" activity="dine" style="background:#ffffff;"><img src="images/food_grey.png" class="dine"></a>
                   
                     </div>
                </li>
@@ -103,10 +103,11 @@
                     
 
                     <!-- This is the location filter div-->
+                    <br><br>
                     <label for="location" class="ui-hidden-accessible">Location:</label>
-                    <input onclick="autoCompleteLocation()" id="address" name="location" id="location" placeholder="Location" value="" type="text">
+                    <input onclick="autoCompleteLocation()" id="address" name="location" id="location" placeholder="Location" value="" type="text" style="font-weight: 300">
                     <img src="img/powered-by-google-on-white.png">
-                <input id="sbucksAddress" name="location" id="location" placeholder="Location" value="" type="hidden">
+                <input id="sbucksAddress" name="location" id="location" placeholder="Location" value="" type="hidden" style="height:40px; border: none; text-shadow: none; font-size:15px; text-align: center;">
             <div id="map"></div>   
 
                 </ul> <!--ends the preference list-->
@@ -114,7 +115,7 @@
 
                 <!-- This div is the Find my people button. Inactive once clicked-->
                 <div id="findppl" style="text-align:center">
-                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #ff3300;">CONNECT WITH PEOPLE</a>
+                    <a href="#" class="findpplBtn" onclick="findMyPeople()" style="color:#ffffff; background-color: #ff3300; font-weight: 500; font-size: 15px; font-family: Helvetica;">CONNECT WITH PEOPLE</a>
                 </div>
 
 
