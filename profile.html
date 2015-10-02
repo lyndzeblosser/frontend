@@ -30,48 +30,48 @@
         <div data-role="page" data-theme="a">
           
              <div data-role="header" id="header" data-position="fixed">  
-                <h3     style ="padding-top: 11px; padding-bottom: 10px;">MY PROFILE 
+                <h3     style ="padding-top: 11px; padding-bottom: 10px; font-weight: 500;">PROFILE 
                     <a href="#add-form"> <span id="notificationNo" class="ui-header-notificationNo"/></a></h3>
                 
                 <!-- This is the  to initiate side panels-->
                 
                 <a href="#nav-panel"  id="closeleftPanel" data-role="none"  style="margin-top: 9px"></a>
                 
-                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 10px; margin-right:4px"></a>
                 
             </div><!-- /header -->
             
-                    <div style="text-align:center;" > 
+             <div role="main" class="ui-content jqm-content jqm-fullwidth" style="padding-top:0px">
+                    <div style="text-align:center;  margin-top: 20px" > 
                         <img src="" id="LeftPanelProfileImage"/>
                     </div>
-                    
+                 <br>
    <!--a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a-->
                     <label for="firstName" class="ui-hidden-accessible">FIRST NAME</label>
-                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" style="color:blue; font-weight: bold;">
+                    <input name="firstName" id="LeftPanelFirstName" placeholder="First Name" value="" type="text" disabled>
                     
-                    <label for="lastName" class="ui-hidden-accessible">LAST NAME</label>
-                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text" style="color:blue; font-weight: bold;">
+<!--                    <label for="lastName" class="ui-hidden-accessible">LAST NAME</label>
+                    <input name="lastName" id="LeftPanelLastName" placeholder="Last Name" value="" type="text">-->
 
                     <label for="bio" class="ui-hidden-accessible">Bio</label>
-                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" style="color:blue; font-weight: bold;">
+                    <input name="bio" id="LeftPanelBio" placeholder="Bio" value="" type="text" disabled>
 
-                    <label for="Birthday" class="ui-hidden-accessible">BIRTHDAY</label>
-                    <input name="Birthday" id="LeftPanelBirthday" placeholder="Birthday" value="" type="text" disabled="" style="color:blue; font-weight: bold;">
+<!--                    <label for="Birthday" class="ui-hidden-accessible">BIRTHDAY</label>
+                    <input name="Birthday" id="LeftPanelBirthday" placeholder="Birthday" value="" type="text" disabled="">-->
 
                     <!--label for="emailAddress" class="ui-hidden-accessible">Email address</label> 
                     <input name="emailAddress" id="LeftPanelEmailAddress" placeholder="Email address" value="" type="text" disabled="" style="color:blue; font-weight: bold;"-->
 
-                    <label for="changePassword" class="ui-hidden-accessible">Change Password</label>
-                    <input name="changePassword" id="LeftPanelChangePassword" placeholder="Change Password" value="" type="text">
+<!--                    <label for="changePassword" class="ui-hidden-accessible">CHANGE PASSWORD</label>
+                    <input name="changePassword" id="LeftPanelChangePassword" placeholder="CHANGE PASSWORD" value="" type="text">-->
 
-                    <label for="city" class="ui-hidden-accessible">CITY</label> 
-                    <input name="city" id="LeftPanelCity" placeholder="CITY" value="" type="text"  style="color:blue; font-weight: bold;">
-                   <div style="text-align:center">
+<!--                    <label for="city" class="ui-hidden-accessible">CITY</label> 
+                    <input name="city" id="LeftPanelCity" placeholder="CITY" value="" type="text">-->
+<!--                   <div style="text-align:center">
                        <a href="#" id="updateProfileButton" class="findpplBtn" onclick="updateUserProfile()"
-                       style="color:#ffffff; background-color: #cc0000; margin-top:10px;" >UPDATE MY INFO</a>
-                   </div>
-                    <div style="text-align:center"><img src="images/panel-logoicon.png"></div>
-
+                       style="color:#ffffff; background-color: #ff3300; margin-top:10px;" >UPDATE MY INFO</a>
+                   </div>-->
+             </div>
  <!-- This div is for the left panel-->
 <!--            <div data-role="panel" data-position-fixed="true"  id="nav-panel">
                 <ul data-role="listview">

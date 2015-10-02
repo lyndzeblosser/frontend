@@ -36,6 +36,11 @@
     
 }
 
+div[role="main"] input {
+height: 45px;
+font-family: Helvetica;
+}
+
 [data-role= "header"] h3{
 //	color: #ffffff;
 	text-shadow: none;
@@ -46,6 +51,7 @@
 [data-role="page"] {
     background-color: #fff;
 }
+
 
 .ui-header .ui-title {
     margin-right: 10%;
@@ -312,6 +318,7 @@ h4 {
    line-height: 20px;
    text-shadow: none;
    height:20px;
+   font-weight: 300;
   
   
 }
@@ -324,6 +331,7 @@ h4 {
    text-shadow: none;
    line-height: 20px;
    height: 20px;
+   font-weight: 300;
 }
 
 
@@ -356,7 +364,7 @@ h4 {
     font-size: 15px;
     font-family: Helvetica;
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .time .ui-collapsible-heading .ui-btn {
@@ -414,6 +422,7 @@ img#LeftPanelProfileImage {
 }
 .panelimagesize {
     height:50px;
+    width:50px;
     /*width: 100%;*/
 }
 

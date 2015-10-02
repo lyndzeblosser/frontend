@@ -242,7 +242,7 @@ function prepareNotificationDiv(userPanelNotification) {
     var notification_read_icon, notification = '';
 
     if (lastTableName !== userPanelNotification['table_name']){
-        notification = "<li data-icon=\"delete\" style=\"background-color: #ffbb00;text-align: center; font-weight:700;\" id=\"panelTableHeader\"><p>" + userPanelNotification['table_name'] + "</p></li>";
+        notification = "<div id=\"tablediv\"><li data-icon=\"delete\" style=\"text-align: center; font-weight:500;text-shadow:none; font-size: 24px; font-family: Helvetica; background-color: #ff3300; color: #ffffff; margin-top: 10px\" id=\"panelTableHeader\"><div>" + userPanelNotification['table_name'] + "</div></li>";
     }
 
     if (userPanelNotification['acted_upon'] === 'NO'){
@@ -251,17 +251,20 @@ function prepareNotificationDiv(userPanelNotification) {
     else {
         notification_read_icon = 'ui-icon-red-ring-dot';
     } 
-    if (userPanelNotification['message'] === 'Confirmed Table') {
+    if (userPanelNotification['message'] === 'Final Details') {
         getPanelTableData(userPanelNotification['tableid']);
         
 //        var imageStringHtml = getUserProfileData();
      
      
-        notification += "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p> Confirmed Table </p> " + imageStringHtml + " </a></li>";
+        notification += "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><div> FINAL DETAILS </div><br> " + imageStringHtml + " </a></li>";
     
     }   
     else {
         notification += "<li><a href=\"view.html?user_from=" + $.session.get('userHash') + "&tableid=" + userPanelNotification['tableid'] + "\" target=_self class=\"ui-btn ui-btn-icon-right " + notification_read_icon + " ui-mini\" style=\"white-space:normal\"><p>" + userPanelNotification['message'] + "</p></a></li>";   
+    }
+    if (lastTableName !== userPanelNotification['table_name']){
+        notification += "</div>";
     }
     lastTableName = userPanelNotification['table_name']
     return notification;

@@ -167,14 +167,14 @@ function getTopics()
         }
     });
 */
-  var TTtags = ["Participation","Progress","Protest","Commitment","Justice","Tolerance","Urban Planning","Education","Economics","Family"];
-            
-            var TTtagdId = Math.floor((Math.random() * 10));
+//  var TTtags = ["Participation","Progress","Protest","Commitment","Justice","Tolerance","Urban Planning","Education","Economics","Family"];
+    var TTtags = ["foundation","corporate","university","arts and culture","civic"];            
+            var TTtagdId = Math.floor((Math.random() * 5));
             var k=0;
 //                TTtagdId = TTtagdId % 6;
             if(getParameterByName('redirectedFromSearchScreen') === "Yes")            
             {
-             for(var i=0; i<10;i++)
+             for(var i=0; i<5;i++)
                 for(var j=0; j<topicCount;j++) 
                 if(TTtags[i]===topicsFromURL[j])
                 {
@@ -189,19 +189,19 @@ function getTopics()
                 
             for(var i=topicCount; i<5;i++)
                 {   
-                NoRepeatTTTags [i] = Math.floor((Math.random() * 10));
+                NoRepeatTTTags [i] = Math.floor((Math.random() * 5));
 //                NoRepeatTTTags [i] =NoRepeatTTTags [i]%6;
                   for(var j=0;j<i; j++)
                     if(NoRepeatTTTags [i] == NoRepeatTTTags[j])
                 {
-                NoRepeatTTTags[i] = Math.floor((Math.random() * 10));
+                NoRepeatTTTags[i] = Math.floor((Math.random() * 5));
  //               NoRepeatTTTags[i] = NoRepeatTTTags[i]%6;
                     j=0;
                 }}
               
             for(var i=0;i<5;i++){
                   console.log(NoRepeatTTTags[i]);
-                $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[NoRepeatTTTags[i]]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[NoRepeatTTTags[i]]).html()+"\"  type=\"checkbox\"></label>");
+                $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[i]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[i]).html()+"\"  type=\"checkbox\"></label>");
             }
 
 

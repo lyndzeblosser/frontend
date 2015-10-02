@@ -104,10 +104,10 @@ function getUserProfile () {
                         data = data[0]
                         console.log(data)
                         document.getElementById("LeftPanelFirstName").value = data["firstname"]; 
-                        document.getElementById("LeftPanelLastName").value = data["lastname"];
+//                        document.getElementById("LeftPanelLastName").value = data["lastname"];
                         document.getElementById("LeftPanelBio").value = data["bio"];
-                        document.getElementById("LeftPanelBirthday").value = data["date_of_birth"];
-                        document.getElementById("LeftPanelCity").value = data["hometown"];
+//                        document.getElementById("LeftPanelBirthday").value = data["date_of_birth"];
+//                        document.getElementById("LeftPanelCity").value = data["hometown"];
                       //  console.log("Password: "+document.getElementById("LeftPanelChangePassword").value);
                         console.log(data["imageMasterLocation"]);
                         $.session.set('userType', data["userType"]);
