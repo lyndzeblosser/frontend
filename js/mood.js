@@ -386,7 +386,7 @@ function register(){
 function updateUserLiveLocation(userid, lat, lng)
 {
 
-    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateLiveLocation",
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateLiveLocation",
     {
         userID:userid,
         latitude:lat,
@@ -413,7 +413,7 @@ function updateUserLiveLocation(userid, lat, lng)
 
     function addUserTag(userid, tag)
     {
-        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserTag",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserTag",
                 {
                     userid: userid,
                     tag: tag,
@@ -515,7 +515,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
     $.ajax(
     {
             
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/assignTable?searchLat="
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/assignTable?searchLat="
         + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius="
         + getRadius(radius) + "&userid=" + $.session.get('userHash') 
         + "&userType=" + $.session.get('userType')

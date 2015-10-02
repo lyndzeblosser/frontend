@@ -55,7 +55,7 @@ $(document).ready(function(){
 //function getInvitations()
 //{
 //    $.ajax({
-//            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
+//            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getPendingInvitations?userid=" + userId,
 //            async: false,
 //            dataType: "json",
 //            success: function(data){
@@ -71,7 +71,7 @@ $(document).ready(function(){
 function getMyTablesToBeConfirmed()
 {
     $.ajax({
-            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getMyTablesToBeConfirmed?userid=" +userId,
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getMyTablesToBeConfirmed?userid=" +userId,
             async: false,
             dataType: "json",
             success: function (data){
@@ -88,7 +88,7 @@ function getMyTablesToBeConfirmed()
 function getMyUpcomingTables()
 {
     $.ajax({
-            url: "http://ancient-falls-9049.herokuapp.com/credentialService/getMyUpcomingTables?userid=" +userId,
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/getMyUpcomingTables?userid=" +userId,
             async: false,
             dataType: "json",
             success: function (data){
@@ -142,7 +142,7 @@ function loggedInLoggedOutBehavior(){
 function updateUserDeviceInfo(userid, deviceToken, deviceVersion)
 {
 
-    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUserDeviceInfo",
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateUserDeviceInfo",
     {
         userID:userid,
         deviceToken:deviceToken,
@@ -154,10 +154,10 @@ function updateUserDeviceInfo(userid, deviceToken, deviceVersion)
 }
 function getUserProfile () {
     
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId)
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId)
         $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -195,10 +195,10 @@ function getUserPanelNotifications() {
     var mm = today.getMonth(); //January is 0!
     var yyyy = today.getFullYear();
     var epochMs = new Date(yyyy, mm, dd).getTime()/1000;
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash')) + "&epochMs=" + epochMs
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash')) + "&epochMs=" + epochMs
     $.ajax(
             {
-                url: "http://ancient-falls-9049.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash') + "&epochMs=" + epochMs,
+                url: "http://evening-thicket-5124.herokuapp.com/credentialService/getUserPanelNotifications?userid=" + $.session.get('userHash') + "&epochMs=" + epochMs,
                 async: false,
                 dataType: "json",
                 success: function(data)
@@ -276,7 +276,7 @@ function prepareNotificationDiv(userPanelNotification) {
 function getPanelTableData(tableid){
     $.ajax(
     {
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?tableid="+tableid,
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getTable?tableid="+tableid,
         async: false,
         dataType: "json",
         success: function(data)
@@ -319,10 +319,10 @@ function getPanelUserProfileData() {
         letter = String.fromCharCode(97 + count)
         count++;
         panelUsers[i] = [];
-        console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
         $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
                     async: false,
                     dataType: "json",
                     success: function(data)

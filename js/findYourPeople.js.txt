@@ -29,7 +29,7 @@ function getResult(latitude, longitude, selectedTopics, radius, activity, userid
             
             //we will have to change the signature of this service and include tagName instead of sortId for tags because we will be increasing the number of tags in the future and to hard code the sortId with each tag in the frontend will be cumbersome.
             
-            url: "http://ancient-falls-9049.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
+            url: "http://evening-thicket-5124.herokuapp.com/credentialService/whosAround?searchLat=" + latitude + "&searchLng=" + longitude + "&searchTags=" + selectedTopics + "&radius=" + radius,
             async: true,
             dataType: "json",
             success: function (data) 

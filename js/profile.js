@@ -48,7 +48,7 @@ function updateUserProfile (){
     if(document.getElementById("LeftPanelChangePassword").value == "")
     {
         console.log("Null");
-    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateUser",
     {
         userHash:userId,
         bio:document.getElementById("LeftPanelBio").value,
@@ -69,7 +69,7 @@ function updateUserProfile (){
     else
     {
         console.log("Not Null");
-            $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateUser",
+            $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateUser",
     {
         userHash:userId,
         bio:document.getElementById("LeftPanelBio").value,
@@ -93,10 +93,10 @@ function updateUserProfile (){
 
 function getUserProfile () {
     
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId)
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId)
         $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userId,
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userId,
                     async: false,
                     dataType: "json",
                     success: function(data)

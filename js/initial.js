@@ -48,7 +48,7 @@ function validateForgotPwd(userid)
             alert("Please enter email");
         }        
     else {
-         $.post("http://ancient-falls-9049.herokuapp.com/credentialService/forgotPwd",
+         $.post("http://evening-thicket-5124.herokuapp.com/credentialService/forgotPwd",
         {
             userid:userid
         },
@@ -66,7 +66,7 @@ function validate(userid, password)
 {
 //    $.ajax({
 ////  url: "http://localhost:8080/de.vogella.jersey.first/rest/credentialService/matchCredentials?{userid:" + userid + ",password:" + password + "}",
-//        url: "http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
+//        url: "http://evening-thicket-5124.herokuapp.com/credentialService/matchCredentials?userid=" + userid + "&password=" + password + "",
 //        context: document.body
 //    }).done(function(data, status)
 //    {
@@ -100,7 +100,7 @@ function validate(userid, password)
 //
 //    });
 
-   var jqxhr = $.post("http://ancient-falls-9049.herokuapp.com/credentialService/matchCredentials",
+   var jqxhr = $.post("http://evening-thicket-5124.herokuapp.com/credentialService/matchCredentials",
     {
         userid:userid,
         password:password

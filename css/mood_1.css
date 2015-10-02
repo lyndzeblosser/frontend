@@ -28,10 +28,10 @@
 }
 
 .ui-rightNavButton {
-    background-image: url("../images/RightNavButton.png");
-    height: 30px;
-    width: 32px;
-    background-color: #fff;
+    background-image: url("../images/hamburger.png");
+    height: 21px;
+    width: 20px;
+    background-color: #fffff;
    
     
 }
@@ -385,8 +385,8 @@ h4 {
     width:50px;
 }
 #myTable, #home, #login, #logout {
-    background-color: #fff;
-    font-family: PT Sans;
+    background-color: #fffff;
+    font-family: Helvetica;
     text-transform: uppercase;
     margin-right: 5px;
 }
@@ -410,6 +410,7 @@ img#LeftPanelProfileImage {
 
 .ui-btn, label.ui-btn {
     font-weight: 500;
+    background-color: #ffffff;
 }
 .panelimagesize {
     height:50px;

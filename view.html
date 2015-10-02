@@ -51,7 +51,7 @@
                 
                 <a href="#nav-panel"  id="closeleftPanel" data-role="none"  style="margin-top: 9px"></a>
                 
-                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 6px"></a>
+                <a href="#add-form" class="ui-rightNavButton" id="closerightPanel" data-role="none" style="margin-top: 10px; margin-right:4px"></a>
                 
             </div><!-- /header -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth" style="background-color: #ffffff"> <!-- Important-->
@@ -90,29 +90,33 @@
                   <div class="ui-block-b" style="font-size:15px; background-color:#ffffff; border: none; text-shadow: none; margin: none">
                     <input id="inviteTimePicker" type="text" class="time ui-timepicker-input" autocomplete="off" style="margin: none; height:15px; border: none; text-shadow: none; font-size:15px; text-align: center;">
                  </div>
-                   
+                 
                     
-     </div>
+     </div> <br>
+<!--                 <form>
+                    <fieldset id="tags" data-role="controlgroup" data-type="horizontal" data-mini="true" style=" background-color:#009999; text-shadow: none; font-size: 15px; font-family: Helvetica"> 
+                    </fieldset>
+                </form>  -->
   </div>              
   <div id="two">
       
-    <div style="width:100%; height:250PX; float: none ">
-      <div style=" width: 49.4%; height:100%;float: left; border: 1px solid black">
+    <div style="width:100%; height:200px; float: none ">
+      <div style=" width: 50%; height:100%;float: left;">
           <img id="peopleDiv0" style=" width: 100%; height:100%;" onclick = "goToProfile0()"/>
       </div>
         
-      <div style=" width: 49.4%; height:100%; float: right; border: 1px solid black">
+      <div style=" width: 50%; height:100%; float: right;">
           <img id="peopleDiv1" style=" width: 100%; height:100%;" onclick = "goToProfile1()"/>
       </div>
         
     </div>
       
-    <div style="width:100%; height:250PX; float: none ">
-      <div style=" width: 49.4%; height:100%;float: left; border: 1px solid black">
+    <div style="width:100%; height:200px; float: none ">
+      <div style=" width: 50%; height:100%;float: left;">
           <img id="peopleDiv2" style=" width: 100%; height:100%;"onclick = "goToProfile2()"/>
       </div>
         
-      <div style="width: 49.4%; height:100%; float: right; border: 1px solid black">
+      <div style="width: 50%; height:100%; float: right;">
           <img id="peopleDiv3" style=" width: 100%; height:100%;"onclick = "goToProfile3()"/>
       </div>
         
@@ -121,10 +125,7 @@
   </div>             
                 
     <div id="three" class="ui-body-d ui-content">
-        <form>
-                    <fieldset id="tags" data-role="controlgroup" data-type="horizontal" data-mini="true" style=" background-color:#333333; text-shadow: none;"> 
-                    </fieldset>
-                </form>
+        
           <div id="articlesDiv" class="ui-grid-b" style="height:100%;">
                         <div style="width:25%;float:left;">
                         <img src="images/logoiconhead.png" style="width:100%; margin-top:25%;">
@@ -161,13 +162,13 @@
   </div>
                 <a href="#" id = "confirmInvitesButtonId" class="joinConversationButton" onclick="confirmTable()" style="color:#ffffff; background-color: #ff3300;">JOIN THIS CONVERSATION</a>
                 <div id="messagesDIV">
-       <textarea cols="40" rows="8" name="table_message" id="table_message" placeholder="Have fun! Message them here if you’re running late or looking for each other."></textarea>
+       <textarea cols="40" rows="1" name="table_message" id="table_message" placeholder="Let them know if you're running late!" style="font-weight: 300"></textarea>
        <div style="text-align:center">
-       <a href="#" id = "sendNoteButtonId" class="sendNoteButton" onclick="sendTableMessage()" style=" color:#ffffff; background-color: #cc0000;">CHAT</a>
+       <a href="#" id = "sendNoteButtonId" class="sendNoteButton" onclick="sendTableMessage()" style="color:#ffffff; background-color: #ff3300;">CHAT</a>
        </div>
-       <div style="background-color:#ffffff; opacity:0.7;">
-            <h3> Chat Messages: </h3>
-            <h4 id="tableMessages" style="color:#000; opacity:1;"></h4>
+       <div style="background-color:#ffffff; font-family: Helvetica; font-size: 14px; font-weight: 300; color: #999999; margin:10px">
+            
+            <h4 id="tableMessages" style="background-color:#ffffff; font-family: Helvetica; font-size: 14px; font-weight: 300; color: #999999;"></h4>
        </div>
                 </div>
   </div>              
@@ -191,13 +192,13 @@
             <!-- This is for the right panel-->
             <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
                 <ul data-role="listview" id="rightpanellist">
-                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>BETA</p></a></li>
-                    <li data-icon="logoicon"><a id="home" href="#">HOME</a></li>
-                    <li data-icon="logoicon"><a id="LeftPanelProfile">MY PROFILE</a></li>
-                    <li onclick="login()" class="loggedOutFields" data-icon="bell"><a id="login" href="">Login</a></li>
-                    <li data-icon="logouticon" onclick="logout()" class="loggedInFields" data-icon="bell"><a id="logout" href="">Logout</a></li>
+                    <li data-icon="false" style="height: 70px;"><a href="#" data-rel="close" style="background-color: #ffffff;text-align: center; font-weight:500; font-family: Helvetica; font-size: 24px; color: #ff3300; text-shadow: none" id="beta"><p>BETA</p></a></li>
+                    <li data-icon="false" style="height: 50px; line-height: 50%"><a id="home" href="#" style="background-color: #ffffff; color: #999999; font-weight: 300;">HOME</a></li>
+                    <li data-icon="false" style="height: 50px;"><a id="LeftPanelProfile" style="background-color: #ffffff; color: #999999; font-weight: 300">MY PROFILE</a></li>
+                    <li data-icon="false" style="height: 50px;" onclick="login()" class="loggedOutFields"><a id="login" href="" style="background-color: #ffffff; color: #999999; font-weight: 300">Login</a></li>
+                    <li data-icon="false" style="height: 50px;" onclick="logout()" class="loggedInFields"><a id="logout" href="" style="background-color: #ffffff; color: #999999; font-weight: 300">Logout</a></li>
                     
-                    <li data-icon="delete"><a href="#" data-rel="close" style="background-color: #fff;text-align: center; font-weight:700;" id="beta"><p>NOTIFICATIONS</p></a></li>
+                    <li data-icon="false" style="height: 70px;"><a href="#" data-rel="close" style="background-color: #ffffff;text-align: center; font-weight:500; font-family: Helvetica; font-size: 24px; color: #ff3300; text-shadow: none" id="beta"><p>NOTIFICATIONS</p></a></li>
                     <div id="panelMain" role="main" class="ui-content jqm-content jqm-fullwidth"> <!-- Important-->
                 
 

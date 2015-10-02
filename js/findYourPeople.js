@@ -323,7 +323,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
     $.ajax(
     {
             
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/assignTable?searchLat="
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/assignTable?searchLat="
         + latitude + "&searchLng=" + longitude + "&searchTags=" + topics + "&radius="
         + getRadius(radius) + "&userid=" + $.session.get('userHash') 
         + "&userType=" + $.session.get('userType')
@@ -454,7 +454,7 @@ function getResult(latitude, longitude, topics, radius, activity, selectedTime)
 function getTableData(tableid){
     $.ajax(
     {
-        url: "http://ancient-falls-9049.herokuapp.com/credentialService/getTable?user_from="+$.session.get('userHash')+"&tableid="+tableid,
+        url: "http://evening-thicket-5124.herokuapp.com/credentialService/getTable?user_from="+$.session.get('userHash')+"&tableid="+tableid,
         async: false,
         dataType: "json",
         success: function(data)
@@ -479,7 +479,7 @@ function getTableData(tableid){
 function getTopicNames(tags)
 {
     $.ajax({
-        url: "https://ancient-falls-9049.herokuapp.com/credentialService/getTagNames?tags=" + tags,
+        url: "https://evening-thicket-5124.herokuapp.com/credentialService/getTagNames?tags=" + tags,
         async: false,
         dataType: "json",
         success: function (data){
@@ -641,10 +641,10 @@ function confirmInvitation() {
 
 function getSenderName (senderId) {
     
-    console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + senderId)
+    console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + senderId)
         $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + senderId,
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + senderId,
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -698,7 +698,7 @@ function confirmInvite(i){
     var tzOffset = new Date().getTimezoneOffset();
     var tableName = $.session.get('senderName') + "\''s table at "+ inviteTime;
     
-    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
+    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userHash'),
         user_to_1:users[i]["userId"],
@@ -758,7 +758,7 @@ function addUserToTable(i){
     var tableName = $.session.get('senderName') + "\''s table at " + inviteTime;
     if (usersSentInvite == 0) {
         
-        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserToTable",
     {
         tableid:tableid,
         user_from:$.session.get('userHash'),
@@ -809,7 +809,7 @@ function addUserToTable(i){
     }
     else
     if (usersSentInvite == 1) {
-        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserToTable",
     {
         tableid:tableid,
         user_from:$.session.get('userHash'),
@@ -849,7 +849,7 @@ function addUserToTable(i){
         
     }
     else if (usersSentInvite == 2) {
-           $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addUserToTable",
+           $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addUserToTable",
     {
         tableid:tableid,
         user_from:$.session.get('userHash'),

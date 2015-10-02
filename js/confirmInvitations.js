@@ -106,11 +106,11 @@ function getUserData(userIDs) {
     for (var i = 0; i < userIDs.length; i++) {
         inviteUsers.push(userIDs[i])
         users[i] = [];
-        console.log("http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
+        console.log("http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i])
         $("#loadingImage").show();
         $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/userInformation?userid=" + userIDs[i],
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -160,7 +160,7 @@ function findAndRemove(id) {
 function getTags(){
     $.ajax(
                 {
-                    url: "http://ancient-falls-9049.herokuapp.com/credentialService/tags",
+                    url: "http://evening-thicket-5124.herokuapp.com/credentialService/tags",
                     async: false,
                     dataType: "json",
                     success: function(data)
@@ -241,7 +241,7 @@ function confirmInvite(){
     if (alertConfirmation)
     {  $("#confirmInvitesButtonId").hide();
     $("#InvitesSentId").show();
-        $.post("http://ancient-falls-9049.herokuapp.com/credentialService/addInviteTable",
+        $.post("http://evening-thicket-5124.herokuapp.com/credentialService/addInviteTable",
     {
         user_from:$.session.get('userHash'),
         user_to_1:typeof users[0]=="undefined"?"":users[0]['id'],
@@ -495,7 +495,7 @@ function sendToMoodPage() {
 ////                                    e.preventDefault();
 ////                                  });
 //
-//    $.post("http://ancient-falls-9049.herokuapp.com/credentialService/updateInvitation",
+//    $.post("http://evening-thicket-5124.herokuapp.com/credentialService/updateInvitation",
 //    {
 //        username_from:loggedInUserId,
 //        latitude_invite:latitude,
