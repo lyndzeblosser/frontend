@@ -310,12 +310,15 @@ font-family: Helvetica;
 }
 
 div.uploadcare-widget-button.uploadcare-widget-button-open {
-    background-color: #cc0000;
-    font-family: PT Sans;
-    width:120px;
-    height:30px;
-    line-height: 25px;
-   
+    background-color: #ff3300;
+    font-family: Helvetica;
+    font-weight: 500;
+    width:250px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 16px;
+    text-shadow: none;
 }
 
 /*button#submitRegistrationButton.ui-btn.ui-shadow.ui-corner-all {

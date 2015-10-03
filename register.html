@@ -65,17 +65,7 @@
                  
                 
                 
-               <div class="imgUploadDIV">
-                <h2 class="who" style="text-align:center; font-family: Helvetica; font-weight: 300">Please upload your profile image</h2>
-                <input type=hidden id="uploadCareInput" role="uploadcare-uploadeUpload your" data-system-dialog="true" data-images-only="true" >
-               </div>
-                <div class ="previewIMGDIV" style="text-align:center;">
-                <!--h2 class="who" style="text-align:center;"-->
-                <img id="previewIMG" src="" height="200px" width="200px" />
-                </div>    
-                <div class="imgNotUploadedDIV" hidden="true">
-               <h2 class="who" style="text-align:center;">Oops, you seem to have missed uploading your image</h2>
-                </div>
+               
                     <br>
                     <form method="post" id = "registerForm">
                         <!--<a href="#" class="ui-btn ui-btn-inline ui-icon-imageicon ui-btn-icon-bottom" style="color:#999999;">Upload a Photo</a></div>-->
@@ -109,12 +99,25 @@
                         
                         <div id="registerPage1">
                             <div  style="text-align:center">
-                            <a id="twitterSignOn" class="twitterSignInBtn" style="color:#ffffff; background-color: #55acee; margin-top:50px; font-weight: 500" >CONNECT WITH TWITTER</a>
+                            <a id="twitterSignOn" class="twitterSignInBtn" style="color:#ffffff; background-color: #55acee; margin-top:20px; font-weight: 500" >CONNECT WITH TWITTER</a>
                         </div>
                     <br>
                     <div  style="text-align:center; font-family: Helvetica; font-weight: 300">
                     OR
                 </div>
+                <br>
+                        <div class="imgUploadDIV" style="text-align:center">
+                        <h2 class="who" style="text-align:center; font-family: Helvetica; font-weight: 300">Please upload your profile image</h2>
+                        <input type=hidden id="uploadCareInput" role="uploadcare-uploadeUpload your" data-system-dialog="true" data-images-only="true" >
+                       </div>
+                <br>
+                        <div class ="previewIMGDIV" style="text-align:center;">
+                        <!--h2 class="who" style="text-align:center;"-->
+                        <img id="previewIMG" src="" height="200px" width="200px" />
+                        </div>    
+                        <div class="imgNotUploadedDIV" hidden="true">
+                       <h2 class="who" style="text-align:center;">Oops, you seem to have missed uploading your image</h2>
+                        </div>
                 <br>
                         <input name="test" id="test" placeholder="Enter Beta Access Code" value="tt" type="password"/> 
                         <input name="betaAccessCode" id="betaAccessCode" placeholder="ENTER BETA ACCESS CODE" value="" type="password"/> 

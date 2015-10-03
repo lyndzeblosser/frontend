@@ -140,11 +140,11 @@ function getUserData() {
                         if(table['table_confirmed']=="NO")
                         {
                             $('#confirmTableText').hide();
-                            $('#notConfirmTableText').show();
+//                            $('#notConfirmTableText').show();
                         }  
                         else
                         {
-                       $('#notConfirmTableText').hide();
+//                       $('#notConfirmTableText').hide();
                        $('#confirmTableText').show();
                         }
                         
@@ -195,8 +195,10 @@ function getUserData() {
                           $("#preConvoPopupButton").show();
                           document.getElementById('confirmInvitesButtonId').className="sendNoteButton";
                           $('#confirmInvitesButtonId').hide();
-                          if(table['table_confirmed']=="NO")
-                            document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
+                          if(table['table_confirmed']=="NO") {
+                              
+                          }
+//                            document.getElementById('notConfirmTableText').innerHTML = "We’re still waiting to hear back from people, but we’ll send you a final email when they’ve confirmed.";
                           else 
                            $('#messagesDIV').show();  
                       }
@@ -231,7 +233,7 @@ function getUserData() {
                           document.getElementById('confirmInvitesButtonId').onclick = function(){return false};
                           $('#rejectInviteButtonId').hide();
                           $('#confirmTableText').hide();
-                          $('#notConfirmTableText').hide();
+//                          $('#notConfirmTableText').hide();
                           $('#notPartOfTablePopup').popup();
                           
                           redirectToMoosScreen();

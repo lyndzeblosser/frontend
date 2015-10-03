@@ -168,7 +168,7 @@ function getTopics()
     });
 */
 //  var TTtags = ["Participation","Progress","Protest","Commitment","Justice","Tolerance","Urban Planning","Education","Economics","Family"];
-    var TTtags = ["foundation","corporate","university","arts and culture","civic"];            
+    var TTtags = ["foundation, non-profit, NGO","corporate","university","arts, culture, entertainment","faith", "policy, government", "technology", "media", "local, small business"];            
             var TTtagdId = Math.floor((Math.random() * 5));
             var k=0;
 //                TTtagdId = TTtagdId % 6;
@@ -199,7 +199,7 @@ function getTopics()
                     j=0;
                 }}
               
-            for(var i=0;i<5;i++){
+            for(var i=0;i<9;i++){
                   console.log(NoRepeatTTTags[i]);
                 $("#topicsList").append("<label id=\"tag"+i+"label\" style=\"color:#B3AFA5;\">"+TTtags[i]+"<input id=\"tag"+i+"\" value=\""+$('<div/>').text(TTtags[i]).html()+"\"  type=\"checkbox\"></label>");
             }
